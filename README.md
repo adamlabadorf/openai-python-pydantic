@@ -1,4 +1,8 @@
-# OpenAI Python API library
+# openai-python fork with 100% compliant pydantic types
+
+This fork has updated src/openai/types classes to use pydantic.BaseModel subclasses throughout, replacing the inconsistent typing_extensions.TypedDict types from the base Stainless SDK build.
+
+I'm using the types in my own private OpenAI compatible FastAPI server to leverage runtime typesafety.
 
 [![PyPI version](https://img.shields.io/pypi/v/openai.svg)](https://pypi.org/project/openai/)
 
