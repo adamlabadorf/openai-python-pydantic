@@ -1,11 +1,12 @@
 [project]
-name = "openai"
+name = "openai-pydantic"
 version = "1.77.0"
 description = "The official Python library for the openai API"
 dynamic = ["readme"]
 license = "Apache-2.0"
 authors = [
-{ name = "OpenAI", email = "support@openai.com" },
+  { name = "OpenAI", email = "support@openai.com" },
+  { name = "Adam Labadorf", email = "alabadorf@gmail.com" }
 ]
 dependencies = [
     "httpx>=0.23.0, <1",
