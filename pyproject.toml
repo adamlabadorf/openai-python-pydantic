@@ -48,28 +48,83 @@ realtime = ["websockets >= 13, < 16"]
 datalib = ["numpy >= 1", "pandas >= 1.2.3", "pandas-stubs >= 1.1.0.11"]
 voice_helpers = ["sounddevice>=0.5.1", "numpy>=2.0.2"]
 
-[tool.rye]
-managed = true
-# version pins are in requirements-dev.lock
-dev-dependencies = [
-    "pyright==1.1.399",
-    "mypy",
-    "respx",
-    "pytest",
-    "pytest-asyncio",
-    "ruff",
-    "time-machine",
-    "nox",
-    "dirty-equals>=0.6.0",
-    "importlib-metadata>=6.7.0",
-    "rich>=13.7.1",
-    "inline-snapshot >=0.7.0",
-    "azure-identity >=1.14.1",
-    "types-tqdm > 4",
-    "types-pyaudio > 0",
-    "trio >=0.22.2",
-    "nest_asyncio==1.6.0",
+[tool.poetry]
+name = "openai-pydantic"
+version = "1.77.0"
+description = "The official Python library for the openai API"
+authors = [
+  "OpenAI <support@openai.com>",
+  "Adam Labadorf <alabadorf@gmail.com>"
 ]
+license = "Apache-2.0"
+readme = "README.md"
+homepage = "https://github.com/openai/openai-python"
+repository = "https://github.com/openai/openai-python"
+keywords = ["openai", "api", "pydantic"]
+classifiers = [
+  "Typing :: Typed",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Operating System :: OS Independent",
+  "Operating System :: POSIX",
+  "Operating System :: MacOS",
+  "Operating System :: POSIX :: Linux",
+  "Operating System :: Microsoft :: Windows",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "License :: OSI Approved :: Apache Software License"
+]
+packages = [
+  { include = "openai_pydantic", from = "src"}
+]
+
+[tool.poetry.dependencies]
+python = ">=3.12"
+httpx = ">=0.23.0,<1"
+pydantic = ">=1.9.0,<3"
+typing-extensions = ">=4.11,<5"
+anyio = ">=3.5.0,<5"
+distro = ">=1.7.0,<2"
+sniffio = "*"
+tqdm = ">4"
+jiter = ">=0.4.0,<1"
+# Optional dependencies for extras
+websockets = {version = ">=13,<16", optional = true}
+numpy = {version = ">=1", optional = true}
+pandas = {version = ">=1.2.3", optional = true}
+pandas-stubs = {version = ">=1.1.0.11", optional = true}
+sounddevice = {version = ">=0.5.1", optional = true}
+
+[tool.poetry.extras]
+realtime = ["websockets"]
+datalib = ["numpy", "pandas", "pandas-stubs"]
+voice_helpers = ["sounddevice", "numpy"]
+
+[tool.poetry.scripts]
+openai = "openai.cli:main"
+
+[tool.poetry.group.dev.dependencies]
+pyright = "1.1.399"
+mypy = "*"
+respx = "*"
+pytest = "*"
+pytest-asyncio = "*"
+ruff = "*"
+time-machine = "*"
+nox = "*"
+dirty-equals = ">=0.6.0"
+importlib-metadata = ">=6.7.0"
+rich = ">=13.7.1"
+inline-snapshot = ">=0.7.0"
+azure-identity = ">=1.14.1"
+types-tqdm = ">4"
+types-pyaudio = ">0"
+trio = ">=0.22.2"
+nest_asyncio = "1.6.0"
+
 
 [tool.rye.scripts]
 format = { chain = [
@@ -101,42 +156,8 @@ typecheck = { chain = [
 "typecheck:mypy" = "mypy ."
 
 [build-system]
-requires = ["hatchling==1.26.3", "hatch-fancy-pypi-readme"]
-build-backend = "hatchling.build"
-
-[tool.hatch.build]
-include = [
-  "src/*"
-]
-
-[tool.hatch.build.targets.wheel]
-packages = ["src/openai"]
-
-[tool.hatch.build.targets.sdist]
-# Basically everything except hidden files/directories (such as .github, .devcontainers, .python-version, etc)
-include = [
-  "/*.toml",
-  "/*.json",
-  "/*.lock",
-  "/*.md",
-  "/mypy.ini",
-  "/noxfile.py",
-  "bin/*",
-  "examples/*",
-  "src/*",
-  "tests/*",
-]
-
-[tool.hatch.metadata.hooks.fancy-pypi-readme]
-content-type = "text/markdown"
-
-[[tool.hatch.metadata.hooks.fancy-pypi-readme.fragments]]
-path = "README.md"
-
-[[tool.hatch.metadata.hooks.fancy-pypi-readme.substitutions]]
-# replace relative links with absolute links
-pattern = '\[(.+?)\]\(((?!https?://)\S+?)\)'
-replacement = '[\1](https://github.com/openai/openai-python/tree/main/\g<2>)'
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
