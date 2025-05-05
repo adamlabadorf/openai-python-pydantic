@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Required, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 __all__ = ["AutoFileChunkingStrategyParam"]
 
 
-class AutoFileChunkingStrategyParam(TypedDict, total=False):
-    type: Required[Literal["auto"]]
+class AutoFileChunkingStrategyParam(BaseModel):
+    type: Literal["auto"] = None
+    # old  type: Required[Literal["auto"]]
     """Always `auto`."""
+

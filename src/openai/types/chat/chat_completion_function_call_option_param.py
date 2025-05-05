@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
-from typing_extensions import Required, TypedDict
-
+from pydantic import BaseModel
 __all__ = ["ChatCompletionFunctionCallOptionParam"]
 
 
-class ChatCompletionFunctionCallOptionParam(TypedDict, total=False):
-    name: Required[str]
+class ChatCompletionFunctionCallOptionParam(BaseModel):
+    name: str = None
+    # old  name: Required[str]
     """The name of the function to call."""
+

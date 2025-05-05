@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 from typing import List, Union, Iterable, Optional
-from typing_extensions import Literal, Required, TypeAlias, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 from ..shared.chat_model import ChatModel
 from .assistant_tool_param import AssistantToolParam
 from ..shared_params.metadata import Metadata
@@ -24,8 +24,16 @@ __all__ = [
 ]
 
 
-class AssistantCreateParams(TypedDict, total=False):
-    model: Required[Union[str, ChatModel]]
+class AssistantCreateParams(BaseModel):
+    model: Optional[Union[str, ChatModel]] = None
+    # old  model: Optional[Union[str, ChatModel]] = None
+    # old  model: Optional[Union[str, ChatModel]] = None
+    # old  model: Optional[Union[str, ChatModel]] = None
+    # old  model: Optional[Union[str, ChatModel]] = None
+    # old  model: Optional[Union[str, ChatModel]] = None
+    # old  model: Optional[Union[str, ChatModel]] = None
+    # old  model: Union[str, ChatModel] = None
+    # old  model: Required[Union[str, ChatModel]]
     """ID of the model to use.
 
     You can use the
@@ -35,16 +43,40 @@ class AssistantCreateParams(TypedDict, total=False):
     them.
     """
 
-    description: Optional[str]
+    description: Optional[str] = None
+    # old  description: Optional[str] = None
+    # old  description: Optional[str] = None
+    # old  description: Optional[str] = None
+    # old  description: Optional[str] = None
+    # old  description: Optional[str] = None
+    # old  description: Optional[str] = None
+    # old  description: Optional[str] = None
+    # old  description: Optional[str]
     """The description of the assistant. The maximum length is 512 characters."""
 
-    instructions: Optional[str]
+    instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str]
     """The system instructions that the assistant uses.
 
     The maximum length is 256,000 characters.
     """
 
-    metadata: Optional[Metadata]
+    metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata]
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -54,10 +86,26 @@ class AssistantCreateParams(TypedDict, total=False):
     a maximum length of 512 characters.
     """
 
-    name: Optional[str]
+    name: Optional[str] = None
+    # old  name: Optional[str] = None
+    # old  name: Optional[str] = None
+    # old  name: Optional[str] = None
+    # old  name: Optional[str] = None
+    # old  name: Optional[str] = None
+    # old  name: Optional[str] = None
+    # old  name: Optional[str] = None
+    # old  name: Optional[str]
     """The name of the assistant. The maximum length is 256 characters."""
 
-    reasoning_effort: Optional[ReasoningEffort]
+    reasoning_effort: Optional[ReasoningEffort] = None
+    # old  reasoning_effort: Optional[ReasoningEffort] = None
+    # old  reasoning_effort: Optional[ReasoningEffort] = None
+    # old  reasoning_effort: Optional[ReasoningEffort] = None
+    # old  reasoning_effort: Optional[ReasoningEffort] = None
+    # old  reasoning_effort: Optional[ReasoningEffort] = None
+    # old  reasoning_effort: Optional[ReasoningEffort] = None
+    # old  reasoning_effort: Optional[ReasoningEffort] = None
+    # old  reasoning_effort: Optional[ReasoningEffort]
     """**o-series models only**
 
     Constrains effort on reasoning for
@@ -66,7 +114,15 @@ class AssistantCreateParams(TypedDict, total=False):
     result in faster responses and fewer tokens used on reasoning in a response.
     """
 
-    response_format: Optional[AssistantResponseFormatOptionParam]
+    response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam]
     """Specifies the format that the model must output.
 
     Compatible with [GPT-4o](https://platform.openai.com/docs/models#gpt-4o),
@@ -90,14 +146,30 @@ class AssistantCreateParams(TypedDict, total=False):
     max context length.
     """
 
-    temperature: Optional[float]
+    temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float]
     """What sampling temperature to use, between 0 and 2.
 
     Higher values like 0.8 will make the output more random, while lower values like
     0.2 will make it more focused and deterministic.
     """
 
-    tool_resources: Optional[ToolResources]
+    tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources]
     """A set of resources that are used by the assistant's tools.
 
     The resources are specific to the type of tool. For example, the
@@ -105,14 +177,30 @@ class AssistantCreateParams(TypedDict, total=False):
     tool requires a list of vector store IDs.
     """
 
-    tools: Iterable[AssistantToolParam]
+    tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Iterable[AssistantToolParam]
     """A list of tool enabled on the assistant.
 
     There can be a maximum of 128 tools per assistant. Tools can be of types
     `code_interpreter`, `file_search`, or `function`.
     """
 
-    top_p: Optional[float]
+    top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float]
     """
     An alternative to sampling with temperature, called nucleus sampling, where the
     model considers the results of the tokens with top_p probability mass. So 0.1
@@ -122,8 +210,16 @@ class AssistantCreateParams(TypedDict, total=False):
     """
 
 
-class ToolResourcesCodeInterpreter(TypedDict, total=False):
-    file_ids: List[str]
+class ToolResourcesCodeInterpreter(BaseModel):
+    file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: List[str]
     """
     A list of [file](https://platform.openai.com/docs/api-reference/files) IDs made
     available to the `code_interpreter` tool. There can be a maximum of 20 files
@@ -131,19 +227,43 @@ class ToolResourcesCodeInterpreter(TypedDict, total=False):
     """
 
 
-class ToolResourcesFileSearchVectorStoreChunkingStrategyAuto(TypedDict, total=False):
-    type: Required[Literal["auto"]]
+class ToolResourcesFileSearchVectorStoreChunkingStrategyAuto(BaseModel):
+    type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Literal["auto"] = None
+    # old  type: Required[Literal["auto"]]
     """Always `auto`."""
 
 
-class ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic(TypedDict, total=False):
-    chunk_overlap_tokens: Required[int]
+class ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic(BaseModel):
+    chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: int = None
+    # old  chunk_overlap_tokens: Required[int]
     """The number of tokens that overlap between chunks. The default value is `400`.
 
     Note that the overlap must not exceed half of `max_chunk_size_tokens`.
     """
 
-    max_chunk_size_tokens: Required[int]
+    max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: int = None
+    # old  max_chunk_size_tokens: Required[int]
     """The maximum number of tokens in each chunk.
 
     The default value is `800`. The minimum value is `100` and the maximum value is
@@ -151,33 +271,73 @@ class ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic(TypedDict, 
     """
 
 
-class ToolResourcesFileSearchVectorStoreChunkingStrategyStatic(TypedDict, total=False):
-    static: Required[ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic]
+class ToolResourcesFileSearchVectorStoreChunkingStrategyStatic(BaseModel):
+    static: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic = None
+    # old  static: Required[ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic]
 
-    type: Required[Literal["static"]]
+    type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Literal["static"] = None
+    # old  type: Required[Literal["static"]]
     """Always `static`."""
 
 
-ToolResourcesFileSearchVectorStoreChunkingStrategy: TypeAlias = Union[
+ToolResourcesFileSearchVectorStoreChunkingStrategy = Union[ # old ToolResourcesFileSearchVectorStoreChunkingStrategy: TypeAlias = Union[
     ToolResourcesFileSearchVectorStoreChunkingStrategyAuto, ToolResourcesFileSearchVectorStoreChunkingStrategyStatic
 ]
 
 
-class ToolResourcesFileSearchVectorStore(TypedDict, total=False):
-    chunking_strategy: ToolResourcesFileSearchVectorStoreChunkingStrategy
+class ToolResourcesFileSearchVectorStore(BaseModel):
+    chunking_strategy: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: ToolResourcesFileSearchVectorStoreChunkingStrategy
     """The chunking strategy used to chunk the file(s).
 
     If not set, will use the `auto` strategy.
     """
 
-    file_ids: List[str]
+    file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: List[str]
     """
     A list of [file](https://platform.openai.com/docs/api-reference/files) IDs to
     add to the vector store. There can be a maximum of 10000 files in a vector
     store.
     """
 
-    metadata: Optional[Metadata]
+    metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata]
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -188,8 +348,16 @@ class ToolResourcesFileSearchVectorStore(TypedDict, total=False):
     """
 
 
-class ToolResourcesFileSearch(TypedDict, total=False):
-    vector_store_ids: List[str]
+class ToolResourcesFileSearch(BaseModel):
+    vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: List[str]
     """
     The
     [vector store](https://platform.openai.com/docs/api-reference/vector-stores/object)
@@ -197,7 +365,15 @@ class ToolResourcesFileSearch(TypedDict, total=False):
     the assistant.
     """
 
-    vector_stores: Iterable[ToolResourcesFileSearchVectorStore]
+    vector_stores: Optional[List[ToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Iterable[ToolResourcesFileSearchVectorStore]
     """
     A helper to create a
     [vector store](https://platform.openai.com/docs/api-reference/vector-stores/object)
@@ -206,7 +382,31 @@ class ToolResourcesFileSearch(TypedDict, total=False):
     """
 
 
-class ToolResources(TypedDict, total=False):
-    code_interpreter: ToolResourcesCodeInterpreter
+class ToolResources(BaseModel):
+    code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: ToolResourcesCodeInterpreter
 
-    file_search: ToolResourcesFileSearch
+    file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: ToolResourcesFileSearch
+
+
+
+
+
+
+
+

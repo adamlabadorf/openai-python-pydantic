@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 from typing import List
-from typing_extensions import Literal, Required, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 __all__ = [
     "TranscriptionSessionUpdateParam",
     "Session",
@@ -14,8 +14,13 @@ __all__ = [
 ]
 
 
-class SessionInputAudioNoiseReduction(TypedDict, total=False):
-    type: Literal["near_field", "far_field"]
+class SessionInputAudioNoiseReduction(BaseModel):
+    type: Optional[Literal["near_field", "far_field"]] = None
+    # old  type: Optional[Literal["near_field", "far_field"]] = None
+    # old  type: Optional[Literal["near_field", "far_field"]] = None
+    # old  type: Optional[Literal["near_field", "far_field"]] = None
+    # old  type: Optional[Literal["near_field", "far_field"]] = None
+    # old  type: Literal["near_field", "far_field"]
     """Type of noise reduction.
 
     `near_field` is for close-talking microphones such as headphones, `far_field` is
@@ -23,8 +28,13 @@ class SessionInputAudioNoiseReduction(TypedDict, total=False):
     """
 
 
-class SessionInputAudioTranscription(TypedDict, total=False):
-    language: str
+class SessionInputAudioTranscription(BaseModel):
+    language: Optional[str] = None
+    # old  language: Optional[str] = None
+    # old  language: Optional[str] = None
+    # old  language: Optional[str] = None
+    # old  language: Optional[str] = None
+    # old  language: str
     """The language of the input audio.
 
     Supplying the input language in
@@ -32,13 +42,23 @@ class SessionInputAudioTranscription(TypedDict, total=False):
     format will improve accuracy and latency.
     """
 
-    model: Literal["gpt-4o-transcribe", "gpt-4o-mini-transcribe", "whisper-1"]
+    model: Optional[Literal["gpt-4o-transcribe", "gpt-4o-mini-transcribe", "whisper-1"]] = None
+    # old  model: Optional[Literal["gpt-4o-transcribe", "gpt-4o-mini-transcribe", "whisper-1"]] = None
+    # old  model: Optional[Literal["gpt-4o-transcribe", "gpt-4o-mini-transcribe", "whisper-1"]] = None
+    # old  model: Optional[Literal["gpt-4o-transcribe", "gpt-4o-mini-transcribe", "whisper-1"]] = None
+    # old  model: Optional[Literal["gpt-4o-transcribe", "gpt-4o-mini-transcribe", "whisper-1"]] = None
+    # old  model: Literal["gpt-4o-transcribe", "gpt-4o-mini-transcribe", "whisper-1"]
     """
     The model to use for transcription, current options are `gpt-4o-transcribe`,
     `gpt-4o-mini-transcribe`, and `whisper-1`.
     """
 
-    prompt: str
+    prompt: Optional[str] = None
+    # old  prompt: Optional[str] = None
+    # old  prompt: Optional[str] = None
+    # old  prompt: Optional[str] = None
+    # old  prompt: Optional[str] = None
+    # old  prompt: str
     """
     An optional text to guide the model's style or continue a previous audio
     segment. For `whisper-1`, the
@@ -48,15 +68,25 @@ class SessionInputAudioTranscription(TypedDict, total=False):
     """
 
 
-class SessionTurnDetection(TypedDict, total=False):
-    create_response: bool
+class SessionTurnDetection(BaseModel):
+    create_response: Optional[bool] = None
+    # old  create_response: Optional[bool] = None
+    # old  create_response: Optional[bool] = None
+    # old  create_response: Optional[bool] = None
+    # old  create_response: Optional[bool] = None
+    # old  create_response: bool
     """Whether or not to automatically generate a response when a VAD stop event
     occurs.
 
     Not available for transcription sessions.
     """
 
-    eagerness: Literal["low", "medium", "high", "auto"]
+    eagerness: Optional[Literal["low", "medium", "high", "auto"]] = None
+    # old  eagerness: Optional[Literal["low", "medium", "high", "auto"]] = None
+    # old  eagerness: Optional[Literal["low", "medium", "high", "auto"]] = None
+    # old  eagerness: Optional[Literal["low", "medium", "high", "auto"]] = None
+    # old  eagerness: Optional[Literal["low", "medium", "high", "auto"]] = None
+    # old  eagerness: Literal["low", "medium", "high", "auto"]
     """Used only for `semantic_vad` mode.
 
     The eagerness of the model to respond. `low` will wait longer for the user to
@@ -64,21 +94,36 @@ class SessionTurnDetection(TypedDict, total=False):
     is equivalent to `medium`.
     """
 
-    interrupt_response: bool
+    interrupt_response: Optional[bool] = None
+    # old  interrupt_response: Optional[bool] = None
+    # old  interrupt_response: Optional[bool] = None
+    # old  interrupt_response: Optional[bool] = None
+    # old  interrupt_response: Optional[bool] = None
+    # old  interrupt_response: bool
     """
     Whether or not to automatically interrupt any ongoing response with output to
     the default conversation (i.e. `conversation` of `auto`) when a VAD start event
     occurs. Not available for transcription sessions.
     """
 
-    prefix_padding_ms: int
+    prefix_padding_ms: Optional[int] = None
+    # old  prefix_padding_ms: Optional[int] = None
+    # old  prefix_padding_ms: Optional[int] = None
+    # old  prefix_padding_ms: Optional[int] = None
+    # old  prefix_padding_ms: Optional[int] = None
+    # old  prefix_padding_ms: int
     """Used only for `server_vad` mode.
 
     Amount of audio to include before the VAD detected speech (in milliseconds).
     Defaults to 300ms.
     """
 
-    silence_duration_ms: int
+    silence_duration_ms: Optional[int] = None
+    # old  silence_duration_ms: Optional[int] = None
+    # old  silence_duration_ms: Optional[int] = None
+    # old  silence_duration_ms: Optional[int] = None
+    # old  silence_duration_ms: Optional[int] = None
+    # old  silence_duration_ms: int
     """Used only for `server_vad` mode.
 
     Duration of silence to detect speech stop (in milliseconds). Defaults to 500ms.
@@ -86,7 +131,12 @@ class SessionTurnDetection(TypedDict, total=False):
     short pauses from the user.
     """
 
-    threshold: float
+    threshold: Optional[float] = None
+    # old  threshold: Optional[float] = None
+    # old  threshold: Optional[float] = None
+    # old  threshold: Optional[float] = None
+    # old  threshold: Optional[float] = None
+    # old  threshold: float
     """Used only for `server_vad` mode.
 
     Activation threshold for VAD (0.0 to 1.0), this defaults to 0.5. A higher
@@ -94,18 +144,33 @@ class SessionTurnDetection(TypedDict, total=False):
     perform better in noisy environments.
     """
 
-    type: Literal["server_vad", "semantic_vad"]
+    type: Optional[Literal["server_vad", "semantic_vad"]] = None
+    # old  type: Optional[Literal["server_vad", "semantic_vad"]] = None
+    # old  type: Optional[Literal["server_vad", "semantic_vad"]] = None
+    # old  type: Optional[Literal["server_vad", "semantic_vad"]] = None
+    # old  type: Optional[Literal["server_vad", "semantic_vad"]] = None
+    # old  type: Literal["server_vad", "semantic_vad"]
     """Type of turn detection."""
 
 
-class Session(TypedDict, total=False):
-    include: List[str]
+class Session(BaseModel):
+    include: Optional[List[str]] = None
+    # old  include: Optional[List[str]] = None
+    # old  include: Optional[List[str]] = None
+    # old  include: Optional[List[str]] = None
+    # old  include: Optional[List[str]] = None
+    # old  include: List[str]
     """The set of items to include in the transcription. Current available items are:
 
     - `item.input_audio_transcription.logprobs`
     """
 
-    input_audio_format: Literal["pcm16", "g711_ulaw", "g711_alaw"]
+    input_audio_format: Optional[Literal["pcm16", "g711_ulaw", "g711_alaw"]] = None
+    # old  input_audio_format: Optional[Literal["pcm16", "g711_ulaw", "g711_alaw"]] = None
+    # old  input_audio_format: Optional[Literal["pcm16", "g711_ulaw", "g711_alaw"]] = None
+    # old  input_audio_format: Optional[Literal["pcm16", "g711_ulaw", "g711_alaw"]] = None
+    # old  input_audio_format: Optional[Literal["pcm16", "g711_ulaw", "g711_alaw"]] = None
+    # old  input_audio_format: Literal["pcm16", "g711_ulaw", "g711_alaw"]
     """The format of input audio.
 
     Options are `pcm16`, `g711_ulaw`, or `g711_alaw`. For `pcm16`, input audio must
@@ -113,7 +178,12 @@ class Session(TypedDict, total=False):
     byte order.
     """
 
-    input_audio_noise_reduction: SessionInputAudioNoiseReduction
+    input_audio_noise_reduction: Optional[SessionInputAudioNoiseReduction] = None
+    # old  input_audio_noise_reduction: Optional[SessionInputAudioNoiseReduction] = None
+    # old  input_audio_noise_reduction: Optional[SessionInputAudioNoiseReduction] = None
+    # old  input_audio_noise_reduction: Optional[SessionInputAudioNoiseReduction] = None
+    # old  input_audio_noise_reduction: Optional[SessionInputAudioNoiseReduction] = None
+    # old  input_audio_noise_reduction: SessionInputAudioNoiseReduction
     """Configuration for input audio noise reduction.
 
     This can be set to `null` to turn off. Noise reduction filters audio added to
@@ -122,20 +192,35 @@ class Session(TypedDict, total=False):
     model performance by improving perception of the input audio.
     """
 
-    input_audio_transcription: SessionInputAudioTranscription
+    input_audio_transcription: Optional[SessionInputAudioTranscription] = None
+    # old  input_audio_transcription: Optional[SessionInputAudioTranscription] = None
+    # old  input_audio_transcription: Optional[SessionInputAudioTranscription] = None
+    # old  input_audio_transcription: Optional[SessionInputAudioTranscription] = None
+    # old  input_audio_transcription: Optional[SessionInputAudioTranscription] = None
+    # old  input_audio_transcription: SessionInputAudioTranscription
     """Configuration for input audio transcription.
 
     The client can optionally set the language and prompt for transcription, these
     offer additional guidance to the transcription service.
     """
 
-    modalities: List[Literal["text", "audio"]]
+    modalities: Optional[List[Literal["text", "audio"]]] = None
+    # old  modalities: Optional[List[Literal["text", "audio"]]] = None
+    # old  modalities: Optional[List[Literal["text", "audio"]]] = None
+    # old  modalities: Optional[List[Literal["text", "audio"]]] = None
+    # old  modalities: Optional[List[Literal["text", "audio"]]] = None
+    # old  modalities: List[Literal["text", "audio"]]
     """The set of modalities the model can respond with.
 
     To disable audio, set this to ["text"].
     """
 
-    turn_detection: SessionTurnDetection
+    turn_detection: Optional[SessionTurnDetection] = None
+    # old  turn_detection: Optional[SessionTurnDetection] = None
+    # old  turn_detection: Optional[SessionTurnDetection] = None
+    # old  turn_detection: Optional[SessionTurnDetection] = None
+    # old  turn_detection: Optional[SessionTurnDetection] = None
+    # old  turn_detection: SessionTurnDetection
     """Configuration for turn detection, ether Server VAD or Semantic VAD.
 
     This can be set to `null` to turn off, in which case the client must manually
@@ -150,12 +235,32 @@ class Session(TypedDict, total=False):
     """
 
 
-class TranscriptionSessionUpdateParam(TypedDict, total=False):
-    session: Required[Session]
+class TranscriptionSessionUpdateParam(BaseModel):
+    session: Optional[Session] = None
+    # old  session: Optional[Session] = None
+    # old  session: Optional[Session] = None
+    # old  session: Optional[Session] = None
+    # old  session: Session = None
+    # old  session: Required[Session]
     """Realtime transcription session object configuration."""
 
-    type: Required[Literal["transcription_session.update"]]
+    type: Optional[Literal["transcription_session.update"]] = None
+    # old  type: Optional[Literal["transcription_session.update"]] = None
+    # old  type: Optional[Literal["transcription_session.update"]] = None
+    # old  type: Optional[Literal["transcription_session.update"]] = None
+    # old  type: Literal["transcription_session.update"] = None
+    # old  type: Required[Literal["transcription_session.update"]]
     """The event type, must be `transcription_session.update`."""
 
-    event_id: str
+    event_id: Optional[str] = None
+    # old  event_id: Optional[str] = None
+    # old  event_id: Optional[str] = None
+    # old  event_id: Optional[str] = None
+    # old  event_id: Optional[str] = None
+    # old  event_id: str
     """Optional client-generated ID used to identify this event."""
+
+
+
+
+

@@ -3,32 +3,40 @@
 from __future__ import annotations
 
 from typing import Dict, Optional
-from typing_extensions import Literal, Required, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 __all__ = ["ResponseFormatJSONSchema", "JSONSchema"]
 
 
-class JSONSchema(TypedDict, total=False):
-    name: Required[str]
+class JSONSchema(BaseModel):
+    name: Optional[str] = None
+    # old  name: str = None
+    # old  name: Required[str]
     """The name of the response format.
 
     Must be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum length
     of 64.
     """
 
-    description: str
+    description: Optional[str] = None
+    # old  description: Optional[str] = None
+    # old  description: str
     """
     A description of what the response format is for, used by the model to determine
     how to respond in the format.
     """
 
-    schema: Dict[str, object]
+    schema: Optional[Dict[str, object]] = None
+    # old  schema: Optional[Dict[str, object]] = None
+    # old  schema: Dict[str, object]
     """
     The schema for the response format, described as a JSON Schema object. Learn how
     to build JSON schemas [here](https://json-schema.org/).
     """
 
-    strict: Optional[bool]
+    strict: Optional[bool] = None
+    # old  strict: Optional[bool] = None
+    # old  strict: Optional[bool]
     """
     Whether to enable strict schema adherence when generating the output. If set to
     true, the model will always follow the exact schema defined in the `schema`
@@ -38,9 +46,15 @@ class JSONSchema(TypedDict, total=False):
     """
 
 
-class ResponseFormatJSONSchema(TypedDict, total=False):
-    json_schema: Required[JSONSchema]
+class ResponseFormatJSONSchema(BaseModel):
+    json_schema: Optional[JSONSchema] = None
+    # old  json_schema: JSONSchema = None
+    # old  json_schema: Required[JSONSchema]
     """Structured Outputs configuration options, including a JSON Schema."""
 
-    type: Required[Literal["json_schema"]]
+    type: Optional[Literal["json_schema"]] = None
+    # old  type: Literal["json_schema"] = None
+    # old  type: Required[Literal["json_schema"]]
     """The type of response format being defined. Always `json_schema`."""
+
+

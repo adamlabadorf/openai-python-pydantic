@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-from typing_extensions import TypedDict
-
+from pydantic import BaseModel
 __all__ = ["ChatCompletionStreamOptionsParam"]
 
 
-class ChatCompletionStreamOptionsParam(TypedDict, total=False):
-    include_usage: bool
+class ChatCompletionStreamOptionsParam(BaseModel):
+    include_usage: Optional[bool] = None
+    # old  include_usage: bool
     """If set, an additional chunk will be streamed before the `data: [DONE]` message.
 
     The `usage` field on this chunk shows the token usage statistics for the entire
@@ -18,3 +18,4 @@ class ChatCompletionStreamOptionsParam(TypedDict, total=False):
     **NOTE:** If the stream is interrupted, you may not receive the final usage
     chunk which contains the total token usage for the request.
     """
+

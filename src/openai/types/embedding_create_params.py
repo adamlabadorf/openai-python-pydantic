@@ -3,15 +3,16 @@
 from __future__ import annotations
 
 from typing import List, Union, Iterable
-from typing_extensions import Literal, Required, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 from .embedding_model import EmbeddingModel
 
 __all__ = ["EmbeddingCreateParams"]
 
 
-class EmbeddingCreateParams(TypedDict, total=False):
-    input: Required[Union[str, List[str], Iterable[int], Iterable[Iterable[int]]]]
+class EmbeddingCreateParams(BaseModel):
+    input: Union[str, List[str], List[int], List[List[int]]] = None
+    # old  input: Required[Union[str, List[str], Iterable[int], Iterable[Iterable[int]]]]
     """Input text to embed, encoded as a string or array of tokens.
 
     To embed multiple inputs in a single request, pass an array of strings or array
@@ -23,7 +24,8 @@ class EmbeddingCreateParams(TypedDict, total=False):
     tokens summed across inputs.
     """
 
-    model: Required[Union[str, EmbeddingModel]]
+    model: Union[str, EmbeddingModel] = None
+    # old  model: Required[Union[str, EmbeddingModel]]
     """ID of the model to use.
 
     You can use the
@@ -33,21 +35,25 @@ class EmbeddingCreateParams(TypedDict, total=False):
     them.
     """
 
-    dimensions: int
+    dimensions: Optional[int] = None
+    # old  dimensions: int
     """The number of dimensions the resulting output embeddings should have.
 
     Only supported in `text-embedding-3` and later models.
     """
 
-    encoding_format: Literal["float", "base64"]
+    encoding_format: Optional[Literal["float", "base64"]] = None
+    # old  encoding_format: Literal["float", "base64"]
     """The format to return the embeddings in.
 
     Can be either `float` or [`base64`](https://pypi.org/project/pybase64/).
     """
 
-    user: str
+    user: Optional[str] = None
+    # old  user: str
     """
     A unique identifier representing your end-user, which can help OpenAI to monitor
     and detect abuse.
     [Learn more](https://platform.openai.com/docs/guides/safety-best-practices#end-user-ids).
     """
+

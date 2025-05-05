@@ -3,13 +3,18 @@
 from __future__ import annotations
 
 from typing import List, Union, Iterable
-from typing_extensions import Literal, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 __all__ = ["SessionCreateParams", "InputAudioNoiseReduction", "InputAudioTranscription", "Tool", "TurnDetection"]
 
 
-class SessionCreateParams(TypedDict, total=False):
-    input_audio_format: Literal["pcm16", "g711_ulaw", "g711_alaw"]
+class SessionCreateParams(BaseModel):
+    input_audio_format: Optional[Literal["pcm16", "g711_ulaw", "g711_alaw"]] = None
+    # old  input_audio_format: Optional[Literal["pcm16", "g711_ulaw", "g711_alaw"]] = None
+    # old  input_audio_format: Optional[Literal["pcm16", "g711_ulaw", "g711_alaw"]] = None
+    # old  input_audio_format: Optional[Literal["pcm16", "g711_ulaw", "g711_alaw"]] = None
+    # old  input_audio_format: Optional[Literal["pcm16", "g711_ulaw", "g711_alaw"]] = None
+    # old  input_audio_format: Literal["pcm16", "g711_ulaw", "g711_alaw"]
     """The format of input audio.
 
     Options are `pcm16`, `g711_ulaw`, or `g711_alaw`. For `pcm16`, input audio must
@@ -17,7 +22,12 @@ class SessionCreateParams(TypedDict, total=False):
     byte order.
     """
 
-    input_audio_noise_reduction: InputAudioNoiseReduction
+    input_audio_noise_reduction: Optional[InputAudioNoiseReduction] = None
+    # old  input_audio_noise_reduction: Optional[InputAudioNoiseReduction] = None
+    # old  input_audio_noise_reduction: Optional[InputAudioNoiseReduction] = None
+    # old  input_audio_noise_reduction: Optional[InputAudioNoiseReduction] = None
+    # old  input_audio_noise_reduction: Optional[InputAudioNoiseReduction] = None
+    # old  input_audio_noise_reduction: InputAudioNoiseReduction
     """Configuration for input audio noise reduction.
 
     This can be set to `null` to turn off. Noise reduction filters audio added to
@@ -26,7 +36,12 @@ class SessionCreateParams(TypedDict, total=False):
     model performance by improving perception of the input audio.
     """
 
-    input_audio_transcription: InputAudioTranscription
+    input_audio_transcription: Optional[InputAudioTranscription] = None
+    # old  input_audio_transcription: Optional[InputAudioTranscription] = None
+    # old  input_audio_transcription: Optional[InputAudioTranscription] = None
+    # old  input_audio_transcription: Optional[InputAudioTranscription] = None
+    # old  input_audio_transcription: Optional[InputAudioTranscription] = None
+    # old  input_audio_transcription: InputAudioTranscription
     """
     Configuration for input audio transcription, defaults to off and can be set to
     `null` to turn off once on. Input audio transcription is not native to the
@@ -38,7 +53,12 @@ class SessionCreateParams(TypedDict, total=False):
     transcription, these offer additional guidance to the transcription service.
     """
 
-    instructions: str
+    instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: str
     """The default system instructions (i.e.
 
     system message) prepended to model calls. This field allows the client to guide
@@ -54,52 +74,86 @@ class SessionCreateParams(TypedDict, total=False):
     session.
     """
 
-    max_response_output_tokens: Union[int, Literal["inf"]]
+    max_response_output_tokens: Optional[Union[int, Literal["inf"]]] = None
+    # old  max_response_output_tokens: Optional[Union[int, Literal["inf"]]] = None
+    # old  max_response_output_tokens: Optional[Union[int, Literal["inf"]]] = None
+    # old  max_response_output_tokens: Optional[Union[int, Literal["inf"]]] = None
+    # old  max_response_output_tokens: Optional[Union[int, Literal["inf"]]] = None
+    # old  max_response_output_tokens: Union[int, Literal["inf"]]
     """
     Maximum number of output tokens for a single assistant response, inclusive of
     tool calls. Provide an integer between 1 and 4096 to limit output tokens, or
     `inf` for the maximum available tokens for a given model. Defaults to `inf`.
     """
 
-    modalities: List[Literal["text", "audio"]]
+    modalities: Optional[List[Literal["text", "audio"]]] = None
+    # old  modalities: Optional[List[Literal["text", "audio"]]] = None
+    # old  modalities: Optional[List[Literal["text", "audio"]]] = None
+    # old  modalities: Optional[List[Literal["text", "audio"]]] = None
+    # old  modalities: Optional[List[Literal["text", "audio"]]] = None
+    # old  modalities: List[Literal["text", "audio"]]
     """The set of modalities the model can respond with.
 
     To disable audio, set this to ["text"].
     """
 
-    model: Literal[
-        "gpt-4o-realtime-preview",
-        "gpt-4o-realtime-preview-2024-10-01",
-        "gpt-4o-realtime-preview-2024-12-17",
-        "gpt-4o-mini-realtime-preview",
-        "gpt-4o-mini-realtime-preview-2024-12-17",
-    ]
+    model: Optional[Literal[ "gpt-4o-realtime-preview", "gpt-4o-realtime-preview-2024-10-01", "gpt-4o-realtime-preview-2024-12-17", "gpt-4o-mini-realtime-preview", "gpt-4o-mini-realtime-preview-2024-12-17", ]] = None
+    # old  model: Optional[Literal[ "gpt-4o-realtime-preview", "gpt-4o-realtime-preview-2024-10-01", "gpt-4o-realtime-preview-2024-12-17", "gpt-4o-mini-realtime-preview", "gpt-4o-mini-realtime-preview-2024-12-17", ]] = None
+    # old  model: Optional[Literal[ "gpt-4o-realtime-preview", "gpt-4o-realtime-preview-2024-10-01", "gpt-4o-realtime-preview-2024-12-17", "gpt-4o-mini-realtime-preview", "gpt-4o-mini-realtime-preview-2024-12-17", ]] = None
+    # old  model: Optional[Literal[ "gpt-4o-realtime-preview", "gpt-4o-realtime-preview-2024-10-01", "gpt-4o-realtime-preview-2024-12-17", "gpt-4o-mini-realtime-preview", "gpt-4o-mini-realtime-preview-2024-12-17", ]] = None
+    # old  model: Optional[Literal[ "gpt-4o-realtime-preview", "gpt-4o-realtime-preview-2024-10-01", "gpt-4o-realtime-preview-2024-12-17", "gpt-4o-mini-realtime-preview", "gpt-4o-mini-realtime-preview-2024-12-17", ]] = None
+    # old  model: Literal[ "gpt-4o-realtime-preview", "gpt-4o-realtime-preview-2024-10-01", "gpt-4o-realtime-preview-2024-12-17", "gpt-4o-mini-realtime-preview", "gpt-4o-mini-realtime-preview-2024-12-17", ]
     """The Realtime model used for this session."""
 
-    output_audio_format: Literal["pcm16", "g711_ulaw", "g711_alaw"]
+    output_audio_format: Optional[Literal["pcm16", "g711_ulaw", "g711_alaw"]] = None
+    # old  output_audio_format: Optional[Literal["pcm16", "g711_ulaw", "g711_alaw"]] = None
+    # old  output_audio_format: Optional[Literal["pcm16", "g711_ulaw", "g711_alaw"]] = None
+    # old  output_audio_format: Optional[Literal["pcm16", "g711_ulaw", "g711_alaw"]] = None
+    # old  output_audio_format: Optional[Literal["pcm16", "g711_ulaw", "g711_alaw"]] = None
+    # old  output_audio_format: Literal["pcm16", "g711_ulaw", "g711_alaw"]
     """The format of output audio.
 
     Options are `pcm16`, `g711_ulaw`, or `g711_alaw`. For `pcm16`, output audio is
     sampled at a rate of 24kHz.
     """
 
-    temperature: float
+    temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: float
     """Sampling temperature for the model, limited to [0.6, 1.2].
 
     For audio models a temperature of 0.8 is highly recommended for best
     performance.
     """
 
-    tool_choice: str
+    tool_choice: Optional[str] = None
+    # old  tool_choice: Optional[str] = None
+    # old  tool_choice: Optional[str] = None
+    # old  tool_choice: Optional[str] = None
+    # old  tool_choice: Optional[str] = None
+    # old  tool_choice: str
     """How the model chooses tools.
 
     Options are `auto`, `none`, `required`, or specify a function.
     """
 
-    tools: Iterable[Tool]
+    tools: Optional[List[Tool]] = None
+    # old  tools: Optional[List[Tool]] = None
+    # old  tools: Optional[List[Tool]] = None
+    # old  tools: Optional[List[Tool]] = None
+    # old  tools: Optional[List[Tool]] = None
+    # old  tools: Iterable[Tool]
     """Tools (functions) available to the model."""
 
-    turn_detection: TurnDetection
+    turn_detection: Optional[TurnDetection] = None
+    # old  turn_detection: Optional[TurnDetection] = None
+    # old  turn_detection: Optional[TurnDetection] = None
+    # old  turn_detection: Optional[TurnDetection] = None
+    # old  turn_detection: Optional[TurnDetection] = None
+    # old  turn_detection: TurnDetection
     """Configuration for turn detection, ether Server VAD or Semantic VAD.
 
     This can be set to `null` to turn off, in which case the client must manually
@@ -113,9 +167,12 @@ class SessionCreateParams(TypedDict, total=False):
     natural conversations, but may have a higher latency.
     """
 
-    voice: Union[
-        str, Literal["alloy", "ash", "ballad", "coral", "echo", "fable", "onyx", "nova", "sage", "shimmer", "verse"]
-    ]
+    voice: Optional[Union[ str, Literal["alloy", "ash", "ballad", "coral", "echo", "fable", "onyx", "nova", "sage", "shimmer", "verse"] ]] = None
+    # old  voice: Optional[Union[ str, Literal["alloy", "ash", "ballad", "coral", "echo", "fable", "onyx", "nova", "sage", "shimmer", "verse"] ]] = None
+    # old  voice: Optional[Union[ str, Literal["alloy", "ash", "ballad", "coral", "echo", "fable", "onyx", "nova", "sage", "shimmer", "verse"] ]] = None
+    # old  voice: Optional[Union[ str, Literal["alloy", "ash", "ballad", "coral", "echo", "fable", "onyx", "nova", "sage", "shimmer", "verse"] ]] = None
+    # old  voice: Optional[Union[ str, Literal["alloy", "ash", "ballad", "coral", "echo", "fable", "onyx", "nova", "sage", "shimmer", "verse"] ]] = None
+    # old  voice: Union[ str, Literal["alloy", "ash", "ballad", "coral", "echo", "fable", "onyx", "nova", "sage", "shimmer", "verse"] ]
     """The voice the model uses to respond.
 
     Voice cannot be changed during the session once the model has responded with
@@ -124,8 +181,13 @@ class SessionCreateParams(TypedDict, total=False):
     """
 
 
-class InputAudioNoiseReduction(TypedDict, total=False):
-    type: Literal["near_field", "far_field"]
+class InputAudioNoiseReduction(BaseModel):
+    type: Optional[Literal["near_field", "far_field"]] = None
+    # old  type: Optional[Literal["near_field", "far_field"]] = None
+    # old  type: Optional[Literal["near_field", "far_field"]] = None
+    # old  type: Optional[Literal["near_field", "far_field"]] = None
+    # old  type: Optional[Literal["near_field", "far_field"]] = None
+    # old  type: Literal["near_field", "far_field"]
     """Type of noise reduction.
 
     `near_field` is for close-talking microphones such as headphones, `far_field` is
@@ -133,8 +195,13 @@ class InputAudioNoiseReduction(TypedDict, total=False):
     """
 
 
-class InputAudioTranscription(TypedDict, total=False):
-    language: str
+class InputAudioTranscription(BaseModel):
+    language: Optional[str] = None
+    # old  language: Optional[str] = None
+    # old  language: Optional[str] = None
+    # old  language: Optional[str] = None
+    # old  language: Optional[str] = None
+    # old  language: str
     """The language of the input audio.
 
     Supplying the input language in
@@ -142,13 +209,23 @@ class InputAudioTranscription(TypedDict, total=False):
     format will improve accuracy and latency.
     """
 
-    model: str
+    model: Optional[str] = None
+    # old  model: Optional[str] = None
+    # old  model: Optional[str] = None
+    # old  model: Optional[str] = None
+    # old  model: Optional[str] = None
+    # old  model: str
     """
     The model to use for transcription, current options are `gpt-4o-transcribe`,
     `gpt-4o-mini-transcribe`, and `whisper-1`.
     """
 
-    prompt: str
+    prompt: Optional[str] = None
+    # old  prompt: Optional[str] = None
+    # old  prompt: Optional[str] = None
+    # old  prompt: Optional[str] = None
+    # old  prompt: Optional[str] = None
+    # old  prompt: str
     """
     An optional text to guide the model's style or continue a previous audio
     segment. For `whisper-1`, the
@@ -158,31 +235,61 @@ class InputAudioTranscription(TypedDict, total=False):
     """
 
 
-class Tool(TypedDict, total=False):
-    description: str
+class Tool(BaseModel):
+    description: Optional[str] = None
+    # old  description: Optional[str] = None
+    # old  description: Optional[str] = None
+    # old  description: Optional[str] = None
+    # old  description: Optional[str] = None
+    # old  description: str
     """
     The description of the function, including guidance on when and how to call it,
     and guidance about what to tell the user when calling (if anything).
     """
 
-    name: str
+    name: Optional[str] = None
+    # old  name: Optional[str] = None
+    # old  name: Optional[str] = None
+    # old  name: Optional[str] = None
+    # old  name: Optional[str] = None
+    # old  name: str
     """The name of the function."""
 
-    parameters: object
+    parameters: Optional[object] = None
+    # old  parameters: Optional[object] = None
+    # old  parameters: Optional[object] = None
+    # old  parameters: Optional[object] = None
+    # old  parameters: Optional[object] = None
+    # old  parameters: object
     """Parameters of the function in JSON Schema."""
 
-    type: Literal["function"]
+    type: Optional[Literal["function"]] = None
+    # old  type: Optional[Literal["function"]] = None
+    # old  type: Optional[Literal["function"]] = None
+    # old  type: Optional[Literal["function"]] = None
+    # old  type: Optional[Literal["function"]] = None
+    # old  type: Literal["function"]
     """The type of the tool, i.e. `function`."""
 
 
-class TurnDetection(TypedDict, total=False):
-    create_response: bool
+class TurnDetection(BaseModel):
+    create_response: Optional[bool] = None
+    # old  create_response: Optional[bool] = None
+    # old  create_response: Optional[bool] = None
+    # old  create_response: Optional[bool] = None
+    # old  create_response: Optional[bool] = None
+    # old  create_response: bool
     """
     Whether or not to automatically generate a response when a VAD stop event
     occurs.
     """
 
-    eagerness: Literal["low", "medium", "high", "auto"]
+    eagerness: Optional[Literal["low", "medium", "high", "auto"]] = None
+    # old  eagerness: Optional[Literal["low", "medium", "high", "auto"]] = None
+    # old  eagerness: Optional[Literal["low", "medium", "high", "auto"]] = None
+    # old  eagerness: Optional[Literal["low", "medium", "high", "auto"]] = None
+    # old  eagerness: Optional[Literal["low", "medium", "high", "auto"]] = None
+    # old  eagerness: Literal["low", "medium", "high", "auto"]
     """Used only for `semantic_vad` mode.
 
     The eagerness of the model to respond. `low` will wait longer for the user to
@@ -190,21 +297,36 @@ class TurnDetection(TypedDict, total=False):
     is equivalent to `medium`.
     """
 
-    interrupt_response: bool
+    interrupt_response: Optional[bool] = None
+    # old  interrupt_response: Optional[bool] = None
+    # old  interrupt_response: Optional[bool] = None
+    # old  interrupt_response: Optional[bool] = None
+    # old  interrupt_response: Optional[bool] = None
+    # old  interrupt_response: bool
     """
     Whether or not to automatically interrupt any ongoing response with output to
     the default conversation (i.e. `conversation` of `auto`) when a VAD start event
     occurs.
     """
 
-    prefix_padding_ms: int
+    prefix_padding_ms: Optional[int] = None
+    # old  prefix_padding_ms: Optional[int] = None
+    # old  prefix_padding_ms: Optional[int] = None
+    # old  prefix_padding_ms: Optional[int] = None
+    # old  prefix_padding_ms: Optional[int] = None
+    # old  prefix_padding_ms: int
     """Used only for `server_vad` mode.
 
     Amount of audio to include before the VAD detected speech (in milliseconds).
     Defaults to 300ms.
     """
 
-    silence_duration_ms: int
+    silence_duration_ms: Optional[int] = None
+    # old  silence_duration_ms: Optional[int] = None
+    # old  silence_duration_ms: Optional[int] = None
+    # old  silence_duration_ms: Optional[int] = None
+    # old  silence_duration_ms: Optional[int] = None
+    # old  silence_duration_ms: int
     """Used only for `server_vad` mode.
 
     Duration of silence to detect speech stop (in milliseconds). Defaults to 500ms.
@@ -212,7 +334,12 @@ class TurnDetection(TypedDict, total=False):
     short pauses from the user.
     """
 
-    threshold: float
+    threshold: Optional[float] = None
+    # old  threshold: Optional[float] = None
+    # old  threshold: Optional[float] = None
+    # old  threshold: Optional[float] = None
+    # old  threshold: Optional[float] = None
+    # old  threshold: float
     """Used only for `server_vad` mode.
 
     Activation threshold for VAD (0.0 to 1.0), this defaults to 0.5. A higher
@@ -220,5 +347,15 @@ class TurnDetection(TypedDict, total=False):
     perform better in noisy environments.
     """
 
-    type: Literal["server_vad", "semantic_vad"]
+    type: Optional[Literal["server_vad", "semantic_vad"]] = None
+    # old  type: Optional[Literal["server_vad", "semantic_vad"]] = None
+    # old  type: Optional[Literal["server_vad", "semantic_vad"]] = None
+    # old  type: Optional[Literal["server_vad", "semantic_vad"]] = None
+    # old  type: Optional[Literal["server_vad", "semantic_vad"]] = None
+    # old  type: Literal["server_vad", "semantic_vad"]
     """Type of turn detection."""
+
+
+
+
+

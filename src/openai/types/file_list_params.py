@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 __all__ = ["FileListParams"]
 
 
-class FileListParams(TypedDict, total=False):
-    after: str
+class FileListParams(BaseModel):
+    after: Optional[str] = None
+    # old  after: str
     """A cursor for use in pagination.
 
     `after` is an object ID that defines your place in the list. For instance, if
@@ -17,17 +18,21 @@ class FileListParams(TypedDict, total=False):
     list.
     """
 
-    limit: int
+    limit: Optional[int] = None
+    # old  limit: int
     """A limit on the number of objects to be returned.
 
     Limit can range between 1 and 10,000, and the default is 10,000.
     """
 
-    order: Literal["asc", "desc"]
+    order: Optional[Literal["asc", "desc"]] = None
+    # old  order: Literal["asc", "desc"]
     """Sort order by the `created_at` timestamp of the objects.
 
     `asc` for ascending order and `desc` for descending order.
     """
 
-    purpose: str
+    purpose: Optional[str] = None
+    # old  purpose: str
     """Only return files with the given purpose."""
+

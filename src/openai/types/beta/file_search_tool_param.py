@@ -2,27 +2,36 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Required, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 __all__ = ["FileSearchToolParam", "FileSearch", "FileSearchRankingOptions"]
 
 
-class FileSearchRankingOptions(TypedDict, total=False):
-    score_threshold: Required[float]
+class FileSearchRankingOptions(BaseModel):
+    score_threshold: Optional[float] = None
+    # old  score_threshold: Optional[float] = None
+    # old  score_threshold: float = None
+    # old  score_threshold: Required[float]
     """The score threshold for the file search.
 
     All values must be a floating point number between 0 and 1.
     """
 
-    ranker: Literal["auto", "default_2024_08_21"]
+    ranker: Optional[Literal["auto", "default_2024_08_21"]] = None
+    # old  ranker: Optional[Literal["auto", "default_2024_08_21"]] = None
+    # old  ranker: Optional[Literal["auto", "default_2024_08_21"]] = None
+    # old  ranker: Literal["auto", "default_2024_08_21"]
     """The ranker to use for the file search.
 
     If not specified will use the `auto` ranker.
     """
 
 
-class FileSearch(TypedDict, total=False):
-    max_num_results: int
+class FileSearch(BaseModel):
+    max_num_results: Optional[int] = None
+    # old  max_num_results: Optional[int] = None
+    # old  max_num_results: Optional[int] = None
+    # old  max_num_results: int
     """The maximum number of results the file search tool should output.
 
     The default is 20 for `gpt-4*` models and 5 for `gpt-3.5-turbo`. This number
@@ -34,7 +43,10 @@ class FileSearch(TypedDict, total=False):
     for more information.
     """
 
-    ranking_options: FileSearchRankingOptions
+    ranking_options: Optional[FileSearchRankingOptions] = None
+    # old  ranking_options: Optional[FileSearchRankingOptions] = None
+    # old  ranking_options: Optional[FileSearchRankingOptions] = None
+    # old  ranking_options: FileSearchRankingOptions
     """The ranking options for the file search.
 
     If not specified, the file search tool will use the `auto` ranker and a
@@ -46,9 +58,18 @@ class FileSearch(TypedDict, total=False):
     """
 
 
-class FileSearchToolParam(TypedDict, total=False):
-    type: Required[Literal["file_search"]]
+class FileSearchToolParam(BaseModel):
+    type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Literal["file_search"] = None
+    # old  type: Required[Literal["file_search"]]
     """The type of tool being defined: `file_search`"""
 
-    file_search: FileSearch
+    file_search: Optional[FileSearch] = None
+    # old  file_search: Optional[FileSearch] = None
+    # old  file_search: Optional[FileSearch] = None
+    # old  file_search: FileSearch
     """Overrides for the file search tool."""
+
+
+

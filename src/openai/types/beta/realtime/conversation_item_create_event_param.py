@@ -2,24 +2,28 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Required, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 from .conversation_item_param import ConversationItemParam
 
 __all__ = ["ConversationItemCreateEventParam"]
 
 
-class ConversationItemCreateEventParam(TypedDict, total=False):
-    item: Required[ConversationItemParam]
+class ConversationItemCreateEventParam(BaseModel):
+    item: ConversationItemParam = None
+    # old  item: Required[ConversationItemParam]
     """The item to add to the conversation."""
 
-    type: Required[Literal["conversation.item.create"]]
+    type: Literal["conversation.item.create"] = None
+    # old  type: Required[Literal["conversation.item.create"]]
     """The event type, must be `conversation.item.create`."""
 
-    event_id: str
+    event_id: Optional[str] = None
+    # old  event_id: str
     """Optional client-generated ID used to identify this event."""
 
-    previous_item_id: str
+    previous_item_id: Optional[str] = None
+    # old  previous_item_id: str
     """The ID of the preceding item after which the new item will be inserted.
 
     If not set, the new item will be appended to the end of the conversation. If set
@@ -27,3 +31,4 @@ class ConversationItemCreateEventParam(TypedDict, total=False):
     set to an existing ID, it allows an item to be inserted mid-conversation. If the
     ID cannot be found, an error will be returned and the item will not be added.
     """
+

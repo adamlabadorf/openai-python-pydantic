@@ -3,15 +3,15 @@
 from __future__ import annotations
 
 from typing import Optional
-from typing_extensions import Required, TypedDict
-
+from pydantic import BaseModel
 from ..shared_params.metadata import Metadata
 
 __all__ = ["CompletionUpdateParams"]
 
 
-class CompletionUpdateParams(TypedDict, total=False):
-    metadata: Required[Optional[Metadata]]
+class CompletionUpdateParams(BaseModel):
+    metadata: Optional[Metadata] = None
+    # old  metadata: Required[Optional[Metadata]]
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -20,3 +20,4 @@ class CompletionUpdateParams(TypedDict, total=False):
     Keys are strings with a maximum length of 64 characters. Values are strings with
     a maximum length of 512 characters.
     """
+

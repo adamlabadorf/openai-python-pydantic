@@ -3,15 +3,15 @@
 from __future__ import annotations
 
 from typing import Optional
-from typing_extensions import TypedDict
-
+from pydantic import BaseModel
 from .shared_params.metadata import Metadata
 
 __all__ = ["EvalUpdateParams"]
 
 
-class EvalUpdateParams(TypedDict, total=False):
-    metadata: Optional[Metadata]
+class EvalUpdateParams(BaseModel):
+    metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata]
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -21,5 +21,7 @@ class EvalUpdateParams(TypedDict, total=False):
     a maximum length of 512 characters.
     """
 
-    name: str
+    name: Optional[str] = None
+    # old  name: str
     """Rename the evaluation."""
+

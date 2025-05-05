@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 from typing import Union
-from typing_extensions import Literal, Required, TypeAlias, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 from .session_update_event_param import SessionUpdateEventParam
 from .response_cancel_event_param import ResponseCancelEventParam
 from .response_create_event_param import ResponseCreateEventParam
@@ -20,15 +20,17 @@ from .conversation_item_truncate_event_param import ConversationItemTruncateEven
 __all__ = ["RealtimeClientEventParam", "OutputAudioBufferClear"]
 
 
-class OutputAudioBufferClear(TypedDict, total=False):
-    type: Required[Literal["output_audio_buffer.clear"]]
+class OutputAudioBufferClear(BaseModel):
+    type: Literal["output_audio_buffer.clear"] = None
+    # old  type: Required[Literal["output_audio_buffer.clear"]]
     """The event type, must be `output_audio_buffer.clear`."""
 
-    event_id: str
+    event_id: Optional[str] = None
+    # old  event_id: str
     """The unique ID of the client event used for error handling."""
 
 
-RealtimeClientEventParam: TypeAlias = Union[
+RealtimeClientEventParam = Union[ # old RealtimeClientEventParam: TypeAlias = Union[
     ConversationItemCreateEventParam,
     ConversationItemDeleteEventParam,
     ConversationItemRetrieveEventParam,
@@ -42,3 +44,4 @@ RealtimeClientEventParam: TypeAlias = Union[
     SessionUpdateEventParam,
     TranscriptionSessionUpdateParam,
 ]
+

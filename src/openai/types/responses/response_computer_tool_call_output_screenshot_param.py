@@ -2,20 +2,24 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Required, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 __all__ = ["ResponseComputerToolCallOutputScreenshotParam"]
 
 
-class ResponseComputerToolCallOutputScreenshotParam(TypedDict, total=False):
-    type: Required[Literal["computer_screenshot"]]
+class ResponseComputerToolCallOutputScreenshotParam(BaseModel):
+    type: Literal["computer_screenshot"] = None
+    # old  type: Required[Literal["computer_screenshot"]]
     """Specifies the event type.
 
     For a computer screenshot, this property is always set to `computer_screenshot`.
     """
 
-    file_id: str
+    file_id: Optional[str] = None
+    # old  file_id: str
     """The identifier of an uploaded file that contains the screenshot."""
 
-    image_url: str
+    image_url: Optional[str] = None
+    # old  image_url: str
     """The URL of the screenshot image."""
+

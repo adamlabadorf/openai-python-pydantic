@@ -2,14 +2,17 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Required, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 __all__ = ["ChatCompletionContentPartTextParam"]
 
 
-class ChatCompletionContentPartTextParam(TypedDict, total=False):
-    text: Required[str]
+class ChatCompletionContentPartTextParam(BaseModel):
+    text: str = None
+    # old  text: Required[str]
     """The text content."""
 
-    type: Required[Literal["text"]]
+    type: Literal["text"] = None
+    # old  type: Required[Literal["text"]]
     """The type of the content part."""
+

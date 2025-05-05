@@ -2,20 +2,25 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 __all__ = ["PermissionRetrieveParams"]
 
 
-class PermissionRetrieveParams(TypedDict, total=False):
-    after: str
+class PermissionRetrieveParams(BaseModel):
+    after: Optional[str] = None
+    # old  after: str
     """Identifier for the last permission ID from the previous pagination request."""
 
-    limit: int
+    limit: Optional[int] = None
+    # old  limit: int
     """Number of permissions to retrieve."""
 
-    order: Literal["ascending", "descending"]
+    order: Optional[Literal["ascending", "descending"]] = None
+    # old  order: Literal["ascending", "descending"]
     """The order in which to retrieve permissions."""
 
-    project_id: str
+    project_id: Optional[str] = None
+    # old  project_id: str
     """The ID of the project to get permissions for."""
+

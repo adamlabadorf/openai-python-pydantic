@@ -3,17 +3,19 @@
 from __future__ import annotations
 
 from typing import List
-from typing_extensions import Literal, Required, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 from .run_step_include import RunStepInclude
 
 __all__ = ["StepListParams"]
 
 
-class StepListParams(TypedDict, total=False):
-    thread_id: Required[str]
+class StepListParams(BaseModel):
+    thread_id: str = None
+    # old  thread_id: Required[str]
 
-    after: str
+    after: Optional[str] = None
+    # old  after: str
     """A cursor for use in pagination.
 
     `after` is an object ID that defines your place in the list. For instance, if
@@ -22,7 +24,8 @@ class StepListParams(TypedDict, total=False):
     list.
     """
 
-    before: str
+    before: Optional[str] = None
+    # old  before: str
     """A cursor for use in pagination.
 
     `before` is an object ID that defines your place in the list. For instance, if
@@ -31,7 +34,8 @@ class StepListParams(TypedDict, total=False):
     of the list.
     """
 
-    include: List[RunStepInclude]
+    include: Optional[List[RunStepInclude]] = None
+    # old  include: List[RunStepInclude]
     """A list of additional fields to include in the response.
 
     Currently the only supported value is
@@ -43,14 +47,17 @@ class StepListParams(TypedDict, total=False):
     for more information.
     """
 
-    limit: int
+    limit: Optional[int] = None
+    # old  limit: int
     """A limit on the number of objects to be returned.
 
     Limit can range between 1 and 100, and the default is 20.
     """
 
-    order: Literal["asc", "desc"]
+    order: Optional[Literal["asc", "desc"]] = None
+    # old  order: Literal["asc", "desc"]
     """Sort order by the `created_at` timestamp of the objects.
 
     `asc` for ascending order and `desc` for descending order.
     """
+

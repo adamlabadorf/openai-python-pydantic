@@ -3,15 +3,16 @@
 from __future__ import annotations
 
 from typing import Dict, List, Union, Iterable, Optional
-from typing_extensions import Literal, Required, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 from .chat.chat_completion_stream_options_param import ChatCompletionStreamOptionsParam
 
 __all__ = ["CompletionCreateParamsBase", "CompletionCreateParamsNonStreaming", "CompletionCreateParamsStreaming"]
 
 
-class CompletionCreateParamsBase(TypedDict, total=False):
-    model: Required[Union[str, Literal["gpt-3.5-turbo-instruct", "davinci-002", "babbage-002"]]]
+class CompletionCreateParamsBase(BaseModel):
+    model: Union[str, Literal["gpt-3.5-turbo-instruct", "davinci-002", "babbage-002"]] = None
+    # old  model: Required[Union[str, Literal["gpt-3.5-turbo-instruct", "davinci-002", "babbage-002"]]]
     """ID of the model to use.
 
     You can use the
@@ -21,7 +22,8 @@ class CompletionCreateParamsBase(TypedDict, total=False):
     them.
     """
 
-    prompt: Required[Union[str, List[str], Iterable[int], Iterable[Iterable[int]], None]]
+    prompt: Union[str, List[str], List[int], List[List[int]]] = None
+    # old  prompt: Required[Union[str, List[str], Iterable[int], Iterable[Iterable[int]], None]]
     """
     The prompt(s) to generate completions for, encoded as a string, array of
     strings, array of tokens, or array of token arrays.
@@ -31,7 +33,8 @@ class CompletionCreateParamsBase(TypedDict, total=False):
     beginning of a new document.
     """
 
-    best_of: Optional[int]
+    best_of: Optional[int] = None
+    # old  best_of: Optional[int]
     """
     Generates `best_of` completions server-side and returns the "best" (the one with
     the highest log probability per token). Results cannot be streamed.
@@ -44,10 +47,12 @@ class CompletionCreateParamsBase(TypedDict, total=False):
     settings for `max_tokens` and `stop`.
     """
 
-    echo: Optional[bool]
+    echo: Optional[bool] = None
+    # old  echo: Optional[bool]
     """Echo back the prompt in addition to the completion"""
 
-    frequency_penalty: Optional[float]
+    frequency_penalty: Optional[float] = None
+    # old  frequency_penalty: Optional[float]
     """Number between -2.0 and 2.0.
 
     Positive values penalize new tokens based on their existing frequency in the
@@ -56,7 +61,8 @@ class CompletionCreateParamsBase(TypedDict, total=False):
     [See more information about frequency and presence penalties.](https://platform.openai.com/docs/guides/text-generation)
     """
 
-    logit_bias: Optional[Dict[str, int]]
+    logit_bias: Optional[Dict[str, int]] = None
+    # old  logit_bias: Optional[Dict[str, int]]
     """Modify the likelihood of specified tokens appearing in the completion.
 
     Accepts a JSON object that maps tokens (specified by their token ID in the GPT
@@ -71,7 +77,8 @@ class CompletionCreateParamsBase(TypedDict, total=False):
     from being generated.
     """
 
-    logprobs: Optional[int]
+    logprobs: Optional[int] = None
+    # old  logprobs: Optional[int]
     """
     Include the log probabilities on the `logprobs` most likely output tokens, as
     well the chosen tokens. For example, if `logprobs` is 5, the API will return a
@@ -81,7 +88,8 @@ class CompletionCreateParamsBase(TypedDict, total=False):
     The maximum value for `logprobs` is 5.
     """
 
-    max_tokens: Optional[int]
+    max_tokens: Optional[int] = None
+    # old  max_tokens: Optional[int]
     """
     The maximum number of [tokens](/tokenizer) that can be generated in the
     completion.
@@ -92,7 +100,8 @@ class CompletionCreateParamsBase(TypedDict, total=False):
     for counting tokens.
     """
 
-    n: Optional[int]
+    n: Optional[int] = None
+    # old  n: Optional[int]
     """How many completions to generate for each prompt.
 
     **Note:** Because this parameter generates many completions, it can quickly
@@ -100,7 +109,8 @@ class CompletionCreateParamsBase(TypedDict, total=False):
     settings for `max_tokens` and `stop`.
     """
 
-    presence_penalty: Optional[float]
+    presence_penalty: Optional[float] = None
+    # old  presence_penalty: Optional[float]
     """Number between -2.0 and 2.0.
 
     Positive values penalize new tokens based on whether they appear in the text so
@@ -109,7 +119,8 @@ class CompletionCreateParamsBase(TypedDict, total=False):
     [See more information about frequency and presence penalties.](https://platform.openai.com/docs/guides/text-generation)
     """
 
-    seed: Optional[int]
+    seed: Optional[int] = None
+    # old  seed: Optional[int]
     """
     If specified, our system will make a best effort to sample deterministically,
     such that repeated requests with the same `seed` and parameters should return
@@ -119,23 +130,27 @@ class CompletionCreateParamsBase(TypedDict, total=False):
     response parameter to monitor changes in the backend.
     """
 
-    stop: Union[Optional[str], List[str], None]
+    stop: Optional[Union[Optional[str], List[str], None]] = None
+    # old  stop: Union[Optional[str], List[str], None]
     """Not supported with latest reasoning models `o3` and `o4-mini`.
 
     Up to 4 sequences where the API will stop generating further tokens. The
     returned text will not contain the stop sequence.
     """
 
-    stream_options: Optional[ChatCompletionStreamOptionsParam]
+    stream_options: Optional[ChatCompletionStreamOptionsParam] = None
+    # old  stream_options: Optional[ChatCompletionStreamOptionsParam]
     """Options for streaming response. Only set this when you set `stream: true`."""
 
-    suffix: Optional[str]
+    suffix: Optional[str] = None
+    # old  suffix: Optional[str]
     """The suffix that comes after a completion of inserted text.
 
     This parameter is only supported for `gpt-3.5-turbo-instruct`.
     """
 
-    temperature: Optional[float]
+    temperature: Optional[float] = None
+    # old  temperature: Optional[float]
     """What sampling temperature to use, between 0 and 2.
 
     Higher values like 0.8 will make the output more random, while lower values like
@@ -144,7 +159,8 @@ class CompletionCreateParamsBase(TypedDict, total=False):
     We generally recommend altering this or `top_p` but not both.
     """
 
-    top_p: Optional[float]
+    top_p: Optional[float] = None
+    # old  top_p: Optional[float]
     """
     An alternative to sampling with temperature, called nucleus sampling, where the
     model considers the results of the tokens with top_p probability mass. So 0.1
@@ -153,7 +169,8 @@ class CompletionCreateParamsBase(TypedDict, total=False):
     We generally recommend altering this or `temperature` but not both.
     """
 
-    user: str
+    user: Optional[str] = None
+    # old  user: str
     """
     A unique identifier representing your end-user, which can help OpenAI to monitor
     and detect abuse.
@@ -161,8 +178,9 @@ class CompletionCreateParamsBase(TypedDict, total=False):
     """
 
 
-class CompletionCreateParamsNonStreaming(CompletionCreateParamsBase, total=False):
-    stream: Optional[Literal[False]]
+class CompletionCreateParamsNonStreaming(CompletionCreateParamsBase):
+    stream: Optional[Literal[False]] = None
+    # old  stream: Optional[Literal[False]]
     """Whether to stream back partial progress.
 
     If set, tokens will be sent as data-only
@@ -174,7 +192,8 @@ class CompletionCreateParamsNonStreaming(CompletionCreateParamsBase, total=False
 
 
 class CompletionCreateParamsStreaming(CompletionCreateParamsBase):
-    stream: Required[Literal[True]]
+    stream: Literal[True] = None
+    # old  stream: Required[Literal[True]]
     """Whether to stream back partial progress.
 
     If set, tokens will be sent as data-only
@@ -186,3 +205,4 @@ class CompletionCreateParamsStreaming(CompletionCreateParamsBase):
 
 
 CompletionCreateParams = Union[CompletionCreateParamsNonStreaming, CompletionCreateParamsStreaming]
+

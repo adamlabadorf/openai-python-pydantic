@@ -3,15 +3,16 @@
 from __future__ import annotations
 
 from typing import Iterable
-from typing_extensions import Literal, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 from .conversation_item_content_param import ConversationItemContentParam
 
 __all__ = ["ConversationItemWithReferenceParam"]
 
 
-class ConversationItemWithReferenceParam(TypedDict, total=False):
-    id: str
+class ConversationItemWithReferenceParam(BaseModel):
+    id: Optional[str] = None
+    # old  id: str
     """
     For an item of type (`message` | `function_call` | `function_call_output`) this
     field allows the client to assign the unique ID of the item. It is not required
@@ -21,17 +22,20 @@ class ConversationItemWithReferenceParam(TypedDict, total=False):
     to any item that has previously existed in the conversation.
     """
 
-    arguments: str
+    arguments: Optional[str] = None
+    # old  arguments: str
     """The arguments of the function call (for `function_call` items)."""
 
-    call_id: str
+    call_id: Optional[str] = None
+    # old  call_id: str
     """
     The ID of the function call (for `function_call` and `function_call_output`
     items). If passed on a `function_call_output` item, the server will check that a
     `function_call` item with the same ID exists in the conversation history.
     """
 
-    content: Iterable[ConversationItemContentParam]
+    content: Optional[List[ConversationItemContentParam]] = None
+    # old  content: Iterable[ConversationItemContentParam]
     """The content of the message, applicable for `message` items.
 
     - Message items of role `system` support only `input_text` content
@@ -39,30 +43,37 @@ class ConversationItemWithReferenceParam(TypedDict, total=False):
     - Message items of role `assistant` support `text` content.
     """
 
-    name: str
+    name: Optional[str] = None
+    # old  name: str
     """The name of the function being called (for `function_call` items)."""
 
-    object: Literal["realtime.item"]
+    object: Optional[Literal["realtime.item"]] = None
+    # old  object: Literal["realtime.item"]
     """Identifier for the API object being returned - always `realtime.item`."""
 
-    output: str
+    output: Optional[str] = None
+    # old  output: str
     """The output of the function call (for `function_call_output` items)."""
 
-    role: Literal["user", "assistant", "system"]
+    role: Optional[Literal["user", "assistant", "system"]] = None
+    # old  role: Literal["user", "assistant", "system"]
     """
     The role of the message sender (`user`, `assistant`, `system`), only applicable
     for `message` items.
     """
 
-    status: Literal["completed", "incomplete"]
+    status: Optional[Literal["completed", "incomplete"]] = None
+    # old  status: Literal["completed", "incomplete"]
     """The status of the item (`completed`, `incomplete`).
 
     These have no effect on the conversation, but are accepted for consistency with
     the `conversation.item.created` event.
     """
 
-    type: Literal["message", "function_call", "function_call_output", "item_reference"]
+    type: Optional[Literal["message", "function_call", "function_call_output", "item_reference"]] = None
+    # old  type: Literal["message", "function_call", "function_call_output", "item_reference"]
     """
     The type of the item (`message`, `function_call`, `function_call_output`,
     `item_reference`).
     """
+

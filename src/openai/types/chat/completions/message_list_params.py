@@ -2,20 +2,24 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 __all__ = ["MessageListParams"]
 
 
-class MessageListParams(TypedDict, total=False):
-    after: str
+class MessageListParams(BaseModel):
+    after: Optional[str] = None
+    # old  after: str
     """Identifier for the last message from the previous pagination request."""
 
-    limit: int
+    limit: Optional[int] = None
+    # old  limit: int
     """Number of messages to retrieve."""
 
-    order: Literal["asc", "desc"]
+    order: Optional[Literal["asc", "desc"]] = None
+    # old  order: Literal["asc", "desc"]
     """Sort order for messages by timestamp.
 
     Use `asc` for ascending order or `desc` for descending order. Defaults to `asc`.
     """
+

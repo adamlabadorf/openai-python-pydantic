@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-from typing_extensions import Required, TypedDict
-
+from pydantic import BaseModel
 __all__ = ["RealtimeConnectParams"]
 
 
-class RealtimeConnectParams(TypedDict, total=False):
-    model: Required[str]
+class RealtimeConnectParams(BaseModel):
+    model: str = None
+    # old  model: Required[str]
+

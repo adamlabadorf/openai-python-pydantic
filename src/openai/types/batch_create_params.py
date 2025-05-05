@@ -3,21 +3,23 @@
 from __future__ import annotations
 
 from typing import Optional
-from typing_extensions import Literal, Required, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 from .shared_params.metadata import Metadata
 
 __all__ = ["BatchCreateParams"]
 
 
-class BatchCreateParams(TypedDict, total=False):
-    completion_window: Required[Literal["24h"]]
+class BatchCreateParams(BaseModel):
+    completion_window: Literal["24h"] = None
+    # old  completion_window: Required[Literal["24h"]]
     """The time frame within which the batch should be processed.
 
     Currently only `24h` is supported.
     """
 
-    endpoint: Required[Literal["/v1/responses", "/v1/chat/completions", "/v1/embeddings", "/v1/completions"]]
+    endpoint: Literal["/v1/responses", "/v1/chat/completions", "/v1/embeddings", "/v1/completions"] = None
+    # old  endpoint: Required[Literal["/v1/responses", "/v1/chat/completions", "/v1/embeddings", "/v1/completions"]]
     """The endpoint to be used for all requests in the batch.
 
     Currently `/v1/responses`, `/v1/chat/completions`, `/v1/embeddings`, and
@@ -26,7 +28,8 @@ class BatchCreateParams(TypedDict, total=False):
     batch.
     """
 
-    input_file_id: Required[str]
+    input_file_id: str = None
+    # old  input_file_id: Required[str]
     """The ID of an uploaded file that contains requests for the new batch.
 
     See [upload file](https://platform.openai.com/docs/api-reference/files/create)
@@ -38,7 +41,8 @@ class BatchCreateParams(TypedDict, total=False):
     requests, and can be up to 200 MB in size.
     """
 
-    metadata: Optional[Metadata]
+    metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata]
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -47,3 +51,4 @@ class BatchCreateParams(TypedDict, total=False):
     Keys are strings with a maximum length of 64 characters. Values are strings with
     a maximum length of 512 characters.
     """
+

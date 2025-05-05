@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 from typing import List, Union, Iterable, Optional
-from typing_extensions import Literal, Required, TypeAlias, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 from ...shared.chat_model import ChatModel
 from ..assistant_tool_param import AssistantToolParam
 from .runs.run_step_include import RunStepInclude
@@ -27,15 +27,25 @@ __all__ = [
 ]
 
 
-class RunCreateParamsBase(TypedDict, total=False):
-    assistant_id: Required[str]
+class RunCreateParamsBase(BaseModel):
+    assistant_id: Optional[str] = None
+    # old  assistant_id: Optional[str] = None
+    # old  assistant_id: Optional[str] = None
+    # old  assistant_id: Optional[str] = None
+    # old  assistant_id: str = None
+    # old  assistant_id: Required[str]
     """
     The ID of the
     [assistant](https://platform.openai.com/docs/api-reference/assistants) to use to
     execute this run.
     """
 
-    include: List[RunStepInclude]
+    include: Optional[List[RunStepInclude]] = None
+    # old  include: Optional[List[RunStepInclude]] = None
+    # old  include: Optional[List[RunStepInclude]] = None
+    # old  include: Optional[List[RunStepInclude]] = None
+    # old  include: Optional[List[RunStepInclude]] = None
+    # old  include: List[RunStepInclude]
     """A list of additional fields to include in the response.
 
     Currently the only supported value is
@@ -47,24 +57,44 @@ class RunCreateParamsBase(TypedDict, total=False):
     for more information.
     """
 
-    additional_instructions: Optional[str]
+    additional_instructions: Optional[str] = None
+    # old  additional_instructions: Optional[str] = None
+    # old  additional_instructions: Optional[str] = None
+    # old  additional_instructions: Optional[str] = None
+    # old  additional_instructions: Optional[str] = None
+    # old  additional_instructions: Optional[str]
     """Appends additional instructions at the end of the instructions for the run.
 
     This is useful for modifying the behavior on a per-run basis without overriding
     other instructions.
     """
 
-    additional_messages: Optional[Iterable[AdditionalMessage]]
+    additional_messages: Optional[List[AdditionalMessage]] = None
+    # old  additional_messages: Optional[List[AdditionalMessage]] = None
+    # old  additional_messages: Optional[List[AdditionalMessage]] = None
+    # old  additional_messages: Optional[List[AdditionalMessage]] = None
+    # old  additional_messages: Optional[List[AdditionalMessage]] = None
+    # old  additional_messages: Optional[Iterable[AdditionalMessage]]
     """Adds additional messages to the thread before creating the run."""
 
-    instructions: Optional[str]
+    instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str]
     """
     Overrides the
     [instructions](https://platform.openai.com/docs/api-reference/assistants/createAssistant)
     of the assistant. This is useful for modifying the behavior on a per-run basis.
     """
 
-    max_completion_tokens: Optional[int]
+    max_completion_tokens: Optional[int] = None
+    # old  max_completion_tokens: Optional[int] = None
+    # old  max_completion_tokens: Optional[int] = None
+    # old  max_completion_tokens: Optional[int] = None
+    # old  max_completion_tokens: Optional[int] = None
+    # old  max_completion_tokens: Optional[int]
     """
     The maximum number of completion tokens that may be used over the course of the
     run. The run will make a best effort to use only the number of completion tokens
@@ -73,7 +103,12 @@ class RunCreateParamsBase(TypedDict, total=False):
     `incomplete_details` for more info.
     """
 
-    max_prompt_tokens: Optional[int]
+    max_prompt_tokens: Optional[int] = None
+    # old  max_prompt_tokens: Optional[int] = None
+    # old  max_prompt_tokens: Optional[int] = None
+    # old  max_prompt_tokens: Optional[int] = None
+    # old  max_prompt_tokens: Optional[int] = None
+    # old  max_prompt_tokens: Optional[int]
     """The maximum number of prompt tokens that may be used over the course of the run.
 
     The run will make a best effort to use only the number of prompt tokens
@@ -82,7 +117,12 @@ class RunCreateParamsBase(TypedDict, total=False):
     `incomplete_details` for more info.
     """
 
-    metadata: Optional[Metadata]
+    metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata]
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -92,7 +132,12 @@ class RunCreateParamsBase(TypedDict, total=False):
     a maximum length of 512 characters.
     """
 
-    model: Union[str, ChatModel, None]
+    model: Optional[Union[str, ChatModel, None]] = None
+    # old  model: Optional[Union[str, ChatModel, None]] = None
+    # old  model: Optional[Union[str, ChatModel, None]] = None
+    # old  model: Optional[Union[str, ChatModel, None]] = None
+    # old  model: Optional[Union[str, ChatModel, None]] = None
+    # old  model: Union[str, ChatModel, None]
     """
     The ID of the [Model](https://platform.openai.com/docs/api-reference/models) to
     be used to execute this run. If a value is provided here, it will override the
@@ -100,14 +145,24 @@ class RunCreateParamsBase(TypedDict, total=False):
     assistant will be used.
     """
 
-    parallel_tool_calls: bool
+    parallel_tool_calls: Optional[bool] = None
+    # old  parallel_tool_calls: Optional[bool] = None
+    # old  parallel_tool_calls: Optional[bool] = None
+    # old  parallel_tool_calls: Optional[bool] = None
+    # old  parallel_tool_calls: Optional[bool] = None
+    # old  parallel_tool_calls: bool
     """
     Whether to enable
     [parallel function calling](https://platform.openai.com/docs/guides/function-calling#configuring-parallel-function-calling)
     during tool use.
     """
 
-    reasoning_effort: Optional[ReasoningEffort]
+    reasoning_effort: Optional[ReasoningEffort] = None
+    # old  reasoning_effort: Optional[ReasoningEffort] = None
+    # old  reasoning_effort: Optional[ReasoningEffort] = None
+    # old  reasoning_effort: Optional[ReasoningEffort] = None
+    # old  reasoning_effort: Optional[ReasoningEffort] = None
+    # old  reasoning_effort: Optional[ReasoningEffort]
     """**o-series models only**
 
     Constrains effort on reasoning for
@@ -116,7 +171,12 @@ class RunCreateParamsBase(TypedDict, total=False):
     result in faster responses and fewer tokens used on reasoning in a response.
     """
 
-    response_format: Optional[AssistantResponseFormatOptionParam]
+    response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam]
     """Specifies the format that the model must output.
 
     Compatible with [GPT-4o](https://platform.openai.com/docs/models#gpt-4o),
@@ -140,14 +200,24 @@ class RunCreateParamsBase(TypedDict, total=False):
     max context length.
     """
 
-    temperature: Optional[float]
+    temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float]
     """What sampling temperature to use, between 0 and 2.
 
     Higher values like 0.8 will make the output more random, while lower values like
     0.2 will make it more focused and deterministic.
     """
 
-    tool_choice: Optional[AssistantToolChoiceOptionParam]
+    tool_choice: Optional[AssistantToolChoiceOptionParam] = None
+    # old  tool_choice: Optional[AssistantToolChoiceOptionParam] = None
+    # old  tool_choice: Optional[AssistantToolChoiceOptionParam] = None
+    # old  tool_choice: Optional[AssistantToolChoiceOptionParam] = None
+    # old  tool_choice: Optional[AssistantToolChoiceOptionParam] = None
+    # old  tool_choice: Optional[AssistantToolChoiceOptionParam]
     """
     Controls which (if any) tool is called by the model. `none` means the model will
     not call any tools and instead generates a message. `auto` is the default value
@@ -158,13 +228,23 @@ class RunCreateParamsBase(TypedDict, total=False):
     call that tool.
     """
 
-    tools: Optional[Iterable[AssistantToolParam]]
+    tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[Iterable[AssistantToolParam]]
     """Override the tools the assistant can use for this run.
 
     This is useful for modifying the behavior on a per-run basis.
     """
 
-    top_p: Optional[float]
+    top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float]
     """
     An alternative to sampling with temperature, called nucleus sampling, where the
     model considers the results of the tokens with top_p probability mass. So 0.1
@@ -173,34 +253,64 @@ class RunCreateParamsBase(TypedDict, total=False):
     We generally recommend altering this or temperature but not both.
     """
 
-    truncation_strategy: Optional[TruncationStrategy]
+    truncation_strategy: Optional[TruncationStrategy] = None
+    # old  truncation_strategy: Optional[TruncationStrategy] = None
+    # old  truncation_strategy: Optional[TruncationStrategy] = None
+    # old  truncation_strategy: Optional[TruncationStrategy] = None
+    # old  truncation_strategy: Optional[TruncationStrategy] = None
+    # old  truncation_strategy: Optional[TruncationStrategy]
     """Controls for how a thread will be truncated prior to the run.
 
     Use this to control the intial context window of the run.
     """
 
 
-class AdditionalMessageAttachmentToolFileSearch(TypedDict, total=False):
-    type: Required[Literal["file_search"]]
+class AdditionalMessageAttachmentToolFileSearch(BaseModel):
+    type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Literal["file_search"] = None
+    # old  type: Required[Literal["file_search"]]
     """The type of tool being defined: `file_search`"""
 
 
-AdditionalMessageAttachmentTool: TypeAlias = Union[CodeInterpreterToolParam, AdditionalMessageAttachmentToolFileSearch]
+AdditionalMessageAttachmentTool = Union[CodeInterpreterToolParam, AdditionalMessageAttachmentToolFileSearch] # old AdditionalMessageAttachmentTool: TypeAlias = Union[CodeInterpreterToolParam, AdditionalMessageAttachmentToolFileSearch]
 
 
-class AdditionalMessageAttachment(TypedDict, total=False):
-    file_id: str
+class AdditionalMessageAttachment(BaseModel):
+    file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: str
     """The ID of the file to attach to the message."""
 
-    tools: Iterable[AdditionalMessageAttachmentTool]
+    tools: Optional[List[AdditionalMessageAttachmentTool]] = None
+    # old  tools: Optional[List[AdditionalMessageAttachmentTool]] = None
+    # old  tools: Optional[List[AdditionalMessageAttachmentTool]] = None
+    # old  tools: Optional[List[AdditionalMessageAttachmentTool]] = None
+    # old  tools: Optional[List[AdditionalMessageAttachmentTool]] = None
+    # old  tools: Iterable[AdditionalMessageAttachmentTool]
     """The tools to add this file to."""
 
 
-class AdditionalMessage(TypedDict, total=False):
-    content: Required[Union[str, Iterable[MessageContentPartParam]]]
+class AdditionalMessage(BaseModel):
+    content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Union[str, List[MessageContentPartParam]] = None
+    # old  content: Required[Union[str, Iterable[MessageContentPartParam]]]
     """The text contents of the message."""
 
-    role: Required[Literal["user", "assistant"]]
+    role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Literal["user", "assistant"] = None
+    # old  role: Required[Literal["user", "assistant"]]
     """The role of the entity that is creating the message. Allowed values include:
 
     - `user`: Indicates the message is sent by an actual user and should be used in
@@ -209,10 +319,20 @@ class AdditionalMessage(TypedDict, total=False):
       value to insert messages from the assistant into the conversation.
     """
 
-    attachments: Optional[Iterable[AdditionalMessageAttachment]]
+    attachments: Optional[List[AdditionalMessageAttachment]] = None
+    # old  attachments: Optional[List[AdditionalMessageAttachment]] = None
+    # old  attachments: Optional[List[AdditionalMessageAttachment]] = None
+    # old  attachments: Optional[List[AdditionalMessageAttachment]] = None
+    # old  attachments: Optional[List[AdditionalMessageAttachment]] = None
+    # old  attachments: Optional[Iterable[AdditionalMessageAttachment]]
     """A list of files attached to the message, and the tools they should be added to."""
 
-    metadata: Optional[Metadata]
+    metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata]
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -223,8 +343,13 @@ class AdditionalMessage(TypedDict, total=False):
     """
 
 
-class TruncationStrategy(TypedDict, total=False):
-    type: Required[Literal["auto", "last_messages"]]
+class TruncationStrategy(BaseModel):
+    type: Optional[Literal["auto", "last_messages"]] = None
+    # old  type: Optional[Literal["auto", "last_messages"]] = None
+    # old  type: Optional[Literal["auto", "last_messages"]] = None
+    # old  type: Optional[Literal["auto", "last_messages"]] = None
+    # old  type: Literal["auto", "last_messages"] = None
+    # old  type: Required[Literal["auto", "last_messages"]]
     """The truncation strategy to use for the thread.
 
     The default is `auto`. If set to `last_messages`, the thread will be truncated
@@ -233,15 +358,25 @@ class TruncationStrategy(TypedDict, total=False):
     `max_prompt_tokens`.
     """
 
-    last_messages: Optional[int]
+    last_messages: Optional[int] = None
+    # old  last_messages: Optional[int] = None
+    # old  last_messages: Optional[int] = None
+    # old  last_messages: Optional[int] = None
+    # old  last_messages: Optional[int] = None
+    # old  last_messages: Optional[int]
     """
     The number of most recent messages from the thread when constructing the context
     for the run.
     """
 
 
-class RunCreateParamsNonStreaming(RunCreateParamsBase, total=False):
-    stream: Optional[Literal[False]]
+class RunCreateParamsNonStreaming(RunCreateParamsBase):
+    stream: Optional[Literal[False]] = None
+    # old  stream: Optional[Literal[False]] = None
+    # old  stream: Optional[Literal[False]] = None
+    # old  stream: Optional[Literal[False]] = None
+    # old  stream: Optional[Literal[False]] = None
+    # old  stream: Optional[Literal[False]]
     """
     If `true`, returns a stream of events that happen during the Run as server-sent
     events, terminating when the Run enters a terminal state with a `data: [DONE]`
@@ -250,7 +385,12 @@ class RunCreateParamsNonStreaming(RunCreateParamsBase, total=False):
 
 
 class RunCreateParamsStreaming(RunCreateParamsBase):
-    stream: Required[Literal[True]]
+    stream: Optional[Literal[True]] = None
+    # old  stream: Optional[Literal[True]] = None
+    # old  stream: Optional[Literal[True]] = None
+    # old  stream: Optional[Literal[True]] = None
+    # old  stream: Literal[True] = None
+    # old  stream: Required[Literal[True]]
     """
     If `true`, returns a stream of events that happen during the Run as server-sent
     events, terminating when the Run enters a terminal state with a `data: [DONE]`
@@ -259,3 +399,8 @@ class RunCreateParamsStreaming(RunCreateParamsBase):
 
 
 RunCreateParams = Union[RunCreateParamsNonStreaming, RunCreateParamsStreaming]
+
+
+
+
+

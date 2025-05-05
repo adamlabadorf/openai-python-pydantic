@@ -3,16 +3,18 @@
 from __future__ import annotations
 
 from typing import Union
-from typing_extensions import Literal, Required, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 __all__ = ["ComparisonFilter"]
 
 
-class ComparisonFilter(TypedDict, total=False):
-    key: Required[str]
+class ComparisonFilter(BaseModel):
+    key: str = None
+    # old  key: Required[str]
     """The key to compare against the value."""
 
-    type: Required[Literal["eq", "ne", "gt", "gte", "lt", "lte"]]
+    type: Literal["eq", "ne", "gt", "gte", "lt", "lte"] = None
+    # old  type: Required[Literal["eq", "ne", "gt", "gte", "lt", "lte"]]
     """Specifies the comparison operator: `eq`, `ne`, `gt`, `gte`, `lt`, `lte`.
 
     - `eq`: equals
@@ -23,8 +25,10 @@ class ComparisonFilter(TypedDict, total=False):
     - `lte`: less than or equal
     """
 
-    value: Required[Union[str, float, bool]]
+    value: Union[str, float, bool] = None
+    # old  value: Required[Union[str, float, bool]]
     """
     The value to compare against the attribute key; supports string, number, or
     boolean types.
     """
+

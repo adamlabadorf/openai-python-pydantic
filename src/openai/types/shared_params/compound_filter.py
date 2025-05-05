@@ -3,21 +3,24 @@
 from __future__ import annotations
 
 from typing import Union, Iterable
-from typing_extensions import Literal, Required, TypeAlias, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 from .comparison_filter import ComparisonFilter
 
 __all__ = ["CompoundFilter", "Filter"]
 
-Filter: TypeAlias = Union[ComparisonFilter, object]
+Filter = Union[ComparisonFilter, object] # old Filter: TypeAlias = Union[ComparisonFilter, object]
 
 
-class CompoundFilter(TypedDict, total=False):
-    filters: Required[Iterable[Filter]]
+class CompoundFilter(BaseModel):
+    filters: List[Filter] = None
+    # old  filters: Required[Iterable[Filter]]
     """Array of filters to combine.
 
     Items can be `ComparisonFilter` or `CompoundFilter`.
     """
 
-    type: Required[Literal["and", "or"]]
+    type: Literal["and", "or"] = None
+    # old  type: Required[Literal["and", "or"]]
     """Type of operation: `and` or `or`."""
+

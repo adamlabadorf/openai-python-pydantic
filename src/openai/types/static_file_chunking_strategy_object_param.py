@@ -2,15 +2,18 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Required, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 from .static_file_chunking_strategy_param import StaticFileChunkingStrategyParam
 
 __all__ = ["StaticFileChunkingStrategyObjectParam"]
 
 
-class StaticFileChunkingStrategyObjectParam(TypedDict, total=False):
-    static: Required[StaticFileChunkingStrategyParam]
+class StaticFileChunkingStrategyObjectParam(BaseModel):
+    static: StaticFileChunkingStrategyParam = None
+    # old  static: Required[StaticFileChunkingStrategyParam]
 
-    type: Required[Literal["static"]]
+    type: Literal["static"] = None
+    # old  type: Required[Literal["static"]]
     """Always `static`."""
+

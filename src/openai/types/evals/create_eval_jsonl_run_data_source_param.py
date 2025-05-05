@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 from typing import Dict, Union, Iterable
-from typing_extensions import Literal, Required, TypeAlias, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 __all__ = [
     "CreateEvalJSONLRunDataSourceParam",
     "Source",
@@ -14,33 +14,69 @@ __all__ = [
 ]
 
 
-class SourceFileContentContent(TypedDict, total=False):
-    item: Required[Dict[str, object]]
+class SourceFileContentContent(BaseModel):
+    item: Optional[Dict[str, object]] = None
+    # old  item: Optional[Dict[str, object]] = None
+    # old  item: Optional[Dict[str, object]] = None
+    # old  item: Dict[str, object] = None
+    # old  item: Required[Dict[str, object]]
 
-    sample: Dict[str, object]
+    sample: Optional[Dict[str, object]] = None
+    # old  sample: Optional[Dict[str, object]] = None
+    # old  sample: Optional[Dict[str, object]] = None
+    # old  sample: Optional[Dict[str, object]] = None
+    # old  sample: Dict[str, object]
 
 
-class SourceFileContent(TypedDict, total=False):
-    content: Required[Iterable[SourceFileContentContent]]
+class SourceFileContent(BaseModel):
+    content: Optional[List[SourceFileContentContent]] = None
+    # old  content: Optional[List[SourceFileContentContent]] = None
+    # old  content: Optional[List[SourceFileContentContent]] = None
+    # old  content: List[SourceFileContentContent] = None
+    # old  content: Required[Iterable[SourceFileContentContent]]
     """The content of the jsonl file."""
 
-    type: Required[Literal["file_content"]]
+    type: Optional[Literal["file_content"]] = None
+    # old  type: Optional[Literal["file_content"]] = None
+    # old  type: Optional[Literal["file_content"]] = None
+    # old  type: Literal["file_content"] = None
+    # old  type: Required[Literal["file_content"]]
     """The type of jsonl source. Always `file_content`."""
 
 
-class SourceFileID(TypedDict, total=False):
-    id: Required[str]
+class SourceFileID(BaseModel):
+    id: Optional[str] = None
+    # old  id: Optional[str] = None
+    # old  id: Optional[str] = None
+    # old  id: str = None
+    # old  id: Required[str]
     """The identifier of the file."""
 
-    type: Required[Literal["file_id"]]
+    type: Optional[Literal["file_id"]] = None
+    # old  type: Optional[Literal["file_id"]] = None
+    # old  type: Optional[Literal["file_id"]] = None
+    # old  type: Literal["file_id"] = None
+    # old  type: Required[Literal["file_id"]]
     """The type of jsonl source. Always `file_id`."""
 
 
-Source: TypeAlias = Union[SourceFileContent, SourceFileID]
+Source = Union[SourceFileContent, SourceFileID] # old Source: TypeAlias = Union[SourceFileContent, SourceFileID]
 
 
-class CreateEvalJSONLRunDataSourceParam(TypedDict, total=False):
-    source: Required[Source]
+class CreateEvalJSONLRunDataSourceParam(BaseModel):
+    source: Optional[Source] = None
+    # old  source: Optional[Source] = None
+    # old  source: Optional[Source] = None
+    # old  source: Source = None
+    # old  source: Required[Source]
 
-    type: Required[Literal["jsonl"]]
+    type: Optional[Literal["jsonl"]] = None
+    # old  type: Optional[Literal["jsonl"]] = None
+    # old  type: Optional[Literal["jsonl"]] = None
+    # old  type: Literal["jsonl"] = None
+    # old  type: Required[Literal["jsonl"]]
     """The type of data source. Always `jsonl`."""
+
+
+
+

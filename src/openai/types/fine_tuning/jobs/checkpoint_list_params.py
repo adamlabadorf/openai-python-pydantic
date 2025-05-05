@@ -2,14 +2,16 @@
 
 from __future__ import annotations
 
-from typing_extensions import TypedDict
-
+from pydantic import BaseModel
 __all__ = ["CheckpointListParams"]
 
 
-class CheckpointListParams(TypedDict, total=False):
-    after: str
+class CheckpointListParams(BaseModel):
+    after: Optional[str] = None
+    # old  after: str
     """Identifier for the last checkpoint ID from the previous pagination request."""
 
-    limit: int
+    limit: Optional[int] = None
+    # old  limit: int
     """Number of checkpoints to retrieve."""
+

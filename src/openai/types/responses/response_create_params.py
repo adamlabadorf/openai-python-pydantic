@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 from typing import List, Union, Iterable, Optional
-from typing_extensions import Literal, Required, TypeAlias, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 from .tool_param import ToolParam
 from .response_includable import ResponseIncludable
 from .tool_choice_options import ToolChoiceOptions
@@ -24,8 +24,9 @@ __all__ = [
 ]
 
 
-class ResponseCreateParamsBase(TypedDict, total=False):
-    input: Required[Union[str, ResponseInputParam]]
+class ResponseCreateParamsBase(BaseModel):
+    input: Union[str, ResponseInputParam] = None
+    # old  input: Required[Union[str, ResponseInputParam]]
     """Text, image, or file inputs to the model, used to generate a response.
 
     Learn more:
@@ -37,7 +38,8 @@ class ResponseCreateParamsBase(TypedDict, total=False):
     - [Function calling](https://platform.openai.com/docs/guides/function-calling)
     """
 
-    model: Required[ResponsesModel]
+    model: ResponsesModel = None
+    # old  model: Required[ResponsesModel]
     """Model ID used to generate the response, like `gpt-4o` or `o3`.
 
     OpenAI offers a wide range of models with different capabilities, performance
@@ -46,7 +48,8 @@ class ResponseCreateParamsBase(TypedDict, total=False):
     available models.
     """
 
-    include: Optional[List[ResponseIncludable]]
+    include: Optional[List[ResponseIncludable]] = None
+    # old  include: Optional[List[ResponseIncludable]]
     """Specify additional output data to include in the model response.
 
     Currently supported values are:
@@ -63,7 +66,8 @@ class ResponseCreateParamsBase(TypedDict, total=False):
       in the zero data retention program).
     """
 
-    instructions: Optional[str]
+    instructions: Optional[str] = None
+    # old  instructions: Optional[str]
     """
     Inserts a system (or developer) message as the first item in the model's
     context.
@@ -73,14 +77,16 @@ class ResponseCreateParamsBase(TypedDict, total=False):
     swap out system (or developer) messages in new responses.
     """
 
-    max_output_tokens: Optional[int]
+    max_output_tokens: Optional[int] = None
+    # old  max_output_tokens: Optional[int]
     """
     An upper bound for the number of tokens that can be generated for a response,
     including visible output tokens and
     [reasoning tokens](https://platform.openai.com/docs/guides/reasoning).
     """
 
-    metadata: Optional[Metadata]
+    metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata]
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -90,24 +96,28 @@ class ResponseCreateParamsBase(TypedDict, total=False):
     a maximum length of 512 characters.
     """
 
-    parallel_tool_calls: Optional[bool]
+    parallel_tool_calls: Optional[bool] = None
+    # old  parallel_tool_calls: Optional[bool]
     """Whether to allow the model to run tool calls in parallel."""
 
-    previous_response_id: Optional[str]
+    previous_response_id: Optional[str] = None
+    # old  previous_response_id: Optional[str]
     """The unique ID of the previous response to the model.
 
     Use this to create multi-turn conversations. Learn more about
     [conversation state](https://platform.openai.com/docs/guides/conversation-state).
     """
 
-    reasoning: Optional[Reasoning]
+    reasoning: Optional[Reasoning] = None
+    # old  reasoning: Optional[Reasoning]
     """**o-series models only**
 
     Configuration options for
     [reasoning models](https://platform.openai.com/docs/guides/reasoning).
     """
 
-    service_tier: Optional[Literal["auto", "default", "flex"]]
+    service_tier: Optional[Literal["auto", "default", "flex"]] = None
+    # old  service_tier: Optional[Literal["auto", "default", "flex"]]
     """Specifies the latency tier to use for processing the request.
 
     This parameter is relevant for customers subscribed to the scale tier service:
@@ -128,10 +138,12 @@ class ResponseCreateParamsBase(TypedDict, total=False):
     utilized.
     """
 
-    store: Optional[bool]
+    store: Optional[bool] = None
+    # old  store: Optional[bool]
     """Whether to store the generated model response for later retrieval via API."""
 
-    temperature: Optional[float]
+    temperature: Optional[float] = None
+    # old  temperature: Optional[float]
     """What sampling temperature to use, between 0 and 2.
 
     Higher values like 0.8 will make the output more random, while lower values like
@@ -139,7 +151,8 @@ class ResponseCreateParamsBase(TypedDict, total=False):
     this or `top_p` but not both.
     """
 
-    text: ResponseTextConfigParam
+    text: Optional[ResponseTextConfigParam] = None
+    # old  text: ResponseTextConfigParam
     """Configuration options for a text response from the model.
 
     Can be plain text or structured JSON data. Learn more:
@@ -148,14 +161,16 @@ class ResponseCreateParamsBase(TypedDict, total=False):
     - [Structured Outputs](https://platform.openai.com/docs/guides/structured-outputs)
     """
 
-    tool_choice: ToolChoice
+    tool_choice: Optional[ToolChoice] = None
+    # old  tool_choice: ToolChoice
     """
     How the model should select which tool (or tools) to use when generating a
     response. See the `tools` parameter to see how to specify which tools the model
     can call.
     """
 
-    tools: Iterable[ToolParam]
+    tools: Optional[List[ToolParam]] = None
+    # old  tools: Iterable[ToolParam]
     """An array of tools the model may call while generating a response.
 
     You can specify which tool to use by setting the `tool_choice` parameter.
@@ -173,7 +188,8 @@ class ResponseCreateParamsBase(TypedDict, total=False):
       [function calling](https://platform.openai.com/docs/guides/function-calling).
     """
 
-    top_p: Optional[float]
+    top_p: Optional[float] = None
+    # old  top_p: Optional[float]
     """
     An alternative to sampling with temperature, called nucleus sampling, where the
     model considers the results of the tokens with top_p probability mass. So 0.1
@@ -182,7 +198,8 @@ class ResponseCreateParamsBase(TypedDict, total=False):
     We generally recommend altering this or `temperature` but not both.
     """
 
-    truncation: Optional[Literal["auto", "disabled"]]
+    truncation: Optional[Literal["auto", "disabled"]] = None
+    # old  truncation: Optional[Literal["auto", "disabled"]]
     """The truncation strategy to use for the model response.
 
     - `auto`: If the context of this response and previous ones exceeds the model's
@@ -192,7 +209,8 @@ class ResponseCreateParamsBase(TypedDict, total=False):
       for a model, the request will fail with a 400 error.
     """
 
-    user: str
+    user: Optional[str] = None
+    # old  user: str
     """
     A unique identifier representing your end-user, which can help OpenAI to monitor
     and detect abuse.
@@ -200,11 +218,12 @@ class ResponseCreateParamsBase(TypedDict, total=False):
     """
 
 
-ToolChoice: TypeAlias = Union[ToolChoiceOptions, ToolChoiceTypesParam, ToolChoiceFunctionParam]
+ToolChoice = Union[ToolChoiceOptions, ToolChoiceTypesParam, ToolChoiceFunctionParam] # old ToolChoice: TypeAlias = Union[ToolChoiceOptions, ToolChoiceTypesParam, ToolChoiceFunctionParam]
 
 
-class ResponseCreateParamsNonStreaming(ResponseCreateParamsBase, total=False):
-    stream: Optional[Literal[False]]
+class ResponseCreateParamsNonStreaming(ResponseCreateParamsBase):
+    stream: Optional[Literal[False]] = None
+    # old  stream: Optional[Literal[False]]
     """
     If set to true, the model response data will be streamed to the client as it is
     generated using
@@ -216,7 +235,8 @@ class ResponseCreateParamsNonStreaming(ResponseCreateParamsBase, total=False):
 
 
 class ResponseCreateParamsStreaming(ResponseCreateParamsBase):
-    stream: Required[Literal[True]]
+    stream: Literal[True] = None
+    # old  stream: Required[Literal[True]]
     """
     If set to true, the model response data will be streamed to the client as it is
     generated using
@@ -228,3 +248,4 @@ class ResponseCreateParamsStreaming(ResponseCreateParamsBase):
 
 
 ResponseCreateParams = Union[ResponseCreateParamsNonStreaming, ResponseCreateParamsStreaming]
+

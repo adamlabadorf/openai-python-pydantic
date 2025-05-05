@@ -2,14 +2,16 @@
 
 from __future__ import annotations
 
-from typing_extensions import TypedDict
-
+from pydantic import BaseModel
 __all__ = ["JobListEventsParams"]
 
 
-class JobListEventsParams(TypedDict, total=False):
-    after: str
+class JobListEventsParams(BaseModel):
+    after: Optional[str] = None
+    # old  after: str
     """Identifier for the last event from the previous pagination request."""
 
-    limit: int
+    limit: Optional[int] = None
+    # old  limit: int
     """Number of events to retrieve."""
+

@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
-from typing_extensions import Required, TypedDict
-
+from pydantic import BaseModel
 from ..._types import FileTypes
 
 __all__ = ["PartCreateParams"]
 
 
-class PartCreateParams(TypedDict, total=False):
-    data: Required[FileTypes]
+class PartCreateParams(BaseModel):
+    data: FileTypes = None
+    # old  data: Required[FileTypes]
     """The chunk of bytes for this Part."""
+

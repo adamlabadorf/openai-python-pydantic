@@ -3,15 +3,16 @@
 from __future__ import annotations
 
 from typing import Optional
-from typing_extensions import Literal, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 from ..shared.reasoning_effort import ReasoningEffort
 
 __all__ = ["Reasoning"]
 
 
-class Reasoning(TypedDict, total=False):
-    effort: Optional[ReasoningEffort]
+class Reasoning(BaseModel):
+    effort: Optional[ReasoningEffort] = None
+    # old  effort: Optional[ReasoningEffort]
     """**o-series models only**
 
     Constrains effort on reasoning for
@@ -20,7 +21,8 @@ class Reasoning(TypedDict, total=False):
     result in faster responses and fewer tokens used on reasoning in a response.
     """
 
-    generate_summary: Optional[Literal["auto", "concise", "detailed"]]
+    generate_summary: Optional[Literal["auto", "concise", "detailed"]] = None
+    # old  generate_summary: Optional[Literal["auto", "concise", "detailed"]]
     """**Deprecated:** use `summary` instead.
 
     A summary of the reasoning performed by the model. This can be useful for
@@ -28,9 +30,11 @@ class Reasoning(TypedDict, total=False):
     `concise`, or `detailed`.
     """
 
-    summary: Optional[Literal["auto", "concise", "detailed"]]
+    summary: Optional[Literal["auto", "concise", "detailed"]] = None
+    # old  summary: Optional[Literal["auto", "concise", "detailed"]]
     """A summary of the reasoning performed by the model.
 
     This can be useful for debugging and understanding the model's reasoning
     process. One of `auto`, `concise`, or `detailed`.
     """
+

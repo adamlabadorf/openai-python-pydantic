@@ -3,17 +3,21 @@
 from __future__ import annotations
 
 from typing import Optional
-from typing_extensions import Literal, Required, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 __all__ = ["ChatCompletionFunctionMessageParam"]
 
 
-class ChatCompletionFunctionMessageParam(TypedDict, total=False):
-    content: Required[Optional[str]]
+class ChatCompletionFunctionMessageParam(BaseModel):
+    content: Optional[str] = None
+    # old  content: Required[Optional[str]]
     """The contents of the function message."""
 
-    name: Required[str]
+    name: str = None
+    # old  name: Required[str]
     """The name of the function to call."""
 
-    role: Required[Literal["function"]]
+    role: Literal["function"] = None
+    # old  role: Required[Literal["function"]]
     """The role of the messages author, in this case `function`."""
+

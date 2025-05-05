@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 from typing import List, Union, Iterable, Optional
-from typing_extensions import Literal, Required, TypeAlias, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 from ..shared.chat_model import ChatModel
 from .assistant_tool_param import AssistantToolParam
 from ..shared_params.metadata import Metadata
@@ -37,21 +37,69 @@ __all__ = [
 ]
 
 
-class ThreadCreateAndRunParamsBase(TypedDict, total=False):
-    assistant_id: Required[str]
+class ThreadCreateAndRunParamsBase(BaseModel):
+    assistant_id: Optional[str] = None
+    # old  assistant_id: Optional[str] = None
+    # old  assistant_id: Optional[str] = None
+    # old  assistant_id: Optional[str] = None
+    # old  assistant_id: Optional[str] = None
+    # old  assistant_id: Optional[str] = None
+    # old  assistant_id: Optional[str] = None
+    # old  assistant_id: Optional[str] = None
+    # old  assistant_id: Optional[str] = None
+    # old  assistant_id: Optional[str] = None
+    # old  assistant_id: Optional[str] = None
+    # old  assistant_id: Optional[str] = None
+    # old  assistant_id: Optional[str] = None
+    # old  assistant_id: Optional[str] = None
+    # old  assistant_id: Optional[str] = None
+    # old  assistant_id: str = None
+    # old  assistant_id: Required[str]
     """
     The ID of the
     [assistant](https://platform.openai.com/docs/api-reference/assistants) to use to
     execute this run.
     """
 
-    instructions: Optional[str]
+    instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str] = None
+    # old  instructions: Optional[str]
     """Override the default system message of the assistant.
 
     This is useful for modifying the behavior on a per-run basis.
     """
 
-    max_completion_tokens: Optional[int]
+    max_completion_tokens: Optional[int] = None
+    # old  max_completion_tokens: Optional[int] = None
+    # old  max_completion_tokens: Optional[int] = None
+    # old  max_completion_tokens: Optional[int] = None
+    # old  max_completion_tokens: Optional[int] = None
+    # old  max_completion_tokens: Optional[int] = None
+    # old  max_completion_tokens: Optional[int] = None
+    # old  max_completion_tokens: Optional[int] = None
+    # old  max_completion_tokens: Optional[int] = None
+    # old  max_completion_tokens: Optional[int] = None
+    # old  max_completion_tokens: Optional[int] = None
+    # old  max_completion_tokens: Optional[int] = None
+    # old  max_completion_tokens: Optional[int] = None
+    # old  max_completion_tokens: Optional[int] = None
+    # old  max_completion_tokens: Optional[int] = None
+    # old  max_completion_tokens: Optional[int] = None
+    # old  max_completion_tokens: Optional[int]
     """
     The maximum number of completion tokens that may be used over the course of the
     run. The run will make a best effort to use only the number of completion tokens
@@ -60,7 +108,23 @@ class ThreadCreateAndRunParamsBase(TypedDict, total=False):
     `incomplete_details` for more info.
     """
 
-    max_prompt_tokens: Optional[int]
+    max_prompt_tokens: Optional[int] = None
+    # old  max_prompt_tokens: Optional[int] = None
+    # old  max_prompt_tokens: Optional[int] = None
+    # old  max_prompt_tokens: Optional[int] = None
+    # old  max_prompt_tokens: Optional[int] = None
+    # old  max_prompt_tokens: Optional[int] = None
+    # old  max_prompt_tokens: Optional[int] = None
+    # old  max_prompt_tokens: Optional[int] = None
+    # old  max_prompt_tokens: Optional[int] = None
+    # old  max_prompt_tokens: Optional[int] = None
+    # old  max_prompt_tokens: Optional[int] = None
+    # old  max_prompt_tokens: Optional[int] = None
+    # old  max_prompt_tokens: Optional[int] = None
+    # old  max_prompt_tokens: Optional[int] = None
+    # old  max_prompt_tokens: Optional[int] = None
+    # old  max_prompt_tokens: Optional[int] = None
+    # old  max_prompt_tokens: Optional[int]
     """The maximum number of prompt tokens that may be used over the course of the run.
 
     The run will make a best effort to use only the number of prompt tokens
@@ -69,7 +133,23 @@ class ThreadCreateAndRunParamsBase(TypedDict, total=False):
     `incomplete_details` for more info.
     """
 
-    metadata: Optional[Metadata]
+    metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata]
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -79,7 +159,23 @@ class ThreadCreateAndRunParamsBase(TypedDict, total=False):
     a maximum length of 512 characters.
     """
 
-    model: Union[str, ChatModel, None]
+    model: Optional[Union[str, ChatModel, None]] = None
+    # old  model: Optional[Union[str, ChatModel, None]] = None
+    # old  model: Optional[Union[str, ChatModel, None]] = None
+    # old  model: Optional[Union[str, ChatModel, None]] = None
+    # old  model: Optional[Union[str, ChatModel, None]] = None
+    # old  model: Optional[Union[str, ChatModel, None]] = None
+    # old  model: Optional[Union[str, ChatModel, None]] = None
+    # old  model: Optional[Union[str, ChatModel, None]] = None
+    # old  model: Optional[Union[str, ChatModel, None]] = None
+    # old  model: Optional[Union[str, ChatModel, None]] = None
+    # old  model: Optional[Union[str, ChatModel, None]] = None
+    # old  model: Optional[Union[str, ChatModel, None]] = None
+    # old  model: Optional[Union[str, ChatModel, None]] = None
+    # old  model: Optional[Union[str, ChatModel, None]] = None
+    # old  model: Optional[Union[str, ChatModel, None]] = None
+    # old  model: Optional[Union[str, ChatModel, None]] = None
+    # old  model: Union[str, ChatModel, None]
     """
     The ID of the [Model](https://platform.openai.com/docs/api-reference/models) to
     be used to execute this run. If a value is provided here, it will override the
@@ -87,14 +183,46 @@ class ThreadCreateAndRunParamsBase(TypedDict, total=False):
     assistant will be used.
     """
 
-    parallel_tool_calls: bool
+    parallel_tool_calls: Optional[bool] = None
+    # old  parallel_tool_calls: Optional[bool] = None
+    # old  parallel_tool_calls: Optional[bool] = None
+    # old  parallel_tool_calls: Optional[bool] = None
+    # old  parallel_tool_calls: Optional[bool] = None
+    # old  parallel_tool_calls: Optional[bool] = None
+    # old  parallel_tool_calls: Optional[bool] = None
+    # old  parallel_tool_calls: Optional[bool] = None
+    # old  parallel_tool_calls: Optional[bool] = None
+    # old  parallel_tool_calls: Optional[bool] = None
+    # old  parallel_tool_calls: Optional[bool] = None
+    # old  parallel_tool_calls: Optional[bool] = None
+    # old  parallel_tool_calls: Optional[bool] = None
+    # old  parallel_tool_calls: Optional[bool] = None
+    # old  parallel_tool_calls: Optional[bool] = None
+    # old  parallel_tool_calls: Optional[bool] = None
+    # old  parallel_tool_calls: bool
     """
     Whether to enable
     [parallel function calling](https://platform.openai.com/docs/guides/function-calling#configuring-parallel-function-calling)
     during tool use.
     """
 
-    response_format: Optional[AssistantResponseFormatOptionParam]
+    response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
+    # old  response_format: Optional[AssistantResponseFormatOptionParam]
     """Specifies the format that the model must output.
 
     Compatible with [GPT-4o](https://platform.openai.com/docs/models#gpt-4o),
@@ -118,21 +246,69 @@ class ThreadCreateAndRunParamsBase(TypedDict, total=False):
     max context length.
     """
 
-    temperature: Optional[float]
+    temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float] = None
+    # old  temperature: Optional[float]
     """What sampling temperature to use, between 0 and 2.
 
     Higher values like 0.8 will make the output more random, while lower values like
     0.2 will make it more focused and deterministic.
     """
 
-    thread: Thread
+    thread: Optional[Thread] = None
+    # old  thread: Optional[Thread] = None
+    # old  thread: Optional[Thread] = None
+    # old  thread: Optional[Thread] = None
+    # old  thread: Optional[Thread] = None
+    # old  thread: Optional[Thread] = None
+    # old  thread: Optional[Thread] = None
+    # old  thread: Optional[Thread] = None
+    # old  thread: Optional[Thread] = None
+    # old  thread: Optional[Thread] = None
+    # old  thread: Optional[Thread] = None
+    # old  thread: Optional[Thread] = None
+    # old  thread: Optional[Thread] = None
+    # old  thread: Optional[Thread] = None
+    # old  thread: Optional[Thread] = None
+    # old  thread: Optional[Thread] = None
+    # old  thread: Thread
     """Options to create a new thread.
 
     If no thread is provided when running a request, an empty thread will be
     created.
     """
 
-    tool_choice: Optional[AssistantToolChoiceOptionParam]
+    tool_choice: Optional[AssistantToolChoiceOptionParam] = None
+    # old  tool_choice: Optional[AssistantToolChoiceOptionParam] = None
+    # old  tool_choice: Optional[AssistantToolChoiceOptionParam] = None
+    # old  tool_choice: Optional[AssistantToolChoiceOptionParam] = None
+    # old  tool_choice: Optional[AssistantToolChoiceOptionParam] = None
+    # old  tool_choice: Optional[AssistantToolChoiceOptionParam] = None
+    # old  tool_choice: Optional[AssistantToolChoiceOptionParam] = None
+    # old  tool_choice: Optional[AssistantToolChoiceOptionParam] = None
+    # old  tool_choice: Optional[AssistantToolChoiceOptionParam] = None
+    # old  tool_choice: Optional[AssistantToolChoiceOptionParam] = None
+    # old  tool_choice: Optional[AssistantToolChoiceOptionParam] = None
+    # old  tool_choice: Optional[AssistantToolChoiceOptionParam] = None
+    # old  tool_choice: Optional[AssistantToolChoiceOptionParam] = None
+    # old  tool_choice: Optional[AssistantToolChoiceOptionParam] = None
+    # old  tool_choice: Optional[AssistantToolChoiceOptionParam] = None
+    # old  tool_choice: Optional[AssistantToolChoiceOptionParam] = None
+    # old  tool_choice: Optional[AssistantToolChoiceOptionParam]
     """
     Controls which (if any) tool is called by the model. `none` means the model will
     not call any tools and instead generates a message. `auto` is the default value
@@ -143,7 +319,23 @@ class ThreadCreateAndRunParamsBase(TypedDict, total=False):
     call that tool.
     """
 
-    tool_resources: Optional[ToolResources]
+    tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources]
     """A set of resources that are used by the assistant's tools.
 
     The resources are specific to the type of tool. For example, the
@@ -151,13 +343,45 @@ class ThreadCreateAndRunParamsBase(TypedDict, total=False):
     tool requires a list of vector store IDs.
     """
 
-    tools: Optional[Iterable[AssistantToolParam]]
+    tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[List[AssistantToolParam]] = None
+    # old  tools: Optional[Iterable[AssistantToolParam]]
     """Override the tools the assistant can use for this run.
 
     This is useful for modifying the behavior on a per-run basis.
     """
 
-    top_p: Optional[float]
+    top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float] = None
+    # old  top_p: Optional[float]
     """
     An alternative to sampling with temperature, called nucleus sampling, where the
     model considers the results of the tokens with top_p probability mass. So 0.1
@@ -166,34 +390,130 @@ class ThreadCreateAndRunParamsBase(TypedDict, total=False):
     We generally recommend altering this or temperature but not both.
     """
 
-    truncation_strategy: Optional[TruncationStrategy]
+    truncation_strategy: Optional[TruncationStrategy] = None
+    # old  truncation_strategy: Optional[TruncationStrategy] = None
+    # old  truncation_strategy: Optional[TruncationStrategy] = None
+    # old  truncation_strategy: Optional[TruncationStrategy] = None
+    # old  truncation_strategy: Optional[TruncationStrategy] = None
+    # old  truncation_strategy: Optional[TruncationStrategy] = None
+    # old  truncation_strategy: Optional[TruncationStrategy] = None
+    # old  truncation_strategy: Optional[TruncationStrategy] = None
+    # old  truncation_strategy: Optional[TruncationStrategy] = None
+    # old  truncation_strategy: Optional[TruncationStrategy] = None
+    # old  truncation_strategy: Optional[TruncationStrategy] = None
+    # old  truncation_strategy: Optional[TruncationStrategy] = None
+    # old  truncation_strategy: Optional[TruncationStrategy] = None
+    # old  truncation_strategy: Optional[TruncationStrategy] = None
+    # old  truncation_strategy: Optional[TruncationStrategy] = None
+    # old  truncation_strategy: Optional[TruncationStrategy] = None
+    # old  truncation_strategy: Optional[TruncationStrategy]
     """Controls for how a thread will be truncated prior to the run.
 
     Use this to control the intial context window of the run.
     """
 
 
-class ThreadMessageAttachmentToolFileSearch(TypedDict, total=False):
-    type: Required[Literal["file_search"]]
+class ThreadMessageAttachmentToolFileSearch(BaseModel):
+    type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Literal["file_search"] = None
+    # old  type: Required[Literal["file_search"]]
     """The type of tool being defined: `file_search`"""
 
 
-ThreadMessageAttachmentTool: TypeAlias = Union[CodeInterpreterToolParam, ThreadMessageAttachmentToolFileSearch]
+ThreadMessageAttachmentTool = Union[CodeInterpreterToolParam, ThreadMessageAttachmentToolFileSearch] # old ThreadMessageAttachmentTool: TypeAlias = Union[CodeInterpreterToolParam, ThreadMessageAttachmentToolFileSearch]
 
 
-class ThreadMessageAttachment(TypedDict, total=False):
-    file_id: str
+class ThreadMessageAttachment(BaseModel):
+    file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: str
     """The ID of the file to attach to the message."""
 
-    tools: Iterable[ThreadMessageAttachmentTool]
+    tools: Optional[List[ThreadMessageAttachmentTool]] = None
+    # old  tools: Optional[List[ThreadMessageAttachmentTool]] = None
+    # old  tools: Optional[List[ThreadMessageAttachmentTool]] = None
+    # old  tools: Optional[List[ThreadMessageAttachmentTool]] = None
+    # old  tools: Optional[List[ThreadMessageAttachmentTool]] = None
+    # old  tools: Optional[List[ThreadMessageAttachmentTool]] = None
+    # old  tools: Optional[List[ThreadMessageAttachmentTool]] = None
+    # old  tools: Optional[List[ThreadMessageAttachmentTool]] = None
+    # old  tools: Optional[List[ThreadMessageAttachmentTool]] = None
+    # old  tools: Optional[List[ThreadMessageAttachmentTool]] = None
+    # old  tools: Optional[List[ThreadMessageAttachmentTool]] = None
+    # old  tools: Optional[List[ThreadMessageAttachmentTool]] = None
+    # old  tools: Optional[List[ThreadMessageAttachmentTool]] = None
+    # old  tools: Optional[List[ThreadMessageAttachmentTool]] = None
+    # old  tools: Optional[List[ThreadMessageAttachmentTool]] = None
+    # old  tools: Optional[List[ThreadMessageAttachmentTool]] = None
+    # old  tools: Iterable[ThreadMessageAttachmentTool]
     """The tools to add this file to."""
 
 
-class ThreadMessage(TypedDict, total=False):
-    content: Required[Union[str, Iterable[MessageContentPartParam]]]
+class ThreadMessage(BaseModel):
+    content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Union[str, List[MessageContentPartParam]] = None
+    # old  content: Required[Union[str, Iterable[MessageContentPartParam]]]
     """The text contents of the message."""
 
-    role: Required[Literal["user", "assistant"]]
+    role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Literal["user", "assistant"] = None
+    # old  role: Required[Literal["user", "assistant"]]
     """The role of the entity that is creating the message. Allowed values include:
 
     - `user`: Indicates the message is sent by an actual user and should be used in
@@ -202,10 +522,42 @@ class ThreadMessage(TypedDict, total=False):
       value to insert messages from the assistant into the conversation.
     """
 
-    attachments: Optional[Iterable[ThreadMessageAttachment]]
+    attachments: Optional[List[ThreadMessageAttachment]] = None
+    # old  attachments: Optional[List[ThreadMessageAttachment]] = None
+    # old  attachments: Optional[List[ThreadMessageAttachment]] = None
+    # old  attachments: Optional[List[ThreadMessageAttachment]] = None
+    # old  attachments: Optional[List[ThreadMessageAttachment]] = None
+    # old  attachments: Optional[List[ThreadMessageAttachment]] = None
+    # old  attachments: Optional[List[ThreadMessageAttachment]] = None
+    # old  attachments: Optional[List[ThreadMessageAttachment]] = None
+    # old  attachments: Optional[List[ThreadMessageAttachment]] = None
+    # old  attachments: Optional[List[ThreadMessageAttachment]] = None
+    # old  attachments: Optional[List[ThreadMessageAttachment]] = None
+    # old  attachments: Optional[List[ThreadMessageAttachment]] = None
+    # old  attachments: Optional[List[ThreadMessageAttachment]] = None
+    # old  attachments: Optional[List[ThreadMessageAttachment]] = None
+    # old  attachments: Optional[List[ThreadMessageAttachment]] = None
+    # old  attachments: Optional[List[ThreadMessageAttachment]] = None
+    # old  attachments: Optional[Iterable[ThreadMessageAttachment]]
     """A list of files attached to the message, and the tools they should be added to."""
 
-    metadata: Optional[Metadata]
+    metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata]
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -216,8 +568,24 @@ class ThreadMessage(TypedDict, total=False):
     """
 
 
-class ThreadToolResourcesCodeInterpreter(TypedDict, total=False):
-    file_ids: List[str]
+class ThreadToolResourcesCodeInterpreter(BaseModel):
+    file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: List[str]
     """
     A list of [file](https://platform.openai.com/docs/api-reference/files) IDs made
     available to the `code_interpreter` tool. There can be a maximum of 20 files
@@ -225,19 +593,67 @@ class ThreadToolResourcesCodeInterpreter(TypedDict, total=False):
     """
 
 
-class ThreadToolResourcesFileSearchVectorStoreChunkingStrategyAuto(TypedDict, total=False):
-    type: Required[Literal["auto"]]
+class ThreadToolResourcesFileSearchVectorStoreChunkingStrategyAuto(BaseModel):
+    type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Literal["auto"] = None
+    # old  type: Required[Literal["auto"]]
     """Always `auto`."""
 
 
-class ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic(TypedDict, total=False):
-    chunk_overlap_tokens: Required[int]
+class ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic(BaseModel):
+    chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: int = None
+    # old  chunk_overlap_tokens: Required[int]
     """The number of tokens that overlap between chunks. The default value is `400`.
 
     Note that the overlap must not exceed half of `max_chunk_size_tokens`.
     """
 
-    max_chunk_size_tokens: Required[int]
+    max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: int = None
+    # old  max_chunk_size_tokens: Required[int]
     """The maximum number of tokens in each chunk.
 
     The default value is `800`. The minimum value is `100` and the maximum value is
@@ -245,34 +661,114 @@ class ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic(Typed
     """
 
 
-class ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStatic(TypedDict, total=False):
-    static: Required[ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic]
+class ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStatic(BaseModel):
+    static: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic = None
+    # old  static: Required[ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic]
 
-    type: Required[Literal["static"]]
+    type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Literal["static"] = None
+    # old  type: Required[Literal["static"]]
     """Always `static`."""
 
 
-ThreadToolResourcesFileSearchVectorStoreChunkingStrategy: TypeAlias = Union[
+ThreadToolResourcesFileSearchVectorStoreChunkingStrategy = Union[ # old ThreadToolResourcesFileSearchVectorStoreChunkingStrategy: TypeAlias = Union[
     ThreadToolResourcesFileSearchVectorStoreChunkingStrategyAuto,
     ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStatic,
 ]
 
 
-class ThreadToolResourcesFileSearchVectorStore(TypedDict, total=False):
-    chunking_strategy: ThreadToolResourcesFileSearchVectorStoreChunkingStrategy
+class ThreadToolResourcesFileSearchVectorStore(BaseModel):
+    chunking_strategy: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ThreadToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: ThreadToolResourcesFileSearchVectorStoreChunkingStrategy
     """The chunking strategy used to chunk the file(s).
 
     If not set, will use the `auto` strategy.
     """
 
-    file_ids: List[str]
+    file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: List[str]
     """
     A list of [file](https://platform.openai.com/docs/api-reference/files) IDs to
     add to the vector store. There can be a maximum of 10000 files in a vector
     store.
     """
 
-    metadata: Optional[Metadata]
+    metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata]
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -283,8 +779,24 @@ class ThreadToolResourcesFileSearchVectorStore(TypedDict, total=False):
     """
 
 
-class ThreadToolResourcesFileSearch(TypedDict, total=False):
-    vector_store_ids: List[str]
+class ThreadToolResourcesFileSearch(BaseModel):
+    vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: List[str]
     """
     The
     [vector store](https://platform.openai.com/docs/api-reference/vector-stores/object)
@@ -292,7 +804,23 @@ class ThreadToolResourcesFileSearch(TypedDict, total=False):
     the thread.
     """
 
-    vector_stores: Iterable[ThreadToolResourcesFileSearchVectorStore]
+    vector_stores: Optional[List[ThreadToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ThreadToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ThreadToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ThreadToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ThreadToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ThreadToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ThreadToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ThreadToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ThreadToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ThreadToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ThreadToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ThreadToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ThreadToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ThreadToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ThreadToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ThreadToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Iterable[ThreadToolResourcesFileSearchVectorStore]
     """
     A helper to create a
     [vector store](https://platform.openai.com/docs/api-reference/vector-stores/object)
@@ -301,20 +829,84 @@ class ThreadToolResourcesFileSearch(TypedDict, total=False):
     """
 
 
-class ThreadToolResources(TypedDict, total=False):
-    code_interpreter: ThreadToolResourcesCodeInterpreter
+class ThreadToolResources(BaseModel):
+    code_interpreter: Optional[ThreadToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ThreadToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ThreadToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ThreadToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ThreadToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ThreadToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ThreadToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ThreadToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ThreadToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ThreadToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ThreadToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ThreadToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ThreadToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ThreadToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ThreadToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ThreadToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: ThreadToolResourcesCodeInterpreter
 
-    file_search: ThreadToolResourcesFileSearch
+    file_search: Optional[ThreadToolResourcesFileSearch] = None
+    # old  file_search: Optional[ThreadToolResourcesFileSearch] = None
+    # old  file_search: Optional[ThreadToolResourcesFileSearch] = None
+    # old  file_search: Optional[ThreadToolResourcesFileSearch] = None
+    # old  file_search: Optional[ThreadToolResourcesFileSearch] = None
+    # old  file_search: Optional[ThreadToolResourcesFileSearch] = None
+    # old  file_search: Optional[ThreadToolResourcesFileSearch] = None
+    # old  file_search: Optional[ThreadToolResourcesFileSearch] = None
+    # old  file_search: Optional[ThreadToolResourcesFileSearch] = None
+    # old  file_search: Optional[ThreadToolResourcesFileSearch] = None
+    # old  file_search: Optional[ThreadToolResourcesFileSearch] = None
+    # old  file_search: Optional[ThreadToolResourcesFileSearch] = None
+    # old  file_search: Optional[ThreadToolResourcesFileSearch] = None
+    # old  file_search: Optional[ThreadToolResourcesFileSearch] = None
+    # old  file_search: Optional[ThreadToolResourcesFileSearch] = None
+    # old  file_search: Optional[ThreadToolResourcesFileSearch] = None
+    # old  file_search: ThreadToolResourcesFileSearch
 
 
-class Thread(TypedDict, total=False):
-    messages: Iterable[ThreadMessage]
+class Thread(BaseModel):
+    messages: Optional[List[ThreadMessage]] = None
+    # old  messages: Optional[List[ThreadMessage]] = None
+    # old  messages: Optional[List[ThreadMessage]] = None
+    # old  messages: Optional[List[ThreadMessage]] = None
+    # old  messages: Optional[List[ThreadMessage]] = None
+    # old  messages: Optional[List[ThreadMessage]] = None
+    # old  messages: Optional[List[ThreadMessage]] = None
+    # old  messages: Optional[List[ThreadMessage]] = None
+    # old  messages: Optional[List[ThreadMessage]] = None
+    # old  messages: Optional[List[ThreadMessage]] = None
+    # old  messages: Optional[List[ThreadMessage]] = None
+    # old  messages: Optional[List[ThreadMessage]] = None
+    # old  messages: Optional[List[ThreadMessage]] = None
+    # old  messages: Optional[List[ThreadMessage]] = None
+    # old  messages: Optional[List[ThreadMessage]] = None
+    # old  messages: Optional[List[ThreadMessage]] = None
+    # old  messages: Iterable[ThreadMessage]
     """
     A list of [messages](https://platform.openai.com/docs/api-reference/messages) to
     start the thread with.
     """
 
-    metadata: Optional[Metadata]
+    metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata]
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -324,7 +916,23 @@ class Thread(TypedDict, total=False):
     a maximum length of 512 characters.
     """
 
-    tool_resources: Optional[ThreadToolResources]
+    tool_resources: Optional[ThreadToolResources] = None
+    # old  tool_resources: Optional[ThreadToolResources] = None
+    # old  tool_resources: Optional[ThreadToolResources] = None
+    # old  tool_resources: Optional[ThreadToolResources] = None
+    # old  tool_resources: Optional[ThreadToolResources] = None
+    # old  tool_resources: Optional[ThreadToolResources] = None
+    # old  tool_resources: Optional[ThreadToolResources] = None
+    # old  tool_resources: Optional[ThreadToolResources] = None
+    # old  tool_resources: Optional[ThreadToolResources] = None
+    # old  tool_resources: Optional[ThreadToolResources] = None
+    # old  tool_resources: Optional[ThreadToolResources] = None
+    # old  tool_resources: Optional[ThreadToolResources] = None
+    # old  tool_resources: Optional[ThreadToolResources] = None
+    # old  tool_resources: Optional[ThreadToolResources] = None
+    # old  tool_resources: Optional[ThreadToolResources] = None
+    # old  tool_resources: Optional[ThreadToolResources] = None
+    # old  tool_resources: Optional[ThreadToolResources]
     """
     A set of resources that are made available to the assistant's tools in this
     thread. The resources are specific to the type of tool. For example, the
@@ -333,8 +941,24 @@ class Thread(TypedDict, total=False):
     """
 
 
-class ToolResourcesCodeInterpreter(TypedDict, total=False):
-    file_ids: List[str]
+class ToolResourcesCodeInterpreter(BaseModel):
+    file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: List[str]
     """
     A list of [file](https://platform.openai.com/docs/api-reference/files) IDs made
     available to the `code_interpreter` tool. There can be a maximum of 20 files
@@ -342,8 +966,24 @@ class ToolResourcesCodeInterpreter(TypedDict, total=False):
     """
 
 
-class ToolResourcesFileSearch(TypedDict, total=False):
-    vector_store_ids: List[str]
+class ToolResourcesFileSearch(BaseModel):
+    vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: List[str]
     """
     The ID of the
     [vector store](https://platform.openai.com/docs/api-reference/vector-stores/object)
@@ -352,14 +992,62 @@ class ToolResourcesFileSearch(TypedDict, total=False):
     """
 
 
-class ToolResources(TypedDict, total=False):
-    code_interpreter: ToolResourcesCodeInterpreter
+class ToolResources(BaseModel):
+    code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: ToolResourcesCodeInterpreter
 
-    file_search: ToolResourcesFileSearch
+    file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: ToolResourcesFileSearch
 
 
-class TruncationStrategy(TypedDict, total=False):
-    type: Required[Literal["auto", "last_messages"]]
+class TruncationStrategy(BaseModel):
+    type: Optional[Literal["auto", "last_messages"]] = None
+    # old  type: Optional[Literal["auto", "last_messages"]] = None
+    # old  type: Optional[Literal["auto", "last_messages"]] = None
+    # old  type: Optional[Literal["auto", "last_messages"]] = None
+    # old  type: Optional[Literal["auto", "last_messages"]] = None
+    # old  type: Optional[Literal["auto", "last_messages"]] = None
+    # old  type: Optional[Literal["auto", "last_messages"]] = None
+    # old  type: Optional[Literal["auto", "last_messages"]] = None
+    # old  type: Optional[Literal["auto", "last_messages"]] = None
+    # old  type: Optional[Literal["auto", "last_messages"]] = None
+    # old  type: Optional[Literal["auto", "last_messages"]] = None
+    # old  type: Optional[Literal["auto", "last_messages"]] = None
+    # old  type: Optional[Literal["auto", "last_messages"]] = None
+    # old  type: Optional[Literal["auto", "last_messages"]] = None
+    # old  type: Optional[Literal["auto", "last_messages"]] = None
+    # old  type: Literal["auto", "last_messages"] = None
+    # old  type: Required[Literal["auto", "last_messages"]]
     """The truncation strategy to use for the thread.
 
     The default is `auto`. If set to `last_messages`, the thread will be truncated
@@ -368,15 +1056,47 @@ class TruncationStrategy(TypedDict, total=False):
     `max_prompt_tokens`.
     """
 
-    last_messages: Optional[int]
+    last_messages: Optional[int] = None
+    # old  last_messages: Optional[int] = None
+    # old  last_messages: Optional[int] = None
+    # old  last_messages: Optional[int] = None
+    # old  last_messages: Optional[int] = None
+    # old  last_messages: Optional[int] = None
+    # old  last_messages: Optional[int] = None
+    # old  last_messages: Optional[int] = None
+    # old  last_messages: Optional[int] = None
+    # old  last_messages: Optional[int] = None
+    # old  last_messages: Optional[int] = None
+    # old  last_messages: Optional[int] = None
+    # old  last_messages: Optional[int] = None
+    # old  last_messages: Optional[int] = None
+    # old  last_messages: Optional[int] = None
+    # old  last_messages: Optional[int] = None
+    # old  last_messages: Optional[int]
     """
     The number of most recent messages from the thread when constructing the context
     for the run.
     """
 
 
-class ThreadCreateAndRunParamsNonStreaming(ThreadCreateAndRunParamsBase, total=False):
-    stream: Optional[Literal[False]]
+class ThreadCreateAndRunParamsNonStreaming(ThreadCreateAndRunParamsBase):
+    stream: Optional[Literal[False]] = None
+    # old  stream: Optional[Literal[False]] = None
+    # old  stream: Optional[Literal[False]] = None
+    # old  stream: Optional[Literal[False]] = None
+    # old  stream: Optional[Literal[False]] = None
+    # old  stream: Optional[Literal[False]] = None
+    # old  stream: Optional[Literal[False]] = None
+    # old  stream: Optional[Literal[False]] = None
+    # old  stream: Optional[Literal[False]] = None
+    # old  stream: Optional[Literal[False]] = None
+    # old  stream: Optional[Literal[False]] = None
+    # old  stream: Optional[Literal[False]] = None
+    # old  stream: Optional[Literal[False]] = None
+    # old  stream: Optional[Literal[False]] = None
+    # old  stream: Optional[Literal[False]] = None
+    # old  stream: Optional[Literal[False]] = None
+    # old  stream: Optional[Literal[False]]
     """
     If `true`, returns a stream of events that happen during the Run as server-sent
     events, terminating when the Run enters a terminal state with a `data: [DONE]`
@@ -385,7 +1105,23 @@ class ThreadCreateAndRunParamsNonStreaming(ThreadCreateAndRunParamsBase, total=F
 
 
 class ThreadCreateAndRunParamsStreaming(ThreadCreateAndRunParamsBase):
-    stream: Required[Literal[True]]
+    stream: Optional[Literal[True]] = None
+    # old  stream: Optional[Literal[True]] = None
+    # old  stream: Optional[Literal[True]] = None
+    # old  stream: Optional[Literal[True]] = None
+    # old  stream: Optional[Literal[True]] = None
+    # old  stream: Optional[Literal[True]] = None
+    # old  stream: Optional[Literal[True]] = None
+    # old  stream: Optional[Literal[True]] = None
+    # old  stream: Optional[Literal[True]] = None
+    # old  stream: Optional[Literal[True]] = None
+    # old  stream: Optional[Literal[True]] = None
+    # old  stream: Optional[Literal[True]] = None
+    # old  stream: Optional[Literal[True]] = None
+    # old  stream: Optional[Literal[True]] = None
+    # old  stream: Optional[Literal[True]] = None
+    # old  stream: Literal[True] = None
+    # old  stream: Required[Literal[True]]
     """
     If `true`, returns a stream of events that happen during the Run as server-sent
     events, terminating when the Run enters a terminal state with a `data: [DONE]`
@@ -394,3 +1130,19 @@ class ThreadCreateAndRunParamsStreaming(ThreadCreateAndRunParamsBase):
 
 
 ThreadCreateAndRunParams = Union[ThreadCreateAndRunParamsNonStreaming, ThreadCreateAndRunParamsStreaming]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

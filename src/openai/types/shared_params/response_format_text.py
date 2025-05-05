@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Required, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 __all__ = ["ResponseFormatText"]
 
 
-class ResponseFormatText(TypedDict, total=False):
-    type: Required[Literal["text"]]
+class ResponseFormatText(BaseModel):
+    type: Literal["text"] = None
+    # old  type: Required[Literal["text"]]
     """The type of response format being defined. Always `text`."""
+

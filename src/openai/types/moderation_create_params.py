@@ -2,24 +2,25 @@
 
 from __future__ import annotations
 
-from typing import List, Union, Iterable
-from typing_extensions import Required, TypedDict
-
+from typing import List, Union, Optional
+from pydantic import BaseModel
 from .moderation_model import ModerationModel
 from .moderation_multi_modal_input_param import ModerationMultiModalInputParam
 
 __all__ = ["ModerationCreateParams"]
 
 
-class ModerationCreateParams(TypedDict, total=False):
-    input: Required[Union[str, List[str], Iterable[ModerationMultiModalInputParam]]]
+class ModerationCreateParams(BaseModel):
+    input: Union[str, List[str], List[ModerationMultiModalInputParam]] = None
+    # old  input: Required[Union[str, List[str], Iterable[ModerationMultiModalInputParam]]]
     """Input (or inputs) to classify.
 
     Can be a single string, an array of strings, or an array of multi-modal input
     objects similar to other models.
     """
 
-    model: Union[str, ModerationModel]
+    model: Optional[Union[str, ModerationModel]] = None
+    # old  model: Union[str, ModerationModel]
     """The content moderation model you would like to use.
 
     Learn more in
@@ -27,3 +28,4 @@ class ModerationCreateParams(TypedDict, total=False):
     learn about available models
     [here](https://platform.openai.com/docs/models#moderation).
     """
+

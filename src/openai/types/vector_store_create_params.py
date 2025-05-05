@@ -3,33 +3,41 @@
 from __future__ import annotations
 
 from typing import List, Optional
-from typing_extensions import Literal, Required, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 from .shared_params.metadata import Metadata
 from .file_chunking_strategy_param import FileChunkingStrategyParam
 
 __all__ = ["VectorStoreCreateParams", "ExpiresAfter"]
 
 
-class VectorStoreCreateParams(TypedDict, total=False):
-    chunking_strategy: FileChunkingStrategyParam
+class VectorStoreCreateParams(BaseModel):
+    chunking_strategy: Optional[FileChunkingStrategyParam] = None
+    # old  chunking_strategy: Optional[FileChunkingStrategyParam] = None
+    # old  chunking_strategy: FileChunkingStrategyParam
     """The chunking strategy used to chunk the file(s).
 
     If not set, will use the `auto` strategy. Only applicable if `file_ids` is
     non-empty.
     """
 
-    expires_after: ExpiresAfter
+    expires_after: Optional[ExpiresAfter] = None
+    # old  expires_after: Optional[ExpiresAfter] = None
+    # old  expires_after: ExpiresAfter
     """The expiration policy for a vector store."""
 
-    file_ids: List[str]
+    file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: List[str]
     """
     A list of [File](https://platform.openai.com/docs/api-reference/files) IDs that
     the vector store should use. Useful for tools like `file_search` that can access
     files.
     """
 
-    metadata: Optional[Metadata]
+    metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata]
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -39,16 +47,24 @@ class VectorStoreCreateParams(TypedDict, total=False):
     a maximum length of 512 characters.
     """
 
-    name: str
+    name: Optional[str] = None
+    # old  name: Optional[str] = None
+    # old  name: str
     """The name of the vector store."""
 
 
-class ExpiresAfter(TypedDict, total=False):
-    anchor: Required[Literal["last_active_at"]]
+class ExpiresAfter(BaseModel):
+    anchor: Optional[Literal["last_active_at"]] = None
+    # old  anchor: Literal["last_active_at"] = None
+    # old  anchor: Required[Literal["last_active_at"]]
     """Anchor timestamp after which the expiration policy applies.
 
     Supported anchors: `last_active_at`.
     """
 
-    days: Required[int]
+    days: Optional[int] = None
+    # old  days: int = None
+    # old  days: Required[int]
     """The number of days after the anchor time that the vector store will expire."""
+
+

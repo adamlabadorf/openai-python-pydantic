@@ -2,15 +2,15 @@
 
 from __future__ import annotations
 
-from typing_extensions import TypedDict
-
+from pydantic import BaseModel
 from .response_format_text_config_param import ResponseFormatTextConfigParam
 
 __all__ = ["ResponseTextConfigParam"]
 
 
-class ResponseTextConfigParam(TypedDict, total=False):
-    format: ResponseFormatTextConfigParam
+class ResponseTextConfigParam(BaseModel):
+    format: Optional[ResponseFormatTextConfigParam] = None
+    # old  format: ResponseFormatTextConfigParam
     """An object specifying the format that the model must output.
 
     Configuring `{ "type": "json_schema" }` enables Structured Outputs, which
@@ -25,3 +25,4 @@ class ResponseTextConfigParam(TypedDict, total=False):
     ensures the message the model generates is valid JSON. Using `json_schema` is
     preferred for models that support it.
     """
+

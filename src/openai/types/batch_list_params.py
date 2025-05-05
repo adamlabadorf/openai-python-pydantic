@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-from typing_extensions import TypedDict
-
+from pydantic import BaseModel
 __all__ = ["BatchListParams"]
 
 
-class BatchListParams(TypedDict, total=False):
-    after: str
+class BatchListParams(BaseModel):
+    after: Optional[str] = None
+    # old  after: str
     """A cursor for use in pagination.
 
     `after` is an object ID that defines your place in the list. For instance, if
@@ -17,8 +17,10 @@ class BatchListParams(TypedDict, total=False):
     list.
     """
 
-    limit: int
+    limit: Optional[int] = None
+    # old  limit: int
     """A limit on the number of objects to be returned.
 
     Limit can range between 1 and 100, and the default is 20.
     """
+

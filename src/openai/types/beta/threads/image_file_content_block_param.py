@@ -2,15 +2,18 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Required, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 from .image_file_param import ImageFileParam
 
 __all__ = ["ImageFileContentBlockParam"]
 
 
-class ImageFileContentBlockParam(TypedDict, total=False):
-    image_file: Required[ImageFileParam]
+class ImageFileContentBlockParam(BaseModel):
+    image_file: ImageFileParam = None
+    # old  image_file: Required[ImageFileParam]
 
-    type: Required[Literal["image_file"]]
+    type: Literal["image_file"] = None
+    # old  type: Required[Literal["image_file"]]
     """Always `image_file`."""
+

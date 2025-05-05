@@ -2,15 +2,18 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Required, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 from .image_url_param import ImageURLParam
 
 __all__ = ["ImageURLContentBlockParam"]
 
 
-class ImageURLContentBlockParam(TypedDict, total=False):
-    image_url: Required[ImageURLParam]
+class ImageURLContentBlockParam(BaseModel):
+    image_url: ImageURLParam = None
+    # old  image_url: Required[ImageURLParam]
 
-    type: Required[Literal["image_url"]]
+    type: Literal["image_url"] = None
+    # old  type: Required[Literal["image_url"]]
     """The type of the content part."""
+

@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 from typing import List, Union, Optional
-from typing_extensions import Literal, Required, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 from ..._types import FileTypes
 from ..audio_model import AudioModel
 from .transcription_include import TranscriptionInclude
@@ -17,21 +17,24 @@ __all__ = [
 ]
 
 
-class TranscriptionCreateParamsBase(TypedDict, total=False):
-    file: Required[FileTypes]
+class TranscriptionCreateParamsBase(BaseModel):
+    file: FileTypes = None
+    # old  file: Required[FileTypes]
     """
     The audio file object (not file name) to transcribe, in one of these formats:
     flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.
     """
 
-    model: Required[Union[str, AudioModel]]
+    model: Union[str, AudioModel] = None
+    # old  model: Required[Union[str, AudioModel]]
     """ID of the model to use.
 
     The options are `gpt-4o-transcribe`, `gpt-4o-mini-transcribe`, and `whisper-1`
     (which is powered by our open source Whisper V2 model).
     """
 
-    include: List[TranscriptionInclude]
+    include: Optional[List[TranscriptionInclude]] = None
+    # old  include: List[TranscriptionInclude]
     """Additional information to include in the transcription response.
 
     `logprobs` will return the log probabilities of the tokens in the response to
@@ -40,7 +43,8 @@ class TranscriptionCreateParamsBase(TypedDict, total=False):
     and `gpt-4o-mini-transcribe`.
     """
 
-    language: str
+    language: Optional[str] = None
+    # old  language: str
     """The language of the input audio.
 
     Supplying the input language in
@@ -48,7 +52,8 @@ class TranscriptionCreateParamsBase(TypedDict, total=False):
     format will improve accuracy and latency.
     """
 
-    prompt: str
+    prompt: Optional[str] = None
+    # old  prompt: str
     """An optional text to guide the model's style or continue a previous audio
     segment.
 
@@ -56,14 +61,16 @@ class TranscriptionCreateParamsBase(TypedDict, total=False):
     should match the audio language.
     """
 
-    response_format: AudioResponseFormat
+    response_format: Optional[AudioResponseFormat] = None
+    # old  response_format: AudioResponseFormat
     """
     The format of the output, in one of these options: `json`, `text`, `srt`,
     `verbose_json`, or `vtt`. For `gpt-4o-transcribe` and `gpt-4o-mini-transcribe`,
     the only supported format is `json`.
     """
 
-    temperature: float
+    temperature: Optional[float] = None
+    # old  temperature: float
     """The sampling temperature, between 0 and 1.
 
     Higher values like 0.8 will make the output more random, while lower values like
@@ -72,7 +79,8 @@ class TranscriptionCreateParamsBase(TypedDict, total=False):
     automatically increase the temperature until certain thresholds are hit.
     """
 
-    timestamp_granularities: List[Literal["word", "segment"]]
+    timestamp_granularities: Optional[List[Literal["word", "segment"]]] = None
+    # old  timestamp_granularities: List[Literal["word", "segment"]]
     """The timestamp granularities to populate for this transcription.
 
     `response_format` must be set `verbose_json` to use timestamp granularities.
@@ -82,8 +90,9 @@ class TranscriptionCreateParamsBase(TypedDict, total=False):
     """
 
 
-class TranscriptionCreateParamsNonStreaming(TranscriptionCreateParamsBase, total=False):
-    stream: Optional[Literal[False]]
+class TranscriptionCreateParamsNonStreaming(TranscriptionCreateParamsBase):
+    stream: Optional[Literal[False]] = None
+    # old  stream: Optional[Literal[False]]
     """
     If set to true, the model response data will be streamed to the client as it is
     generated using
@@ -92,12 +101,14 @@ class TranscriptionCreateParamsNonStreaming(TranscriptionCreateParamsBase, total
     [Streaming section of the Speech-to-Text guide](https://platform.openai.com/docs/guides/speech-to-text?lang=curl#streaming-transcriptions)
     for more information.
 
-    Note: Streaming is not supported for the `whisper-1` model and will be ignored.
+    Note: Optional[Streaming is not supported for the `whisper-1` model and will be ignored.] = None
+    # old  Note: Streaming is not supported for the `whisper-1` model and will be ignored.
     """
 
 
 class TranscriptionCreateParamsStreaming(TranscriptionCreateParamsBase):
-    stream: Required[Literal[True]]
+    stream: Literal[True] = None
+    # old  stream: Required[Literal[True]]
     """
     If set to true, the model response data will be streamed to the client as it is
     generated using
@@ -106,8 +117,10 @@ class TranscriptionCreateParamsStreaming(TranscriptionCreateParamsBase):
     [Streaming section of the Speech-to-Text guide](https://platform.openai.com/docs/guides/speech-to-text?lang=curl#streaming-transcriptions)
     for more information.
 
-    Note: Streaming is not supported for the `whisper-1` model and will be ignored.
+    Note: Optional[Streaming is not supported for the `whisper-1` model and will be ignored.] = None
+    # old  Note: Streaming is not supported for the `whisper-1` model and will be ignored.
     """
 
 
 TranscriptionCreateParams = Union[TranscriptionCreateParamsNonStreaming, TranscriptionCreateParamsStreaming]
+

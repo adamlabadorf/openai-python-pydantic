@@ -2,27 +2,33 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 __all__ = ["ConversationItemContentParam"]
 
 
-class ConversationItemContentParam(TypedDict, total=False):
-    id: str
+class ConversationItemContentParam(BaseModel):
+    id: Optional[str] = None
+    # old  id: str
     """
     ID of a previous conversation item to reference (for `item_reference` content
     types in `response.create` events). These can reference both client and server
     created items.
     """
 
-    audio: str
+    audio: Optional[str] = None
+    # old  audio: str
     """Base64-encoded audio bytes, used for `input_audio` content type."""
 
-    text: str
+    text: Optional[str] = None
+    # old  text: str
     """The text content, used for `input_text` and `text` content types."""
 
-    transcript: str
+    transcript: Optional[str] = None
+    # old  transcript: str
     """The transcript of the audio, used for `input_audio` content type."""
 
-    type: Literal["input_text", "input_audio", "item_reference", "text"]
+    type: Optional[Literal["input_text", "input_audio", "item_reference", "text"]] = None
+    # old  type: Literal["input_text", "input_audio", "item_reference", "text"]
     """The content type (`input_text`, `input_audio`, `item_reference`, `text`)."""
+

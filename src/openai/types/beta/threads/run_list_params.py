@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 __all__ = ["RunListParams"]
 
 
-class RunListParams(TypedDict, total=False):
-    after: str
+class RunListParams(BaseModel):
+    after: Optional[str] = None
+    # old  after: str
     """A cursor for use in pagination.
 
     `after` is an object ID that defines your place in the list. For instance, if
@@ -17,7 +18,8 @@ class RunListParams(TypedDict, total=False):
     list.
     """
 
-    before: str
+    before: Optional[str] = None
+    # old  before: str
     """A cursor for use in pagination.
 
     `before` is an object ID that defines your place in the list. For instance, if
@@ -26,14 +28,17 @@ class RunListParams(TypedDict, total=False):
     of the list.
     """
 
-    limit: int
+    limit: Optional[int] = None
+    # old  limit: int
     """A limit on the number of objects to be returned.
 
     Limit can range between 1 and 100, and the default is 20.
     """
 
-    order: Literal["asc", "desc"]
+    order: Optional[Literal["asc", "desc"]] = None
+    # old  order: Literal["asc", "desc"]
     """Sort order by the `created_at` timestamp of the objects.
 
     `asc` for ascending order and `desc` for descending order.
     """
+

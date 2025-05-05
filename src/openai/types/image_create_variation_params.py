@@ -3,46 +3,53 @@
 from __future__ import annotations
 
 from typing import Union, Optional
-from typing_extensions import Literal, Required, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 from .._types import FileTypes
 from .image_model import ImageModel
 
 __all__ = ["ImageCreateVariationParams"]
 
 
-class ImageCreateVariationParams(TypedDict, total=False):
-    image: Required[FileTypes]
+class ImageCreateVariationParams(BaseModel):
+    image: FileTypes = None
+    # old  image: Required[FileTypes]
     """The image to use as the basis for the variation(s).
 
     Must be a valid PNG file, less than 4MB, and square.
     """
 
-    model: Union[str, ImageModel, None]
+    model: Optional[Union[str, ImageModel, None]] = None
+    # old  model: Union[str, ImageModel, None]
     """The model to use for image generation.
 
     Only `dall-e-2` is supported at this time.
     """
 
-    n: Optional[int]
+    n: Optional[int] = None
+    # old  n: Optional[int]
     """The number of images to generate. Must be between 1 and 10."""
 
-    response_format: Optional[Literal["url", "b64_json"]]
+    response_format: Optional[Literal["url", "b64_json"]] = None
+    # old  response_format: Optional[Literal["url", "b64_json"]]
     """The format in which the generated images are returned.
 
     Must be one of `url` or `b64_json`. URLs are only valid for 60 minutes after the
     image has been generated.
     """
 
-    size: Optional[Literal["256x256", "512x512", "1024x1024"]]
+    size: Optional[Literal["256x256", "512x512", "1024x1024"]] = None
+    # old  size: Optional[Literal["256x256", "512x512", "1024x1024"]]
     """The size of the generated images.
 
     Must be one of `256x256`, `512x512`, or `1024x1024`.
     """
 
-    user: str
+    user: Optional[str] = None
+    # old  user: str
     """
     A unique identifier representing your end-user, which can help OpenAI to monitor
     and detect abuse.
     [Learn more](https://platform.openai.com/docs/guides/safety-best-practices#end-user-ids).
     """
+

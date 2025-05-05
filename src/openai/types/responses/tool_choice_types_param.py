@@ -2,15 +2,14 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Required, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 __all__ = ["ToolChoiceTypesParam"]
 
 
-class ToolChoiceTypesParam(TypedDict, total=False):
-    type: Required[
-        Literal["file_search", "web_search_preview", "computer_use_preview", "web_search_preview_2025_03_11"]
-    ]
+class ToolChoiceTypesParam(BaseModel):
+    type:  Literal["file_search", "web_search_preview", "computer_use_preview", "web_search_preview_2025_03_11" ] = None
+    # old  type: Required[ Literal["file_search", "web_search_preview", "computer_use_preview", "web_search_preview_2025_03_11"] ]
     """The type of hosted tool the model should to use.
 
     Learn more about
@@ -22,3 +21,4 @@ class ToolChoiceTypesParam(TypedDict, total=False):
     - `web_search_preview`
     - `computer_use_preview`
     """
+

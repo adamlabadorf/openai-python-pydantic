@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 from typing import Union
-from typing_extensions import Literal, Required, TypeAlias, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 from .chat_completion_content_part_text_param import ChatCompletionContentPartTextParam
 from .chat_completion_content_part_image_param import ChatCompletionContentPartImageParam
 from .chat_completion_content_part_input_audio_param import ChatCompletionContentPartInputAudioParam
@@ -12,30 +12,42 @@ from .chat_completion_content_part_input_audio_param import ChatCompletionConten
 __all__ = ["ChatCompletionContentPartParam", "File", "FileFile"]
 
 
-class FileFile(TypedDict, total=False):
-    file_data: str
+class FileFile(BaseModel):
+    file_data: Optional[str] = None
+    # old  file_data: Optional[str] = None
+    # old  file_data: str
     """
     The base64 encoded file data, used when passing the file to the model as a
     string.
     """
 
-    file_id: str
+    file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: str
     """The ID of an uploaded file to use as input."""
 
-    filename: str
+    filename: Optional[str] = None
+    # old  filename: Optional[str] = None
+    # old  filename: str
     """The name of the file, used when passing the file to the model as a string."""
 
 
-class File(TypedDict, total=False):
-    file: Required[FileFile]
+class File(BaseModel):
+    file: Optional[FileFile] = None
+    # old  file: FileFile = None
+    # old  file: Required[FileFile]
 
-    type: Required[Literal["file"]]
+    type: Optional[Literal["file"]] = None
+    # old  type: Literal["file"] = None
+    # old  type: Required[Literal["file"]]
     """The type of the content part. Always `file`."""
 
 
-ChatCompletionContentPartParam: TypeAlias = Union[
+ChatCompletionContentPartParam = Union[ # old ChatCompletionContentPartParam: TypeAlias = Union[
     ChatCompletionContentPartTextParam,
     ChatCompletionContentPartImageParam,
     ChatCompletionContentPartInputAudioParam,
     File,
 ]
+
+

@@ -2,23 +2,29 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Required, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 __all__ = ["EvalStringCheckGraderParam"]
 
 
-class EvalStringCheckGraderParam(TypedDict, total=False):
-    input: Required[str]
+class EvalStringCheckGraderParam(BaseModel):
+    input: str = None
+    # old  input: Required[str]
     """The input text. This may include template strings."""
 
-    name: Required[str]
+    name: str = None
+    # old  name: Required[str]
     """The name of the grader."""
 
-    operation: Required[Literal["eq", "ne", "like", "ilike"]]
+    operation: Literal["eq", "ne", "like", "ilike"] = None
+    # old  operation: Required[Literal["eq", "ne", "like", "ilike"]]
     """The string check operation to perform. One of `eq`, `ne`, `like`, or `ilike`."""
 
-    reference: Required[str]
+    reference: str = None
+    # old  reference: Required[str]
     """The reference text. This may include template strings."""
 
-    type: Required[Literal["string_check"]]
+    type: Literal["string_check"] = None
+    # old  type: Required[Literal["string_check"]]
     """The object type, which is always `string_check`."""
+

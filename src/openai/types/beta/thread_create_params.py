@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 from typing import List, Union, Iterable, Optional
-from typing_extensions import Literal, Required, TypeAlias, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 from ..shared_params.metadata import Metadata
 from .code_interpreter_tool_param import CodeInterpreterToolParam
 from .threads.message_content_part_param import MessageContentPartParam
@@ -26,14 +26,36 @@ __all__ = [
 ]
 
 
-class ThreadCreateParams(TypedDict, total=False):
-    messages: Iterable[Message]
+class ThreadCreateParams(BaseModel):
+    messages: Optional[List[Message]] = None
+    # old  messages: Optional[List[Message]] = None
+    # old  messages: Optional[List[Message]] = None
+    # old  messages: Optional[List[Message]] = None
+    # old  messages: Optional[List[Message]] = None
+    # old  messages: Optional[List[Message]] = None
+    # old  messages: Optional[List[Message]] = None
+    # old  messages: Optional[List[Message]] = None
+    # old  messages: Optional[List[Message]] = None
+    # old  messages: Optional[List[Message]] = None
+    # old  messages: Optional[List[Message]] = None
+    # old  messages: Iterable[Message]
     """
     A list of [messages](https://platform.openai.com/docs/api-reference/messages) to
     start the thread with.
     """
 
-    metadata: Optional[Metadata]
+    metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata]
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -43,7 +65,18 @@ class ThreadCreateParams(TypedDict, total=False):
     a maximum length of 512 characters.
     """
 
-    tool_resources: Optional[ToolResources]
+    tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources] = None
+    # old  tool_resources: Optional[ToolResources]
     """
     A set of resources that are made available to the assistant's tools in this
     thread. The resources are specific to the type of tool. For example, the
@@ -52,27 +85,82 @@ class ThreadCreateParams(TypedDict, total=False):
     """
 
 
-class MessageAttachmentToolFileSearch(TypedDict, total=False):
-    type: Required[Literal["file_search"]]
+class MessageAttachmentToolFileSearch(BaseModel):
+    type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Optional[Literal["file_search"]] = None
+    # old  type: Literal["file_search"] = None
+    # old  type: Required[Literal["file_search"]]
     """The type of tool being defined: `file_search`"""
 
 
-MessageAttachmentTool: TypeAlias = Union[CodeInterpreterToolParam, MessageAttachmentToolFileSearch]
+MessageAttachmentTool = Union[CodeInterpreterToolParam, MessageAttachmentToolFileSearch] # old MessageAttachmentTool: TypeAlias = Union[CodeInterpreterToolParam, MessageAttachmentToolFileSearch]
 
 
-class MessageAttachment(TypedDict, total=False):
-    file_id: str
+class MessageAttachment(BaseModel):
+    file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: Optional[str] = None
+    # old  file_id: str
     """The ID of the file to attach to the message."""
 
-    tools: Iterable[MessageAttachmentTool]
+    tools: Optional[List[MessageAttachmentTool]] = None
+    # old  tools: Optional[List[MessageAttachmentTool]] = None
+    # old  tools: Optional[List[MessageAttachmentTool]] = None
+    # old  tools: Optional[List[MessageAttachmentTool]] = None
+    # old  tools: Optional[List[MessageAttachmentTool]] = None
+    # old  tools: Optional[List[MessageAttachmentTool]] = None
+    # old  tools: Optional[List[MessageAttachmentTool]] = None
+    # old  tools: Optional[List[MessageAttachmentTool]] = None
+    # old  tools: Optional[List[MessageAttachmentTool]] = None
+    # old  tools: Optional[List[MessageAttachmentTool]] = None
+    # old  tools: Optional[List[MessageAttachmentTool]] = None
+    # old  tools: Iterable[MessageAttachmentTool]
     """The tools to add this file to."""
 
 
-class Message(TypedDict, total=False):
-    content: Required[Union[str, Iterable[MessageContentPartParam]]]
+class Message(BaseModel):
+    content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
+    # old  content: Union[str, List[MessageContentPartParam]] = None
+    # old  content: Required[Union[str, Iterable[MessageContentPartParam]]]
     """The text contents of the message."""
 
-    role: Required[Literal["user", "assistant"]]
+    role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Optional[Literal["user", "assistant"]] = None
+    # old  role: Literal["user", "assistant"] = None
+    # old  role: Required[Literal["user", "assistant"]]
     """The role of the entity that is creating the message. Allowed values include:
 
     - `user`: Indicates the message is sent by an actual user and should be used in
@@ -81,10 +169,32 @@ class Message(TypedDict, total=False):
       value to insert messages from the assistant into the conversation.
     """
 
-    attachments: Optional[Iterable[MessageAttachment]]
+    attachments: Optional[List[MessageAttachment]] = None
+    # old  attachments: Optional[List[MessageAttachment]] = None
+    # old  attachments: Optional[List[MessageAttachment]] = None
+    # old  attachments: Optional[List[MessageAttachment]] = None
+    # old  attachments: Optional[List[MessageAttachment]] = None
+    # old  attachments: Optional[List[MessageAttachment]] = None
+    # old  attachments: Optional[List[MessageAttachment]] = None
+    # old  attachments: Optional[List[MessageAttachment]] = None
+    # old  attachments: Optional[List[MessageAttachment]] = None
+    # old  attachments: Optional[List[MessageAttachment]] = None
+    # old  attachments: Optional[List[MessageAttachment]] = None
+    # old  attachments: Optional[Iterable[MessageAttachment]]
     """A list of files attached to the message, and the tools they should be added to."""
 
-    metadata: Optional[Metadata]
+    metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata]
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -95,8 +205,19 @@ class Message(TypedDict, total=False):
     """
 
 
-class ToolResourcesCodeInterpreter(TypedDict, total=False):
-    file_ids: List[str]
+class ToolResourcesCodeInterpreter(BaseModel):
+    file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: List[str]
     """
     A list of [file](https://platform.openai.com/docs/api-reference/files) IDs made
     available to the `code_interpreter` tool. There can be a maximum of 20 files
@@ -104,19 +225,52 @@ class ToolResourcesCodeInterpreter(TypedDict, total=False):
     """
 
 
-class ToolResourcesFileSearchVectorStoreChunkingStrategyAuto(TypedDict, total=False):
-    type: Required[Literal["auto"]]
+class ToolResourcesFileSearchVectorStoreChunkingStrategyAuto(BaseModel):
+    type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Optional[Literal["auto"]] = None
+    # old  type: Literal["auto"] = None
+    # old  type: Required[Literal["auto"]]
     """Always `auto`."""
 
 
-class ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic(TypedDict, total=False):
-    chunk_overlap_tokens: Required[int]
+class ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic(BaseModel):
+    chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: Optional[int] = None
+    # old  chunk_overlap_tokens: int = None
+    # old  chunk_overlap_tokens: Required[int]
     """The number of tokens that overlap between chunks. The default value is `400`.
 
     Note that the overlap must not exceed half of `max_chunk_size_tokens`.
     """
 
-    max_chunk_size_tokens: Required[int]
+    max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: Optional[int] = None
+    # old  max_chunk_size_tokens: int = None
+    # old  max_chunk_size_tokens: Required[int]
     """The maximum number of tokens in each chunk.
 
     The default value is `800`. The minimum value is `100` and the maximum value is
@@ -124,33 +278,88 @@ class ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic(TypedDict, 
     """
 
 
-class ToolResourcesFileSearchVectorStoreChunkingStrategyStatic(TypedDict, total=False):
-    static: Required[ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic]
+class ToolResourcesFileSearchVectorStoreChunkingStrategyStatic(BaseModel):
+    static: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic] = None
+    # old  static: ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic = None
+    # old  static: Required[ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic]
 
-    type: Required[Literal["static"]]
+    type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Optional[Literal["static"]] = None
+    # old  type: Literal["static"] = None
+    # old  type: Required[Literal["static"]]
     """Always `static`."""
 
 
-ToolResourcesFileSearchVectorStoreChunkingStrategy: TypeAlias = Union[
+ToolResourcesFileSearchVectorStoreChunkingStrategy = Union[ # old ToolResourcesFileSearchVectorStoreChunkingStrategy: TypeAlias = Union[
     ToolResourcesFileSearchVectorStoreChunkingStrategyAuto, ToolResourcesFileSearchVectorStoreChunkingStrategyStatic
 ]
 
 
-class ToolResourcesFileSearchVectorStore(TypedDict, total=False):
-    chunking_strategy: ToolResourcesFileSearchVectorStoreChunkingStrategy
+class ToolResourcesFileSearchVectorStore(BaseModel):
+    chunking_strategy: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: Optional[ToolResourcesFileSearchVectorStoreChunkingStrategy] = None
+    # old  chunking_strategy: ToolResourcesFileSearchVectorStoreChunkingStrategy
     """The chunking strategy used to chunk the file(s).
 
     If not set, will use the `auto` strategy.
     """
 
-    file_ids: List[str]
+    file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: Optional[List[str]] = None
+    # old  file_ids: List[str]
     """
     A list of [file](https://platform.openai.com/docs/api-reference/files) IDs to
     add to the vector store. There can be a maximum of 10000 files in a vector
     store.
     """
 
-    metadata: Optional[Metadata]
+    metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata]
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -161,8 +370,19 @@ class ToolResourcesFileSearchVectorStore(TypedDict, total=False):
     """
 
 
-class ToolResourcesFileSearch(TypedDict, total=False):
-    vector_store_ids: List[str]
+class ToolResourcesFileSearch(BaseModel):
+    vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: Optional[List[str]] = None
+    # old  vector_store_ids: List[str]
     """
     The
     [vector store](https://platform.openai.com/docs/api-reference/vector-stores/object)
@@ -170,7 +390,18 @@ class ToolResourcesFileSearch(TypedDict, total=False):
     the thread.
     """
 
-    vector_stores: Iterable[ToolResourcesFileSearchVectorStore]
+    vector_stores: Optional[List[ToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Optional[List[ToolResourcesFileSearchVectorStore]] = None
+    # old  vector_stores: Iterable[ToolResourcesFileSearchVectorStore]
     """
     A helper to create a
     [vector store](https://platform.openai.com/docs/api-reference/vector-stores/object)
@@ -179,7 +410,40 @@ class ToolResourcesFileSearch(TypedDict, total=False):
     """
 
 
-class ToolResources(TypedDict, total=False):
-    code_interpreter: ToolResourcesCodeInterpreter
+class ToolResources(BaseModel):
+    code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
+    # old  code_interpreter: ToolResourcesCodeInterpreter
 
-    file_search: ToolResourcesFileSearch
+    file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: Optional[ToolResourcesFileSearch] = None
+    # old  file_search: ToolResourcesFileSearch
+
+
+
+
+
+
+
+
+
+
+

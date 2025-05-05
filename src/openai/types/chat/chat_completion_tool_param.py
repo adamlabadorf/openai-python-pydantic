@@ -2,15 +2,18 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Required, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 from ..shared_params.function_definition import FunctionDefinition
 
 __all__ = ["ChatCompletionToolParam"]
 
 
-class ChatCompletionToolParam(TypedDict, total=False):
-    function: Required[FunctionDefinition]
+class ChatCompletionToolParam(BaseModel):
+    function: FunctionDefinition = None
+    # old  function: Required[FunctionDefinition]
 
-    type: Required[Literal["function"]]
+    type: Literal["function"] = None
+    # old  type: Required[Literal["function"]]
     """The type of the tool. Currently, only `function` is supported."""
+

@@ -2,14 +2,17 @@
 
 from __future__ import annotations
 
-from typing_extensions import Literal, Required, TypedDict
-
+from typing_extensions import Literal
+from pydantic import BaseModel
 __all__ = ["ToolChoiceFunctionParam"]
 
 
-class ToolChoiceFunctionParam(TypedDict, total=False):
-    name: Required[str]
+class ToolChoiceFunctionParam(BaseModel):
+    name: str = None
+    # old  name: Required[str]
     """The name of the function to call."""
 
-    type: Required[Literal["function"]]
+    type: Literal["function"] = None
+    # old  type: Required[Literal["function"]]
     """For function calling, the type is always `function`."""
+

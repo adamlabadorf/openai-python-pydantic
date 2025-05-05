@@ -3,17 +3,18 @@
 from __future__ import annotations
 
 from typing import Optional
-from typing_extensions import Required, TypedDict
-
+from pydantic import BaseModel
 from ...shared_params.metadata import Metadata
 
 __all__ = ["RunUpdateParams"]
 
 
-class RunUpdateParams(TypedDict, total=False):
-    thread_id: Required[str]
+class RunUpdateParams(BaseModel):
+    thread_id: str = None
+    # old  thread_id: Required[str]
 
-    metadata: Optional[Metadata]
+    metadata: Optional[Metadata] = None
+    # old  metadata: Optional[Metadata]
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -22,3 +23,4 @@ class RunUpdateParams(TypedDict, total=False):
     Keys are strings with a maximum length of 64 characters. Values are strings with
     a maximum length of 512 characters.
     """
+

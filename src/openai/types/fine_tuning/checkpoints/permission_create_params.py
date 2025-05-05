@@ -3,11 +3,12 @@
 from __future__ import annotations
 
 from typing import List
-from typing_extensions import Required, TypedDict
-
+from pydantic import BaseModel
 __all__ = ["PermissionCreateParams"]
 
 
-class PermissionCreateParams(TypedDict, total=False):
-    project_ids: Required[List[str]]
+class PermissionCreateParams(BaseModel):
+    project_ids: List[str] = None
+    # old  project_ids: Required[List[str]]
     """The project identifiers to grant access to."""
+
