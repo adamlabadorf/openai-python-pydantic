@@ -1,10 +1,11 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
-from typing import Dict, List, Union, Iterable, Optional
+from typing import Dict,Union,List,Optional
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 from ..shared_params.metadata import Metadata
 from ..shared.reasoning_effort import ReasoningEffort
 from ..responses.response_input_text_param import ResponseInputTextParam
@@ -33,12 +34,12 @@ __all__ = [
 
 
 class RunCreateParams(BaseModel):
-    data_source: Optional[DataSource] = None
-    # old  data_source: Required[DataSource]
+    data_source: "DataSource"= None
+    
     """Details about the run's data source."""
 
-    metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata]
+    metadata: "Optional[Metadata]"= None
+    
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -48,110 +49,110 @@ class RunCreateParams(BaseModel):
     a maximum length of 512 characters.
     """
 
-    name: Optional[str] = None
-   # old  name: str
+    name: "Optional[str]"= None
+    
     """The name of the run."""
 
 
 class DataSourceCreateEvalResponsesRunDataSourceSourceFileContentContent(BaseModel):
-    item: Optional[Dict[str, object]] = None
-   # old  item: Required[Dict[str, object]]
+    item: "Dict[str, object]"= None
+    
 
-    sample: Optional[Dict[str, object]] = None
-   # old  sample: Dict[str, object]
+    sample: "Optional[Dict[str, object]]"= None
+    
 
 
 class DataSourceCreateEvalResponsesRunDataSourceSourceFileContent(BaseModel):
-    content: Optional[List[DataSourceCreateEvalResponsesRunDataSourceSourceFileContentContent]] = None
-   # old  content: Required[Iterable[DataSourceCreateEvalResponsesRunDataSourceSourceFileContentContent]]
+    content: "List[DataSourceCreateEvalResponsesRunDataSourceSourceFileContentContent]"= None
+    
     """The content of the jsonl file."""
 
-    type: Optional[Literal["file_content"]] = None
-   # old  type: Required[Literal["file_content"]]
+    type: "Literal['file_content']"= None
+    
     """The type of jsonl source. Always `file_content`."""
 
 
 class DataSourceCreateEvalResponsesRunDataSourceSourceFileID(BaseModel):
-    id: Optional[str] = None
-   # old  id: Required[str]
+    id: "str"= None
+    
     """The identifier of the file."""
 
-    type: Optional[Literal["file_id"]] = None
-   # old  type: Required[Literal["file_id"]]
+    type: "Literal['file_id']"= None
+    
     """The type of jsonl source. Always `file_id`."""
 
 
 class DataSourceCreateEvalResponsesRunDataSourceSourceResponses(BaseModel):
-    type: Optional[Literal["responses"]] = None
-   # old  type: Required[Literal["responses"]]
+    type: "Literal['responses']"= None
+    
     """The type of run data source. Always `responses`."""
 
-    allow_parallel_tool_calls: Optional[bool] = None
-   # old  allow_parallel_tool_calls: Optional[bool]
+    allow_parallel_tool_calls: "Optional[bool]"= None
+    
     """Whether to allow parallel tool calls.
 
     This is a query parameter used to select responses.
     """
 
-    created_after: Optional[int] = None
-   # old  created_after: Optional[int]
+    created_after: "Optional[int]"= None
+    
     """Only include items created after this timestamp (inclusive).
 
     This is a query parameter used to select responses.
     """
 
-    created_before: Optional[int] = None
-   # old  created_before: Optional[int]
+    created_before: "Optional[int]"= None
+    
     """Only include items created before this timestamp (inclusive).
 
     This is a query parameter used to select responses.
     """
 
-    has_tool_calls: Optional[bool] = None
-   # old  has_tool_calls: Optional[bool]
+    has_tool_calls: "Optional[bool]"= None
+    
     """Whether the response has tool calls.
 
     This is a query parameter used to select responses.
     """
 
-    instructions_search: Optional[str] = None
-   # old  instructions_search: Optional[str]
+    instructions_search: "Optional[str]"= None
+    
     """Optional search string for instructions.
 
     This is a query parameter used to select responses.
     """
 
-    metadata: Optional[object] = None
-   # old  metadata: Optional[object]
+    metadata: "Optional[object]"= None
+    
     """Metadata filter for the responses.
 
     This is a query parameter used to select responses.
     """
 
-    model: Optional[str] = None
-   # old  model: Optional[str]
+    model: "Optional[str]"= None
+    
     """The name of the model to find responses for.
 
     This is a query parameter used to select responses.
     """
 
-    reasoning_effort: Optional[ReasoningEffort] = None
-   # old  reasoning_effort: Optional[ReasoningEffort]
+    reasoning_effort: "Optional[ReasoningEffort]"= None
+    
     """Optional reasoning effort parameter.
 
     This is a query parameter used to select responses.
     """
 
-    temperature: Optional[float] = None
-   # old  temperature: Optional[float]
+    temperature: "Optional[float]"= None
+    
     """Sampling temperature. This is a query parameter used to select responses."""
 
-    top_p: Optional[float] = None
-   # old  top_p: Optional[float]
+    top_p: "Optional[float]"= None
+    
     """Nucleus sampling parameter. This is a query parameter used to select responses."""
 
-    users: Optional[List[str]] = None
-   # old  users: Optional[List[str]]
+    users: "Optional[List[str]]"= None
+    
     """List of user identifiers. This is a query parameter used to select responses."""
 
 
@@ -163,22 +164,24 @@ DataSourceCreateEvalResponsesRunDataSourceSource = Union[
 
 
 class DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplateChatMessage(BaseModel):
-    content: Optional[str] = None
-    # old  content: Required[str]
+    content: "str"= None
+    
     """The content of the message."""
 
-    role: Optional[str] = None
-   # old  role: Required[str]
+    role: "str"= None
+    
     """The role of the message (e.g. "system", "assistant", "user")."""
 
 
-class DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplateEvalItemContentOutputText(BaseModel):
-    text: Optional[str] = None
-   # old  text: Required[str]
+class DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplateEvalItemContentOutputText(
+    BaseModel
+):
+    text: "str"= None
+    
     """The text output from the model."""
 
-    type: Optional[Literal["output_text"]] = None
-   # old  type: Required[Literal["output_text"]]
+    type: "Literal['output_text']"= None
+    
     """The type of the output text. Always `output_text`."""
 
 
@@ -190,19 +193,19 @@ DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplateEvalItemC
 
 
 class DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplateEvalItem(BaseModel):
-    content: Optional[DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplateEvalItemContent] = None
-   # old  content: Required[DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplateEvalItemContent]
+    content: "DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplateEvalItemContent"= None
+    
     """Text inputs to the model - can contain template strings."""
 
-    role: Optional[Literal["user", "assistant", "system", "developer"]] = None
-   # old  role: Required[Literal["user", "assistant", "system", "developer"]]
+    role: "Literal['user', 'assistant', 'system', 'developer']"= None
+    
     """The role of the message input.
 
     One of `user`, `assistant`, `system`, or `developer`.
     """
 
-    type: Optional[Literal["message"]] = None
-   # old  type: Literal["message"]
+    type: "Optional[Literal['message']]"= None
+    
     """The type of the message input. Always `message`."""
 
 
@@ -213,25 +216,25 @@ DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplate = Union[
 
 
 class DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplate(BaseModel):
-    template: Optional[List[DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplate]] = None
-   # old  template: Required[Iterable[DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplate]]
+    template: "List[DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplate]"= None
+    
     """A list of chat messages forming the prompt or context.
 
     May include variable references to the "item" namespace, ie {{item.name}}.
     """
 
-    type: Optional[Literal["template"]] = None
-   # old  type: Required[Literal["template"]]
+    type: "Literal['template']"= None
+    
     """The type of input messages. Always `template`."""
 
 
 class DataSourceCreateEvalResponsesRunDataSourceInputMessagesItemReference(BaseModel):
-    item_reference: Optional[str] = None
-   # old  item_reference: Required[str]
+    item_reference: "str"= None
+    
     """A reference to a variable in the "item" namespace. Ie, "item.name" """
 
-    type: Optional[Literal["item_reference"]] = None
-   # old  type: Required[Literal["item_reference"]]
+    type: "Literal['item_reference']"= None
+    
     """The type of input messages. Always `item_reference`."""
 
 
@@ -242,41 +245,41 @@ DataSourceCreateEvalResponsesRunDataSourceInputMessages = Union[
 
 
 class DataSourceCreateEvalResponsesRunDataSourceSamplingParams(BaseModel):
-    max_completion_tokens: Optional[int] = None
-   # old  max_completion_tokens: int
+    max_completion_tokens: "Optional[int]"= None
+    
     """The maximum number of tokens in the generated output."""
 
-    seed: Optional[int] = None
-   # old  seed: int
+    seed: "Optional[int]"= None
+    
     """A seed value to initialize the randomness, during sampling."""
 
-    temperature: Optional[float] = None
-   # old  temperature: float
+    temperature: "Optional[float]"= None
+    
     """A higher temperature increases randomness in the outputs."""
 
-    top_p: Optional[float] = None
-   # old  top_p: float
+    top_p: "Optional[float]"= None
+    
     """An alternative to temperature for nucleus sampling; 1.0 includes all tokens."""
 
 
 class DataSourceCreateEvalResponsesRunDataSource(BaseModel):
-    source: Optional[DataSourceCreateEvalResponsesRunDataSourceSource] = None
-   # old  source: Required[DataSourceCreateEvalResponsesRunDataSourceSource]
+    source: "DataSourceCreateEvalResponsesRunDataSourceSource"= None
+    
     """A EvalResponsesSource object describing a run data source configuration."""
 
-    type: Optional[Literal["completions"]] = None
-   # old  type: Required[Literal["completions"]]
+    type: "Literal['completions']"= None
+    
     """The type of run data source. Always `completions`."""
 
-    input_messages: Optional[DataSourceCreateEvalResponsesRunDataSourceInputMessages] = None
-   # old  input_messages: DataSourceCreateEvalResponsesRunDataSourceInputMessages
+    input_messages: "Optional[DataSourceCreateEvalResponsesRunDataSourceInputMessages]"= None
+    
 
-    model: Optional[str] = None
-   # old  model: str
+    model: "Optional[str]"= None
+    
     """The name of the model to use for generating completions (e.g. "o3-mini")."""
 
-    sampling_params: Optional[DataSourceCreateEvalResponsesRunDataSourceSamplingParams] = None
-   # old  sampling_params: DataSourceCreateEvalResponsesRunDataSourceSamplingParams
+    sampling_params: "Optional[DataSourceCreateEvalResponsesRunDataSourceSamplingParams]"= None
+    
 
 
 DataSource = Union[
@@ -284,14 +287,16 @@ DataSource = Union[
     CreateEvalCompletionsRunDataSourceParam,
     DataSourceCreateEvalResponsesRunDataSource,
 ]
-
-
-
-
-
-
-
-
-
-
+RunCreateParams.model_rebuild()
+DataSourceCreateEvalResponsesRunDataSourceSourceFileContentContent.model_rebuild()
+DataSourceCreateEvalResponsesRunDataSourceSourceFileContent.model_rebuild()
+DataSourceCreateEvalResponsesRunDataSourceSourceFileID.model_rebuild()
+DataSourceCreateEvalResponsesRunDataSourceSourceResponses.model_rebuild()
+DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplateChatMessage.model_rebuild()
+DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplateEvalItemContentOutputText.model_rebuild()
+DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplateEvalItem.model_rebuild()
+DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplate.model_rebuild()
+DataSourceCreateEvalResponsesRunDataSourceInputMessagesItemReference.model_rebuild()
+DataSourceCreateEvalResponsesRunDataSourceSamplingParams.model_rebuild()
+DataSourceCreateEvalResponsesRunDataSource.model_rebuild()
 

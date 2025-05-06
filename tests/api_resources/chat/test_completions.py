@@ -8,10 +8,10 @@ from typing import Any, cast
 import pytest
 import pydantic
 
-from openai import OpenAI, AsyncOpenAI
+from openai_pydantic import OpenAI, AsyncOpenAI
 from tests.utils import assert_matches_type
-from openai.pagination import SyncCursorPage, AsyncCursorPage
-from openai.types.chat import (
+from openai_pydantic.pagination import SyncCursorPage, AsyncCursorPage
+from openai_pydantic.types.chat import (
     ChatCompletion,
     ChatCompletionDeleted,
 )

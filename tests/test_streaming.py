@@ -5,8 +5,8 @@ from typing import Iterator, AsyncIterator
 import httpx
 import pytest
 
-from openai import OpenAI, AsyncOpenAI
-from openai._streaming import Stream, AsyncStream, ServerSentEvent
+from openai_pydantic import OpenAI, AsyncOpenAI
+from openai_pydantic._streaming import Stream, AsyncStream, ServerSentEvent
 
 
 @pytest.mark.asyncio

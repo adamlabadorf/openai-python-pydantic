@@ -1,10 +1,11 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
-from typing import Union, Iterable, Optional
+from typing import Union,Optional
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 from ...shared_params.metadata import Metadata
 from .message_content_part_param import MessageContentPartParam
 from ..code_interpreter_tool_param import CodeInterpreterToolParam
@@ -13,16 +14,12 @@ __all__ = ["MessageCreateParams", "Attachment", "AttachmentTool", "AttachmentToo
 
 
 class MessageCreateParams(BaseModel):
-    content: Optional[Union[str, List[MessageContentPartParam]]] = None
-    # old  content: Optional[Union[str, List[MessageContentPartParam]]] = None
-    # old  content: Union[str, List[MessageContentPartParam]] = None
-    # old  content: Required[Union[str, Iterable[MessageContentPartParam]]]
+    content: "Union[str, List[MessageContentPartParam]]"= None
+    
     """The text contents of the message."""
 
-    role: Optional[Literal["user", "assistant"]] = None
-    # old  role: Optional[Literal["user", "assistant"]] = None
-    # old  role: Literal["user", "assistant"] = None
-    # old  role: Required[Literal["user", "assistant"]]
+    role: "Literal['user', 'assistant']"= None
+    
     """The role of the entity that is creating the message. Allowed values include:
 
     - `user`: Indicates the message is sent by an actual user and should be used in
@@ -31,16 +28,12 @@ class MessageCreateParams(BaseModel):
       value to insert messages from the assistant into the conversation.
     """
 
-    attachments: Optional[List[Attachment]] = None
-    # old  attachments: Optional[List[Attachment]] = None
-    # old  attachments: Optional[List[Attachment]] = None
-    # old  attachments: Optional[Iterable[Attachment]]
+    attachments: "Optional[List[Attachment]]"= None
+    
     """A list of files attached to the message, and the tools they should be added to."""
 
-    metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata]
+    metadata: "Optional[Metadata]"= None
+    
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -52,28 +45,23 @@ class MessageCreateParams(BaseModel):
 
 
 class AttachmentToolFileSearch(BaseModel):
-    type: Optional[Literal["file_search"]] = None
-    # old  type: Optional[Literal["file_search"]] = None
-    # old  type: Literal["file_search"] = None
-    # old  type: Required[Literal["file_search"]]
+    type: "Literal['file_search']"= None
+    
     """The type of tool being defined: `file_search`"""
 
 
-AttachmentTool = Union[CodeInterpreterToolParam, AttachmentToolFileSearch] # old AttachmentTool: TypeAlias = Union[CodeInterpreterToolParam, AttachmentToolFileSearch]
+AttachmentTool = Union[CodeInterpreterToolParam, AttachmentToolFileSearch]
 
 
 class Attachment(BaseModel):
-    file_id: Optional[str] = None
-    # old  file_id: Optional[str] = None
-    # old  file_id: Optional[str] = None
-    # old  file_id: str
+    file_id: "Optional[str]"= None
+    
     """The ID of the file to attach to the message."""
 
-    tools: Optional[List[AttachmentTool]] = None
-    # old  tools: Optional[List[AttachmentTool]] = None
-    # old  tools: Optional[List[AttachmentTool]] = None
-    # old  tools: Iterable[AttachmentTool]
+    tools: "Optional[List[AttachmentTool]]"= None
+    
     """The tools to add this file to."""
-
-
+MessageCreateParams.model_rebuild()
+AttachmentToolFileSearch.model_rebuild()
+Attachment.model_rebuild()
 

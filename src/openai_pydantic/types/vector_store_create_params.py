@@ -1,10 +1,11 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
-
+from pydantic import BaseModel, Field
 from typing import List, Optional
+
+from typing import Optional,List
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 from .shared_params.metadata import Metadata
 from .file_chunking_strategy_param import FileChunkingStrategyParam
 
@@ -12,32 +13,28 @@ __all__ = ["VectorStoreCreateParams", "ExpiresAfter"]
 
 
 class VectorStoreCreateParams(BaseModel):
-    chunking_strategy: Optional[FileChunkingStrategyParam] = None
-    # old  chunking_strategy: Optional[FileChunkingStrategyParam] = None
-    # old  chunking_strategy: FileChunkingStrategyParam
+    chunking_strategy: "Optional[FileChunkingStrategyParam]"= None
+    
     """The chunking strategy used to chunk the file(s).
 
     If not set, will use the `auto` strategy. Only applicable if `file_ids` is
     non-empty.
     """
 
-    expires_after: Optional[ExpiresAfter] = None
-    # old  expires_after: Optional[ExpiresAfter] = None
-    # old  expires_after: ExpiresAfter
+    expires_after: "Optional[ExpiresAfter]"= None
+    
     """The expiration policy for a vector store."""
 
-    file_ids: Optional[List[str]] = None
-    # old  file_ids: Optional[List[str]] = None
-    # old  file_ids: List[str]
+    file_ids: "Optional[List[str]]"= None
+    
     """
     A list of [File](https://platform.openai.com/docs/api-reference/files) IDs that
     the vector store should use. Useful for tools like `file_search` that can access
     files.
     """
 
-    metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata]
+    metadata: "Optional[Metadata]"= None
+    
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -47,24 +44,22 @@ class VectorStoreCreateParams(BaseModel):
     a maximum length of 512 characters.
     """
 
-    name: Optional[str] = None
-    # old  name: Optional[str] = None
-    # old  name: str
+    name: "Optional[str]"= None
+    
     """The name of the vector store."""
 
 
 class ExpiresAfter(BaseModel):
-    anchor: Optional[Literal["last_active_at"]] = None
-    # old  anchor: Literal["last_active_at"] = None
-    # old  anchor: Required[Literal["last_active_at"]]
+    anchor: "Literal['last_active_at']"= None
+    
     """Anchor timestamp after which the expiration policy applies.
 
     Supported anchors: `last_active_at`.
     """
 
-    days: Optional[int] = None
-    # old  days: int = None
-    # old  days: Required[int]
+    days: "int"= None
+    
     """The number of days after the anchor time that the vector store will expire."""
-
+VectorStoreCreateParams.model_rebuild()
+ExpiresAfter.model_rebuild()
 

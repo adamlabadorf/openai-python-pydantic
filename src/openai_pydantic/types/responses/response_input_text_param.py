@@ -1,18 +1,20 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 __all__ = ["ResponseInputTextParam"]
 
 
 class ResponseInputTextParam(BaseModel):
-    text: str = None
-    # old  text: Required[str]
+    text: "str"= None
+    
     """The text input to the model."""
 
-    type: Literal["input_text"] = None
-    # old  type: Required[Literal["input_text"]]
+    type: "Literal['input_text']"= None
+    
     """The type of the input item. Always `input_text`."""
+ResponseInputTextParam.model_rebuild()
 

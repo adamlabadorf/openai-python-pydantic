@@ -1,25 +1,27 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 __all__ = ["ResponseCancelEventParam"]
 
 
 class ResponseCancelEventParam(BaseModel):
-    type: Literal["response.cancel"] = None
-    # old  type: Required[Literal["response.cancel"]]
+    type: "Literal['response.cancel']"= None
+    
     """The event type, must be `response.cancel`."""
 
-    event_id: Optional[str] = None
-    # old  event_id: str
+    event_id: "Optional[str]"= None
+    
     """Optional client-generated ID used to identify this event."""
 
-    response_id: Optional[str] = None
-    # old  response_id: str
+    response_id: "Optional[str]"= None
+    
     """
     A specific response ID to cancel - if not provided, will cancel an in-progress
     response in the default conversation.
     """
+ResponseCancelEventParam.model_rebuild()
 

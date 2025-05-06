@@ -1,21 +1,20 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 __all__ = ["ChatCompletionContentPartImageParam", "ImageURL"]
 
 
 class ImageURL(BaseModel):
-    url: Optional[str] = None
-    # old  url: str = None
-    # old  url: Required[str]
+    url: "str"= None
+    
     """Either a URL of the image or the base64 encoded image data."""
 
-    detail: Optional[Literal["auto", "low", "high"]] = None
-    # old  detail: Optional[Literal["auto", "low", "high"]] = None
-    # old  detail: Literal["auto", "low", "high"]
+    detail: "Optional[Literal['auto', 'low', 'high']]"= None
+    
     """Specifies the detail level of the image.
 
     Learn more in the
@@ -24,13 +23,12 @@ class ImageURL(BaseModel):
 
 
 class ChatCompletionContentPartImageParam(BaseModel):
-    image_url: Optional[ImageURL] = None
-    # old  image_url: ImageURL = None
-    # old  image_url: Required[ImageURL]
+    image_url: "ImageURL"= None
+    
 
-    type: Optional[Literal["image_url"]] = None
-    # old  type: Literal["image_url"] = None
-    # old  type: Required[Literal["image_url"]]
+    type: "Literal['image_url']"= None
+    
     """The type of the content part."""
-
+ImageURL.model_rebuild()
+ChatCompletionContentPartImageParam.model_rebuild()
 

@@ -3,7 +3,7 @@ from typing import Any, Dict, cast
 
 import pytest
 
-from openai._utils import SensitiveHeadersFilter
+from openai_pydantic._utils import SensitiveHeadersFilter
 
 
 @pytest.fixture

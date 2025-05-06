@@ -1,18 +1,19 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 __all__ = ["FileBatchListFilesParams"]
 
 
 class FileBatchListFilesParams(BaseModel):
-    vector_store_id: str = None
-    # old  vector_store_id: Required[str]
+    vector_store_id: "str"= None
+    
 
-    after: Optional[str] = None
-    # old  after: str
+    after: "Optional[str]"= None
+    
     """A cursor for use in pagination.
 
     `after` is an object ID that defines your place in the list. For instance, if
@@ -21,8 +22,8 @@ class FileBatchListFilesParams(BaseModel):
     list.
     """
 
-    before: Optional[str] = None
-    # old  before: str
+    before: "Optional[str]"= None
+    
     """A cursor for use in pagination.
 
     `before` is an object ID that defines your place in the list. For instance, if
@@ -31,24 +32,25 @@ class FileBatchListFilesParams(BaseModel):
     of the list.
     """
 
-    filter: Optional[Literal["in_progress", "completed", "failed", "cancelled"]] = None
-    # old  filter: Literal["in_progress", "completed", "failed", "cancelled"]
+    filter: "Optional[Literal['in_progress', 'completed', 'failed', 'cancelled']]"= None
+    
     """Filter by file status.
 
     One of `in_progress`, `completed`, `failed`, `cancelled`.
     """
 
-    limit: Optional[int] = None
-    # old  limit: int
+    limit: "Optional[int]"= None
+    
     """A limit on the number of objects to be returned.
 
     Limit can range between 1 and 100, and the default is 20.
     """
 
-    order: Optional[Literal["asc", "desc"]] = None
-    # old  order: Literal["asc", "desc"]
+    order: "Optional[Literal['asc', 'desc']]"= None
+    
     """Sort order by the `created_at` timestamp of the objects.
 
     `asc` for ascending order and `desc` for descending order.
     """
+FileBatchListFilesParams.model_rebuild()
 

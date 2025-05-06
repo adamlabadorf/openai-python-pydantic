@@ -1,10 +1,11 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
-from typing import List, Union, Iterable, Optional
+from typing import Optional,List,Union
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 from .tool_param import ToolParam
 from .response_includable import ResponseIncludable
 from .tool_choice_options import ToolChoiceOptions
@@ -25,8 +26,8 @@ __all__ = [
 
 
 class ResponseCreateParamsBase(BaseModel):
-    input: Union[str, ResponseInputParam] = None
-    # old  input: Required[Union[str, ResponseInputParam]]
+    input: "Union[str, ResponseInputParam]"= None
+    
     """Text, image, or file inputs to the model, used to generate a response.
 
     Learn more:
@@ -38,8 +39,8 @@ class ResponseCreateParamsBase(BaseModel):
     - [Function calling](https://platform.openai.com/docs/guides/function-calling)
     """
 
-    model: ResponsesModel = None
-    # old  model: Required[ResponsesModel]
+    model: "ResponsesModel"= None
+    
     """Model ID used to generate the response, like `gpt-4o` or `o3`.
 
     OpenAI offers a wide range of models with different capabilities, performance
@@ -48,8 +49,8 @@ class ResponseCreateParamsBase(BaseModel):
     available models.
     """
 
-    include: Optional[List[ResponseIncludable]] = None
-    # old  include: Optional[List[ResponseIncludable]]
+    include: "Optional[List[ResponseIncludable]]"= None
+    
     """Specify additional output data to include in the model response.
 
     Currently supported values are:
@@ -66,8 +67,8 @@ class ResponseCreateParamsBase(BaseModel):
       in the zero data retention program).
     """
 
-    instructions: Optional[str] = None
-    # old  instructions: Optional[str]
+    instructions: "Optional[str]"= None
+    
     """
     Inserts a system (or developer) message as the first item in the model's
     context.
@@ -77,16 +78,16 @@ class ResponseCreateParamsBase(BaseModel):
     swap out system (or developer) messages in new responses.
     """
 
-    max_output_tokens: Optional[int] = None
-    # old  max_output_tokens: Optional[int]
+    max_output_tokens: "Optional[int]"= None
+    
     """
     An upper bound for the number of tokens that can be generated for a response,
     including visible output tokens and
     [reasoning tokens](https://platform.openai.com/docs/guides/reasoning).
     """
 
-    metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata]
+    metadata: "Optional[Metadata]"= None
+    
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -96,28 +97,28 @@ class ResponseCreateParamsBase(BaseModel):
     a maximum length of 512 characters.
     """
 
-    parallel_tool_calls: Optional[bool] = None
-    # old  parallel_tool_calls: Optional[bool]
+    parallel_tool_calls: "Optional[bool]"= None
+    
     """Whether to allow the model to run tool calls in parallel."""
 
-    previous_response_id: Optional[str] = None
-    # old  previous_response_id: Optional[str]
+    previous_response_id: "Optional[str]"= None
+    
     """The unique ID of the previous response to the model.
 
     Use this to create multi-turn conversations. Learn more about
     [conversation state](https://platform.openai.com/docs/guides/conversation-state).
     """
 
-    reasoning: Optional[Reasoning] = None
-    # old  reasoning: Optional[Reasoning]
+    reasoning: "Optional[Reasoning]"= None
+    
     """**o-series models only**
 
     Configuration options for
     [reasoning models](https://platform.openai.com/docs/guides/reasoning).
     """
 
-    service_tier: Optional[Literal["auto", "default", "flex"]] = None
-    # old  service_tier: Optional[Literal["auto", "default", "flex"]]
+    service_tier: "Optional[Literal['auto', 'default', 'flex']]"= None
+    
     """Specifies the latency tier to use for processing the request.
 
     This parameter is relevant for customers subscribed to the scale tier service:
@@ -138,12 +139,12 @@ class ResponseCreateParamsBase(BaseModel):
     utilized.
     """
 
-    store: Optional[bool] = None
-    # old  store: Optional[bool]
+    store: "Optional[bool]"= None
+    
     """Whether to store the generated model response for later retrieval via API."""
 
-    temperature: Optional[float] = None
-    # old  temperature: Optional[float]
+    temperature: "Optional[float]"= None
+    
     """What sampling temperature to use, between 0 and 2.
 
     Higher values like 0.8 will make the output more random, while lower values like
@@ -151,8 +152,8 @@ class ResponseCreateParamsBase(BaseModel):
     this or `top_p` but not both.
     """
 
-    text: Optional[ResponseTextConfigParam] = None
-    # old  text: ResponseTextConfigParam
+    text: "Optional[ResponseTextConfigParam]"= None
+    
     """Configuration options for a text response from the model.
 
     Can be plain text or structured JSON data. Learn more:
@@ -161,16 +162,16 @@ class ResponseCreateParamsBase(BaseModel):
     - [Structured Outputs](https://platform.openai.com/docs/guides/structured-outputs)
     """
 
-    tool_choice: Optional[ToolChoice] = None
-    # old  tool_choice: ToolChoice
+    tool_choice: "Optional[ToolChoice]"= None
+    
     """
     How the model should select which tool (or tools) to use when generating a
     response. See the `tools` parameter to see how to specify which tools the model
     can call.
     """
 
-    tools: Optional[List[ToolParam]] = None
-    # old  tools: Iterable[ToolParam]
+    tools: "Optional[List[ToolParam]]"= None
+    
     """An array of tools the model may call while generating a response.
 
     You can specify which tool to use by setting the `tool_choice` parameter.
@@ -188,8 +189,8 @@ class ResponseCreateParamsBase(BaseModel):
       [function calling](https://platform.openai.com/docs/guides/function-calling).
     """
 
-    top_p: Optional[float] = None
-    # old  top_p: Optional[float]
+    top_p: "Optional[float]"= None
+    
     """
     An alternative to sampling with temperature, called nucleus sampling, where the
     model considers the results of the tokens with top_p probability mass. So 0.1
@@ -198,8 +199,8 @@ class ResponseCreateParamsBase(BaseModel):
     We generally recommend altering this or `temperature` but not both.
     """
 
-    truncation: Optional[Literal["auto", "disabled"]] = None
-    # old  truncation: Optional[Literal["auto", "disabled"]]
+    truncation: "Optional[Literal['auto', 'disabled']]"= None
+    
     """The truncation strategy to use for the model response.
 
     - `auto`: If the context of this response and previous ones exceeds the model's
@@ -209,8 +210,8 @@ class ResponseCreateParamsBase(BaseModel):
       for a model, the request will fail with a 400 error.
     """
 
-    user: Optional[str] = None
-    # old  user: str
+    user: "Optional[str]"= None
+    
     """
     A unique identifier representing your end-user, which can help OpenAI to monitor
     and detect abuse.
@@ -218,12 +219,12 @@ class ResponseCreateParamsBase(BaseModel):
     """
 
 
-ToolChoice = Union[ToolChoiceOptions, ToolChoiceTypesParam, ToolChoiceFunctionParam] # old ToolChoice: TypeAlias = Union[ToolChoiceOptions, ToolChoiceTypesParam, ToolChoiceFunctionParam]
+ToolChoice = Union[ToolChoiceOptions, ToolChoiceTypesParam, ToolChoiceFunctionParam]
 
 
 class ResponseCreateParamsNonStreaming(ResponseCreateParamsBase):
-    stream: Optional[Literal[False]] = None
-    # old  stream: Optional[Literal[False]]
+    stream: "Optional[Literal[False]]"= None
+    
     """
     If set to true, the model response data will be streamed to the client as it is
     generated using
@@ -235,8 +236,8 @@ class ResponseCreateParamsNonStreaming(ResponseCreateParamsBase):
 
 
 class ResponseCreateParamsStreaming(ResponseCreateParamsBase):
-    stream: Literal[True] = None
-    # old  stream: Required[Literal[True]]
+    stream: "Literal[True]"= None
+    
     """
     If set to true, the model response data will be streamed to the client as it is
     generated using
@@ -248,4 +249,7 @@ class ResponseCreateParamsStreaming(ResponseCreateParamsBase):
 
 
 ResponseCreateParams = Union[ResponseCreateParamsNonStreaming, ResponseCreateParamsStreaming]
+ResponseCreateParamsBase.model_rebuild()
+ResponseCreateParamsNonStreaming.model_rebuild()
+ResponseCreateParamsStreaming.model_rebuild()
 

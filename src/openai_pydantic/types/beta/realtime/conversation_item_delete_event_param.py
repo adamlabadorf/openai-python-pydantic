@@ -1,22 +1,24 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 __all__ = ["ConversationItemDeleteEventParam"]
 
 
 class ConversationItemDeleteEventParam(BaseModel):
-    item_id: str = None
-    # old  item_id: Required[str]
+    item_id: "str"= None
+    
     """The ID of the item to delete."""
 
-    type: Literal["conversation.item.delete"] = None
-    # old  type: Required[Literal["conversation.item.delete"]]
+    type: "Literal['conversation.item.delete']"= None
+    
     """The event type, must be `conversation.item.delete`."""
 
-    event_id: Optional[str] = None
-    # old  event_id: str
+    event_id: "Optional[str]"= None
+    
     """Optional client-generated ID used to identify this event."""
+ConversationItemDeleteEventParam.model_rebuild()
 

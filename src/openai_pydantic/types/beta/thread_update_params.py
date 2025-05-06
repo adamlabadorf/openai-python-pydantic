@@ -1,20 +1,18 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
-
+from pydantic import BaseModel, Field
 from typing import List, Optional
-from pydantic import BaseModel
+
+from typing import Optional,List
+
 from ..shared_params.metadata import Metadata
 
 __all__ = ["ThreadUpdateParams", "ToolResources", "ToolResourcesCodeInterpreter", "ToolResourcesFileSearch"]
 
 
 class ThreadUpdateParams(BaseModel):
-    metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata]
+    metadata: "Optional[Metadata]"= None
+    
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -24,11 +22,8 @@ class ThreadUpdateParams(BaseModel):
     a maximum length of 512 characters.
     """
 
-    tool_resources: Optional[ToolResources] = None
-    # old  tool_resources: Optional[ToolResources] = None
-    # old  tool_resources: Optional[ToolResources] = None
-    # old  tool_resources: Optional[ToolResources] = None
-    # old  tool_resources: Optional[ToolResources]
+    tool_resources: "Optional[ToolResources]"= None
+    
     """
     A set of resources that are made available to the assistant's tools in this
     thread. The resources are specific to the type of tool. For example, the
@@ -38,11 +33,8 @@ class ThreadUpdateParams(BaseModel):
 
 
 class ToolResourcesCodeInterpreter(BaseModel):
-    file_ids: Optional[List[str]] = None
-    # old  file_ids: Optional[List[str]] = None
-    # old  file_ids: Optional[List[str]] = None
-    # old  file_ids: Optional[List[str]] = None
-    # old  file_ids: List[str]
+    file_ids: "Optional[List[str]]"= None
+    
     """
     A list of [file](https://platform.openai.com/docs/api-reference/files) IDs made
     available to the `code_interpreter` tool. There can be a maximum of 20 files
@@ -51,11 +43,8 @@ class ToolResourcesCodeInterpreter(BaseModel):
 
 
 class ToolResourcesFileSearch(BaseModel):
-    vector_store_ids: Optional[List[str]] = None
-    # old  vector_store_ids: Optional[List[str]] = None
-    # old  vector_store_ids: Optional[List[str]] = None
-    # old  vector_store_ids: Optional[List[str]] = None
-    # old  vector_store_ids: List[str]
+    vector_store_ids: "Optional[List[str]]"= None
+    
     """
     The
     [vector store](https://platform.openai.com/docs/api-reference/vector-stores/object)
@@ -65,18 +54,13 @@ class ToolResourcesFileSearch(BaseModel):
 
 
 class ToolResources(BaseModel):
-    code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
-    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
-    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
-    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
-    # old  code_interpreter: ToolResourcesCodeInterpreter
+    code_interpreter: "Optional[ToolResourcesCodeInterpreter]"= None
+    
 
-    file_search: Optional[ToolResourcesFileSearch] = None
-    # old  file_search: Optional[ToolResourcesFileSearch] = None
-    # old  file_search: Optional[ToolResourcesFileSearch] = None
-    # old  file_search: Optional[ToolResourcesFileSearch] = None
-    # old  file_search: ToolResourcesFileSearch
-
-
-
+    file_search: "Optional[ToolResourcesFileSearch]"= None
+    
+ThreadUpdateParams.model_rebuild()
+ToolResourcesCodeInterpreter.model_rebuild()
+ToolResourcesFileSearch.model_rebuild()
+ToolResources.model_rebuild()
 

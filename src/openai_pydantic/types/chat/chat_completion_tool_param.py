@@ -1,19 +1,21 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 from ..shared_params.function_definition import FunctionDefinition
 
 __all__ = ["ChatCompletionToolParam"]
 
 
 class ChatCompletionToolParam(BaseModel):
-    function: FunctionDefinition = None
-    # old  function: Required[FunctionDefinition]
+    function: "FunctionDefinition"= None
+    
 
-    type: Literal["function"] = None
-    # old  type: Required[Literal["function"]]
+    type: "Literal['function']"= None
+    
     """The type of the tool. Currently, only `function` is supported."""
+ChatCompletionToolParam.model_rebuild()
 

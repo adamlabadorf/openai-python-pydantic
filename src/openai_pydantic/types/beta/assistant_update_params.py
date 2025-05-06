@@ -1,10 +1,11 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
-from typing import List, Union, Iterable, Optional
+from typing import List,Union,Optional
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 from .assistant_tool_param import AssistantToolParam
 from ..shared_params.metadata import Metadata
 from ..shared.reasoning_effort import ReasoningEffort
@@ -14,28 +15,19 @@ __all__ = ["AssistantUpdateParams", "ToolResources", "ToolResourcesCodeInterpret
 
 
 class AssistantUpdateParams(BaseModel):
-    description: Optional[str] = None
-    # old  description: Optional[str] = None
-    # old  description: Optional[str] = None
-    # old  description: Optional[str] = None
-    # old  description: Optional[str]
+    description: "Optional[str]"= None
+    
     """The description of the assistant. The maximum length is 512 characters."""
 
-    instructions: Optional[str] = None
-    # old  instructions: Optional[str] = None
-    # old  instructions: Optional[str] = None
-    # old  instructions: Optional[str] = None
-    # old  instructions: Optional[str]
+    instructions: "Optional[str]"= None
+    
     """The system instructions that the assistant uses.
 
     The maximum length is 256,000 characters.
     """
 
-    metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata]
+    metadata: "Optional[Metadata]"= None
+    
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -45,11 +37,8 @@ class AssistantUpdateParams(BaseModel):
     a maximum length of 512 characters.
     """
 
-    model: Optional[Union[ str, Literal[ "gpt-4.1", "gpt-4.1-mini", "gpt-4.1-nano", "gpt-4.1-2025-04-14", "gpt-4.1-mini-2025-04-14", "gpt-4.1-nano-2025-04-14", "o3-mini", "o3-mini-2025-01-31", "o1", "o1-2024-12-17", "gpt-4o", "gpt-4o-2024-11-20", "gpt-4o-2024-08-06", "gpt-4o-2024-05-13", "gpt-4o-mini", "gpt-4o-mini-2024-07-18", "gpt-4.5-preview", "gpt-4.5-preview-2025-02-27", "gpt-4-turbo", "gpt-4-turbo-2024-04-09", "gpt-4-0125-preview", "gpt-4-turbo-preview", "gpt-4-1106-preview", "gpt-4-vision-preview", "gpt-4", "gpt-4-0314", "gpt-4-0613", "gpt-4-32k", "gpt-4-32k-0314", "gpt-4-32k-0613", "gpt-3.5-turbo", "gpt-3.5-turbo-16k", "gpt-3.5-turbo-0613", "gpt-3.5-turbo-1106", "gpt-3.5-turbo-0125", "gpt-3.5-turbo-16k-0613", ], ]] = None
-    # old  model: Optional[Union[ str, Literal[ "gpt-4.1", "gpt-4.1-mini", "gpt-4.1-nano", "gpt-4.1-2025-04-14", "gpt-4.1-mini-2025-04-14", "gpt-4.1-nano-2025-04-14", "o3-mini", "o3-mini-2025-01-31", "o1", "o1-2024-12-17", "gpt-4o", "gpt-4o-2024-11-20", "gpt-4o-2024-08-06", "gpt-4o-2024-05-13", "gpt-4o-mini", "gpt-4o-mini-2024-07-18", "gpt-4.5-preview", "gpt-4.5-preview-2025-02-27", "gpt-4-turbo", "gpt-4-turbo-2024-04-09", "gpt-4-0125-preview", "gpt-4-turbo-preview", "gpt-4-1106-preview", "gpt-4-vision-preview", "gpt-4", "gpt-4-0314", "gpt-4-0613", "gpt-4-32k", "gpt-4-32k-0314", "gpt-4-32k-0613", "gpt-3.5-turbo", "gpt-3.5-turbo-16k", "gpt-3.5-turbo-0613", "gpt-3.5-turbo-1106", "gpt-3.5-turbo-0125", "gpt-3.5-turbo-16k-0613", ], ]] = None
-    # old  model: Optional[Union[ str, Literal[ "gpt-4.1", "gpt-4.1-mini", "gpt-4.1-nano", "gpt-4.1-2025-04-14", "gpt-4.1-mini-2025-04-14", "gpt-4.1-nano-2025-04-14", "o3-mini", "o3-mini-2025-01-31", "o1", "o1-2024-12-17", "gpt-4o", "gpt-4o-2024-11-20", "gpt-4o-2024-08-06", "gpt-4o-2024-05-13", "gpt-4o-mini", "gpt-4o-mini-2024-07-18", "gpt-4.5-preview", "gpt-4.5-preview-2025-02-27", "gpt-4-turbo", "gpt-4-turbo-2024-04-09", "gpt-4-0125-preview", "gpt-4-turbo-preview", "gpt-4-1106-preview", "gpt-4-vision-preview", "gpt-4", "gpt-4-0314", "gpt-4-0613", "gpt-4-32k", "gpt-4-32k-0314", "gpt-4-32k-0613", "gpt-3.5-turbo", "gpt-3.5-turbo-16k", "gpt-3.5-turbo-0613", "gpt-3.5-turbo-1106", "gpt-3.5-turbo-0125", "gpt-3.5-turbo-16k-0613", ], ]] = None
-    # old  model: Optional[Union[ str, Literal[ "gpt-4.1", "gpt-4.1-mini", "gpt-4.1-nano", "gpt-4.1-2025-04-14", "gpt-4.1-mini-2025-04-14", "gpt-4.1-nano-2025-04-14", "o3-mini", "o3-mini-2025-01-31", "o1", "o1-2024-12-17", "gpt-4o", "gpt-4o-2024-11-20", "gpt-4o-2024-08-06", "gpt-4o-2024-05-13", "gpt-4o-mini", "gpt-4o-mini-2024-07-18", "gpt-4.5-preview", "gpt-4.5-preview-2025-02-27", "gpt-4-turbo", "gpt-4-turbo-2024-04-09", "gpt-4-0125-preview", "gpt-4-turbo-preview", "gpt-4-1106-preview", "gpt-4-vision-preview", "gpt-4", "gpt-4-0314", "gpt-4-0613", "gpt-4-32k", "gpt-4-32k-0314", "gpt-4-32k-0613", "gpt-3.5-turbo", "gpt-3.5-turbo-16k", "gpt-3.5-turbo-0613", "gpt-3.5-turbo-1106", "gpt-3.5-turbo-0125", "gpt-3.5-turbo-16k-0613", ], ]] = None
-    # old  model: Union[ str, Literal[ "gpt-4.1", "gpt-4.1-mini", "gpt-4.1-nano", "gpt-4.1-2025-04-14", "gpt-4.1-mini-2025-04-14", "gpt-4.1-nano-2025-04-14", "o3-mini", "o3-mini-2025-01-31", "o1", "o1-2024-12-17", "gpt-4o", "gpt-4o-2024-11-20", "gpt-4o-2024-08-06", "gpt-4o-2024-05-13", "gpt-4o-mini", "gpt-4o-mini-2024-07-18", "gpt-4.5-preview", "gpt-4.5-preview-2025-02-27", "gpt-4-turbo", "gpt-4-turbo-2024-04-09", "gpt-4-0125-preview", "gpt-4-turbo-preview", "gpt-4-1106-preview", "gpt-4-vision-preview", "gpt-4", "gpt-4-0314", "gpt-4-0613", "gpt-4-32k", "gpt-4-32k-0314", "gpt-4-32k-0613", "gpt-3.5-turbo", "gpt-3.5-turbo-16k", "gpt-3.5-turbo-0613", "gpt-3.5-turbo-1106", "gpt-3.5-turbo-0125", "gpt-3.5-turbo-16k-0613", ], ]
+    model: "Optional[Union[ str, Literal[ 'gpt-4.1', 'gpt-4.1-mini', 'gpt-4.1-nano', 'gpt-4.1-2025-04-14', 'gpt-4.1-mini-2025-04-14', 'gpt-4.1-nano-2025-04-14', 'o3-mini', 'o3-mini-2025-01-31', 'o1', 'o1-2024-12-17', 'gpt-4o', 'gpt-4o-2024-11-20', 'gpt-4o-2024-08-06', 'gpt-4o-2024-05-13', 'gpt-4o-mini', 'gpt-4o-mini-2024-07-18', 'gpt-4.5-preview', 'gpt-4.5-preview-2025-02-27', 'gpt-4-turbo', 'gpt-4-turbo-2024-04-09', 'gpt-4-0125-preview', 'gpt-4-turbo-preview', 'gpt-4-1106-preview', 'gpt-4-vision-preview', 'gpt-4', 'gpt-4-0314', 'gpt-4-0613', 'gpt-4-32k', 'gpt-4-32k-0314', 'gpt-4-32k-0613', 'gpt-3.5-turbo', 'gpt-3.5-turbo-16k', 'gpt-3.5-turbo-0613', 'gpt-3.5-turbo-1106', 'gpt-3.5-turbo-0125', 'gpt-3.5-turbo-16k-0613', ], ]]"= None
+    
     """ID of the model to use.
 
     You can use the
@@ -59,18 +48,12 @@ class AssistantUpdateParams(BaseModel):
     them.
     """
 
-    name: Optional[str] = None
-    # old  name: Optional[str] = None
-    # old  name: Optional[str] = None
-    # old  name: Optional[str] = None
-    # old  name: Optional[str]
+    name: "Optional[str]"= None
+    
     """The name of the assistant. The maximum length is 256 characters."""
 
-    reasoning_effort: Optional[ReasoningEffort] = None
-    # old  reasoning_effort: Optional[ReasoningEffort] = None
-    # old  reasoning_effort: Optional[ReasoningEffort] = None
-    # old  reasoning_effort: Optional[ReasoningEffort] = None
-    # old  reasoning_effort: Optional[ReasoningEffort]
+    reasoning_effort: "Optional[ReasoningEffort]"= None
+    
     """**o-series models only**
 
     Constrains effort on reasoning for
@@ -79,11 +62,8 @@ class AssistantUpdateParams(BaseModel):
     result in faster responses and fewer tokens used on reasoning in a response.
     """
 
-    response_format: Optional[AssistantResponseFormatOptionParam] = None
-    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
-    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
-    # old  response_format: Optional[AssistantResponseFormatOptionParam] = None
-    # old  response_format: Optional[AssistantResponseFormatOptionParam]
+    response_format: "Optional[AssistantResponseFormatOptionParam]"= None
+    
     """Specifies the format that the model must output.
 
     Compatible with [GPT-4o](https://platform.openai.com/docs/models#gpt-4o),
@@ -107,22 +87,16 @@ class AssistantUpdateParams(BaseModel):
     max context length.
     """
 
-    temperature: Optional[float] = None
-    # old  temperature: Optional[float] = None
-    # old  temperature: Optional[float] = None
-    # old  temperature: Optional[float] = None
-    # old  temperature: Optional[float]
+    temperature: "Optional[float]"= None
+    
     """What sampling temperature to use, between 0 and 2.
 
     Higher values like 0.8 will make the output more random, while lower values like
     0.2 will make it more focused and deterministic.
     """
 
-    tool_resources: Optional[ToolResources] = None
-    # old  tool_resources: Optional[ToolResources] = None
-    # old  tool_resources: Optional[ToolResources] = None
-    # old  tool_resources: Optional[ToolResources] = None
-    # old  tool_resources: Optional[ToolResources]
+    tool_resources: "Optional[ToolResources]"= None
+    
     """A set of resources that are used by the assistant's tools.
 
     The resources are specific to the type of tool. For example, the
@@ -130,22 +104,16 @@ class AssistantUpdateParams(BaseModel):
     tool requires a list of vector store IDs.
     """
 
-    tools: Optional[List[AssistantToolParam]] = None
-    # old  tools: Optional[List[AssistantToolParam]] = None
-    # old  tools: Optional[List[AssistantToolParam]] = None
-    # old  tools: Optional[List[AssistantToolParam]] = None
-    # old  tools: Iterable[AssistantToolParam]
+    tools: "Optional[List[AssistantToolParam]]"= None
+    
     """A list of tool enabled on the assistant.
 
     There can be a maximum of 128 tools per assistant. Tools can be of types
     `code_interpreter`, `file_search`, or `function`.
     """
 
-    top_p: Optional[float] = None
-    # old  top_p: Optional[float] = None
-    # old  top_p: Optional[float] = None
-    # old  top_p: Optional[float] = None
-    # old  top_p: Optional[float]
+    top_p: "Optional[float]"= None
+    
     """
     An alternative to sampling with temperature, called nucleus sampling, where the
     model considers the results of the tokens with top_p probability mass. So 0.1
@@ -156,11 +124,8 @@ class AssistantUpdateParams(BaseModel):
 
 
 class ToolResourcesCodeInterpreter(BaseModel):
-    file_ids: Optional[List[str]] = None
-    # old  file_ids: Optional[List[str]] = None
-    # old  file_ids: Optional[List[str]] = None
-    # old  file_ids: Optional[List[str]] = None
-    # old  file_ids: List[str]
+    file_ids: "Optional[List[str]]"= None
+    
     """
     Overrides the list of
     [file](https://platform.openai.com/docs/api-reference/files) IDs made available
@@ -170,11 +135,8 @@ class ToolResourcesCodeInterpreter(BaseModel):
 
 
 class ToolResourcesFileSearch(BaseModel):
-    vector_store_ids: Optional[List[str]] = None
-    # old  vector_store_ids: Optional[List[str]] = None
-    # old  vector_store_ids: Optional[List[str]] = None
-    # old  vector_store_ids: Optional[List[str]] = None
-    # old  vector_store_ids: List[str]
+    vector_store_ids: "Optional[List[str]]"= None
+    
     """
     Overrides the
     [vector store](https://platform.openai.com/docs/api-reference/vector-stores/object)
@@ -184,18 +146,13 @@ class ToolResourcesFileSearch(BaseModel):
 
 
 class ToolResources(BaseModel):
-    code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
-    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
-    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
-    # old  code_interpreter: Optional[ToolResourcesCodeInterpreter] = None
-    # old  code_interpreter: ToolResourcesCodeInterpreter
+    code_interpreter: "Optional[ToolResourcesCodeInterpreter]"= None
+    
 
-    file_search: Optional[ToolResourcesFileSearch] = None
-    # old  file_search: Optional[ToolResourcesFileSearch] = None
-    # old  file_search: Optional[ToolResourcesFileSearch] = None
-    # old  file_search: Optional[ToolResourcesFileSearch] = None
-    # old  file_search: ToolResourcesFileSearch
-
-
-
+    file_search: "Optional[ToolResourcesFileSearch]"= None
+    
+AssistantUpdateParams.model_rebuild()
+ToolResourcesCodeInterpreter.model_rebuild()
+ToolResourcesFileSearch.model_rebuild()
+ToolResources.model_rebuild()
 

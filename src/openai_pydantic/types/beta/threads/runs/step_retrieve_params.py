@@ -1,23 +1,24 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
-from typing import List
-from pydantic import BaseModel
+from typing import List,Optional
+
 from .run_step_include import RunStepInclude
 
 __all__ = ["StepRetrieveParams"]
 
 
 class StepRetrieveParams(BaseModel):
-    thread_id: str = None
-    # old  thread_id: Required[str]
+    thread_id: "str"= None
+    
 
-    run_id: str = None
-    # old  run_id: Required[str]
+    run_id: "str"= None
+    
 
-    include: Optional[List[RunStepInclude]] = None
-    # old  include: List[RunStepInclude]
+    include: "Optional[List[RunStepInclude]]"= None
+    
     """A list of additional fields to include in the response.
 
     Currently the only supported value is
@@ -28,4 +29,5 @@ class StepRetrieveParams(BaseModel):
     [file search tool documentation](https://platform.openai.com/docs/assistants/tools/file-search#customizing-file-search-settings)
     for more information.
     """
+StepRetrieveParams.model_rebuild()
 

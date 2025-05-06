@@ -1,15 +1,16 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 __all__ = ["VectorStoreListParams"]
 
 
 class VectorStoreListParams(BaseModel):
-    after: Optional[str] = None
-    # old  after: str
+    after: "Optional[str]"= None
+    
     """A cursor for use in pagination.
 
     `after` is an object ID that defines your place in the list. For instance, if
@@ -18,8 +19,8 @@ class VectorStoreListParams(BaseModel):
     list.
     """
 
-    before: Optional[str] = None
-    # old  before: str
+    before: "Optional[str]"= None
+    
     """A cursor for use in pagination.
 
     `before` is an object ID that defines your place in the list. For instance, if
@@ -28,17 +29,18 @@ class VectorStoreListParams(BaseModel):
     of the list.
     """
 
-    limit: Optional[int] = None
-    # old  limit: int
+    limit: "Optional[int]"= None
+    
     """A limit on the number of objects to be returned.
 
     Limit can range between 1 and 100, and the default is 20.
     """
 
-    order: Optional[Literal["asc", "desc"]] = None
-    # old  order: Literal["asc", "desc"]
+    order: "Optional[Literal['asc', 'desc']]"= None
+    
     """Sort order by the `created_at` timestamp of the objects.
 
     `asc` for ascending order and `desc` for descending order.
     """
+VectorStoreListParams.model_rebuild()
 

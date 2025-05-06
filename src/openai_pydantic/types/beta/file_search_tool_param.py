@@ -1,26 +1,23 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 __all__ = ["FileSearchToolParam", "FileSearch", "FileSearchRankingOptions"]
 
 
 class FileSearchRankingOptions(BaseModel):
-    score_threshold: Optional[float] = None
-    # old  score_threshold: Optional[float] = None
-    # old  score_threshold: float = None
-    # old  score_threshold: Required[float]
+    score_threshold: "float"= None
+    
     """The score threshold for the file search.
 
     All values must be a floating point number between 0 and 1.
     """
 
-    ranker: Optional[Literal["auto", "default_2024_08_21"]] = None
-    # old  ranker: Optional[Literal["auto", "default_2024_08_21"]] = None
-    # old  ranker: Optional[Literal["auto", "default_2024_08_21"]] = None
-    # old  ranker: Literal["auto", "default_2024_08_21"]
+    ranker: "Optional[Literal['auto', 'default_2024_08_21']]"= None
+    
     """The ranker to use for the file search.
 
     If not specified will use the `auto` ranker.
@@ -28,10 +25,8 @@ class FileSearchRankingOptions(BaseModel):
 
 
 class FileSearch(BaseModel):
-    max_num_results: Optional[int] = None
-    # old  max_num_results: Optional[int] = None
-    # old  max_num_results: Optional[int] = None
-    # old  max_num_results: int
+    max_num_results: "Optional[int]"= None
+    
     """The maximum number of results the file search tool should output.
 
     The default is 20 for `gpt-4*` models and 5 for `gpt-3.5-turbo`. This number
@@ -43,10 +38,8 @@ class FileSearch(BaseModel):
     for more information.
     """
 
-    ranking_options: Optional[FileSearchRankingOptions] = None
-    # old  ranking_options: Optional[FileSearchRankingOptions] = None
-    # old  ranking_options: Optional[FileSearchRankingOptions] = None
-    # old  ranking_options: FileSearchRankingOptions
+    ranking_options: "Optional[FileSearchRankingOptions]"= None
+    
     """The ranking options for the file search.
 
     If not specified, the file search tool will use the `auto` ranker and a
@@ -59,17 +52,14 @@ class FileSearch(BaseModel):
 
 
 class FileSearchToolParam(BaseModel):
-    type: Optional[Literal["file_search"]] = None
-    # old  type: Optional[Literal["file_search"]] = None
-    # old  type: Literal["file_search"] = None
-    # old  type: Required[Literal["file_search"]]
+    type: "Literal['file_search']"= None
+    
     """The type of tool being defined: `file_search`"""
 
-    file_search: Optional[FileSearch] = None
-    # old  file_search: Optional[FileSearch] = None
-    # old  file_search: Optional[FileSearch] = None
-    # old  file_search: FileSearch
+    file_search: "Optional[FileSearch]"= None
+    
     """Overrides for the file search tool."""
-
-
+FileSearchRankingOptions.model_rebuild()
+FileSearch.model_rebuild()
+FileSearchToolParam.model_rebuild()
 

@@ -1,26 +1,28 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
-from typing import Dict, Optional
-from pydantic import BaseModel
+from typing import Dict,Optional
+
 __all__ = ["JobListParams"]
 
 
 class JobListParams(BaseModel):
-    after: Optional[str] = None
-    # old  after: str
+    after: "Optional[str]"= None
+    
     """Identifier for the last job from the previous pagination request."""
 
-    limit: Optional[int] = None
-    # old  limit: int
+    limit: "Optional[int]"= None
+    
     """Number of fine-tuning jobs to retrieve."""
 
-    metadata: Optional[Dict[str, str]] = None
-    # old  metadata: Optional[Dict[str, str]]
+    metadata: "Optional[Dict[str, str]]"= None
+    
     """Optional metadata filter.
 
     To filter, use the syntax `metadata[k]=v`. Alternatively, set `metadata=null` to
     indicate no metadata.
     """
+JobListParams.model_rebuild()
 

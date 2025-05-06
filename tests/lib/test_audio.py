@@ -7,12 +7,12 @@ from typing import get_args
 
 import pytest
 
-from openai import OpenAI, AsyncOpenAI
+from openai_pydantic import OpenAI, AsyncOpenAI
 from tests.utils import evaluate_forwardref
-from openai._utils import assert_signatures_in_sync
-from openai._compat import is_literal_type
-from openai._utils._typing import is_union_type
-from openai.types.audio_response_format import AudioResponseFormat
+from openai_pydantic._utils import assert_signatures_in_sync
+from openai_pydantic._compat import is_literal_type
+from openai_pydantic._utils._typing import is_union_type
+from openai_pydantic.types.audio_response_format import AudioResponseFormat
 
 
 @pytest.mark.parametrize("sync", [True, False], ids=["sync", "async"])

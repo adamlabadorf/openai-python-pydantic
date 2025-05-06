@@ -1789,7 +1789,7 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess
 name = "websockets"
 version = "15.0.1"
 description = "An implementation of the WebSocket Protocol (RFC 6455 & 7692)"
-optional = true
+optional = false
 python-versions = ">=3.9"
 groups = ["main"]
 files = [
@@ -1892,4 +1892,4 @@ voice-helpers = ["numpy", "sounddevice"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.12"
-content-hash = "ddfcf933361b1e642d61a3afb8d7122bcff70712bc633b37154a7f46b60ca388"
+content-hash = "af066ef90f6cd9122831d694ebb10226442a14ca396fd585644786b3c708a2a4"

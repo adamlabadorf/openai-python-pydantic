@@ -1,18 +1,19 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
-from typing import Dict, Union, Optional
-from pydantic import BaseModel
+from typing import Dict,Optional,Union
+
 __all__ = ["FileUpdateParams"]
 
 
 class FileUpdateParams(BaseModel):
-    vector_store_id: str = None
-    # old  vector_store_id: Required[str]
+    vector_store_id: "str"= None
+    
 
-    attributes: Optional[Dict[str, Union[str, float, bool]]] = None
-    # old  attributes: Required[Optional[Dict[str, Union[str, float, bool]]]]
+    attributes: "Optional[Dict[str, Union[str, float, bool]]]"= None
+    
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -20,4 +21,5 @@ class FileUpdateParams(BaseModel):
     strings with a maximum length of 64 characters. Values are strings with a
     maximum length of 512 characters, booleans, or numbers.
     """
+FileUpdateParams.model_rebuild()
 

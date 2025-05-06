@@ -1,14 +1,15 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
-from pydantic import BaseModel
+
 __all__ = ["ChatCompletionStreamOptionsParam"]
 
 
 class ChatCompletionStreamOptionsParam(BaseModel):
-    include_usage: Optional[bool] = None
-    # old  include_usage: bool
+    include_usage: "Optional[bool]"= None
+    
     """If set, an additional chunk will be streamed before the `data: [DONE]` message.
 
     The `usage` field on this chunk shows the token usage statistics for the entire
@@ -18,4 +19,5 @@ class ChatCompletionStreamOptionsParam(BaseModel):
     **NOTE:** If the stream is interrupted, you may not receive the final usage
     chunk which contains the total token usage for the request.
     """
+ChatCompletionStreamOptionsParam.model_rebuild()
 

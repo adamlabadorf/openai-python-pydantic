@@ -1,25 +1,27 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 __all__ = ["MessageListParams"]
 
 
 class MessageListParams(BaseModel):
-    after: Optional[str] = None
-    # old  after: str
+    after: "Optional[str]"= None
+    
     """Identifier for the last message from the previous pagination request."""
 
-    limit: Optional[int] = None
-    # old  limit: int
+    limit: "Optional[int]"= None
+    
     """Number of messages to retrieve."""
 
-    order: Optional[Literal["asc", "desc"]] = None
-    # old  order: Literal["asc", "desc"]
+    order: "Optional[Literal['asc', 'desc']]"= None
+    
     """Sort order for messages by timestamp.
 
     Use `asc` for ascending order or `desc` for descending order. Defaults to `asc`.
     """
+MessageListParams.model_rebuild()
 

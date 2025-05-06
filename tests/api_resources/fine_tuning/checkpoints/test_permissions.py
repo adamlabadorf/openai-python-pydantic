@@ -7,10 +7,10 @@ from typing import Any, cast
 
 import pytest
 
-from openai import OpenAI, AsyncOpenAI
+from openai_pydantic import OpenAI, AsyncOpenAI
 from tests.utils import assert_matches_type
-from openai.pagination import SyncPage, AsyncPage
-from openai.types.fine_tuning.checkpoints import (
+from openai_pydantic.pagination import SyncPage, AsyncPage
+from openai_pydantic.types.fine_tuning.checkpoints import (
     PermissionCreateResponse,
     PermissionDeleteResponse,
     PermissionRetrieveResponse,

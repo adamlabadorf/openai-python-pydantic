@@ -1,15 +1,17 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
-from pydantic import BaseModel
+
 from ..._types import FileTypes
 
 __all__ = ["PartCreateParams"]
 
 
 class PartCreateParams(BaseModel):
-    data: FileTypes = None
-    # old  data: Required[FileTypes]
+    data: "FileTypes"= None
+    
     """The chunk of bytes for this Part."""
+PartCreateParams.model_rebuild()
 

@@ -1,42 +1,39 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
-from typing import Dict, Optional
+from typing import Dict,Optional
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 __all__ = ["ResponseFormatJSONSchema", "JSONSchema"]
 
 
 class JSONSchema(BaseModel):
-    name: Optional[str] = None
-    # old  name: str = None
-    # old  name: Required[str]
+    name: "str"= None
+    
     """The name of the response format.
 
     Must be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum length
     of 64.
     """
 
-    description: Optional[str] = None
-    # old  description: Optional[str] = None
-    # old  description: str
+    description: "Optional[str]"= None
+    
     """
     A description of what the response format is for, used by the model to determine
     how to respond in the format.
     """
 
-    schema: Optional[Dict[str, object]] = None
-    # old  schema: Optional[Dict[str, object]] = None
-    # old  schema: Dict[str, object]
+    schema_: "Optional[Dict[str, object]]"= Field(default=None, alias="schema")
+    
     """
     The schema for the response format, described as a JSON Schema object. Learn how
     to build JSON schemas [here](https://json-schema.org/).
     """
 
-    strict: Optional[bool] = None
-    # old  strict: Optional[bool] = None
-    # old  strict: Optional[bool]
+    strict: "Optional[bool]"= None
+    
     """
     Whether to enable strict schema adherence when generating the output. If set to
     true, the model will always follow the exact schema defined in the `schema`
@@ -47,14 +44,13 @@ class JSONSchema(BaseModel):
 
 
 class ResponseFormatJSONSchema(BaseModel):
-    json_schema: Optional[JSONSchema] = None
-    # old  json_schema: JSONSchema = None
-    # old  json_schema: Required[JSONSchema]
+    json_schema: "JSONSchema"= None
+    
     """Structured Outputs configuration options, including a JSON Schema."""
 
-    type: Optional[Literal["json_schema"]] = None
-    # old  type: Literal["json_schema"] = None
-    # old  type: Required[Literal["json_schema"]]
+    type: "Literal['json_schema']"= None
+    
     """The type of response format being defined. Always `json_schema`."""
-
+JSONSchema.model_rebuild()
+ResponseFormatJSONSchema.model_rebuild()
 

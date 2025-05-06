@@ -1,10 +1,11 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
-from typing import Dict, List, Union, Iterable, Optional
+from typing import Union,Optional,List,Dict
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 from ..shared.chat_model import ChatModel
 from ..shared_params.metadata import Metadata
 from ..shared.reasoning_effort import ReasoningEffort
@@ -34,12 +35,8 @@ __all__ = [
 
 
 class CompletionCreateParamsBase(BaseModel):
-    messages: Optional[List[ChatCompletionMessageParam]] = None
-    # old  messages: Optional[List[ChatCompletionMessageParam]] = None
-    # old  messages: Optional[List[ChatCompletionMessageParam]] = None
-    # old  messages: Optional[List[ChatCompletionMessageParam]] = None
-    # old  messages: List[ChatCompletionMessageParam] = None
-    # old  messages: Required[Iterable[ChatCompletionMessageParam]]
+    messages: "List[ChatCompletionMessageParam]"= None
+    
     """A list of messages comprising the conversation so far.
 
     Depending on the [model](https://platform.openai.com/docs/models) you use,
@@ -49,12 +46,8 @@ class CompletionCreateParamsBase(BaseModel):
     [audio](https://platform.openai.com/docs/guides/audio).
     """
 
-    model: Optional[Union[str, ChatModel]] = None
-    # old  model: Optional[Union[str, ChatModel]] = None
-    # old  model: Optional[Union[str, ChatModel]] = None
-    # old  model: Optional[Union[str, ChatModel]] = None
-    # old  model: Union[str, ChatModel] = None
-    # old  model: Required[Union[str, ChatModel]]
+    model: "Union[str, ChatModel]"= None
+    
     """Model ID used to generate the response, like `gpt-4o` or `o3`.
 
     OpenAI offers a wide range of models with different capabilities, performance
@@ -63,36 +56,24 @@ class CompletionCreateParamsBase(BaseModel):
     available models.
     """
 
-    audio: Optional[ChatCompletionAudioParam] = None
-    # old  audio: Optional[ChatCompletionAudioParam] = None
-    # old  audio: Optional[ChatCompletionAudioParam] = None
-    # old  audio: Optional[ChatCompletionAudioParam] = None
-    # old  audio: Optional[ChatCompletionAudioParam] = None
-    # old  audio: Optional[ChatCompletionAudioParam]
+    audio: "Optional[ChatCompletionAudioParam]"= None
+    
     """Parameters for audio output.
 
     Required when audio output is requested with `modalities: ["audio"]`.
     [Learn more](https://platform.openai.com/docs/guides/audio).
     """
 
-    frequency_penalty: Optional[float] = None
-    # old  frequency_penalty: Optional[float] = None
-    # old  frequency_penalty: Optional[float] = None
-    # old  frequency_penalty: Optional[float] = None
-    # old  frequency_penalty: Optional[float] = None
-    # old  frequency_penalty: Optional[float]
+    frequency_penalty: "Optional[float]"= None
+    
     """Number between -2.0 and 2.0.
 
     Positive values penalize new tokens based on their existing frequency in the
     text so far, decreasing the model's likelihood to repeat the same line verbatim.
     """
 
-    function_call: Optional[FunctionCall] = None
-    # old  function_call: Optional[FunctionCall] = None
-    # old  function_call: Optional[FunctionCall] = None
-    # old  function_call: Optional[FunctionCall] = None
-    # old  function_call: Optional[FunctionCall] = None
-    # old  function_call: FunctionCall
+    function_call: "Optional[FunctionCall]"= None
+    
     """Deprecated in favor of `tool_choice`.
 
     Controls which (if any) function is called by the model.
@@ -109,23 +90,15 @@ class CompletionCreateParamsBase(BaseModel):
     functions are present.
     """
 
-    functions: Optional[List[Function]] = None
-    # old  functions: Optional[List[Function]] = None
-    # old  functions: Optional[List[Function]] = None
-    # old  functions: Optional[List[Function]] = None
-    # old  functions: Optional[List[Function]] = None
-    # old  functions: Iterable[Function]
+    functions: "Optional[List[Function]]"= None
+    
     """Deprecated in favor of `tools`.
 
     A list of functions the model may generate JSON inputs for.
     """
 
-    logit_bias: Optional[Dict[str, int]] = None
-    # old  logit_bias: Optional[Dict[str, int]] = None
-    # old  logit_bias: Optional[Dict[str, int]] = None
-    # old  logit_bias: Optional[Dict[str, int]] = None
-    # old  logit_bias: Optional[Dict[str, int]] = None
-    # old  logit_bias: Optional[Dict[str, int]]
+    logit_bias: "Optional[Dict[str, int]]"= None
+    
     """Modify the likelihood of specified tokens appearing in the completion.
 
     Accepts a JSON object that maps tokens (specified by their token ID in the
@@ -136,36 +109,24 @@ class CompletionCreateParamsBase(BaseModel):
     or exclusive selection of the relevant token.
     """
 
-    logprobs: Optional[bool] = None
-    # old  logprobs: Optional[bool] = None
-    # old  logprobs: Optional[bool] = None
-    # old  logprobs: Optional[bool] = None
-    # old  logprobs: Optional[bool] = None
-    # old  logprobs: Optional[bool]
+    logprobs: "Optional[bool]"= None
+    
     """Whether to return log probabilities of the output tokens or not.
 
     If true, returns the log probabilities of each output token returned in the
     `content` of `message`.
     """
 
-    max_completion_tokens: Optional[int] = None
-    # old  max_completion_tokens: Optional[int] = None
-    # old  max_completion_tokens: Optional[int] = None
-    # old  max_completion_tokens: Optional[int] = None
-    # old  max_completion_tokens: Optional[int] = None
-    # old  max_completion_tokens: Optional[int]
+    max_completion_tokens: "Optional[int]"= None
+    
     """
     An upper bound for the number of tokens that can be generated for a completion,
     including visible output tokens and
     [reasoning tokens](https://platform.openai.com/docs/guides/reasoning).
     """
 
-    max_tokens: Optional[int] = None
-    # old  max_tokens: Optional[int] = None
-    # old  max_tokens: Optional[int] = None
-    # old  max_tokens: Optional[int] = None
-    # old  max_tokens: Optional[int] = None
-    # old  max_tokens: Optional[int]
+    max_tokens: "Optional[int]"= None
+    
     """
     The maximum number of [tokens](/tokenizer) that can be generated in the chat
     completion. This value can be used to control
@@ -176,12 +137,8 @@ class CompletionCreateParamsBase(BaseModel):
     [o-series models](https://platform.openai.com/docs/guides/reasoning).
     """
 
-    metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata]
+    metadata: "Optional[Metadata]"= None
+    
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -191,12 +148,8 @@ class CompletionCreateParamsBase(BaseModel):
     a maximum length of 512 characters.
     """
 
-    modalities: Optional[List[Literal["text", "audio"]]] = None
-    # old  modalities: Optional[List[Literal["text", "audio"]]] = None
-    # old  modalities: Optional[List[Literal["text", "audio"]]] = None
-    # old  modalities: Optional[List[Literal["text", "audio"]]] = None
-    # old  modalities: Optional[List[Literal["text", "audio"]]] = None
-    # old  modalities: Optional[List[Literal["text", "audio"]]]
+    modalities: "Optional[List[Literal['text', 'audio']]]"= None
+    
     """
     Output types that you would like the model to generate. Most models are capable
     of generating text, which is the default:
@@ -210,59 +163,39 @@ class CompletionCreateParamsBase(BaseModel):
     `["text", "audio"]`
     """
 
-    n: Optional[int] = None
-    # old  n: Optional[int] = None
-    # old  n: Optional[int] = None
-    # old  n: Optional[int] = None
-    # old  n: Optional[int] = None
-    # old  n: Optional[int]
+    n: "Optional[int]"= None
+    
     """How many chat completion choices to generate for each input message.
 
     Note that you will be charged based on the number of generated tokens across all
     of the choices. Keep `n` as `1` to minimize costs.
     """
 
-    parallel_tool_calls: Optional[bool] = None
-    # old  parallel_tool_calls: Optional[bool] = None
-    # old  parallel_tool_calls: Optional[bool] = None
-    # old  parallel_tool_calls: Optional[bool] = None
-    # old  parallel_tool_calls: Optional[bool] = None
-    # old  parallel_tool_calls: bool
+    parallel_tool_calls: "Optional[bool]"= None
+    
     """
     Whether to enable
     [parallel function calling](https://platform.openai.com/docs/guides/function-calling#configuring-parallel-function-calling)
     during tool use.
     """
 
-    prediction: Optional[ChatCompletionPredictionContentParam] = None
-    # old  prediction: Optional[ChatCompletionPredictionContentParam] = None
-    # old  prediction: Optional[ChatCompletionPredictionContentParam] = None
-    # old  prediction: Optional[ChatCompletionPredictionContentParam] = None
-    # old  prediction: Optional[ChatCompletionPredictionContentParam] = None
-    # old  prediction: Optional[ChatCompletionPredictionContentParam]
+    prediction: "Optional[ChatCompletionPredictionContentParam]"= None
+    
     """
     Static predicted output content, such as the content of a text file that is
     being regenerated.
     """
 
-    presence_penalty: Optional[float] = None
-    # old  presence_penalty: Optional[float] = None
-    # old  presence_penalty: Optional[float] = None
-    # old  presence_penalty: Optional[float] = None
-    # old  presence_penalty: Optional[float] = None
-    # old  presence_penalty: Optional[float]
+    presence_penalty: "Optional[float]"= None
+    
     """Number between -2.0 and 2.0.
 
     Positive values penalize new tokens based on whether they appear in the text so
     far, increasing the model's likelihood to talk about new topics.
     """
 
-    reasoning_effort: Optional[ReasoningEffort] = None
-    # old  reasoning_effort: Optional[ReasoningEffort] = None
-    # old  reasoning_effort: Optional[ReasoningEffort] = None
-    # old  reasoning_effort: Optional[ReasoningEffort] = None
-    # old  reasoning_effort: Optional[ReasoningEffort] = None
-    # old  reasoning_effort: Optional[ReasoningEffort]
+    reasoning_effort: "Optional[ReasoningEffort]"= None
+    
     """**o-series models only**
 
     Constrains effort on reasoning for
@@ -271,12 +204,8 @@ class CompletionCreateParamsBase(BaseModel):
     result in faster responses and fewer tokens used on reasoning in a response.
     """
 
-    response_format: Optional[ResponseFormat] = None
-    # old  response_format: Optional[ResponseFormat] = None
-    # old  response_format: Optional[ResponseFormat] = None
-    # old  response_format: Optional[ResponseFormat] = None
-    # old  response_format: Optional[ResponseFormat] = None
-    # old  response_format: ResponseFormat
+    response_format: "Optional[ResponseFormat]"= None
+    
     """An object specifying the format that the model must output.
 
     Setting to `{ "type": "json_schema", "json_schema": {...} }` enables Structured
@@ -289,12 +218,8 @@ class CompletionCreateParamsBase(BaseModel):
     preferred for models that support it.
     """
 
-    seed: Optional[int] = None
-    # old  seed: Optional[int] = None
-    # old  seed: Optional[int] = None
-    # old  seed: Optional[int] = None
-    # old  seed: Optional[int] = None
-    # old  seed: Optional[int]
+    seed: "Optional[int]"= None
+    
     """
     This feature is in Beta. If specified, our system will make a best effort to
     sample deterministically, such that repeated requests with the same `seed` and
@@ -303,12 +228,8 @@ class CompletionCreateParamsBase(BaseModel):
     in the backend.
     """
 
-    service_tier: Optional[Literal["auto", "default", "flex"]] = None
-    # old  service_tier: Optional[Literal["auto", "default", "flex"]] = None
-    # old  service_tier: Optional[Literal["auto", "default", "flex"]] = None
-    # old  service_tier: Optional[Literal["auto", "default", "flex"]] = None
-    # old  service_tier: Optional[Literal["auto", "default", "flex"]] = None
-    # old  service_tier: Optional[Literal["auto", "default", "flex"]]
+    service_tier: "Optional[Literal['auto', 'default', 'flex']]"= None
+    
     """Specifies the latency tier to use for processing the request.
 
     This parameter is relevant for customers subscribed to the scale tier service:
@@ -329,44 +250,28 @@ class CompletionCreateParamsBase(BaseModel):
     utilized.
     """
 
-    stop: Optional[Union[Optional[str], List[str], None]] = None
-    # old  stop: Optional[Union[Optional[str], List[str], None]] = None
-    # old  stop: Optional[Union[Optional[str], List[str], None]] = None
-    # old  stop: Optional[Union[Optional[str], List[str], None]] = None
-    # old  stop: Optional[Union[Optional[str], List[str], None]] = None
-    # old  stop: Union[Optional[str], List[str], None]
+    stop: "Optional[Union[Optional[str], List[str], None]]"= None
+    
     """Not supported with latest reasoning models `o3` and `o4-mini`.
 
     Up to 4 sequences where the API will stop generating further tokens. The
     returned text will not contain the stop sequence.
     """
 
-    store: Optional[bool] = None
-    # old  store: Optional[bool] = None
-    # old  store: Optional[bool] = None
-    # old  store: Optional[bool] = None
-    # old  store: Optional[bool] = None
-    # old  store: Optional[bool]
+    store: "Optional[bool]"= None
+    
     """
     Whether or not to store the output of this chat completion request for use in
     our [model distillation](https://platform.openai.com/docs/guides/distillation)
     or [evals](https://platform.openai.com/docs/guides/evals) products.
     """
 
-    stream_options: Optional[ChatCompletionStreamOptionsParam] = None
-    # old  stream_options: Optional[ChatCompletionStreamOptionsParam] = None
-    # old  stream_options: Optional[ChatCompletionStreamOptionsParam] = None
-    # old  stream_options: Optional[ChatCompletionStreamOptionsParam] = None
-    # old  stream_options: Optional[ChatCompletionStreamOptionsParam] = None
-    # old  stream_options: Optional[ChatCompletionStreamOptionsParam]
+    stream_options: "Optional[ChatCompletionStreamOptionsParam]"= None
+    
     """Options for streaming response. Only set this when you set `stream: true`."""
 
-    temperature: Optional[float] = None
-    # old  temperature: Optional[float] = None
-    # old  temperature: Optional[float] = None
-    # old  temperature: Optional[float] = None
-    # old  temperature: Optional[float] = None
-    # old  temperature: Optional[float]
+    temperature: "Optional[float]"= None
+    
     """What sampling temperature to use, between 0 and 2.
 
     Higher values like 0.8 will make the output more random, while lower values like
@@ -374,12 +279,8 @@ class CompletionCreateParamsBase(BaseModel):
     this or `top_p` but not both.
     """
 
-    tool_choice: Optional[ChatCompletionToolChoiceOptionParam] = None
-    # old  tool_choice: Optional[ChatCompletionToolChoiceOptionParam] = None
-    # old  tool_choice: Optional[ChatCompletionToolChoiceOptionParam] = None
-    # old  tool_choice: Optional[ChatCompletionToolChoiceOptionParam] = None
-    # old  tool_choice: Optional[ChatCompletionToolChoiceOptionParam] = None
-    # old  tool_choice: ChatCompletionToolChoiceOptionParam
+    tool_choice: "Optional[ChatCompletionToolChoiceOptionParam]"= None
+    
     """
     Controls which (if any) tool is called by the model. `none` means the model will
     not call any tool and instead generates a message. `auto` means the model can
@@ -392,12 +293,8 @@ class CompletionCreateParamsBase(BaseModel):
     are present.
     """
 
-    tools: Optional[List[ChatCompletionToolParam]] = None
-    # old  tools: Optional[List[ChatCompletionToolParam]] = None
-    # old  tools: Optional[List[ChatCompletionToolParam]] = None
-    # old  tools: Optional[List[ChatCompletionToolParam]] = None
-    # old  tools: Optional[List[ChatCompletionToolParam]] = None
-    # old  tools: Iterable[ChatCompletionToolParam]
+    tools: "Optional[List[ChatCompletionToolParam]]"= None
+    
     """A list of tools the model may call.
 
     Currently, only functions are supported as a tool. Use this to provide a list of
@@ -405,24 +302,16 @@ class CompletionCreateParamsBase(BaseModel):
     supported.
     """
 
-    top_logprobs: Optional[int] = None
-    # old  top_logprobs: Optional[int] = None
-    # old  top_logprobs: Optional[int] = None
-    # old  top_logprobs: Optional[int] = None
-    # old  top_logprobs: Optional[int] = None
-    # old  top_logprobs: Optional[int]
+    top_logprobs: "Optional[int]"= None
+    
     """
     An integer between 0 and 20 specifying the number of most likely tokens to
     return at each token position, each with an associated log probability.
     `logprobs` must be set to `true` if this parameter is used.
     """
 
-    top_p: Optional[float] = None
-    # old  top_p: Optional[float] = None
-    # old  top_p: Optional[float] = None
-    # old  top_p: Optional[float] = None
-    # old  top_p: Optional[float] = None
-    # old  top_p: Optional[float]
+    top_p: "Optional[float]"= None
+    
     """
     An alternative to sampling with temperature, called nucleus sampling, where the
     model considers the results of the tokens with top_p probability mass. So 0.1
@@ -431,24 +320,16 @@ class CompletionCreateParamsBase(BaseModel):
     We generally recommend altering this or `temperature` but not both.
     """
 
-    user: Optional[str] = None
-    # old  user: Optional[str] = None
-    # old  user: Optional[str] = None
-    # old  user: Optional[str] = None
-    # old  user: Optional[str] = None
-    # old  user: str
+    user: "Optional[str]"= None
+    
     """
     A unique identifier representing your end-user, which can help OpenAI to monitor
     and detect abuse.
     [Learn more](https://platform.openai.com/docs/guides/safety-best-practices#end-user-ids).
     """
 
-    web_search_options: Optional[WebSearchOptions] = None
-    # old  web_search_options: Optional[WebSearchOptions] = None
-    # old  web_search_options: Optional[WebSearchOptions] = None
-    # old  web_search_options: Optional[WebSearchOptions] = None
-    # old  web_search_options: Optional[WebSearchOptions] = None
-    # old  web_search_options: WebSearchOptions
+    web_search_options: "Optional[WebSearchOptions]"= None
+    
     """
     This tool searches the web for relevant results to use in a response. Learn more
     about the
@@ -456,39 +337,27 @@ class CompletionCreateParamsBase(BaseModel):
     """
 
 
-FunctionCall = Union[Literal["none", "auto"], ChatCompletionFunctionCallOptionParam] # old FunctionCall: TypeAlias = Union[Literal["none", "auto"], ChatCompletionFunctionCallOptionParam]
+FunctionCall = Union[Literal["none", "auto"], ChatCompletionFunctionCallOptionParam]
 
 
 class Function(BaseModel):
-    name: Optional[str] = None
-    # old  name: Optional[str] = None
-    # old  name: Optional[str] = None
-    # old  name: Optional[str] = None
-    # old  name: str = None
-    # old  name: Required[str]
+    name: "str"= None
+    
     """The name of the function to be called.
 
     Must be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum length
     of 64.
     """
 
-    description: Optional[str] = None
-    # old  description: Optional[str] = None
-    # old  description: Optional[str] = None
-    # old  description: Optional[str] = None
-    # old  description: Optional[str] = None
-    # old  description: str
+    description: "Optional[str]"= None
+    
     """
     A description of what the function does, used by the model to choose when and
     how to call the function.
     """
 
-    parameters: Optional[FunctionParameters] = None
-    # old  parameters: Optional[FunctionParameters] = None
-    # old  parameters: Optional[FunctionParameters] = None
-    # old  parameters: Optional[FunctionParameters] = None
-    # old  parameters: Optional[FunctionParameters] = None
-    # old  parameters: FunctionParameters
+    parameters: "Optional[FunctionParameters]"= None
+    
     """The parameters the functions accepts, described as a JSON Schema object.
 
     See the [guide](https://platform.openai.com/docs/guides/function-calling) for
@@ -500,43 +369,27 @@ class Function(BaseModel):
     """
 
 
-ResponseFormat = Union[ResponseFormatText, ResponseFormatJSONSchema, ResponseFormatJSONObject] # old ResponseFormat: TypeAlias = Union[ResponseFormatText, ResponseFormatJSONSchema, ResponseFormatJSONObject]
+ResponseFormat = Union[ResponseFormatText, ResponseFormatJSONSchema, ResponseFormatJSONObject]
 
 
 class WebSearchOptionsUserLocationApproximate(BaseModel):
-    city: Optional[str] = None
-    # old  city: Optional[str] = None
-    # old  city: Optional[str] = None
-    # old  city: Optional[str] = None
-    # old  city: Optional[str] = None
-    # old  city: str
+    city: "Optional[str]"= None
+    
     """Free text input for the city of the user, e.g. `San Francisco`."""
 
-    country: Optional[str] = None
-    # old  country: Optional[str] = None
-    # old  country: Optional[str] = None
-    # old  country: Optional[str] = None
-    # old  country: Optional[str] = None
-    # old  country: str
+    country: "Optional[str]"= None
+    
     """
     The two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1) of
     the user, e.g. `US`.
     """
 
-    region: Optional[str] = None
-    # old  region: Optional[str] = None
-    # old  region: Optional[str] = None
-    # old  region: Optional[str] = None
-    # old  region: Optional[str] = None
-    # old  region: str
+    region: "Optional[str]"= None
+    
     """Free text input for the region of the user, e.g. `California`."""
 
-    timezone: Optional[str] = None
-    # old  timezone: Optional[str] = None
-    # old  timezone: Optional[str] = None
-    # old  timezone: Optional[str] = None
-    # old  timezone: Optional[str] = None
-    # old  timezone: str
+    timezone: "Optional[str]"= None
+    
     """
     The [IANA timezone](https://timeapi.io/documentation/iana-timezones) of the
     user, e.g. `America/Los_Angeles`.
@@ -544,51 +397,31 @@ class WebSearchOptionsUserLocationApproximate(BaseModel):
 
 
 class WebSearchOptionsUserLocation(BaseModel):
-    approximate: Optional[WebSearchOptionsUserLocationApproximate] = None
-    # old  approximate: Optional[WebSearchOptionsUserLocationApproximate] = None
-    # old  approximate: Optional[WebSearchOptionsUserLocationApproximate] = None
-    # old  approximate: Optional[WebSearchOptionsUserLocationApproximate] = None
-    # old  approximate: WebSearchOptionsUserLocationApproximate = None
-    # old  approximate: Required[WebSearchOptionsUserLocationApproximate]
+    approximate: "WebSearchOptionsUserLocationApproximate"= None
+    
     """Approximate location parameters for the search."""
 
-    type: Optional[Literal["approximate"]] = None
-    # old  type: Optional[Literal["approximate"]] = None
-    # old  type: Optional[Literal["approximate"]] = None
-    # old  type: Optional[Literal["approximate"]] = None
-    # old  type: Literal["approximate"] = None
-    # old  type: Required[Literal["approximate"]]
+    type: "Literal['approximate']"= None
+    
     """The type of location approximation. Always `approximate`."""
 
 
 class WebSearchOptions(BaseModel):
-    search_context_size: Optional[Literal["low", "medium", "high"]] = None
-    # old  search_context_size: Optional[Literal["low", "medium", "high"]] = None
-    # old  search_context_size: Optional[Literal["low", "medium", "high"]] = None
-    # old  search_context_size: Optional[Literal["low", "medium", "high"]] = None
-    # old  search_context_size: Optional[Literal["low", "medium", "high"]] = None
-    # old  search_context_size: Literal["low", "medium", "high"]
+    search_context_size: "Optional[Literal['low', 'medium', 'high']]"= None
+    
     """
     High level guidance for the amount of context window space to use for the
     search. One of `low`, `medium`, or `high`. `medium` is the default.
     """
 
-    user_location: Optional[WebSearchOptionsUserLocation] = None
-    # old  user_location: Optional[WebSearchOptionsUserLocation] = None
-    # old  user_location: Optional[WebSearchOptionsUserLocation] = None
-    # old  user_location: Optional[WebSearchOptionsUserLocation] = None
-    # old  user_location: Optional[WebSearchOptionsUserLocation] = None
-    # old  user_location: Optional[WebSearchOptionsUserLocation]
+    user_location: "Optional[WebSearchOptionsUserLocation]"= None
+    
     """Approximate location parameters for the search."""
 
 
 class CompletionCreateParamsNonStreaming(CompletionCreateParamsBase):
-    stream: Optional[Literal[False]] = None
-    # old  stream: Optional[Literal[False]] = None
-    # old  stream: Optional[Literal[False]] = None
-    # old  stream: Optional[Literal[False]] = None
-    # old  stream: Optional[Literal[False]] = None
-    # old  stream: Optional[Literal[False]]
+    stream: "Optional[Literal[False]]"= None
+    
     """
     If set to true, the model response data will be streamed to the client as it is
     generated using
@@ -602,12 +435,8 @@ class CompletionCreateParamsNonStreaming(CompletionCreateParamsBase):
 
 
 class CompletionCreateParamsStreaming(CompletionCreateParamsBase):
-    stream: Optional[Literal[True]] = None
-    # old  stream: Optional[Literal[True]] = None
-    # old  stream: Optional[Literal[True]] = None
-    # old  stream: Optional[Literal[True]] = None
-    # old  stream: Literal[True] = None
-    # old  stream: Required[Literal[True]]
+    stream: "Literal[True]"= None
+    
     """
     If set to true, the model response data will be streamed to the client as it is
     generated using
@@ -621,8 +450,11 @@ class CompletionCreateParamsStreaming(CompletionCreateParamsBase):
 
 
 CompletionCreateParams = Union[CompletionCreateParamsNonStreaming, CompletionCreateParamsStreaming]
-
-
-
-
+CompletionCreateParamsBase.model_rebuild()
+Function.model_rebuild()
+WebSearchOptionsUserLocationApproximate.model_rebuild()
+WebSearchOptionsUserLocation.model_rebuild()
+WebSearchOptions.model_rebuild()
+CompletionCreateParamsNonStreaming.model_rebuild()
+CompletionCreateParamsStreaming.model_rebuild()
 

@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import pytest
 
-from openai import OpenAI, AsyncOpenAI
-from openai._utils import assert_signatures_in_sync
+from openai_pydantic import OpenAI, AsyncOpenAI
+from openai_pydantic._utils import assert_signatures_in_sync
 
 
 @pytest.mark.parametrize("sync", [True, False], ids=["sync", "async"])

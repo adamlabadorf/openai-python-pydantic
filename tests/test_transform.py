@@ -8,15 +8,15 @@ from typing_extensions import Required, Annotated, TypedDict
 
 import pytest
 
-from openai._types import NOT_GIVEN, Base64FileInput
-from openai._utils import (
+from openai_pydantic._types import NOT_GIVEN, Base64FileInput
+from openai_pydantic._utils import (
     PropertyInfo,
     transform as _transform,
     parse_datetime,
     async_transform as _async_transform,
 )
-from openai._compat import PYDANTIC_V2
-from openai._models import BaseModel
+from openai_pydantic._compat import PYDANTIC_V2
+from openai_pydantic._models import BaseModel
 
 _T = TypeVar("_T")
 

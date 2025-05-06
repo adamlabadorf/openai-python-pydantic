@@ -1,10 +1,11 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
-from typing import List, Union, Iterable, Optional
+from typing import Union,Optional,List
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 from ...shared_params.metadata import Metadata
 from .conversation_item_with_reference_param import ConversationItemWithReferenceParam
 
@@ -12,39 +13,29 @@ __all__ = ["ResponseCreateEventParam", "Response", "ResponseTool"]
 
 
 class ResponseTool(BaseModel):
-    description: Optional[str] = None
-    # old  description: Optional[str] = None
-    # old  description: Optional[str] = None
-    # old  description: str
+    description: "Optional[str]"= None
+    
     """
     The description of the function, including guidance on when and how to call it,
     and guidance about what to tell the user when calling (if anything).
     """
 
-    name: Optional[str] = None
-    # old  name: Optional[str] = None
-    # old  name: Optional[str] = None
-    # old  name: str
+    name: "Optional[str]"= None
+    
     """The name of the function."""
 
-    parameters: Optional[object] = None
-    # old  parameters: Optional[object] = None
-    # old  parameters: Optional[object] = None
-    # old  parameters: object
+    parameters: "Optional[object]"= None
+    
     """Parameters of the function in JSON Schema."""
 
-    type: Optional[Literal["function"]] = None
-    # old  type: Optional[Literal["function"]] = None
-    # old  type: Optional[Literal["function"]] = None
-    # old  type: Literal["function"]
+    type: "Optional[Literal['function']]"= None
+    
     """The type of the tool, i.e. `function`."""
 
 
 class Response(BaseModel):
-    conversation: Optional[Union[str, Literal["auto", "none"]]] = None
-    # old  conversation: Optional[Union[str, Literal["auto", "none"]]] = None
-    # old  conversation: Optional[Union[str, Literal["auto", "none"]]] = None
-    # old  conversation: Union[str, Literal["auto", "none"]]
+    conversation: "Optional[Union[str, Literal['auto', 'none']]]"= None
+    
     """Controls which conversation the response is added to.
 
     Currently supports `auto` and `none`, with `auto` as the default value. The
@@ -53,10 +44,8 @@ class Response(BaseModel):
     will not add items to default conversation.
     """
 
-    input: Optional[List[ConversationItemWithReferenceParam]] = None
-    # old  input: Optional[List[ConversationItemWithReferenceParam]] = None
-    # old  input: Optional[List[ConversationItemWithReferenceParam]] = None
-    # old  input: Iterable[ConversationItemWithReferenceParam]
+    input: "Optional[List[ConversationItemWithReferenceParam]]"= None
+    
     """Input items to include in the prompt for the model.
 
     Using this field creates a new context for this Response instead of using the
@@ -65,10 +54,8 @@ class Response(BaseModel):
     conversation.
     """
 
-    instructions: Optional[str] = None
-    # old  instructions: Optional[str] = None
-    # old  instructions: Optional[str] = None
-    # old  instructions: str
+    instructions: "Optional[str]"= None
+    
     """The default system instructions (i.e.
 
     system message) prepended to model calls. This field allows the client to guide
@@ -84,20 +71,16 @@ class Response(BaseModel):
     session.
     """
 
-    max_response_output_tokens: Optional[Union[int, Literal["inf"]]] = None
-    # old  max_response_output_tokens: Optional[Union[int, Literal["inf"]]] = None
-    # old  max_response_output_tokens: Optional[Union[int, Literal["inf"]]] = None
-    # old  max_response_output_tokens: Union[int, Literal["inf"]]
+    max_response_output_tokens: "Optional[Union[int, Literal['inf']]]"= None
+    
     """
     Maximum number of output tokens for a single assistant response, inclusive of
     tool calls. Provide an integer between 1 and 4096 to limit output tokens, or
     `inf` for the maximum available tokens for a given model. Defaults to `inf`.
     """
 
-    metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata]
+    metadata: "Optional[Metadata]"= None
+    
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -107,47 +90,35 @@ class Response(BaseModel):
     a maximum length of 512 characters.
     """
 
-    modalities: Optional[List[Literal["text", "audio"]]] = None
-    # old  modalities: Optional[List[Literal["text", "audio"]]] = None
-    # old  modalities: Optional[List[Literal["text", "audio"]]] = None
-    # old  modalities: List[Literal["text", "audio"]]
+    modalities: "Optional[List[Literal['text', 'audio']]]"= None
+    
     """The set of modalities the model can respond with.
 
     To disable audio, set this to ["text"].
     """
 
-    output_audio_format: Optional[Literal["pcm16", "g711_ulaw", "g711_alaw"]] = None
-    # old  output_audio_format: Optional[Literal["pcm16", "g711_ulaw", "g711_alaw"]] = None
-    # old  output_audio_format: Optional[Literal["pcm16", "g711_ulaw", "g711_alaw"]] = None
-    # old  output_audio_format: Literal["pcm16", "g711_ulaw", "g711_alaw"]
+    output_audio_format: "Optional[Literal['pcm16', 'g711_ulaw', 'g711_alaw']]"= None
+    
     """The format of output audio. Options are `pcm16`, `g711_ulaw`, or `g711_alaw`."""
 
-    temperature: Optional[float] = None
-    # old  temperature: Optional[float] = None
-    # old  temperature: Optional[float] = None
-    # old  temperature: float
+    temperature: "Optional[float]"= None
+    
     """Sampling temperature for the model, limited to [0.6, 1.2]. Defaults to 0.8."""
 
-    tool_choice: Optional[str] = None
-    # old  tool_choice: Optional[str] = None
-    # old  tool_choice: Optional[str] = None
-    # old  tool_choice: str
+    tool_choice: "Optional[str]"= None
+    
     """How the model chooses tools.
 
     Options are `auto`, `none`, `required`, or specify a function, like
     `{"type": "function", "function": {"name": "my_function"}}`.
     """
 
-    tools: Optional[List[ResponseTool]] = None
-    # old  tools: Optional[List[ResponseTool]] = None
-    # old  tools: Optional[List[ResponseTool]] = None
-    # old  tools: Iterable[ResponseTool]
+    tools: "Optional[List[ResponseTool]]"= None
+    
     """Tools (functions) available to the model."""
 
-    voice: Optional[Union[ str, Literal["alloy", "ash", "ballad", "coral", "echo", "fable", "onyx", "nova", "sage", "shimmer", "verse"] ]] = None
-    # old  voice: Optional[Union[ str, Literal["alloy", "ash", "ballad", "coral", "echo", "fable", "onyx", "nova", "sage", "shimmer", "verse"] ]] = None
-    # old  voice: Optional[Union[ str, Literal["alloy", "ash", "ballad", "coral", "echo", "fable", "onyx", "nova", "sage", "shimmer", "verse"] ]] = None
-    # old  voice: Union[ str, Literal["alloy", "ash", "ballad", "coral", "echo", "fable", "onyx", "nova", "sage", "shimmer", "verse"] ]
+    voice: "Optional[Union[ str, Literal['alloy', 'ash', 'ballad', 'coral', 'echo', 'fable', 'onyx', 'nova', 'sage', 'shimmer', 'verse'] ]]"= None
+    
     """The voice the model uses to respond.
 
     Voice cannot be changed during the session once the model has responded with
@@ -157,23 +128,18 @@ class Response(BaseModel):
 
 
 class ResponseCreateEventParam(BaseModel):
-    type: Optional[Literal["response.create"]] = None
-    # old  type: Optional[Literal["response.create"]] = None
-    # old  type: Literal["response.create"] = None
-    # old  type: Required[Literal["response.create"]]
+    type: "Literal['response.create']"= None
+    
     """The event type, must be `response.create`."""
 
-    event_id: Optional[str] = None
-    # old  event_id: Optional[str] = None
-    # old  event_id: Optional[str] = None
-    # old  event_id: str
+    event_id: "Optional[str]"= None
+    
     """Optional client-generated ID used to identify this event."""
 
-    response: Optional[Response] = None
-    # old  response: Optional[Response] = None
-    # old  response: Optional[Response] = None
-    # old  response: Response
+    response: "Optional[Response]"= None
+    
     """Create a new Realtime response with these parameters"""
-
-
+ResponseTool.model_rebuild()
+Response.model_rebuild()
+ResponseCreateEventParam.model_rebuild()
 

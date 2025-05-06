@@ -1,9 +1,10 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
-from typing import List, Union, Optional
-from pydantic import BaseModel
+from typing import Optional,Union,List
+
 from .moderation_model import ModerationModel
 from .moderation_multi_modal_input_param import ModerationMultiModalInputParam
 
@@ -11,16 +12,16 @@ __all__ = ["ModerationCreateParams"]
 
 
 class ModerationCreateParams(BaseModel):
-    input: Union[str, List[str], List[ModerationMultiModalInputParam]] = None
-    # old  input: Required[Union[str, List[str], Iterable[ModerationMultiModalInputParam]]]
+    input: "Union[str, List[str], List[ModerationMultiModalInputParam]]"= None
+    
     """Input (or inputs) to classify.
 
     Can be a single string, an array of strings, or an array of multi-modal input
     objects similar to other models.
     """
 
-    model: Optional[Union[str, ModerationModel]] = None
-    # old  model: Union[str, ModerationModel]
+    model: "Optional[Union[str, ModerationModel]]"= None
+    
     """The content moderation model you would like to use.
 
     Learn more in
@@ -28,4 +29,5 @@ class ModerationCreateParams(BaseModel):
     learn about available models
     [here](https://platform.openai.com/docs/models#moderation).
     """
+ModerationCreateParams.model_rebuild()
 

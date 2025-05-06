@@ -1,25 +1,27 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 __all__ = ["ImageFileParam"]
 
 
 class ImageFileParam(BaseModel):
-    file_id: str = None
-    # old  file_id: Required[str]
+    file_id: "str"= None
+    
     """
     The [File](https://platform.openai.com/docs/api-reference/files) ID of the image
     in the message content. Set `purpose="vision"` when uploading the File if you
     need to later display the file content.
     """
 
-    detail: Optional[Literal["auto", "low", "high"]] = None
-    # old  detail: Literal["auto", "low", "high"]
+    detail: "Optional[Literal['auto', 'low', 'high']]"= None
+    
     """Specifies the detail level of the image if specified by the user.
 
     `low` uses fewer tokens, you can opt in to high resolution using `high`.
     """
+ImageFileParam.model_rebuild()
 

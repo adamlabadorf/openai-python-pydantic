@@ -1,17 +1,17 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
-from typing import Dict, List, Union, Iterable, Optional
+from typing import List,Dict,Optional,Union
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 __all__ = ["ResponseFileSearchToolCallParam", "Result"]
 
 
 class Result(BaseModel):
-    attributes: Optional[Dict[str, Union[str, float, bool]]] = None
-    # old  attributes: Optional[Dict[str, Union[str, float, bool]]] = None
-    # old  attributes: Optional[Dict[str, Union[str, float, bool]]]
+    attributes: "Optional[Dict[str, Union[str, float, bool]]]"= None
+    
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -20,54 +20,46 @@ class Result(BaseModel):
     maximum length of 512 characters, booleans, or numbers.
     """
 
-    file_id: Optional[str] = None
-    # old  file_id: Optional[str] = None
-    # old  file_id: str
+    file_id: "Optional[str]"= None
+    
     """The unique ID of the file."""
 
-    filename: Optional[str] = None
-    # old  filename: Optional[str] = None
-    # old  filename: str
+    filename: "Optional[str]"= None
+    
     """The name of the file."""
 
-    score: Optional[float] = None
-    # old  score: Optional[float] = None
-    # old  score: float
+    score: "Optional[float]"= None
+    
     """The relevance score of the file - a value between 0 and 1."""
 
-    text: Optional[str] = None
-    # old  text: Optional[str] = None
-    # old  text: str
+    text: "Optional[str]"= None
+    
     """The text that was retrieved from the file."""
 
 
 class ResponseFileSearchToolCallParam(BaseModel):
-    id: Optional[str] = None
-    # old  id: str = None
-    # old  id: Required[str]
+    id: "str"= None
+    
     """The unique ID of the file search tool call."""
 
-    queries: Optional[List[str]] = None
-    # old  queries: List[str] = None
-    # old  queries: Required[List[str]]
+    queries: "List[str]"= None
+    
     """The queries used to search for files."""
 
-    status: Optional[Literal["in_progress", "searching", "completed", "incomplete", "failed"]] = None
-    # old  status: Literal["in_progress", "searching", "completed", "incomplete", "failed"] = None
-    # old  status: Required[Literal["in_progress", "searching", "completed", "incomplete", "failed"]]
+    status: "Literal['in_progress', 'searching', 'completed', 'incomplete', 'failed']"= None
+    
     """The status of the file search tool call.
 
     One of `in_progress`, `searching`, `incomplete` or `failed`,
     """
 
-    type: Optional[Literal["file_search_call"]] = None
-    # old  type: Literal["file_search_call"] = None
-    # old  type: Required[Literal["file_search_call"]]
+    type: "Literal['file_search_call']"= None
+    
     """The type of the file search tool call. Always `file_search_call`."""
 
-    results: Optional[List[Result]] = None
-    # old  results: Optional[List[Result]] = None
-    # old  results: Optional[Iterable[Result]]
+    results: "Optional[List[Result]]"= None
+    
     """The results of the file search tool call."""
-
+Result.model_rebuild()
+ResponseFileSearchToolCallParam.model_rebuild()
 

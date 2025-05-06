@@ -1,42 +1,43 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
-from typing import Dict, Optional
+from typing import Dict,Optional
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 __all__ = ["ResponseFormatTextJSONSchemaConfigParam"]
 
 
 class ResponseFormatTextJSONSchemaConfigParam(BaseModel):
-    name: str = None
-    # old  name: Required[str]
+    name: "str"= None
+    
     """The name of the response format.
 
     Must be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum length
     of 64.
     """
 
-    schema: Dict[str, object] = None
-    # old  schema: Required[Dict[str, object]]
+    schema_: "Dict[str, object]"= Field(default=None, alias="schema")
+    
     """
     The schema for the response format, described as a JSON Schema object. Learn how
     to build JSON schemas [here](https://json-schema.org/).
     """
 
-    type: Literal["json_schema"] = None
-    # old  type: Required[Literal["json_schema"]]
+    type: "Literal['json_schema']"= None
+    
     """The type of response format being defined. Always `json_schema`."""
 
-    description: Optional[str] = None
-    # old  description: str
+    description: "Optional[str]"= None
+    
     """
     A description of what the response format is for, used by the model to determine
     how to respond in the format.
     """
 
-    strict: Optional[bool] = None
-    # old  strict: Optional[bool]
+    strict: "Optional[bool]"= None
+    
     """
     Whether to enable strict schema adherence when generating the output. If set to
     true, the model will always follow the exact schema defined in the `schema`
@@ -44,4 +45,5 @@ class ResponseFormatTextJSONSchemaConfigParam(BaseModel):
     learn more, read the
     [Structured Outputs guide](https://platform.openai.com/docs/guides/structured-outputs).
     """
+ResponseFormatTextJSONSchemaConfigParam.model_rebuild()
 

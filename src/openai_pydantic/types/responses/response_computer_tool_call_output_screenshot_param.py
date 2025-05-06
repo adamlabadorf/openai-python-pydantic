@@ -1,25 +1,27 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 __all__ = ["ResponseComputerToolCallOutputScreenshotParam"]
 
 
 class ResponseComputerToolCallOutputScreenshotParam(BaseModel):
-    type: Literal["computer_screenshot"] = None
-    # old  type: Required[Literal["computer_screenshot"]]
+    type: "Literal['computer_screenshot']"= None
+    
     """Specifies the event type.
 
     For a computer screenshot, this property is always set to `computer_screenshot`.
     """
 
-    file_id: Optional[str] = None
-    # old  file_id: str
+    file_id: "Optional[str]"= None
+    
     """The identifier of an uploaded file that contains the screenshot."""
 
-    image_url: Optional[str] = None
-    # old  image_url: str
+    image_url: "Optional[str]"= None
+    
     """The URL of the screenshot image."""
+ResponseComputerToolCallOutputScreenshotParam.model_rebuild()
 

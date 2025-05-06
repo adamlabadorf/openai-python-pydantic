@@ -1,18 +1,20 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 __all__ = ["ChatCompletionContentPartTextParam"]
 
 
 class ChatCompletionContentPartTextParam(BaseModel):
-    text: str = None
-    # old  text: Required[str]
+    text: "str"= None
+    
     """The text content."""
 
-    type: Literal["text"] = None
-    # old  type: Required[Literal["text"]]
+    type: "Literal['text']"= None
+    
     """The type of the content part."""
+ChatCompletionContentPartTextParam.model_rebuild()
 

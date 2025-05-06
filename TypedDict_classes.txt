@@ -1,292 +1,145 @@
-src/openai/types/audio/translation_create_params.py:class TranslationCreateParams(TypedDict, total=False):
-src/openai/types/audio/speech_create_params.py:class SpeechCreateParams(TypedDict, total=False):
-src/openai/types/audio/transcription_create_params.py:class TranscriptionCreateParamsBase(TypedDict, total=False):
-src/openai/types/auto_file_chunking_strategy_param.py:class AutoFileChunkingStrategyParam(TypedDict, total=False):
-src/openai/types/batch_create_params.py:class BatchCreateParams(TypedDict, total=False):
-src/openai/types/batch_list_params.py:class BatchListParams(TypedDict, total=False):
-src/openai/types/beta/code_interpreter_tool_param.py:class CodeInterpreterToolParam(TypedDict, total=False):
-src/openai/types/beta/file_search_tool_param.py:class FileSearchRankingOptions(TypedDict, total=False):
-src/openai/types/beta/file_search_tool_param.py:class FileSearch(TypedDict, total=False):
-src/openai/types/beta/file_search_tool_param.py:class FileSearchToolParam(TypedDict, total=False):
-src/openai/types/beta/thread_create_and_run_params.py:class ThreadCreateAndRunParamsBase(TypedDict, total=False):
-src/openai/types/beta/thread_create_and_run_params.py:class ThreadMessageAttachmentToolFileSearch(TypedDict, total=False):
-src/openai/types/beta/thread_create_and_run_params.py:class ThreadMessageAttachment(TypedDict, total=False):
-src/openai/types/beta/thread_create_and_run_params.py:class ThreadMessage(TypedDict, total=False):
-src/openai/types/beta/thread_create_and_run_params.py:class ThreadToolResourcesCodeInterpreter(TypedDict, total=False):
-src/openai/types/beta/thread_create_and_run_params.py:class ThreadToolResourcesFileSearchVectorStoreChunkingStrategyAuto(TypedDict, total=False):
-src/openai/types/beta/thread_create_and_run_params.py:class ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic(TypedDict, total=False):
-src/openai/types/beta/thread_create_and_run_params.py:class ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStatic(TypedDict, total=False):
-src/openai/types/beta/thread_create_and_run_params.py:class ThreadToolResourcesFileSearchVectorStore(TypedDict, total=False):
-src/openai/types/beta/thread_create_and_run_params.py:class ThreadToolResourcesFileSearch(TypedDict, total=False):
-src/openai/types/beta/thread_create_and_run_params.py:class ThreadToolResources(TypedDict, total=False):
-src/openai/types/beta/thread_create_and_run_params.py:class Thread(TypedDict, total=False):
-src/openai/types/beta/thread_create_and_run_params.py:class ToolResourcesCodeInterpreter(TypedDict, total=False):
-src/openai/types/beta/thread_create_and_run_params.py:class ToolResourcesFileSearch(TypedDict, total=False):
-src/openai/types/beta/thread_create_and_run_params.py:class ToolResources(TypedDict, total=False):
-src/openai/types/beta/thread_create_and_run_params.py:class TruncationStrategy(TypedDict, total=False):
-src/openai/types/beta/assistant_tool_choice_function_param.py:class AssistantToolChoiceFunctionParam(TypedDict, total=False):
-src/openai/types/beta/assistant_list_params.py:class AssistantListParams(TypedDict, total=False):
-src/openai/types/beta/realtime/realtime_client_event_param.py:class OutputAudioBufferClear(TypedDict, total=False):
-src/openai/types/beta/realtime/response_cancel_event_param.py:class ResponseCancelEventParam(TypedDict, total=False):
-src/openai/types/beta/realtime/response_create_event_param.py:class ResponseTool(TypedDict, total=False):
-src/openai/types/beta/realtime/response_create_event_param.py:class Response(TypedDict, total=False):
-src/openai/types/beta/realtime/response_create_event_param.py:class ResponseCreateEventParam(TypedDict, total=False):
-src/openai/types/beta/realtime/conversation_item_content_param.py:class ConversationItemContentParam(TypedDict, total=False):
-src/openai/types/beta/realtime/conversation_item_param.py:class ConversationItemParam(TypedDict, total=False):
-src/openai/types/beta/realtime/conversation_item_retrieve_event_param.py:class ConversationItemRetrieveEventParam(TypedDict, total=False):
-src/openai/types/beta/realtime/input_audio_buffer_commit_event_param.py:class InputAudioBufferCommitEventParam(TypedDict, total=False):
-src/openai/types/beta/realtime/conversation_item_with_reference_param.py:class ConversationItemWithReferenceParam(TypedDict, total=False):
-src/openai/types/beta/realtime/transcription_session_update_param.py:class SessionInputAudioNoiseReduction(TypedDict, total=False):
-src/openai/types/beta/realtime/transcription_session_update_param.py:class SessionInputAudioTranscription(TypedDict, total=False):
-src/openai/types/beta/realtime/transcription_session_update_param.py:class SessionTurnDetection(TypedDict, total=False):
-src/openai/types/beta/realtime/transcription_session_update_param.py:class Session(TypedDict, total=False):
-src/openai/types/beta/realtime/transcription_session_update_param.py:class TranscriptionSessionUpdateParam(TypedDict, total=False):
-src/openai/types/beta/realtime/transcription_session_create_params.py:class TranscriptionSessionCreateParams(TypedDict, total=False):
-src/openai/types/beta/realtime/transcription_session_create_params.py:class InputAudioNoiseReduction(TypedDict, total=False):
-src/openai/types/beta/realtime/transcription_session_create_params.py:class InputAudioTranscription(TypedDict, total=False):
-src/openai/types/beta/realtime/transcription_session_create_params.py:class TurnDetection(TypedDict, total=False):
-src/openai/types/beta/realtime/conversation_item_delete_event_param.py:class ConversationItemDeleteEventParam(TypedDict, total=False):
-src/openai/types/beta/realtime/conversation_item_truncate_event_param.py:class ConversationItemTruncateEventParam(TypedDict, total=False):
-src/openai/types/beta/realtime/conversation_item_create_event_param.py:class ConversationItemCreateEventParam(TypedDict, total=False):
-src/openai/types/beta/realtime/input_audio_buffer_clear_event_param.py:class InputAudioBufferClearEventParam(TypedDict, total=False):
-src/openai/types/beta/realtime/session_create_params.py:class SessionCreateParams(TypedDict, total=False):
-src/openai/types/beta/realtime/session_create_params.py:class InputAudioNoiseReduction(TypedDict, total=False):
-src/openai/types/beta/realtime/session_create_params.py:class InputAudioTranscription(TypedDict, total=False):
-src/openai/types/beta/realtime/session_create_params.py:class Tool(TypedDict, total=False):
-src/openai/types/beta/realtime/session_create_params.py:class TurnDetection(TypedDict, total=False):
-src/openai/types/beta/realtime/session_update_event_param.py:class SessionInputAudioNoiseReduction(TypedDict, total=False):
-src/openai/types/beta/realtime/session_update_event_param.py:class SessionInputAudioTranscription(TypedDict, total=False):
-src/openai/types/beta/realtime/session_update_event_param.py:class SessionTool(TypedDict, total=False):
-src/openai/types/beta/realtime/session_update_event_param.py:class SessionTurnDetection(TypedDict, total=False):
-src/openai/types/beta/realtime/session_update_event_param.py:class Session(TypedDict, total=False):
-src/openai/types/beta/realtime/session_update_event_param.py:class SessionUpdateEventParam(TypedDict, total=False):
-src/openai/types/beta/realtime/realtime_connect_params.py:class RealtimeConnectParams(TypedDict, total=False):
-src/openai/types/beta/realtime/input_audio_buffer_append_event_param.py:class InputAudioBufferAppendEventParam(TypedDict, total=False):
-src/openai/types/beta/function_tool_param.py:class FunctionToolParam(TypedDict, total=False):
-src/openai/types/beta/assistant_create_params.py:class AssistantCreateParams(TypedDict, total=False):
-src/openai/types/beta/assistant_create_params.py:class ToolResourcesCodeInterpreter(TypedDict, total=False):
-src/openai/types/beta/assistant_create_params.py:class ToolResourcesFileSearchVectorStoreChunkingStrategyAuto(TypedDict, total=False):
-src/openai/types/beta/assistant_create_params.py:class ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic(TypedDict, total=False):
-src/openai/types/beta/assistant_create_params.py:class ToolResourcesFileSearchVectorStoreChunkingStrategyStatic(TypedDict, total=False):
-src/openai/types/beta/assistant_create_params.py:class ToolResourcesFileSearchVectorStore(TypedDict, total=False):
-src/openai/types/beta/assistant_create_params.py:class ToolResourcesFileSearch(TypedDict, total=False):
-src/openai/types/beta/assistant_create_params.py:class ToolResources(TypedDict, total=False):
-src/openai/types/beta/thread_update_params.py:class ThreadUpdateParams(TypedDict, total=False):
-src/openai/types/beta/thread_update_params.py:class ToolResourcesCodeInterpreter(TypedDict, total=False):
-src/openai/types/beta/thread_update_params.py:class ToolResourcesFileSearch(TypedDict, total=False):
-src/openai/types/beta/thread_update_params.py:class ToolResources(TypedDict, total=False):
-src/openai/types/beta/assistant_tool_choice_param.py:class AssistantToolChoiceParam(TypedDict, total=False):
-src/openai/types/beta/threads/message_list_params.py:class MessageListParams(TypedDict, total=False):
-src/openai/types/beta/threads/message_create_params.py:class MessageCreateParams(TypedDict, total=False):
-src/openai/types/beta/threads/message_create_params.py:class AttachmentToolFileSearch(TypedDict, total=False):
-src/openai/types/beta/threads/message_create_params.py:class Attachment(TypedDict, total=False):
-src/openai/types/beta/threads/message_update_params.py:class MessageUpdateParams(TypedDict, total=False):
-src/openai/types/beta/threads/run_create_params.py:class RunCreateParamsBase(TypedDict, total=False):
-src/openai/types/beta/threads/run_create_params.py:class AdditionalMessageAttachmentToolFileSearch(TypedDict, total=False):
-src/openai/types/beta/threads/run_create_params.py:class AdditionalMessageAttachment(TypedDict, total=False):
-src/openai/types/beta/threads/run_create_params.py:class AdditionalMessage(TypedDict, total=False):
-src/openai/types/beta/threads/run_create_params.py:class TruncationStrategy(TypedDict, total=False):
-src/openai/types/beta/threads/image_file_param.py:class ImageFileParam(TypedDict, total=False):
-src/openai/types/beta/threads/image_file_content_block_param.py:class ImageFileContentBlockParam(TypedDict, total=False):
-src/openai/types/beta/threads/image_url_content_block_param.py:class ImageURLContentBlockParam(TypedDict, total=False):
-src/openai/types/beta/threads/run_list_params.py:class RunListParams(TypedDict, total=False):
-src/openai/types/beta/threads/image_url_param.py:class ImageURLParam(TypedDict, total=False):
-src/openai/types/beta/threads/run_submit_tool_outputs_params.py:class RunSubmitToolOutputsParamsBase(TypedDict, total=False):
-src/openai/types/beta/threads/run_submit_tool_outputs_params.py:class ToolOutput(TypedDict, total=False):
-src/openai/types/beta/threads/text_content_block_param.py:class TextContentBlockParam(TypedDict, total=False):
-src/openai/types/beta/threads/run_update_params.py:class RunUpdateParams(TypedDict, total=False):
-src/openai/types/beta/threads/runs/step_retrieve_params.py:class StepRetrieveParams(TypedDict, total=False):
-src/openai/types/beta/threads/runs/step_list_params.py:class StepListParams(TypedDict, total=False):
-src/openai/types/beta/thread_create_params.py:class ThreadCreateParams(TypedDict, total=False):
-src/openai/types/beta/thread_create_params.py:class MessageAttachmentToolFileSearch(TypedDict, total=False):
-src/openai/types/beta/thread_create_params.py:class MessageAttachment(TypedDict, total=False):
-src/openai/types/beta/thread_create_params.py:class Message(TypedDict, total=False):
-src/openai/types/beta/thread_create_params.py:class ToolResourcesCodeInterpreter(TypedDict, total=False):
-src/openai/types/beta/thread_create_params.py:class ToolResourcesFileSearchVectorStoreChunkingStrategyAuto(TypedDict, total=False):
-src/openai/types/beta/thread_create_params.py:class ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic(TypedDict, total=False):
-src/openai/types/beta/thread_create_params.py:class ToolResourcesFileSearchVectorStoreChunkingStrategyStatic(TypedDict, total=False):
-src/openai/types/beta/thread_create_params.py:class ToolResourcesFileSearchVectorStore(TypedDict, total=False):
-src/openai/types/beta/thread_create_params.py:class ToolResourcesFileSearch(TypedDict, total=False):
-src/openai/types/beta/thread_create_params.py:class ToolResources(TypedDict, total=False):
-src/openai/types/beta/assistant_update_params.py:class AssistantUpdateParams(TypedDict, total=False):
-src/openai/types/beta/assistant_update_params.py:class ToolResourcesCodeInterpreter(TypedDict, total=False):
-src/openai/types/beta/assistant_update_params.py:class ToolResourcesFileSearch(TypedDict, total=False):
-src/openai/types/beta/assistant_update_params.py:class ToolResources(TypedDict, total=False):
-src/openai/types/chat/chat_completion_function_message_param.py:class ChatCompletionFunctionMessageParam(TypedDict, total=False):
-src/openai/types/chat/chat_completion_tool_message_param.py:class ChatCompletionToolMessageParam(TypedDict, total=False):
-src/openai/types/chat/completion_create_params.py:class CompletionCreateParamsBase(TypedDict, total=False):
-src/openai/types/chat/completion_create_params.py:class Function(TypedDict, total=False):
-src/openai/types/chat/completion_create_params.py:class WebSearchOptionsUserLocationApproximate(TypedDict, total=False):
-src/openai/types/chat/completion_create_params.py:class WebSearchOptionsUserLocation(TypedDict, total=False):
-src/openai/types/chat/completion_create_params.py:class WebSearchOptions(TypedDict, total=False):
-src/openai/types/chat/chat_completion_developer_message_param.py:class ChatCompletionDeveloperMessageParam(TypedDict, total=False):
-src/openai/types/chat/chat_completion_function_call_option_param.py:class ChatCompletionFunctionCallOptionParam(TypedDict, total=False):
-src/openai/types/chat/chat_completion_tool_param.py:class ChatCompletionToolParam(TypedDict, total=False):
-src/openai/types/chat/completion_list_params.py:class CompletionListParams(TypedDict, total=False):
-src/openai/types/chat/chat_completion_content_part_image_param.py:class ImageURL(TypedDict, total=False):
-src/openai/types/chat/chat_completion_content_part_image_param.py:class ChatCompletionContentPartImageParam(TypedDict, total=False):
-src/openai/types/chat/chat_completion_user_message_param.py:class ChatCompletionUserMessageParam(TypedDict, total=False):
-src/openai/types/chat/chat_completion_content_part_refusal_param.py:class ChatCompletionContentPartRefusalParam(TypedDict, total=False):
-src/openai/types/chat/chat_completion_content_part_input_audio_param.py:class InputAudio(TypedDict, total=False):
-src/openai/types/chat/chat_completion_content_part_input_audio_param.py:class ChatCompletionContentPartInputAudioParam(TypedDict, total=False):
-src/openai/types/chat/completions/message_list_params.py:class MessageListParams(TypedDict, total=False):
-src/openai/types/chat/chat_completion_assistant_message_param.py:class Audio(TypedDict, total=False):
-src/openai/types/chat/chat_completion_assistant_message_param.py:class FunctionCall(TypedDict, total=False):
-src/openai/types/chat/chat_completion_assistant_message_param.py:class ChatCompletionAssistantMessageParam(TypedDict, total=False):
-src/openai/types/chat/chat_completion_message_tool_call_param.py:class Function(TypedDict, total=False):
-src/openai/types/chat/chat_completion_message_tool_call_param.py:class ChatCompletionMessageToolCallParam(TypedDict, total=False):
-src/openai/types/chat/chat_completion_content_part_param.py:class FileFile(TypedDict, total=False):
-src/openai/types/chat/chat_completion_content_part_param.py:class File(TypedDict, total=False):
-src/openai/types/chat/chat_completion_content_part_text_param.py:class ChatCompletionContentPartTextParam(TypedDict, total=False):
-src/openai/types/chat/chat_completion_named_tool_choice_param.py:class Function(TypedDict, total=False):
-src/openai/types/chat/chat_completion_named_tool_choice_param.py:class ChatCompletionNamedToolChoiceParam(TypedDict, total=False):
-src/openai/types/chat/chat_completion_stream_options_param.py:class ChatCompletionStreamOptionsParam(TypedDict, total=False):
-src/openai/types/chat/completion_update_params.py:class CompletionUpdateParams(TypedDict, total=False):
-src/openai/types/chat/chat_completion_audio_param.py:class ChatCompletionAudioParam(TypedDict, total=False):
-src/openai/types/chat/chat_completion_prediction_content_param.py:class ChatCompletionPredictionContentParam(TypedDict, total=False):
-src/openai/types/chat/chat_completion_system_message_param.py:class ChatCompletionSystemMessageParam(TypedDict, total=False):
-src/openai/types/completion_create_params.py:class CompletionCreateParamsBase(TypedDict, total=False):
-src/openai/types/embedding_create_params.py:class EmbeddingCreateParams(TypedDict, total=False):
-src/openai/types/eval_create_params.py:class EvalCreateParams(TypedDict, total=False):
-src/openai/types/eval_create_params.py:class DataSourceConfigCustom(TypedDict, total=False):
-src/openai/types/eval_create_params.py:class DataSourceConfigLogs(TypedDict, total=False):
-src/openai/types/eval_create_params.py:class TestingCriterionLabelModelInputSimpleInputMessage(TypedDict, total=False):
-src/openai/types/eval_create_params.py:class TestingCriterionLabelModelInputEvalItemContentOutputText(TypedDict, total=False):
-src/openai/types/eval_create_params.py:class TestingCriterionLabelModelInputEvalItem(TypedDict, total=False):
-src/openai/types/eval_create_params.py:class TestingCriterionLabelModel(TypedDict, total=False):
-src/openai/types/eval_create_params.py:class TestingCriterionPython(TypedDict, total=False):
-src/openai/types/eval_create_params.py:class TestingCriterionScoreModelInputContentOutputText(TypedDict, total=False):
-src/openai/types/eval_create_params.py:class TestingCriterionScoreModelInput(TypedDict, total=False):
-src/openai/types/eval_create_params.py:class TestingCriterionScoreModel(TypedDict, total=False):
-src/openai/types/eval_list_params.py:class EvalListParams(TypedDict, total=False):
-src/openai/types/eval_string_check_grader_param.py:class EvalStringCheckGraderParam(TypedDict, total=False):
-src/openai/types/eval_text_similarity_grader_param.py:class EvalTextSimilarityGraderParam(TypedDict, total=False):
-src/openai/types/eval_update_params.py:class EvalUpdateParams(TypedDict, total=False):
-src/openai/types/evals/run_create_params.py:class RunCreateParams(TypedDict, total=False):
-src/openai/types/evals/run_create_params.py:class DataSourceCreateEvalResponsesRunDataSourceSourceFileContentContent(TypedDict, total=False):
-src/openai/types/evals/run_create_params.py:class DataSourceCreateEvalResponsesRunDataSourceSourceFileContent(TypedDict, total=False):
-src/openai/types/evals/run_create_params.py:class DataSourceCreateEvalResponsesRunDataSourceSourceFileID(TypedDict, total=False):
-src/openai/types/evals/run_create_params.py:class DataSourceCreateEvalResponsesRunDataSourceSourceResponses(TypedDict, total=False):
-src/openai/types/evals/run_create_params.py:class DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplateChatMessage(TypedDict, total=False):
-src/openai/types/evals/run_create_params.py:class DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplateEvalItem(TypedDict, total=False):
-src/openai/types/evals/run_create_params.py:class DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplate(TypedDict, total=False):
-src/openai/types/evals/run_create_params.py:class DataSourceCreateEvalResponsesRunDataSourceInputMessagesItemReference(TypedDict, total=False):
-src/openai/types/evals/run_create_params.py:class DataSourceCreateEvalResponsesRunDataSourceSamplingParams(TypedDict, total=False):
-src/openai/types/evals/run_create_params.py:class DataSourceCreateEvalResponsesRunDataSource(TypedDict, total=False):
-src/openai/types/evals/create_eval_jsonl_run_data_source_param.py:class SourceFileContentContent(TypedDict, total=False):
-src/openai/types/evals/create_eval_jsonl_run_data_source_param.py:class SourceFileContent(TypedDict, total=False):
-src/openai/types/evals/create_eval_jsonl_run_data_source_param.py:class SourceFileID(TypedDict, total=False):
-src/openai/types/evals/create_eval_jsonl_run_data_source_param.py:class CreateEvalJSONLRunDataSourceParam(TypedDict, total=False):
-src/openai/types/evals/run_list_params.py:class RunListParams(TypedDict, total=False):
-src/openai/types/evals/create_eval_completions_run_data_source_param.py:class SourceFileContentContent(TypedDict, total=False):
-src/openai/types/evals/create_eval_completions_run_data_source_param.py:class SourceFileContent(TypedDict, total=False):
-src/openai/types/evals/create_eval_completions_run_data_source_param.py:class SourceFileID(TypedDict, total=False):
-src/openai/types/evals/create_eval_completions_run_data_source_param.py:class SourceStoredCompletions(TypedDict, total=False):
-src/openai/types/evals/create_eval_completions_run_data_source_param.py:class InputMessagesTemplateTemplateMessageContentOutputText(TypedDict, total=False):
-src/openai/types/evals/create_eval_completions_run_data_source_param.py:class InputMessagesTemplateTemplateMessage(TypedDict, total=False):
-src/openai/types/evals/create_eval_completions_run_data_source_param.py:class InputMessagesTemplate(TypedDict, total=False):
-src/openai/types/evals/create_eval_completions_run_data_source_param.py:class InputMessagesItemReference(TypedDict, total=False):
-src/openai/types/evals/create_eval_completions_run_data_source_param.py:class SamplingParams(TypedDict, total=False):
-src/openai/types/evals/create_eval_completions_run_data_source_param.py:class CreateEvalCompletionsRunDataSourceParam(TypedDict, total=False):
-src/openai/types/evals/runs/output_item_list_params.py:class OutputItemListParams(TypedDict, total=False):
-src/openai/types/file_create_params.py:class FileCreateParams(TypedDict, total=False):
-src/openai/types/file_list_params.py:class FileListParams(TypedDict, total=False):
-src/openai/types/fine_tuning/job_create_params.py:class JobCreateParams(TypedDict, total=False):
-src/openai/types/fine_tuning/job_create_params.py:class Hyperparameters(TypedDict, total=False):
-src/openai/types/fine_tuning/job_create_params.py:class IntegrationWandb(TypedDict, total=False):
-src/openai/types/fine_tuning/job_create_params.py:class Integration(TypedDict, total=False):
-src/openai/types/fine_tuning/job_create_params.py:class MethodDpoHyperparameters(TypedDict, total=False):
-src/openai/types/fine_tuning/job_create_params.py:class MethodDpo(TypedDict, total=False):
-src/openai/types/fine_tuning/job_create_params.py:class MethodSupervisedHyperparameters(TypedDict, total=False):
-src/openai/types/fine_tuning/job_create_params.py:class MethodSupervised(TypedDict, total=False):
-src/openai/types/fine_tuning/job_create_params.py:class Method(TypedDict, total=False):
-src/openai/types/fine_tuning/job_list_params.py:class JobListParams(TypedDict, total=False):
-src/openai/types/fine_tuning/checkpoints/permission_create_params.py:class PermissionCreateParams(TypedDict, total=False):
-src/openai/types/fine_tuning/checkpoints/permission_retrieve_params.py:class PermissionRetrieveParams(TypedDict, total=False):
-src/openai/types/fine_tuning/jobs/checkpoint_list_params.py:class CheckpointListParams(TypedDict, total=False):
-src/openai/types/fine_tuning/job_list_events_params.py:class JobListEventsParams(TypedDict, total=False):
-src/openai/types/image_create_variation_params.py:class ImageCreateVariationParams(TypedDict, total=False):
-src/openai/types/image_edit_params.py:class ImageEditParams(TypedDict, total=False):
-src/openai/types/image_generate_params.py:class ImageGenerateParams(TypedDict, total=False):
-src/openai/types/moderation_create_params.py:class ModerationCreateParams(TypedDict, total=False):
-src/openai/types/moderation_image_url_input_param.py:class ImageURL(TypedDict, total=False):
-src/openai/types/moderation_image_url_input_param.py:class ModerationImageURLInputParam(TypedDict, total=False):
-src/openai/types/moderation_text_input_param.py:class ModerationTextInputParam(TypedDict, total=False):
-src/openai/types/responses/response_function_tool_call_param.py:class ResponseFunctionToolCallParam(TypedDict, total=False):
-src/openai/types/responses/web_search_tool_param.py:class UserLocation(TypedDict, total=False):
-src/openai/types/responses/web_search_tool_param.py:class WebSearchToolParam(TypedDict, total=False):
-src/openai/types/responses/file_search_tool_param.py:class RankingOptions(TypedDict, total=False):
-src/openai/types/responses/file_search_tool_param.py:class FileSearchToolParam(TypedDict, total=False):
-src/openai/types/responses/input_item_list_params.py:class InputItemListParams(TypedDict, total=False):
-src/openai/types/responses/response_output_refusal_param.py:class ResponseOutputRefusalParam(TypedDict, total=False):
-src/openai/types/responses/response_input_param.py:class Message(TypedDict, total=False):
-src/openai/types/responses/response_input_param.py:class ComputerCallOutputAcknowledgedSafetyCheck(TypedDict, total=False):
-src/openai/types/responses/response_input_param.py:class ComputerCallOutput(TypedDict, total=False):
-src/openai/types/responses/response_input_param.py:class FunctionCallOutput(TypedDict, total=False):
-src/openai/types/responses/response_input_param.py:class ItemReference(TypedDict, total=False):
-src/openai/types/responses/response_input_image_param.py:class ResponseInputImageParam(TypedDict, total=False):
-src/openai/types/responses/response_computer_tool_call_output_screenshot_param.py:class ResponseComputerToolCallOutputScreenshotParam(TypedDict, total=False):
-src/openai/types/responses/computer_tool_param.py:class ComputerToolParam(TypedDict, total=False):
-src/openai/types/responses/response_format_text_json_schema_config_param.py:class ResponseFormatTextJSONSchemaConfigParam(TypedDict, total=False):
-src/openai/types/responses/response_input_file_param.py:class ResponseInputFileParam(TypedDict, total=False):
-src/openai/types/responses/response_retrieve_params.py:class ResponseRetrieveParams(TypedDict, total=False):
-src/openai/types/responses/function_tool_param.py:class FunctionToolParam(TypedDict, total=False):
-src/openai/types/responses/response_file_search_tool_call_param.py:class Result(TypedDict, total=False):
-src/openai/types/responses/response_file_search_tool_call_param.py:class ResponseFileSearchToolCallParam(TypedDict, total=False):
-src/openai/types/responses/tool_choice_types_param.py:class ToolChoiceTypesParam(TypedDict, total=False):
-src/openai/types/responses/response_create_params.py:class ResponseCreateParamsBase(TypedDict, total=False):
-src/openai/types/responses/response_function_web_search_param.py:class ResponseFunctionWebSearchParam(TypedDict, total=False):
-src/openai/types/responses/response_output_message_param.py:class ResponseOutputMessageParam(TypedDict, total=False):
-src/openai/types/responses/tool_choice_function_param.py:class ToolChoiceFunctionParam(TypedDict, total=False):
-src/openai/types/responses/response_input_text_param.py:class ResponseInputTextParam(TypedDict, total=False):
-src/openai/types/responses/response_reasoning_item_param.py:class Summary(TypedDict, total=False):
-src/openai/types/responses/response_reasoning_item_param.py:class ResponseReasoningItemParam(TypedDict, total=False):
-src/openai/types/responses/response_input_item_param.py:class Message(TypedDict, total=False):
-src/openai/types/responses/response_input_item_param.py:class ComputerCallOutputAcknowledgedSafetyCheck(TypedDict, total=False):
-src/openai/types/responses/response_input_item_param.py:class ComputerCallOutput(TypedDict, total=False):
-src/openai/types/responses/response_input_item_param.py:class FunctionCallOutput(TypedDict, total=False):
-src/openai/types/responses/response_input_item_param.py:class ItemReference(TypedDict, total=False):
-src/openai/types/responses/response_output_text_param.py:class AnnotationFileCitation(TypedDict, total=False):
-src/openai/types/responses/response_output_text_param.py:class AnnotationURLCitation(TypedDict, total=False):
-src/openai/types/responses/response_output_text_param.py:class AnnotationFilePath(TypedDict, total=False):
-src/openai/types/responses/response_output_text_param.py:class ResponseOutputTextParam(TypedDict, total=False):
-src/openai/types/responses/response_text_config_param.py:class ResponseTextConfigParam(TypedDict, total=False):
-src/openai/types/responses/response_computer_tool_call_param.py:class ActionClick(TypedDict, total=False):
-src/openai/types/responses/response_computer_tool_call_param.py:class ActionDoubleClick(TypedDict, total=False):
-src/openai/types/responses/response_computer_tool_call_param.py:class ActionDragPath(TypedDict, total=False):
-src/openai/types/responses/response_computer_tool_call_param.py:class ActionDrag(TypedDict, total=False):
-src/openai/types/responses/response_computer_tool_call_param.py:class ActionKeypress(TypedDict, total=False):
-src/openai/types/responses/response_computer_tool_call_param.py:class ActionMove(TypedDict, total=False):
-src/openai/types/responses/response_computer_tool_call_param.py:class ActionScreenshot(TypedDict, total=False):
-src/openai/types/responses/response_computer_tool_call_param.py:class ActionScroll(TypedDict, total=False):
-src/openai/types/responses/response_computer_tool_call_param.py:class ActionType(TypedDict, total=False):
-src/openai/types/responses/response_computer_tool_call_param.py:class ActionWait(TypedDict, total=False):
-src/openai/types/responses/response_computer_tool_call_param.py:class PendingSafetyCheck(TypedDict, total=False):
-src/openai/types/responses/response_computer_tool_call_param.py:class ResponseComputerToolCallParam(TypedDict, total=False):
-src/openai/types/responses/easy_input_message_param.py:class EasyInputMessageParam(TypedDict, total=False):
-src/openai/types/shared_params/function_definition.py:class FunctionDefinition(TypedDict, total=False):
-src/openai/types/shared_params/response_format_text.py:class ResponseFormatText(TypedDict, total=False):
-src/openai/types/shared_params/response_format_json_object.py:class ResponseFormatJSONObject(TypedDict, total=False):
-src/openai/types/shared_params/reasoning.py:class Reasoning(TypedDict, total=False):
-src/openai/types/shared_params/response_format_json_schema.py:class JSONSchema(TypedDict, total=False):
-src/openai/types/shared_params/response_format_json_schema.py:class ResponseFormatJSONSchema(TypedDict, total=False):
-src/openai/types/shared_params/comparison_filter.py:class ComparisonFilter(TypedDict, total=False):
-src/openai/types/shared_params/compound_filter.py:class CompoundFilter(TypedDict, total=False):
-src/openai/types/static_file_chunking_strategy_object_param.py:class StaticFileChunkingStrategyObjectParam(TypedDict, total=False):
-src/openai/types/static_file_chunking_strategy_param.py:class StaticFileChunkingStrategyParam(TypedDict, total=False):
-src/openai/types/upload_complete_params.py:class UploadCompleteParams(TypedDict, total=False):
-src/openai/types/upload_create_params.py:class UploadCreateParams(TypedDict, total=False):
-src/openai/types/uploads/part_create_params.py:class PartCreateParams(TypedDict, total=False):
-src/openai/types/vector_store_create_params.py:class VectorStoreCreateParams(TypedDict, total=False):
-src/openai/types/vector_store_create_params.py:class ExpiresAfter(TypedDict, total=False):
-src/openai/types/vector_store_list_params.py:class VectorStoreListParams(TypedDict, total=False):
-src/openai/types/vector_store_search_params.py:class VectorStoreSearchParams(TypedDict, total=False):
-src/openai/types/vector_store_search_params.py:class RankingOptions(TypedDict, total=False):
-src/openai/types/vector_store_update_params.py:class VectorStoreUpdateParams(TypedDict, total=False):
-src/openai/types/vector_store_update_params.py:class ExpiresAfter(TypedDict, total=False):
-src/openai/types/vector_stores/file_list_params.py:class FileListParams(TypedDict, total=False):
-src/openai/types/vector_stores/file_create_params.py:class FileCreateParams(TypedDict, total=False):
-src/openai/types/vector_stores/file_batch_create_params.py:class FileBatchCreateParams(TypedDict, total=False):
-src/openai/types/vector_stores/file_batch_list_files_params.py:class FileBatchListFilesParams(TypedDict, total=False):
-src/openai/types/vector_stores/file_update_params.py:class FileUpdateParams(TypedDict, total=False):
-src/openai/types/websocket_connection_options.py:class WebsocketConnectionOptions(TypedDict, total=False):
+src/openai_pydantic/types/audio/speech_create_params.py
+src/openai_pydantic/types/audio/transcription_create_params.py
+src/openai_pydantic/types/audio/translation_create_params.py
+src/openai_pydantic/types/auto_file_chunking_strategy_param.py
+src/openai_pydantic/types/batch_create_params.py
+src/openai_pydantic/types/batch_list_params.py
+src/openai_pydantic/types/beta/assistant_create_params.py
+src/openai_pydantic/types/beta/assistant_list_params.py
+src/openai_pydantic/types/beta/assistant_tool_choice_function_param.py
+src/openai_pydantic/types/beta/assistant_tool_choice_param.py
+src/openai_pydantic/types/beta/assistant_update_params.py
+src/openai_pydantic/types/beta/code_interpreter_tool_param.py
+src/openai_pydantic/types/beta/file_search_tool_param.py
+src/openai_pydantic/types/beta/function_tool_param.py
+src/openai_pydantic/types/beta/realtime/conversation_item_content_param.py
+src/openai_pydantic/types/beta/realtime/conversation_item_create_event_param.py
+src/openai_pydantic/types/beta/realtime/conversation_item_delete_event_param.py
+src/openai_pydantic/types/beta/realtime/conversation_item_param.py
+src/openai_pydantic/types/beta/realtime/conversation_item_retrieve_event_param.py
+src/openai_pydantic/types/beta/realtime/conversation_item_truncate_event_param.py
+src/openai_pydantic/types/beta/realtime/conversation_item_with_reference_param.py
+src/openai_pydantic/types/beta/realtime/input_audio_buffer_append_event_param.py
+src/openai_pydantic/types/beta/realtime/input_audio_buffer_clear_event_param.py
+src/openai_pydantic/types/beta/realtime/input_audio_buffer_commit_event_param.py
+src/openai_pydantic/types/beta/realtime/realtime_client_event_param.py
+src/openai_pydantic/types/beta/realtime/realtime_connect_params.py
+src/openai_pydantic/types/beta/realtime/response_cancel_event_param.py
+src/openai_pydantic/types/beta/realtime/response_create_event_param.py
+src/openai_pydantic/types/beta/realtime/session_create_params.py
+src/openai_pydantic/types/beta/realtime/session_update_event_param.py
+src/openai_pydantic/types/beta/realtime/transcription_session_create_params.py
+src/openai_pydantic/types/beta/realtime/transcription_session_update_param.py
+src/openai_pydantic/types/beta/thread_create_and_run_params.py
+src/openai_pydantic/types/beta/thread_create_params.py
+src/openai_pydantic/types/beta/thread_update_params.py
+src/openai_pydantic/types/beta/threads/image_file_content_block_param.py
+src/openai_pydantic/types/beta/threads/image_file_param.py
+src/openai_pydantic/types/beta/threads/image_url_content_block_param.py
+src/openai_pydantic/types/beta/threads/image_url_param.py
+src/openai_pydantic/types/beta/threads/message_create_params.py
+src/openai_pydantic/types/beta/threads/message_list_params.py
+src/openai_pydantic/types/beta/threads/message_update_params.py
+src/openai_pydantic/types/beta/threads/run_create_params.py
+src/openai_pydantic/types/beta/threads/run_list_params.py
+src/openai_pydantic/types/beta/threads/run_submit_tool_outputs_params.py
+src/openai_pydantic/types/beta/threads/run_update_params.py
+src/openai_pydantic/types/beta/threads/runs/step_list_params.py
+src/openai_pydantic/types/beta/threads/runs/step_retrieve_params.py
+src/openai_pydantic/types/beta/threads/text_content_block_param.py
+src/openai_pydantic/types/chat/chat_completion_assistant_message_param.py
+src/openai_pydantic/types/chat/chat_completion_audio_param.py
+src/openai_pydantic/types/chat/chat_completion_content_part_image_param.py
+src/openai_pydantic/types/chat/chat_completion_content_part_input_audio_param.py
+src/openai_pydantic/types/chat/chat_completion_content_part_param.py
+src/openai_pydantic/types/chat/chat_completion_content_part_refusal_param.py
+src/openai_pydantic/types/chat/chat_completion_content_part_text_param.py
+src/openai_pydantic/types/chat/chat_completion_developer_message_param.py
+src/openai_pydantic/types/chat/chat_completion_function_call_option_param.py
+src/openai_pydantic/types/chat/chat_completion_function_message_param.py
+src/openai_pydantic/types/chat/chat_completion_message_tool_call_param.py
+src/openai_pydantic/types/chat/chat_completion_named_tool_choice_param.py
+src/openai_pydantic/types/chat/chat_completion_prediction_content_param.py
+src/openai_pydantic/types/chat/chat_completion_stream_options_param.py
+src/openai_pydantic/types/chat/chat_completion_system_message_param.py
+src/openai_pydantic/types/chat/chat_completion_tool_message_param.py
+src/openai_pydantic/types/chat/chat_completion_tool_param.py
+src/openai_pydantic/types/chat/chat_completion_user_message_param.py
+src/openai_pydantic/types/chat/completion_create_params.py
+src/openai_pydantic/types/chat/completion_list_params.py
+src/openai_pydantic/types/chat/completion_update_params.py
+src/openai_pydantic/types/chat/completions/message_list_params.py
+src/openai_pydantic/types/completion_create_params.py
+src/openai_pydantic/types/embedding_create_params.py
+src/openai_pydantic/types/eval_create_params.py
+src/openai_pydantic/types/eval_list_params.py
+src/openai_pydantic/types/eval_string_check_grader_param.py
+src/openai_pydantic/types/eval_text_similarity_grader_param.py
+src/openai_pydantic/types/eval_update_params.py
+src/openai_pydantic/types/evals/create_eval_completions_run_data_source_param.py
+src/openai_pydantic/types/evals/create_eval_jsonl_run_data_source_param.py
+src/openai_pydantic/types/evals/run_create_params.py
+src/openai_pydantic/types/evals/run_list_params.py
+src/openai_pydantic/types/evals/runs/output_item_list_params.py
+src/openai_pydantic/types/file_create_params.py
+src/openai_pydantic/types/file_list_params.py
+src/openai_pydantic/types/fine_tuning/checkpoints/permission_create_params.py
+src/openai_pydantic/types/fine_tuning/checkpoints/permission_retrieve_params.py
+src/openai_pydantic/types/fine_tuning/job_create_params.py
+src/openai_pydantic/types/fine_tuning/job_list_events_params.py
+src/openai_pydantic/types/fine_tuning/job_list_params.py
+src/openai_pydantic/types/fine_tuning/jobs/checkpoint_list_params.py
+src/openai_pydantic/types/image_create_variation_params.py
+src/openai_pydantic/types/image_edit_params.py
+src/openai_pydantic/types/image_generate_params.py
+src/openai_pydantic/types/moderation_create_params.py
+src/openai_pydantic/types/moderation_image_url_input_param.py
+src/openai_pydantic/types/moderation_text_input_param.py
+src/openai_pydantic/types/responses/computer_tool_param.py
+src/openai_pydantic/types/responses/easy_input_message_param.py
+src/openai_pydantic/types/responses/file_search_tool_param.py
+src/openai_pydantic/types/responses/function_tool_param.py
+src/openai_pydantic/types/responses/input_item_list_params.py
+src/openai_pydantic/types/responses/response_computer_tool_call_output_screenshot_param.py
+src/openai_pydantic/types/responses/response_computer_tool_call_param.py
+src/openai_pydantic/types/responses/response_create_params.py
+src/openai_pydantic/types/responses/response_file_search_tool_call_param.py
+src/openai_pydantic/types/responses/response_format_text_json_schema_config_param.py
+src/openai_pydantic/types/responses/response_function_tool_call_param.py
+src/openai_pydantic/types/responses/response_function_web_search_param.py
+src/openai_pydantic/types/responses/response_input_file_param.py
+src/openai_pydantic/types/responses/response_input_image_param.py
+src/openai_pydantic/types/responses/response_input_item_param.py
+src/openai_pydantic/types/responses/response_input_param.py
+src/openai_pydantic/types/responses/response_input_text_param.py
+src/openai_pydantic/types/responses/response_output_message_param.py
+src/openai_pydantic/types/responses/response_output_refusal_param.py
+src/openai_pydantic/types/responses/response_output_text_param.py
+src/openai_pydantic/types/responses/response_reasoning_item_param.py
+src/openai_pydantic/types/responses/response_retrieve_params.py
+src/openai_pydantic/types/responses/response_text_config_param.py
+src/openai_pydantic/types/responses/tool_choice_function_param.py
+src/openai_pydantic/types/responses/tool_choice_types_param.py
+src/openai_pydantic/types/responses/web_search_tool_param.py
+src/openai_pydantic/types/shared_params/comparison_filter.py
+src/openai_pydantic/types/shared_params/compound_filter.py
+src/openai_pydantic/types/shared_params/function_definition.py
+src/openai_pydantic/types/shared_params/reasoning.py
+src/openai_pydantic/types/shared_params/response_format_json_object.py
+src/openai_pydantic/types/shared_params/response_format_json_schema.py
+src/openai_pydantic/types/shared_params/response_format_text.py
+src/openai_pydantic/types/static_file_chunking_strategy_object_param.py
+src/openai_pydantic/types/static_file_chunking_strategy_param.py
+src/openai_pydantic/types/upload_complete_params.py
+src/openai_pydantic/types/upload_create_params.py
+src/openai_pydantic/types/uploads/part_create_params.py
+src/openai_pydantic/types/vector_store_create_params.py
+src/openai_pydantic/types/vector_store_list_params.py
+src/openai_pydantic/types/vector_store_search_params.py
+src/openai_pydantic/types/vector_store_update_params.py
+src/openai_pydantic/types/vector_stores/file_batch_create_params.py
+src/openai_pydantic/types/vector_stores/file_batch_list_files_params.py
+src/openai_pydantic/types/vector_stores/file_create_params.py
+src/openai_pydantic/types/vector_stores/file_list_params.py
+src/openai_pydantic/types/vector_stores/file_update_params.py
+src/openai_pydantic/types/websocket_connection_options.py

@@ -19,3 +19,4 @@ Brewfile.lock.json
 
 examples/*.mp3
 .inline-snapshot
+*.bak

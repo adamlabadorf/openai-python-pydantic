@@ -1,13 +1,15 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
-from pydantic import BaseModel
+
 __all__ = ["ChatCompletionFunctionCallOptionParam"]
 
 
 class ChatCompletionFunctionCallOptionParam(BaseModel):
-    name: str = None
-    # old  name: Required[str]
+    name: "str"= None
+    
     """The name of the function to call."""
+ChatCompletionFunctionCallOptionParam.model_rebuild()
 

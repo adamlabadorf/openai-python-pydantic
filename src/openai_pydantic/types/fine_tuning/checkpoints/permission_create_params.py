@@ -1,14 +1,16 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
-from typing import List
-from pydantic import BaseModel
+from typing import Optional,List
+
 __all__ = ["PermissionCreateParams"]
 
 
 class PermissionCreateParams(BaseModel):
-    project_ids: List[str] = None
-    # old  project_ids: Required[List[str]]
+    project_ids: "List[str]"= None
+    
     """The project identifiers to grant access to."""
+PermissionCreateParams.model_rebuild()
 

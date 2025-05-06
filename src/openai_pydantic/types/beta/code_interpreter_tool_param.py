@@ -1,14 +1,16 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 __all__ = ["CodeInterpreterToolParam"]
 
 
 class CodeInterpreterToolParam(BaseModel):
-    type: Literal["code_interpreter"] = None
-    # old  type: Required[Literal["code_interpreter"]]
+    type: "Literal['code_interpreter']"= None
+    
     """The type of tool being defined: `code_interpreter`"""
+CodeInterpreterToolParam.model_rebuild()
 

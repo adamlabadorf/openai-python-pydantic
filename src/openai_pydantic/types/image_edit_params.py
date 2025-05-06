@@ -1,10 +1,11 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
-from typing import List, Union, Optional
+from typing import Optional,Union,List
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 from .._types import FileTypes
 from .image_model import ImageModel
 
@@ -12,8 +13,8 @@ __all__ = ["ImageEditParams"]
 
 
 class ImageEditParams(BaseModel):
-    image: Union[FileTypes, List[FileTypes]] = None
-    # old  image: Required[Union[FileTypes, List[FileTypes]]]
+    image: "Union[FileTypes, List[FileTypes]]"= None
+    
     """The image(s) to edit. Must be a supported image file or an array of images.
 
     For `gpt-image-1`, each image should be a `png`, `webp`, or `jpg` file less than
@@ -23,16 +24,16 @@ class ImageEditParams(BaseModel):
     file less than 4MB.
     """
 
-    prompt: str = None
-    # old  prompt: Required[str]
+    prompt: "str"= None
+    
     """A text description of the desired image(s).
 
     The maximum length is 1000 characters for `dall-e-2`, and 32000 characters for
     `gpt-image-1`.
     """
 
-    background: Optional[Literal["transparent", "opaque", "auto"]] = None
-    # old  background: Optional[Literal["transparent", "opaque", "auto"]]
+    background: "Optional[Literal['transparent', 'opaque', 'auto']]"= None
+    
     """Allows to set transparency for the background of the generated image(s).
 
     This parameter is only supported for `gpt-image-1`. Must be one of
@@ -43,8 +44,8 @@ class ImageEditParams(BaseModel):
     be set to either `png` (default value) or `webp`.
     """
 
-    mask: Optional[FileTypes] = None
-    # old  mask: FileTypes
+    mask: "Optional[FileTypes]"= None
+    
     """An additional image whose fully transparent areas (e.g.
 
     where alpha is zero) indicate where `image` should be edited. If there are
@@ -52,28 +53,28 @@ class ImageEditParams(BaseModel):
     valid PNG file, less than 4MB, and have the same dimensions as `image`.
     """
 
-    model: Optional[Union[str, ImageModel, None]] = None
-    # old  model: Union[str, ImageModel, None]
+    model: "Optional[Union[str, ImageModel, None]]"= None
+    
     """The model to use for image generation.
 
     Only `dall-e-2` and `gpt-image-1` are supported. Defaults to `dall-e-2` unless a
     parameter specific to `gpt-image-1` is used.
     """
 
-    n: Optional[int] = None
-    # old  n: Optional[int]
+    n: "Optional[int]"= None
+    
     """The number of images to generate. Must be between 1 and 10."""
 
-    quality: Optional[Literal["standard", "low", "medium", "high", "auto"]] = None
-    # old  quality: Optional[Literal["standard", "low", "medium", "high", "auto"]]
+    quality: "Optional[Literal['standard', 'low', 'medium', 'high', 'auto']]"= None
+    
     """The quality of the image that will be generated.
 
     `high`, `medium` and `low` are only supported for `gpt-image-1`. `dall-e-2` only
     supports `standard` quality. Defaults to `auto`.
     """
 
-    response_format: Optional[Literal["url", "b64_json"]] = None
-    # old  response_format: Optional[Literal["url", "b64_json"]]
+    response_format: "Optional[Literal['url', 'b64_json']]"= None
+    
     """The format in which the generated images are returned.
 
     Must be one of `url` or `b64_json`. URLs are only valid for 60 minutes after the
@@ -81,8 +82,8 @@ class ImageEditParams(BaseModel):
     `gpt-image-1` will always return base64-encoded images.
     """
 
-    size: Optional[Literal["256x256", "512x512", "1024x1024", "1536x1024", "1024x1536", "auto"]] = None
-    # old  size: Optional[Literal["256x256", "512x512", "1024x1024", "1536x1024", "1024x1536", "auto"]]
+    size: "Optional[Literal['256x256', '512x512', '1024x1024', '1536x1024', '1024x1536', 'auto']]"= None
+    
     """The size of the generated images.
 
     Must be one of `1024x1024`, `1536x1024` (landscape), `1024x1536` (portrait), or
@@ -90,11 +91,12 @@ class ImageEditParams(BaseModel):
     `1024x1024` for `dall-e-2`.
     """
 
-    user: Optional[str] = None
-    # old  user: str
+    user: "Optional[str]"= None
+    
     """
     A unique identifier representing your end-user, which can help OpenAI to monitor
     and detect abuse.
     [Learn more](https://platform.openai.com/docs/guides/safety-best-practices#end-user-ids).
     """
+ImageEditParams.model_rebuild()
 

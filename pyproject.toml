@@ -92,7 +92,7 @@ sniffio = "*"
 tqdm = ">4"
 jiter = ">=0.4.0,<1"
 # Optional dependencies for extras
-websockets = {version = ">=13,<16", optional = true}
+websockets = {version = ">=13,<16"}
 numpy = {version = ">=1", optional = true}
 pandas = {version = ">=1.2.3", optional = true}
 pandas-stubs = {version = ">=1.1.0.11", optional = true}

@@ -1,17 +1,18 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
 from typing import Optional
-from pydantic import BaseModel
+
 from .shared_params.metadata import Metadata
 
 __all__ = ["EvalUpdateParams"]
 
 
 class EvalUpdateParams(BaseModel):
-    metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata]
+    metadata: "Optional[Metadata]"= None
+    
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -21,7 +22,8 @@ class EvalUpdateParams(BaseModel):
     a maximum length of 512 characters.
     """
 
-    name: Optional[str] = None
-    # old  name: str
+    name: "Optional[str]"= None
+    
     """Rename the evaluation."""
+EvalUpdateParams.model_rebuild()
 

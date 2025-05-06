@@ -1,10 +1,11 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
-from typing import Union
+from typing import Optional,Union
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 from .session_update_event_param import SessionUpdateEventParam
 from .response_cancel_event_param import ResponseCancelEventParam
 from .response_create_event_param import ResponseCreateEventParam
@@ -21,16 +22,16 @@ __all__ = ["RealtimeClientEventParam", "OutputAudioBufferClear"]
 
 
 class OutputAudioBufferClear(BaseModel):
-    type: Literal["output_audio_buffer.clear"] = None
-    # old  type: Required[Literal["output_audio_buffer.clear"]]
+    type: "Literal['output_audio_buffer.clear']"= None
+    
     """The event type, must be `output_audio_buffer.clear`."""
 
-    event_id: Optional[str] = None
-    # old  event_id: str
+    event_id: "Optional[str]"= None
+    
     """The unique ID of the client event used for error handling."""
 
 
-RealtimeClientEventParam = Union[ # old RealtimeClientEventParam: TypeAlias = Union[
+RealtimeClientEventParam = Union[
     ConversationItemCreateEventParam,
     ConversationItemDeleteEventParam,
     ConversationItemRetrieveEventParam,
@@ -44,4 +45,5 @@ RealtimeClientEventParam = Union[ # old RealtimeClientEventParam: TypeAlias = Un
     SessionUpdateEventParam,
     TranscriptionSessionUpdateParam,
 ]
+OutputAudioBufferClear.model_rebuild()
 

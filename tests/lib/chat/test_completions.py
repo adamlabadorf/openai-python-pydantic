@@ -12,10 +12,10 @@ from respx import MockRouter
 from pydantic import Field, BaseModel
 from inline_snapshot import snapshot
 
-import openai
-from openai import OpenAI, AsyncOpenAI
-from openai._utils import assert_signatures_in_sync
-from openai._compat import PYDANTIC_V2
+import openai_pydantic
+from openai_pydantic import OpenAI, AsyncOpenAI
+from openai_pydantic._utils import assert_signatures_in_sync
+from openai_pydantic._compat import PYDANTIC_V2
 
 from ._utils import print_obj
 from ...conftest import base_url
@@ -445,7 +445,7 @@ def test_pydantic_tool_model_all_types(client: OpenAI, respx_mock: MockRouter, m
                     "content": "look up all my orders in may of last year that were fulfilled but not delivered on time",
                 },
             ],
-            tools=[openai.pydantic_function_tool(Query)],
+            tools=[openai_pydantic.pydantic_function_tool(Query)],
             response_format=Query,
         ),
         content_snapshot=snapshot(
@@ -520,7 +520,7 @@ def test_parse_max_tokens_reached(client: OpenAI, respx_mock: MockRouter) -> Non
         temperature: float
         units: Literal["c", "f"]
 
-    with pytest.raises(openai.LengthFinishReasonError):
+    with pytest.raises(openai_pydantic.LengthFinishReasonError):
         _make_snapshot_request(
             lambda c: c.beta.chat.completions.parse(
                 model="gpt-4o-2024-08-06",
@@ -606,7 +606,7 @@ def test_parse_pydantic_tool(client: OpenAI, respx_mock: MockRouter, monkeypatch
                 },
             ],
             tools=[
-                openai.pydantic_function_tool(GetWeatherArgs),
+                openai_pydantic.pydantic_function_tool(GetWeatherArgs),
             ],
         ),
         content_snapshot=snapshot(
@@ -676,8 +676,8 @@ def test_parse_multiple_pydantic_tools(client: OpenAI, respx_mock: MockRouter, m
                 },
             ],
             tools=[
-                openai.pydantic_function_tool(GetWeatherArgs),
-                openai.pydantic_function_tool(
+                openai_pydantic.pydantic_function_tool(GetWeatherArgs),
+                openai_pydantic.pydantic_function_tool(
                     GetStockPrice, name="get_stock_price", description="Fetch the latest price for a given ticker"
                 ),
             ],

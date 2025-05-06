@@ -7,14 +7,14 @@ from typing import Any, cast
 
 import pytest
 
-from openai import OpenAI, AsyncOpenAI
+from openai_pydantic import OpenAI, AsyncOpenAI
 from tests.utils import assert_matches_type
-from openai.types import (
+from openai_pydantic.types import (
     VectorStore,
     VectorStoreDeleted,
     VectorStoreSearchResponse,
 )
-from openai.pagination import SyncPage, AsyncPage, SyncCursorPage, AsyncCursorPage
+from openai_pydantic.pagination import SyncPage, AsyncPage, SyncCursorPage, AsyncCursorPage
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 

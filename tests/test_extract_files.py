@@ -4,8 +4,8 @@ from typing import Sequence
 
 import pytest
 
-from openai._types import FileTypes
-from openai._utils import extract_files
+from openai_pydantic._types import FileTypes
+from openai_pydantic._utils import extract_files
 
 
 def test_removes_files_from_input() -> None:

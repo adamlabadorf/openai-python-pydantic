@@ -7,9 +7,9 @@ from typing import Any, cast
 
 import pytest
 
-from openai import OpenAI, AsyncOpenAI
+from openai_pydantic import OpenAI, AsyncOpenAI
 from tests.utils import assert_matches_type
-from openai.types.uploads import UploadPart
+from openai_pydantic.types.uploads import UploadPart
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 

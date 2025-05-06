@@ -1,19 +1,21 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 from .image_file_param import ImageFileParam
 
 __all__ = ["ImageFileContentBlockParam"]
 
 
 class ImageFileContentBlockParam(BaseModel):
-    image_file: ImageFileParam = None
-    # old  image_file: Required[ImageFileParam]
+    image_file: "ImageFileParam"= None
+    
 
-    type: Literal["image_file"] = None
-    # old  type: Required[Literal["image_file"]]
+    type: "Literal['image_file']"= None
+    
     """Always `image_file`."""
+ImageFileContentBlockParam.model_rebuild()
 

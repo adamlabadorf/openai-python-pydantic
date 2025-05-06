@@ -4,13 +4,13 @@ import os
 import argparse
 
 TYPEDDICT_LIST = "TypedDict_classes.txt"
-CONVERTER = "typed_dict_to_pydantic_regex.py"
+CONVERTER = "typed_dict_to_pydantic.py"
 
 SUCCESS_LOG = []
 FAIL_LOG = []
 
 
-def main(dryrun: bool = False):
+def main(dryrun: bool = False, verbose: bool = False):
     with open(TYPEDDICT_LIST, 'r') as f:
         lines = f.readlines()
     for line in lines:
@@ -21,7 +21,10 @@ def main(dryrun: bool = False):
         print(f"Converting {abs_path} ...")
         # Generate Pydantic code
         try:
-            result = subprocess.run([sys.executable, CONVERTER, abs_path], capture_output=True, text=True, check=True)
+            cmd = [sys.executable, CONVERTER, abs_path]
+            if verbose:
+                cmd.append('-v')
+            result = subprocess.run(cmd, capture_output=True, text=True, check=True)
             pydantic_code = result.stdout
         except subprocess.CalledProcessError as e:
             print(f"[ERROR] Conversion failed for {path}: {e.stderr}")
@@ -54,14 +57,8 @@ def main(dryrun: bool = False):
         except py_compile.PyCompileError as e:
             print(f"[ERROR] Syntax check failed for {path}: {e}")
             FAIL_LOG.append((path, 'syntax_error', str(e)))
-            if not dryrun:
-                # Revert file
-                os.remove(abs_path)
-                os.rename(backup_path, abs_path)
             sys.exit(1)  # Halt on error
-        # Clean up backup if successful
-        if not dryrun and os.path.exists(abs_path + '.bak') and path in SUCCESS_LOG:
-            os.remove(abs_path + '.bak')
+
     # Summary
     print("\n--- Conversion Summary ---")
     print(f"Success: {len(SUCCESS_LOG)} files")
@@ -72,5 +69,6 @@ def main(dryrun: bool = False):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Convert TypedDicts to Pydantic models.")
     parser.add_argument('--dryrun', action='store_true', help='Do everything except overwrite the original file')
+    parser.add_argument('-v', '--verbose', action='store_true', help='Enable verbose/debug output for the converter subprocesses')
     args = parser.parse_args()
-    main(dryrun=args.dryrun)
+    main(dryrun=args.dryrun, verbose=args.verbose)

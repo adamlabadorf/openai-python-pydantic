@@ -1,24 +1,23 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
 from typing import Optional
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 from .shared_params.metadata import Metadata
 
 __all__ = ["VectorStoreUpdateParams", "ExpiresAfter"]
 
 
 class VectorStoreUpdateParams(BaseModel):
-    expires_after: Optional[ExpiresAfter] = None
-    # old  expires_after: Optional[ExpiresAfter] = None
-    # old  expires_after: Optional[ExpiresAfter]
+    expires_after: "Optional[ExpiresAfter]"= None
+    
     """The expiration policy for a vector store."""
 
-    metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata]
+    metadata: "Optional[Metadata]"= None
+    
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -28,24 +27,22 @@ class VectorStoreUpdateParams(BaseModel):
     a maximum length of 512 characters.
     """
 
-    name: Optional[str] = None
-    # old  name: Optional[str] = None
-    # old  name: Optional[str]
+    name: "Optional[str]"= None
+    
     """The name of the vector store."""
 
 
 class ExpiresAfter(BaseModel):
-    anchor: Optional[Literal["last_active_at"]] = None
-    # old  anchor: Literal["last_active_at"] = None
-    # old  anchor: Required[Literal["last_active_at"]]
+    anchor: "Literal['last_active_at']"= None
+    
     """Anchor timestamp after which the expiration policy applies.
 
     Supported anchors: `last_active_at`.
     """
 
-    days: Optional[int] = None
-    # old  days: int = None
-    # old  days: Required[int]
+    days: "int"= None
+    
     """The number of days after the anchor time that the vector store will expire."""
-
+VectorStoreUpdateParams.model_rebuild()
+ExpiresAfter.model_rebuild()
 

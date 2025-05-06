@@ -6,10 +6,10 @@ import httpx
 import pytest
 import pydantic
 
-from openai import OpenAI, BaseModel
-from openai._streaming import Stream
-from openai._base_client import FinalRequestOptions
-from openai._legacy_response import LegacyAPIResponse
+from openai_pydantic import OpenAI, BaseModel
+from openai_pydantic._streaming import Stream
+from openai_pydantic._base_client import FinalRequestOptions
+from openai_pydantic._legacy_response import LegacyAPIResponse
 
 from .utils import rich_print_str
 
@@ -29,7 +29,7 @@ def test_response_parse_mismatched_basemodel(client: OpenAI) -> None:
 
     with pytest.raises(
         TypeError,
-        match="Pydantic models must subclass our base model type, e.g. `from openai import BaseModel`",
+        match="Pydantic models must subclass our base model type, e.g. `from openai_pydantic import BaseModel`",
     ):
         response.parse(to=PydanticModel)
 

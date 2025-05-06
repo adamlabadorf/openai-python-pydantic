@@ -1,27 +1,26 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 __all__ = ["ChatCompletionNamedToolChoiceParam", "Function"]
 
 
 class Function(BaseModel):
-    name: Optional[str] = None
-    # old  name: str = None
-    # old  name: Required[str]
+    name: "str"= None
+    
     """The name of the function to call."""
 
 
 class ChatCompletionNamedToolChoiceParam(BaseModel):
-    function: Optional[Function] = None
-    # old  function: Function = None
-    # old  function: Required[Function]
+    function: "Function"= None
+    
 
-    type: Optional[Literal["function"]] = None
-    # old  type: Literal["function"] = None
-    # old  type: Required[Literal["function"]]
+    type: "Literal['function']"= None
+    
     """The type of the tool. Currently, only `function` is supported."""
-
+Function.model_rebuild()
+ChatCompletionNamedToolChoiceParam.model_rebuild()
 

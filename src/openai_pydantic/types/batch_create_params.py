@@ -1,25 +1,26 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
 from typing import Optional
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 from .shared_params.metadata import Metadata
 
 __all__ = ["BatchCreateParams"]
 
 
 class BatchCreateParams(BaseModel):
-    completion_window: Literal["24h"] = None
-    # old  completion_window: Required[Literal["24h"]]
+    completion_window: "Literal['24h']"= None
+    
     """The time frame within which the batch should be processed.
 
     Currently only `24h` is supported.
     """
 
-    endpoint: Literal["/v1/responses", "/v1/chat/completions", "/v1/embeddings", "/v1/completions"] = None
-    # old  endpoint: Required[Literal["/v1/responses", "/v1/chat/completions", "/v1/embeddings", "/v1/completions"]]
+    endpoint: "Literal['/v1/responses', '/v1/chat/completions', '/v1/embeddings', '/v1/completions']"= None
+    
     """The endpoint to be used for all requests in the batch.
 
     Currently `/v1/responses`, `/v1/chat/completions`, `/v1/embeddings`, and
@@ -28,8 +29,8 @@ class BatchCreateParams(BaseModel):
     batch.
     """
 
-    input_file_id: str = None
-    # old  input_file_id: Required[str]
+    input_file_id: "str"= None
+    
     """The ID of an uploaded file that contains requests for the new batch.
 
     See [upload file](https://platform.openai.com/docs/api-reference/files/create)
@@ -41,8 +42,8 @@ class BatchCreateParams(BaseModel):
     requests, and can be up to 200 MB in size.
     """
 
-    metadata: Optional[Metadata] = None
-    # old  metadata: Optional[Metadata]
+    metadata: "Optional[Metadata]"= None
+    
     """Set of 16 key-value pairs that can be attached to an object.
 
     This can be useful for storing additional information about the object in a
@@ -51,4 +52,5 @@ class BatchCreateParams(BaseModel):
     Keys are strings with a maximum length of 64 characters. Values are strings with
     a maximum length of 512 characters.
     """
+BatchCreateParams.model_rebuild()
 

@@ -7,10 +7,10 @@ from typing import Any, cast
 
 import pytest
 
-from openai import OpenAI, AsyncOpenAI
+from openai_pydantic import OpenAI, AsyncOpenAI
 from tests.utils import assert_matches_type
-from openai.pagination import SyncPage, AsyncPage, SyncCursorPage, AsyncCursorPage
-from openai.types.vector_stores import (
+from openai_pydantic.pagination import SyncPage, AsyncPage, SyncCursorPage, AsyncCursorPage
+from openai_pydantic.types.vector_stores import (
     VectorStoreFile,
     FileContentResponse,
     VectorStoreFileDeleted,

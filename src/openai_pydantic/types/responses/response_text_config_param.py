@@ -1,16 +1,17 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
-from pydantic import BaseModel
+
 from .response_format_text_config_param import ResponseFormatTextConfigParam
 
 __all__ = ["ResponseTextConfigParam"]
 
 
 class ResponseTextConfigParam(BaseModel):
-    format: Optional[ResponseFormatTextConfigParam] = None
-    # old  format: ResponseFormatTextConfigParam
+    format: "Optional[ResponseFormatTextConfigParam]"= None
+    
     """An object specifying the format that the model must output.
 
     Configuring `{ "type": "json_schema" }` enables Structured Outputs, which
@@ -25,4 +26,5 @@ class ResponseTextConfigParam(BaseModel):
     ensures the message the model generates is valid JSON. Using `json_schema` is
     preferred for models that support it.
     """
+ResponseTextConfigParam.model_rebuild()
 

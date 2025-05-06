@@ -1,18 +1,19 @@
 # File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-from __future__ import annotations
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
-from typing import List, Union, Iterable
+from typing import Optional,Union,List
 from typing_extensions import Literal
-from pydantic import BaseModel
+
 from .embedding_model import EmbeddingModel
 
 __all__ = ["EmbeddingCreateParams"]
 
 
 class EmbeddingCreateParams(BaseModel):
-    input: Union[str, List[str], List[int], List[List[int]]] = None
-    # old  input: Required[Union[str, List[str], Iterable[int], Iterable[Iterable[int]]]]
+    input: "Union[str, List[str], List[int], List[List[int]]]"= None
+    
     """Input text to embed, encoded as a string or array of tokens.
 
     To embed multiple inputs in a single request, pass an array of strings or array
@@ -24,8 +25,8 @@ class EmbeddingCreateParams(BaseModel):
     tokens summed across inputs.
     """
 
-    model: Union[str, EmbeddingModel] = None
-    # old  model: Required[Union[str, EmbeddingModel]]
+    model: "Union[str, EmbeddingModel]"= None
+    
     """ID of the model to use.
 
     You can use the
@@ -35,25 +36,26 @@ class EmbeddingCreateParams(BaseModel):
     them.
     """
 
-    dimensions: Optional[int] = None
-    # old  dimensions: int
+    dimensions: "Optional[int]"= None
+    
     """The number of dimensions the resulting output embeddings should have.
 
     Only supported in `text-embedding-3` and later models.
     """
 
-    encoding_format: Optional[Literal["float", "base64"]] = None
-    # old  encoding_format: Literal["float", "base64"]
+    encoding_format: "Optional[Literal['float', 'base64']]"= None
+    
     """The format to return the embeddings in.
 
     Can be either `float` or [`base64`](https://pypi.org/project/pybase64/).
     """
 
-    user: Optional[str] = None
-    # old  user: str
+    user: "Optional[str]"= None
+    
     """
     A unique identifier representing your end-user, which can help OpenAI to monitor
     and detect abuse.
     [Learn more](https://platform.openai.com/docs/guides/safety-best-practices#end-user-ids).
     """
+EmbeddingCreateParams.model_rebuild()
 
