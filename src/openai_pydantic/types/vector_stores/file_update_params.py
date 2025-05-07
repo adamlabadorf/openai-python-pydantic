@@ -9,10 +9,10 @@ __all__ = ["FileUpdateParams"]
 
 
 class FileUpdateParams(BaseModel):
-    vector_store_id: "str"= None
+    vector_store_id: "str"
     
 
-    attributes: "Optional[Dict[str, Union[str, float, bool]]]"= None
+    attributes: "Optional[Dict[str, Union[str, float, bool]]]"
     
     """Set of 16 key-value pairs that can be attached to an object.
 

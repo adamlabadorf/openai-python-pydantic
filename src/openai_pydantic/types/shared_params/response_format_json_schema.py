@@ -3,14 +3,14 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Dict,Optional
+from typing import Optional,Dict
 from typing_extensions import Literal
 
 __all__ = ["ResponseFormatJSONSchema", "JSONSchema"]
 
 
 class JSONSchema(BaseModel):
-    name: "str"= None
+    name: "str"
     
     """The name of the response format.
 
@@ -44,11 +44,11 @@ class JSONSchema(BaseModel):
 
 
 class ResponseFormatJSONSchema(BaseModel):
-    json_schema: "JSONSchema"= None
+    json_schema: "JSONSchema"
     
     """Structured Outputs configuration options, including a JSON Schema."""
 
-    type: "Literal['json_schema']"= None
+    type: "Literal['json_schema']"
     
     """The type of response format being defined. Always `json_schema`."""
 JSONSchema.model_rebuild()

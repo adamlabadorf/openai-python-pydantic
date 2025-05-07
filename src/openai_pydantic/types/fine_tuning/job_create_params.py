@@ -22,7 +22,7 @@ __all__ = [
 
 
 class JobCreateParams(BaseModel):
-    model: "Union[str, Literal['babbage-002', 'davinci-002', 'gpt-3.5-turbo', 'gpt-4o-mini']]"= None
+    model: "Union[str, Literal['babbage-002', 'davinci-002', 'gpt-3.5-turbo', 'gpt-4o-mini']]"
     
     """The name of the model to fine-tune.
 
@@ -30,7 +30,7 @@ class JobCreateParams(BaseModel):
     [supported models](https://platform.openai.com/docs/guides/fine-tuning#which-models-can-be-fine-tuned).
     """
 
-    training_file: "str"= None
+    training_file: "str"
     
     """The ID of an uploaded file that contains training data.
 
@@ -58,7 +58,7 @@ class JobCreateParams(BaseModel):
     in favor of `method`, and should be passed in under the `method` parameter.
     """
 
-    integrations: "Optional[List[Integration]]"= None
+    integrations: "Optional[List[Integration]]"=Field(default_factory=list)
     
     """A list of integrations to enable for your fine-tuning job."""
 
@@ -138,7 +138,7 @@ class Hyperparameters(BaseModel):
 
 
 class IntegrationWandb(BaseModel):
-    project: "str"= None
+    project: "str"
     
     """The name of the project that the new run will be created under."""
 
@@ -168,14 +168,14 @@ class IntegrationWandb(BaseModel):
 
 
 class Integration(BaseModel):
-    type: "Literal['wandb']"= None
+    type: "Literal['wandb']"
     
     """The type of integration to enable.
 
     Currently, only "wandb" (Weights and Biases) is supported.
     """
 
-    wandb: "IntegrationWandb"= None
+    wandb: "IntegrationWandb"
     
     """The settings for your integration with Weights and Biases.
 

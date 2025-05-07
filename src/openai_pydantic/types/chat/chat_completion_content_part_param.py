@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Optional,Union
+from typing import Union,Optional
 from typing_extensions import Literal
 
 from .chat_completion_content_part_text_param import ChatCompletionContentPartTextParam
@@ -31,10 +31,10 @@ class FileFile(BaseModel):
 
 
 class File(BaseModel):
-    file: "FileFile"= None
+    file: "FileFile"
     
 
-    type: "Literal['file']"= None
+    type: "Literal['file']"
     
     """The type of the content part. Always `file`."""
 

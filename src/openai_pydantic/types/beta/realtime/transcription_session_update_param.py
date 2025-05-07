@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import List,Optional
+from typing import Optional,List
 from typing_extensions import Literal
 
 __all__ = [
@@ -169,11 +169,11 @@ class Session(BaseModel):
 
 
 class TranscriptionSessionUpdateParam(BaseModel):
-    session: "Session"= None
+    session: "Session"
     
     """Realtime transcription session object configuration."""
 
-    type: "Literal['transcription_session.update']"= None
+    type: "Literal['transcription_session.update']"
     
     """The event type, must be `transcription_session.update`."""
 

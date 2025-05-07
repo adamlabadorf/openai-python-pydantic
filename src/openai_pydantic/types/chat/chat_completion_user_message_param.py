@@ -12,11 +12,11 @@ __all__ = ["ChatCompletionUserMessageParam"]
 
 
 class ChatCompletionUserMessageParam(BaseModel):
-    content: "Union[str, List[ChatCompletionContentPartParam]]"= None
+    content: "Union[str, List[ChatCompletionContentPartParam]]"
     
     """The contents of the user message."""
 
-    role: "Literal['user']"= None
+    role: "Literal['user']"
     
     """The role of the messages author, in this case `user`."""
 

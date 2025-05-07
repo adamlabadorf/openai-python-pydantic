@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Dict,Union,Optional,List
+from typing import Optional,List,Union,Dict
 
 from ..file_chunking_strategy_param import FileChunkingStrategyParam
 
@@ -11,7 +11,7 @@ __all__ = ["FileBatchCreateParams"]
 
 
 class FileBatchCreateParams(BaseModel):
-    file_ids: "List[str]"= None
+    file_ids: "List[str]"
     
     """
     A list of [File](https://platform.openai.com/docs/api-reference/files) IDs that

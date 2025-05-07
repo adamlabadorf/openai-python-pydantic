@@ -9,7 +9,7 @@ __all__ = ["ImageURLParam"]
 
 
 class ImageURLParam(BaseModel):
-    url: "str"= None
+    url: "str"
     
     """
     The external URL of the image, must be a supported image types: jpeg, jpg, png,

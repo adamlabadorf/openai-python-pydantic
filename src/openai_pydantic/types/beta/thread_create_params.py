@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import List,Optional,Union
+from typing import Union,Optional,List
 from typing_extensions import Literal
 
 from ..shared_params.metadata import Metadata
@@ -28,7 +28,7 @@ __all__ = [
 
 
 class ThreadCreateParams(BaseModel):
-    messages: "Optional[List[Message]]"= None
+    messages: "Optional[List[Message]]"=Field(default_factory=list)
     
     """
     A list of [messages](https://platform.openai.com/docs/api-reference/messages) to
@@ -57,7 +57,7 @@ class ThreadCreateParams(BaseModel):
 
 
 class MessageAttachmentToolFileSearch(BaseModel):
-    type: "Literal['file_search']"= None
+    type: "Literal['file_search']"
     
     """The type of tool being defined: `file_search`"""
 
@@ -70,17 +70,17 @@ class MessageAttachment(BaseModel):
     
     """The ID of the file to attach to the message."""
 
-    tools: "Optional[List[MessageAttachmentTool]]"= None
+    tools: "Optional[List[MessageAttachmentTool]]"=Field(default_factory=list)
     
     """The tools to add this file to."""
 
 
 class Message(BaseModel):
-    content: "Union[str, List[MessageContentPartParam]]"= None
+    content: "Union[str, List[MessageContentPartParam]]"
     
     """The text contents of the message."""
 
-    role: "Literal['user', 'assistant']"= None
+    role: "Literal['user', 'assistant']"
     
     """The role of the entity that is creating the message. Allowed values include:
 
@@ -90,7 +90,7 @@ class Message(BaseModel):
       value to insert messages from the assistant into the conversation.
     """
 
-    attachments: "Optional[List[MessageAttachment]]"= None
+    attachments: "Optional[List[MessageAttachment]]"=Field(default_factory=list)
     
     """A list of files attached to the message, and the tools they should be added to."""
 
@@ -117,20 +117,20 @@ class ToolResourcesCodeInterpreter(BaseModel):
 
 
 class ToolResourcesFileSearchVectorStoreChunkingStrategyAuto(BaseModel):
-    type: "Literal['auto']"= None
+    type: "Literal['auto']"
     
     """Always `auto`."""
 
 
 class ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic(BaseModel):
-    chunk_overlap_tokens: "int"= None
+    chunk_overlap_tokens: "int"
     
     """The number of tokens that overlap between chunks. The default value is `400`.
 
     Note that the overlap must not exceed half of `max_chunk_size_tokens`.
     """
 
-    max_chunk_size_tokens: "int"= None
+    max_chunk_size_tokens: "int"
     
     """The maximum number of tokens in each chunk.
 
@@ -140,10 +140,10 @@ class ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic(BaseModel):
 
 
 class ToolResourcesFileSearchVectorStoreChunkingStrategyStatic(BaseModel):
-    static: "ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic"= None
+    static: "ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic"
     
 
-    type: "Literal['static']"= None
+    type: "Literal['static']"
     
     """Always `static`."""
 
@@ -191,7 +191,7 @@ class ToolResourcesFileSearch(BaseModel):
     the thread.
     """
 
-    vector_stores: "Optional[List[ToolResourcesFileSearchVectorStore]]"= None
+    vector_stores: "Optional[List[ToolResourcesFileSearchVectorStore]]"=Field(default_factory=list)
     
     """
     A helper to create a

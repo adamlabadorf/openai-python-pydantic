@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Optional,List,Union
+from typing import List,Union,Optional
 from typing_extensions import Literal
 
 from ..shared.chat_model import ChatModel
@@ -39,7 +39,7 @@ __all__ = [
 
 
 class ThreadCreateAndRunParamsBase(BaseModel):
-    assistant_id: "str"= None
+    assistant_id: "str"
     
     """
     The ID of the
@@ -164,7 +164,7 @@ class ThreadCreateAndRunParamsBase(BaseModel):
     tool requires a list of vector store IDs.
     """
 
-    tools: "Optional[List[AssistantToolParam]]"= None
+    tools: "Optional[List[AssistantToolParam]]"=Field(default_factory=list)
     
     """Override the tools the assistant can use for this run.
 
@@ -190,7 +190,7 @@ class ThreadCreateAndRunParamsBase(BaseModel):
 
 
 class ThreadMessageAttachmentToolFileSearch(BaseModel):
-    type: "Literal['file_search']"= None
+    type: "Literal['file_search']"
     
     """The type of tool being defined: `file_search`"""
 
@@ -203,17 +203,17 @@ class ThreadMessageAttachment(BaseModel):
     
     """The ID of the file to attach to the message."""
 
-    tools: "Optional[List[ThreadMessageAttachmentTool]]"= None
+    tools: "Optional[List[ThreadMessageAttachmentTool]]"=Field(default_factory=list)
     
     """The tools to add this file to."""
 
 
 class ThreadMessage(BaseModel):
-    content: "Union[str, List[MessageContentPartParam]]"= None
+    content: "Union[str, List[MessageContentPartParam]]"
     
     """The text contents of the message."""
 
-    role: "Literal['user', 'assistant']"= None
+    role: "Literal['user', 'assistant']"
     
     """The role of the entity that is creating the message. Allowed values include:
 
@@ -223,7 +223,7 @@ class ThreadMessage(BaseModel):
       value to insert messages from the assistant into the conversation.
     """
 
-    attachments: "Optional[List[ThreadMessageAttachment]]"= None
+    attachments: "Optional[List[ThreadMessageAttachment]]"=Field(default_factory=list)
     
     """A list of files attached to the message, and the tools they should be added to."""
 
@@ -250,20 +250,20 @@ class ThreadToolResourcesCodeInterpreter(BaseModel):
 
 
 class ThreadToolResourcesFileSearchVectorStoreChunkingStrategyAuto(BaseModel):
-    type: "Literal['auto']"= None
+    type: "Literal['auto']"
     
     """Always `auto`."""
 
 
 class ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic(BaseModel):
-    chunk_overlap_tokens: "int"= None
+    chunk_overlap_tokens: "int"
     
     """The number of tokens that overlap between chunks. The default value is `400`.
 
     Note that the overlap must not exceed half of `max_chunk_size_tokens`.
     """
 
-    max_chunk_size_tokens: "int"= None
+    max_chunk_size_tokens: "int"
     
     """The maximum number of tokens in each chunk.
 
@@ -273,10 +273,10 @@ class ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic(BaseM
 
 
 class ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStatic(BaseModel):
-    static: "ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic"= None
+    static: "ThreadToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic"
     
 
-    type: "Literal['static']"= None
+    type: "Literal['static']"
     
     """Always `static`."""
 
@@ -325,7 +325,7 @@ class ThreadToolResourcesFileSearch(BaseModel):
     the thread.
     """
 
-    vector_stores: "Optional[List[ThreadToolResourcesFileSearchVectorStore]]"= None
+    vector_stores: "Optional[List[ThreadToolResourcesFileSearchVectorStore]]"=Field(default_factory=list)
     
     """
     A helper to create a
@@ -344,7 +344,7 @@ class ThreadToolResources(BaseModel):
 
 
 class Thread(BaseModel):
-    messages: "Optional[List[ThreadMessage]]"= None
+    messages: "Optional[List[ThreadMessage]]"=Field(default_factory=list)
     
     """
     A list of [messages](https://platform.openai.com/docs/api-reference/messages) to
@@ -402,7 +402,7 @@ class ToolResources(BaseModel):
 
 
 class TruncationStrategy(BaseModel):
-    type: "Literal['auto', 'last_messages']"= None
+    type: "Literal['auto', 'last_messages']"
     
     """The truncation strategy to use for the thread.
 
@@ -431,7 +431,7 @@ class ThreadCreateAndRunParamsNonStreaming(ThreadCreateAndRunParamsBase):
 
 
 class ThreadCreateAndRunParamsStreaming(ThreadCreateAndRunParamsBase):
-    stream: "Literal[True]"= None
+    stream: "Literal[True]"
     
     """
     If `true`, returns a stream of events that happen during the Run as server-sent

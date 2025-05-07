@@ -11,11 +11,11 @@ __all__ = ["FileCreateParams"]
 
 
 class FileCreateParams(BaseModel):
-    file: "FileTypes"= None
+    file: "FileTypes"
     
     """The File object (not file name) to be uploaded."""
 
-    purpose: "FilePurpose"= None
+    purpose: "FilePurpose"
     
     """The intended purpose of the uploaded file.
 

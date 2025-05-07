@@ -11,7 +11,7 @@ __all__ = ["FunctionDefinition"]
 
 
 class FunctionDefinition(BaseModel):
-    name: "str"= None
+    name: "str"
     
     """The name of the function to be called.
 

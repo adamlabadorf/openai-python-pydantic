@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Union,Optional
+from typing import Optional,Union
 from typing_extensions import Literal
 
 from .chat_completion_content_part_text_param import ChatCompletionContentPartTextParam
@@ -12,11 +12,11 @@ __all__ = ["ChatCompletionSystemMessageParam"]
 
 
 class ChatCompletionSystemMessageParam(BaseModel):
-    content: "Union[str, List[ChatCompletionContentPartTextParam]]"= None
+    content: "Union[str, List[ChatCompletionContentPartTextParam]]"
     
     """The contents of the system message."""
 
-    role: "Literal['system']"= None
+    role: "Literal['system']"
     
     """The role of the messages author, in this case `system`."""
 

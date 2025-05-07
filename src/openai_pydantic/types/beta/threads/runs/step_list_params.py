@@ -12,7 +12,7 @@ __all__ = ["StepListParams"]
 
 
 class StepListParams(BaseModel):
-    thread_id: "str"= None
+    thread_id: "str"
     
 
     after: "Optional[str]"= None

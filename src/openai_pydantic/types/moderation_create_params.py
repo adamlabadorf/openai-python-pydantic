@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Optional,Union,List
+from typing import List,Union,Optional
 
 from .moderation_model import ModerationModel
 from .moderation_multi_modal_input_param import ModerationMultiModalInputParam
@@ -12,7 +12,7 @@ __all__ = ["ModerationCreateParams"]
 
 
 class ModerationCreateParams(BaseModel):
-    input: "Union[str, List[str], List[ModerationMultiModalInputParam]]"= None
+    input: "Union[str, List[str], List[ModerationMultiModalInputParam]]"
     
     """Input (or inputs) to classify.
 

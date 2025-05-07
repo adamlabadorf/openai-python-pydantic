@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Optional,Union,List
+from typing import Optional,List,Union
 from typing_extensions import Literal
 
 from .embedding_model import EmbeddingModel
@@ -12,7 +12,7 @@ __all__ = ["EmbeddingCreateParams"]
 
 
 class EmbeddingCreateParams(BaseModel):
-    input: "Union[str, List[str], List[int], List[List[int]]]"= None
+    input: "Union[str, List[str], List[int], List[List[int]]]"
     
     """Input text to embed, encoded as a string or array of tokens.
 
@@ -25,7 +25,7 @@ class EmbeddingCreateParams(BaseModel):
     tokens summed across inputs.
     """
 
-    model: "Union[str, EmbeddingModel]"= None
+    model: "Union[str, EmbeddingModel]"
     
     """ID of the model to use.
 

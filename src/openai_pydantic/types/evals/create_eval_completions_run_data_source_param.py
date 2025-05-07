@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Dict,Union,Optional
+from typing import Union,Dict,Optional
 from typing_extensions import Literal
 
 from ..shared_params.metadata import Metadata
@@ -29,7 +29,7 @@ __all__ = [
 
 
 class SourceFileContentContent(BaseModel):
-    item: "Dict[str, object]"= None
+    item: "Dict[str, object]"
     
 
     sample: "Optional[Dict[str, object]]"= None
@@ -37,27 +37,27 @@ class SourceFileContentContent(BaseModel):
 
 
 class SourceFileContent(BaseModel):
-    content: "List[SourceFileContentContent]"= None
+    content: "List[SourceFileContentContent]"
     
     """The content of the jsonl file."""
 
-    type: "Literal['file_content']"= None
+    type: "Literal['file_content']"
     
     """The type of jsonl source. Always `file_content`."""
 
 
 class SourceFileID(BaseModel):
-    id: "str"= None
+    id: "str"
     
     """The identifier of the file."""
 
-    type: "Literal['file_id']"= None
+    type: "Literal['file_id']"
     
     """The type of jsonl source. Always `file_id`."""
 
 
 class SourceStoredCompletions(BaseModel):
-    type: "Literal['stored_completions']"= None
+    type: "Literal['stored_completions']"
     
     """The type of source. Always `stored_completions`."""
 
@@ -93,11 +93,11 @@ Source = Union[SourceFileContent, SourceFileID, SourceStoredCompletions]
 
 
 class InputMessagesTemplateTemplateMessageContentOutputText(BaseModel):
-    text: "str"= None
+    text: "str"
     
     """The text output from the model."""
 
-    type: "Literal['output_text']"= None
+    type: "Literal['output_text']"
     
     """The type of the output text. Always `output_text`."""
 
@@ -108,11 +108,11 @@ InputMessagesTemplateTemplateMessageContent = Union[
 
 
 class InputMessagesTemplateTemplateMessage(BaseModel):
-    content: "InputMessagesTemplateTemplateMessageContent"= None
+    content: "InputMessagesTemplateTemplateMessageContent"
     
     """Text inputs to the model - can contain template strings."""
 
-    role: "Literal['user', 'assistant', 'system', 'developer']"= None
+    role: "Literal['user', 'assistant', 'system', 'developer']"
     
     """The role of the message input.
 
@@ -128,24 +128,24 @@ InputMessagesTemplateTemplate = Union[EasyInputMessageParam, InputMessagesTempla
 
 
 class InputMessagesTemplate(BaseModel):
-    template: "List[InputMessagesTemplateTemplate]"= None
+    template: "List[InputMessagesTemplateTemplate]"
     
     """A list of chat messages forming the prompt or context.
 
     May include variable references to the "item" namespace, ie {{item.name}}.
     """
 
-    type: "Literal['template']"= None
+    type: "Literal['template']"
     
     """The type of input messages. Always `template`."""
 
 
 class InputMessagesItemReference(BaseModel):
-    item_reference: "str"= None
+    item_reference: "str"
     
     """A reference to a variable in the "item" namespace. Ie, "item.name" """
 
-    type: "Literal['item_reference']"= None
+    type: "Literal['item_reference']"
     
     """The type of input messages. Always `item_reference`."""
 
@@ -172,11 +172,11 @@ class SamplingParams(BaseModel):
 
 
 class CreateEvalCompletionsRunDataSourceParam(BaseModel):
-    source: "Source"= None
+    source: "Source"
     
     """A StoredCompletionsRunDataSource configuration describing a set of filters"""
 
-    type: "Literal['completions']"= None
+    type: "Literal['completions']"
     
     """The type of run data source. Always `completions`."""
 

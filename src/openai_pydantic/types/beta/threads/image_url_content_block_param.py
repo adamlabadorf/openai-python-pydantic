@@ -11,10 +11,10 @@ __all__ = ["ImageURLContentBlockParam"]
 
 
 class ImageURLContentBlockParam(BaseModel):
-    image_url: "ImageURLParam"= None
+    image_url: "ImageURLParam"
     
 
-    type: "Literal['image_url']"= None
+    type: "Literal['image_url']"
     
     """The type of the content part."""
 ImageURLContentBlockParam.model_rebuild()

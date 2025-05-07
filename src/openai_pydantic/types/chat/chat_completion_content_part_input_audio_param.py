@@ -9,20 +9,20 @@ __all__ = ["ChatCompletionContentPartInputAudioParam", "InputAudio"]
 
 
 class InputAudio(BaseModel):
-    data: "str"= None
+    data: "str"
     
     """Base64 encoded audio data."""
 
-    format: "Literal['wav', 'mp3']"= None
+    format: "Literal['wav', 'mp3']"
     
     """The format of the encoded audio data. Currently supports "wav" and "mp3"."""
 
 
 class ChatCompletionContentPartInputAudioParam(BaseModel):
-    input_audio: "InputAudio"= None
+    input_audio: "InputAudio"
     
 
-    type: "Literal['input_audio']"= None
+    type: "Literal['input_audio']"
     
     """The type of the content part. Always `input_audio`."""
 InputAudio.model_rebuild()

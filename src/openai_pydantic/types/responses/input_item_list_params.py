@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import List,Optional
+from typing import Optional,List
 from typing_extensions import Literal
 
 from .response_includable import ResponseIncludable

@@ -10,15 +10,15 @@ __all__ = ["UploadCreateParams"]
 
 
 class UploadCreateParams(BaseModel):
-    bytes: "int"= None
+    bytes: "int"
     
     """The number of bytes in the file you are uploading."""
 
-    filename: "str"= None
+    filename: "str"
     
     """The name of the file to upload."""
 
-    mime_type: "str"= None
+    mime_type: "str"
     
     """The MIME type of the file.
 
@@ -26,7 +26,7 @@ class UploadCreateParams(BaseModel):
     supported MIME types for assistants and vision.
     """
 
-    purpose: "FilePurpose"= None
+    purpose: "FilePurpose"
     
     """The intended purpose of the uploaded file.
 

@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Union,Optional
+from typing import Optional,Union
 from typing_extensions import Literal
 
 from .response_output_text_param import ResponseOutputTextParam
@@ -15,19 +15,19 @@ Content = Union[ResponseOutputTextParam, ResponseOutputRefusalParam]
 
 
 class ResponseOutputMessageParam(BaseModel):
-    id: "str"= None
+    id: "str"
     
     """The unique ID of the output message."""
 
-    content: "List[Content]"= None
+    content: "List[Content]"
     
     """The content of the output message."""
 
-    role: "Literal['assistant']"= None
+    role: "Literal['assistant']"
     
     """The role of the output message. Always `assistant`."""
 
-    status: "Literal['in_progress', 'completed', 'incomplete']"= None
+    status: "Literal['in_progress', 'completed', 'incomplete']"
     
     """The status of the message input.
 
@@ -35,7 +35,7 @@ class ResponseOutputMessageParam(BaseModel):
     are returned via API.
     """
 
-    type: "Literal['message']"= None
+    type: "Literal['message']"
     
     """The type of the output message. Always `message`."""
 ResponseOutputMessageParam.model_rebuild()

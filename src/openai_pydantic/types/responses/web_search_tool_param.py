@@ -10,7 +10,7 @@ __all__ = ["WebSearchToolParam", "UserLocation"]
 
 
 class UserLocation(BaseModel):
-    type: "Literal['approximate']"= None
+    type: "Literal['approximate']"
     
     """The type of location approximation. Always `approximate`."""
 
@@ -38,7 +38,7 @@ class UserLocation(BaseModel):
 
 
 class WebSearchToolParam(BaseModel):
-    type: "Literal['web_search_preview', 'web_search_preview_2025_03_11']"= None
+    type: "Literal['web_search_preview', 'web_search_preview_2025_03_11']"
     
     """The type of the web search tool.
 

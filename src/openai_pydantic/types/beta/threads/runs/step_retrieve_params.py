@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import List,Optional
+from typing import Optional,List
 
 from .run_step_include import RunStepInclude
 
@@ -11,10 +11,10 @@ __all__ = ["StepRetrieveParams"]
 
 
 class StepRetrieveParams(BaseModel):
-    thread_id: "str"= None
+    thread_id: "str"
     
 
-    run_id: "str"= None
+    run_id: "str"
     
 
     include: "Optional[List[RunStepInclude]]"= None

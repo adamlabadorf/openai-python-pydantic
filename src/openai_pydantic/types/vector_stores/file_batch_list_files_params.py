@@ -9,7 +9,7 @@ __all__ = ["FileBatchListFilesParams"]
 
 
 class FileBatchListFilesParams(BaseModel):
-    vector_store_id: "str"= None
+    vector_store_id: "str"
     
 
     after: "Optional[str]"= None

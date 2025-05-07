@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Optional,Union,List
+from typing import Union,Optional,List
 from typing_extensions import Literal
 
 from ..shared_params.compound_filter import CompoundFilter
@@ -29,11 +29,11 @@ class RankingOptions(BaseModel):
 
 
 class FileSearchToolParam(BaseModel):
-    type: "Literal['file_search']"= None
+    type: "Literal['file_search']"
     
     """The type of the file search tool. Always `file_search`."""
 
-    vector_store_ids: "List[str]"= None
+    vector_store_ids: "List[str]"
     
     """The IDs of the vector stores to search."""
 

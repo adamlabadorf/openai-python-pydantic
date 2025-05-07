@@ -35,7 +35,7 @@ class ConversationItemWithReferenceParam(BaseModel):
     `function_call` item with the same ID exists in the conversation history.
     """
 
-    content: "Optional[List[ConversationItemContentParam]]"= None
+    content: "Optional[List[ConversationItemContentParam]]"=Field(default_factory=list)
     
     """The content of the message, applicable for `message` items.
 

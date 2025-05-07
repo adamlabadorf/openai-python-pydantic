@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Union,Dict,Optional
+from typing import Optional,Dict,Union
 
 from ..file_chunking_strategy_param import FileChunkingStrategyParam
 
@@ -11,7 +11,7 @@ __all__ = ["FileCreateParams"]
 
 
 class FileCreateParams(BaseModel):
-    file_id: "str"= None
+    file_id: "str"
     
     """
     A [File](https://platform.openai.com/docs/api-reference/files) ID that the

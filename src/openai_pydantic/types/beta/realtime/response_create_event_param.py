@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Union,Optional,List
+from typing import List,Optional,Union
 from typing_extensions import Literal
 
 from ...shared_params.metadata import Metadata
@@ -44,7 +44,7 @@ class Response(BaseModel):
     will not add items to default conversation.
     """
 
-    input: "Optional[List[ConversationItemWithReferenceParam]]"= None
+    input: "Optional[List[ConversationItemWithReferenceParam]]"=Field(default_factory=list)
     
     """Input items to include in the prompt for the model.
 
@@ -113,7 +113,7 @@ class Response(BaseModel):
     `{"type": "function", "function": {"name": "my_function"}}`.
     """
 
-    tools: "Optional[List[ResponseTool]]"= None
+    tools: "Optional[List[ResponseTool]]"=Field(default_factory=list)
     
     """Tools (functions) available to the model."""
 
@@ -128,7 +128,7 @@ class Response(BaseModel):
 
 
 class ResponseCreateEventParam(BaseModel):
-    type: "Literal['response.create']"= None
+    type: "Literal['response.create']"
     
     """The event type, must be `response.create`."""
 

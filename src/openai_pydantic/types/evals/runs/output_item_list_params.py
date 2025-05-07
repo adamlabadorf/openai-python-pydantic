@@ -9,7 +9,7 @@ __all__ = ["OutputItemListParams"]
 
 
 class OutputItemListParams(BaseModel):
-    eval_id: "str"= None
+    eval_id: "str"
     
 
     after: "Optional[str]"= None

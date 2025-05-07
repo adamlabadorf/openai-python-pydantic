@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Optional,List,Union
+from typing import Optional,Union,List
 from typing_extensions import Literal
 
 from .tool_param import ToolParam
@@ -26,7 +26,7 @@ __all__ = [
 
 
 class ResponseCreateParamsBase(BaseModel):
-    input: "Union[str, ResponseInputParam]"= None
+    input: "Union[str, ResponseInputParam]"
     
     """Text, image, or file inputs to the model, used to generate a response.
 
@@ -39,7 +39,7 @@ class ResponseCreateParamsBase(BaseModel):
     - [Function calling](https://platform.openai.com/docs/guides/function-calling)
     """
 
-    model: "ResponsesModel"= None
+    model: "ResponsesModel"
     
     """Model ID used to generate the response, like `gpt-4o` or `o3`.
 
@@ -170,7 +170,7 @@ class ResponseCreateParamsBase(BaseModel):
     can call.
     """
 
-    tools: "Optional[List[ToolParam]]"= None
+    tools: "Optional[List[ToolParam]]"=Field(default_factory=list)
     
     """An array of tools the model may call while generating a response.
 
@@ -236,7 +236,7 @@ class ResponseCreateParamsNonStreaming(ResponseCreateParamsBase):
 
 
 class ResponseCreateParamsStreaming(ResponseCreateParamsBase):
-    stream: "Literal[True]"= None
+    stream: "Literal[True]"
     
     """
     If set to true, the model response data will be streamed to the client as it is

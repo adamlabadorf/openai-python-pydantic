@@ -3,13 +3,13 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Optional,List
+from typing import List,Optional
 
 __all__ = ["PermissionCreateParams"]
 
 
 class PermissionCreateParams(BaseModel):
-    project_ids: "List[str]"= None
+    project_ids: "List[str]"
     
     """The project identifiers to grant access to."""
 PermissionCreateParams.model_rebuild()

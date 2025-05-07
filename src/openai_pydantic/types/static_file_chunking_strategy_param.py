@@ -8,14 +8,14 @@ __all__ = ["StaticFileChunkingStrategyParam"]
 
 
 class StaticFileChunkingStrategyParam(BaseModel):
-    chunk_overlap_tokens: "int"= None
+    chunk_overlap_tokens: "int"
     
     """The number of tokens that overlap between chunks. The default value is `400`.
 
     Note that the overlap must not exceed half of `max_chunk_size_tokens`.
     """
 
-    max_chunk_size_tokens: "int"= None
+    max_chunk_size_tokens: "int"
     
     """The maximum number of tokens in each chunk.
 

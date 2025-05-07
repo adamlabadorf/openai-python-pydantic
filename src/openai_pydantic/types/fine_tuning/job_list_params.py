@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Dict,Optional
+from typing import Optional,Dict
 
 __all__ = ["JobListParams"]
 

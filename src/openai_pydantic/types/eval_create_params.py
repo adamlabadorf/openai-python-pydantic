@@ -32,11 +32,11 @@ __all__ = [
 
 
 class EvalCreateParams(BaseModel):
-    data_source_config: "DataSourceConfig"= None
+    data_source_config: "DataSourceConfig"
     
     """The configuration for the data source used for the evaluation runs."""
 
-    testing_criteria: "List[TestingCriterion]"= None
+    testing_criteria: "List[TestingCriterion]"
     
     """A list of graders for all eval runs in this group."""
 
@@ -57,11 +57,11 @@ class EvalCreateParams(BaseModel):
 
 
 class DataSourceConfigCustom(BaseModel):
-    item_schema: "Dict[str, object]"= None
+    item_schema: "Dict[str, object]"
     
     """The json schema for each row in the data source."""
 
-    type: "Literal['custom']"= None
+    type: "Literal['custom']"
     
     """The type of data source. Always `custom`."""
 
@@ -74,7 +74,7 @@ class DataSourceConfigCustom(BaseModel):
 
 
 class DataSourceConfigLogs(BaseModel):
-    type: "Literal['logs']"= None
+    type: "Literal['logs']"
     
     """The type of data source. Always `logs`."""
 
@@ -87,21 +87,21 @@ DataSourceConfig = Union[DataSourceConfigCustom, DataSourceConfigLogs]
 
 
 class TestingCriterionLabelModelInputSimpleInputMessage(BaseModel):
-    content: "str"= None
+    content: "str"
     
     """The content of the message."""
 
-    role: "str"= None
+    role: "str"
     
     """The role of the message (e.g. "system", "assistant", "user")."""
 
 
 class TestingCriterionLabelModelInputEvalItemContentOutputText(BaseModel):
-    text: "str"= None
+    text: "str"
     
     """The text output from the model."""
 
-    type: "Literal['output_text']"= None
+    type: "Literal['output_text']"
     
     """The type of the output text. Always `output_text`."""
 
@@ -112,11 +112,11 @@ TestingCriterionLabelModelInputEvalItemContent = Union[
 
 
 class TestingCriterionLabelModelInputEvalItem(BaseModel):
-    content: "TestingCriterionLabelModelInputEvalItemContent"= None
+    content: "TestingCriterionLabelModelInputEvalItemContent"
     
     """Text inputs to the model - can contain template strings."""
 
-    role: "Literal['user', 'assistant', 'system', 'developer']"= None
+    role: "Literal['user', 'assistant', 'system', 'developer']"
     
     """The role of the message input.
 
@@ -134,44 +134,44 @@ TestingCriterionLabelModelInput = Union[
 
 
 class TestingCriterionLabelModel(BaseModel):
-    input: "List[TestingCriterionLabelModelInput]"= None
+    input: "List[TestingCriterionLabelModelInput]"
     
     """A list of chat messages forming the prompt or context.
 
     May include variable references to the "item" namespace, ie {{item.name}}.
     """
 
-    labels: "List[str]"= None
+    labels: "List[str]"
     
     """The labels to classify to each item in the evaluation."""
 
-    model: "str"= None
+    model: "str"
     
     """The model to use for the evaluation. Must support structured outputs."""
 
-    name: "str"= None
+    name: "str"
     
     """The name of the grader."""
 
-    passing_labels: "List[str]"= None
+    passing_labels: "List[str]"
     
     """The labels that indicate a passing result. Must be a subset of labels."""
 
-    type: "Literal['label_model']"= None
+    type: "Literal['label_model']"
     
     """The object type, which is always `label_model`."""
 
 
 class TestingCriterionPython(BaseModel):
-    name: "str"= None
+    name: "str"
     
     """The name of the grader."""
 
-    source: "str"= None
+    source: "str"
     
     """The source code of the python script."""
 
-    type: "Literal['python']"= None
+    type: "Literal['python']"
     
     """The object type, which is always `python`."""
 
@@ -185,11 +185,11 @@ class TestingCriterionPython(BaseModel):
 
 
 class TestingCriterionScoreModelInputContentOutputText(BaseModel):
-    text: "str"= None
+    text: "str"
     
     """The text output from the model."""
 
-    type: "Literal['output_text']"= None
+    type: "Literal['output_text']"
     
     """The type of the output text. Always `output_text`."""
 
@@ -200,11 +200,11 @@ TestingCriterionScoreModelInputContent = Union[
 
 
 class TestingCriterionScoreModelInput(BaseModel):
-    content: "TestingCriterionScoreModelInputContent"= None
+    content: "TestingCriterionScoreModelInputContent"
     
     """Text inputs to the model - can contain template strings."""
 
-    role: "Literal['user', 'assistant', 'system', 'developer']"= None
+    role: "Literal['user', 'assistant', 'system', 'developer']"
     
     """The role of the message input.
 
@@ -217,19 +217,19 @@ class TestingCriterionScoreModelInput(BaseModel):
 
 
 class TestingCriterionScoreModel(BaseModel):
-    input: "List[TestingCriterionScoreModelInput]"= None
+    input: "List[TestingCriterionScoreModelInput]"
     
     """The input text. This may include template strings."""
 
-    model: "str"= None
+    model: "str"
     
     """The model to use for the evaluation."""
 
-    name: "str"= None
+    name: "str"
     
     """The name of the grader."""
 
-    type: "Literal['score_model']"= None
+    type: "Literal['score_model']"
     
     """The object type, which is always `score_model`."""
 
@@ -237,7 +237,7 @@ class TestingCriterionScoreModel(BaseModel):
     
     """The threshold for the score."""
 
-    range: "Optional[List[float]]"= None
+    range: "Optional[List[float]]"=Field(default_factory=list)
     
     """The range of the score. Defaults to `[0, 1]`."""
 

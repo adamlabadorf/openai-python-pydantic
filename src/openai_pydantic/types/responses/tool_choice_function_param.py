@@ -9,11 +9,11 @@ __all__ = ["ToolChoiceFunctionParam"]
 
 
 class ToolChoiceFunctionParam(BaseModel):
-    name: "str"= None
+    name: "str"
     
     """The name of the function to call."""
 
-    type: "Literal['function']"= None
+    type: "Literal['function']"
     
     """For function calling, the type is always `function`."""
 ToolChoiceFunctionParam.model_rebuild()

@@ -19,14 +19,14 @@ __all__ = [
 
 
 class TranscriptionCreateParamsBase(BaseModel):
-    file: "FileTypes"= None
+    file: "FileTypes"
     
     """
     The audio file object (not file name) to transcribe, in one of these formats:
     flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.
     """
 
-    model: "Union[str, AudioModel]"= None
+    model: "Union[str, AudioModel]"
     
     """ID of the model to use.
 
@@ -108,7 +108,7 @@ class TranscriptionCreateParamsNonStreaming(TranscriptionCreateParamsBase):
 
 
 class TranscriptionCreateParamsStreaming(TranscriptionCreateParamsBase):
-    stream: "Literal[True]"= None
+    stream: "Literal[True]"
     
     """
     If set to true, the model response data will be streamed to the client as it is

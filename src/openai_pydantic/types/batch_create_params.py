@@ -12,14 +12,14 @@ __all__ = ["BatchCreateParams"]
 
 
 class BatchCreateParams(BaseModel):
-    completion_window: "Literal['24h']"= None
+    completion_window: "Literal['24h']"
     
     """The time frame within which the batch should be processed.
 
     Currently only `24h` is supported.
     """
 
-    endpoint: "Literal['/v1/responses', '/v1/chat/completions', '/v1/embeddings', '/v1/completions']"= None
+    endpoint: "Literal['/v1/responses', '/v1/chat/completions', '/v1/embeddings', '/v1/completions']"
     
     """The endpoint to be used for all requests in the batch.
 
@@ -29,7 +29,7 @@ class BatchCreateParams(BaseModel):
     batch.
     """
 
-    input_file_id: "str"= None
+    input_file_id: "str"
     
     """The ID of an uploaded file that contains requests for the new batch.
 

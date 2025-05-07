@@ -11,10 +11,10 @@ __all__ = ["ImageFileContentBlockParam"]
 
 
 class ImageFileContentBlockParam(BaseModel):
-    image_file: "ImageFileParam"= None
+    image_file: "ImageFileParam"
     
 
-    type: "Literal['image_file']"= None
+    type: "Literal['image_file']"
     
     """Always `image_file`."""
 ImageFileContentBlockParam.model_rebuild()

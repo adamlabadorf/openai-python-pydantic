@@ -9,16 +9,16 @@ __all__ = ["ChatCompletionNamedToolChoiceParam", "Function"]
 
 
 class Function(BaseModel):
-    name: "str"= None
+    name: "str"
     
     """The name of the function to call."""
 
 
 class ChatCompletionNamedToolChoiceParam(BaseModel):
-    function: "Function"= None
+    function: "Function"
     
 
-    type: "Literal['function']"= None
+    type: "Literal['function']"
     
     """The type of the tool. Currently, only `function` is supported."""
 Function.model_rebuild()

@@ -9,15 +9,15 @@ __all__ = ["ResponseFunctionWebSearchParam"]
 
 
 class ResponseFunctionWebSearchParam(BaseModel):
-    id: "str"= None
+    id: "str"
     
     """The unique ID of the web search tool call."""
 
-    status: "Literal['in_progress', 'searching', 'completed', 'failed']"= None
+    status: "Literal['in_progress', 'searching', 'completed', 'failed']"
     
     """The status of the web search tool call."""
 
-    type: "Literal['web_search_call']"= None
+    type: "Literal['web_search_call']"
     
     """The type of the web search tool call. Always `web_search_call`."""
 ResponseFunctionWebSearchParam.model_rebuild()

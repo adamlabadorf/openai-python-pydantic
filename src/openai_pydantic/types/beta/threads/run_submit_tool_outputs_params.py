@@ -15,10 +15,10 @@ __all__ = [
 
 
 class RunSubmitToolOutputsParamsBase(BaseModel):
-    thread_id: "str"= None
+    thread_id: "str"
     
 
-    tool_outputs: "List[ToolOutput]"= None
+    tool_outputs: "List[ToolOutput]"
     
     """A list of tools for which the outputs are being submitted."""
 
@@ -47,7 +47,7 @@ class RunSubmitToolOutputsParamsNonStreaming(RunSubmitToolOutputsParamsBase):
 
 
 class RunSubmitToolOutputsParamsStreaming(RunSubmitToolOutputsParamsBase):
-    stream: "Literal[True]"= None
+    stream: "Literal[True]"
     
     """
     If `true`, returns a stream of events that happen during the Run as server-sent

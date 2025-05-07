@@ -11,7 +11,7 @@ __all__ = ["AssistantToolChoiceParam"]
 
 
 class AssistantToolChoiceParam(BaseModel):
-    type: "Literal['function', 'code_interpreter', 'file_search']"= None
+    type: "Literal['function', 'code_interpreter', 'file_search']"
     
     """The type of the tool. If type is `function`, the function name must be set"""
 

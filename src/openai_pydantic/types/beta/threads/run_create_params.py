@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Optional,List,Union
+from typing import Union,List,Optional
 from typing_extensions import Literal
 
 from ...shared.chat_model import ChatModel
@@ -29,7 +29,7 @@ __all__ = [
 
 
 class RunCreateParamsBase(BaseModel):
-    assistant_id: "str"= None
+    assistant_id: "str"
     
     """
     The ID of the
@@ -58,7 +58,7 @@ class RunCreateParamsBase(BaseModel):
     other instructions.
     """
 
-    additional_messages: "Optional[List[AdditionalMessage]]"= None
+    additional_messages: "Optional[List[AdditionalMessage]]"=Field(default_factory=list)
     
     """Adds additional messages to the thread before creating the run."""
 
@@ -173,7 +173,7 @@ class RunCreateParamsBase(BaseModel):
     call that tool.
     """
 
-    tools: "Optional[List[AssistantToolParam]]"= None
+    tools: "Optional[List[AssistantToolParam]]"=Field(default_factory=list)
     
     """Override the tools the assistant can use for this run.
 
@@ -199,7 +199,7 @@ class RunCreateParamsBase(BaseModel):
 
 
 class AdditionalMessageAttachmentToolFileSearch(BaseModel):
-    type: "Literal['file_search']"= None
+    type: "Literal['file_search']"
     
     """The type of tool being defined: `file_search`"""
 
@@ -212,17 +212,17 @@ class AdditionalMessageAttachment(BaseModel):
     
     """The ID of the file to attach to the message."""
 
-    tools: "Optional[List[AdditionalMessageAttachmentTool]]"= None
+    tools: "Optional[List[AdditionalMessageAttachmentTool]]"=Field(default_factory=list)
     
     """The tools to add this file to."""
 
 
 class AdditionalMessage(BaseModel):
-    content: "Union[str, List[MessageContentPartParam]]"= None
+    content: "Union[str, List[MessageContentPartParam]]"
     
     """The text contents of the message."""
 
-    role: "Literal['user', 'assistant']"= None
+    role: "Literal['user', 'assistant']"
     
     """The role of the entity that is creating the message. Allowed values include:
 
@@ -232,7 +232,7 @@ class AdditionalMessage(BaseModel):
       value to insert messages from the assistant into the conversation.
     """
 
-    attachments: "Optional[List[AdditionalMessageAttachment]]"= None
+    attachments: "Optional[List[AdditionalMessageAttachment]]"=Field(default_factory=list)
     
     """A list of files attached to the message, and the tools they should be added to."""
 
@@ -249,7 +249,7 @@ class AdditionalMessage(BaseModel):
 
 
 class TruncationStrategy(BaseModel):
-    type: "Literal['auto', 'last_messages']"= None
+    type: "Literal['auto', 'last_messages']"
     
     """The truncation strategy to use for the thread.
 
@@ -278,7 +278,7 @@ class RunCreateParamsNonStreaming(RunCreateParamsBase):
 
 
 class RunCreateParamsStreaming(RunCreateParamsBase):
-    stream: "Literal[True]"= None
+    stream: "Literal[True]"
     
     """
     If `true`, returns a stream of events that happen during the Run as server-sent

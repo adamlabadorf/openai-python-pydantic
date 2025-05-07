@@ -9,7 +9,7 @@ __all__ = ["ImageFileParam"]
 
 
 class ImageFileParam(BaseModel):
-    file_id: "str"= None
+    file_id: "str"
     
     """
     The [File](https://platform.openai.com/docs/api-reference/files) ID of the image

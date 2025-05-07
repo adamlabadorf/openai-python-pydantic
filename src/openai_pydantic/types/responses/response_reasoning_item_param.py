@@ -10,27 +10,27 @@ __all__ = ["ResponseReasoningItemParam", "Summary"]
 
 
 class Summary(BaseModel):
-    text: "str"= None
+    text: "str"
     
     """
     A short summary of the reasoning used by the model when generating the response.
     """
 
-    type: "Literal['summary_text']"= None
+    type: "Literal['summary_text']"
     
     """The type of the object. Always `summary_text`."""
 
 
 class ResponseReasoningItemParam(BaseModel):
-    id: "str"= None
+    id: "str"
     
     """The unique identifier of the reasoning content."""
 
-    summary: "List[Summary]"= None
+    summary: "List[Summary]"
     
     """Reasoning text contents."""
 
-    type: "Literal['reasoning']"= None
+    type: "Literal['reasoning']"
     
     """The type of the object. Always `reasoning`."""
 

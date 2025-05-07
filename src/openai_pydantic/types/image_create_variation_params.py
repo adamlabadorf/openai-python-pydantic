@@ -13,7 +13,7 @@ __all__ = ["ImageCreateVariationParams"]
 
 
 class ImageCreateVariationParams(BaseModel):
-    image: "FileTypes"= None
+    image: "FileTypes"
     
     """The image to use as the basis for the variation(s).
 

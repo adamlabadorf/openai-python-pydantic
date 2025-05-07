@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Union,Optional,List,Dict
+from typing import Optional,Dict,Union,List
 from typing_extensions import Literal
 
 from ..shared.chat_model import ChatModel
@@ -35,7 +35,7 @@ __all__ = [
 
 
 class CompletionCreateParamsBase(BaseModel):
-    messages: "List[ChatCompletionMessageParam]"= None
+    messages: "List[ChatCompletionMessageParam]"
     
     """A list of messages comprising the conversation so far.
 
@@ -46,7 +46,7 @@ class CompletionCreateParamsBase(BaseModel):
     [audio](https://platform.openai.com/docs/guides/audio).
     """
 
-    model: "Union[str, ChatModel]"= None
+    model: "Union[str, ChatModel]"
     
     """Model ID used to generate the response, like `gpt-4o` or `o3`.
 
@@ -90,7 +90,7 @@ class CompletionCreateParamsBase(BaseModel):
     functions are present.
     """
 
-    functions: "Optional[List[Function]]"= None
+    functions: "Optional[List[Function]]"=Field(default_factory=list)
     
     """Deprecated in favor of `tools`.
 
@@ -293,7 +293,7 @@ class CompletionCreateParamsBase(BaseModel):
     are present.
     """
 
-    tools: "Optional[List[ChatCompletionToolParam]]"= None
+    tools: "Optional[List[ChatCompletionToolParam]]"=Field(default_factory=list)
     
     """A list of tools the model may call.
 
@@ -341,7 +341,7 @@ FunctionCall = Union[Literal["none", "auto"], ChatCompletionFunctionCallOptionPa
 
 
 class Function(BaseModel):
-    name: "str"= None
+    name: "str"
     
     """The name of the function to be called.
 
@@ -397,11 +397,11 @@ class WebSearchOptionsUserLocationApproximate(BaseModel):
 
 
 class WebSearchOptionsUserLocation(BaseModel):
-    approximate: "WebSearchOptionsUserLocationApproximate"= None
+    approximate: "WebSearchOptionsUserLocationApproximate"
     
     """Approximate location parameters for the search."""
 
-    type: "Literal['approximate']"= None
+    type: "Literal['approximate']"
     
     """The type of location approximation. Always `approximate`."""
 
@@ -435,7 +435,7 @@ class CompletionCreateParamsNonStreaming(CompletionCreateParamsBase):
 
 
 class CompletionCreateParamsStreaming(CompletionCreateParamsBase):
-    stream: "Literal[True]"= None
+    stream: "Literal[True]"
     
     """
     If set to true, the model response data will be streamed to the client as it is

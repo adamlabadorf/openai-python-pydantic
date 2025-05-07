@@ -223,7 +223,7 @@ class Session(BaseModel):
     Options are `auto`, `none`, `required`, or specify a function.
     """
 
-    tools: "Optional[List[SessionTool]]"= None
+    tools: "Optional[List[SessionTool]]"=Field(default_factory=list)
     
     """Tools (functions) available to the model."""
 
@@ -253,11 +253,11 @@ class Session(BaseModel):
 
 
 class SessionUpdateEventParam(BaseModel):
-    session: "Session"= None
+    session: "Session"
     
     """Realtime session object configuration."""
 
-    type: "Literal['session.update']"= None
+    type: "Literal['session.update']"
     
     """The event type, must be `session.update`."""
 

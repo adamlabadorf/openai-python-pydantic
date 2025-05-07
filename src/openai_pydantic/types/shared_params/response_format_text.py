@@ -9,7 +9,7 @@ __all__ = ["ResponseFormatText"]
 
 
 class ResponseFormatText(BaseModel):
-    type: "Literal['text']"= None
+    type: "Literal['text']"
     
     """The type of response format being defined. Always `text`."""
 ResponseFormatText.model_rebuild()

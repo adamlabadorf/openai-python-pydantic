@@ -9,7 +9,7 @@ __all__ = ["ResponseComputerToolCallOutputScreenshotParam"]
 
 
 class ResponseComputerToolCallOutputScreenshotParam(BaseModel):
-    type: "Literal['computer_screenshot']"= None
+    type: "Literal['computer_screenshot']"
     
     """Specifies the event type.
 

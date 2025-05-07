@@ -11,10 +11,10 @@ __all__ = ["StaticFileChunkingStrategyObjectParam"]
 
 
 class StaticFileChunkingStrategyObjectParam(BaseModel):
-    static: "StaticFileChunkingStrategyParam"= None
+    static: "StaticFileChunkingStrategyParam"
     
 
-    type: "Literal['static']"= None
+    type: "Literal['static']"
     
     """Always `static`."""
 StaticFileChunkingStrategyObjectParam.model_rebuild()

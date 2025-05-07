@@ -9,11 +9,11 @@ __all__ = ["ConversationItemRetrieveEventParam"]
 
 
 class ConversationItemRetrieveEventParam(BaseModel):
-    item_id: "str"= None
+    item_id: "str"
     
     """The ID of the item to retrieve."""
 
-    type: "Literal['conversation.item.retrieve']"= None
+    type: "Literal['conversation.item.retrieve']"
     
     """The event type, must be `conversation.item.retrieve`."""
 

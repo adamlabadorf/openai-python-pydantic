@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Optional,Union,List
+from typing import List,Optional,Union
 from typing_extensions import Literal
 
 from .shared_params.compound_filter import CompoundFilter
@@ -13,7 +13,7 @@ __all__ = ["VectorStoreSearchParams", "Filters", "RankingOptions"]
 
 
 class VectorStoreSearchParams(BaseModel):
-    query: "Union[str, List[str]]"= None
+    query: "Union[str, List[str]]"
     
     """A query string for a search"""
 

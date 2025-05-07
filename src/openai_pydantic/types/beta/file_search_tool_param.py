@@ -9,7 +9,7 @@ __all__ = ["FileSearchToolParam", "FileSearch", "FileSearchRankingOptions"]
 
 
 class FileSearchRankingOptions(BaseModel):
-    score_threshold: "float"= None
+    score_threshold: "float"
     
     """The score threshold for the file search.
 
@@ -52,7 +52,7 @@ class FileSearch(BaseModel):
 
 
 class FileSearchToolParam(BaseModel):
-    type: "Literal['file_search']"= None
+    type: "Literal['file_search']"
     
     """The type of tool being defined: `file_search`"""
 

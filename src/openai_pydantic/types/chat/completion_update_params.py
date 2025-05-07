@@ -11,7 +11,7 @@ __all__ = ["CompletionUpdateParams"]
 
 
 class CompletionUpdateParams(BaseModel):
-    metadata: "Optional[Metadata]"= None
+    metadata: "Optional[Metadata]"
     
     """Set of 16 key-value pairs that can be attached to an object.
 

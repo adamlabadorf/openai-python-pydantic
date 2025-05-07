@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Optional,Union,List
+from typing import Union,Optional,List
 from typing_extensions import Literal
 
 from .._types import FileTypes
@@ -13,7 +13,7 @@ __all__ = ["ImageEditParams"]
 
 
 class ImageEditParams(BaseModel):
-    image: "Union[FileTypes, List[FileTypes]]"= None
+    image: "Union[FileTypes, List[FileTypes]]"
     
     """The image(s) to edit. Must be a supported image file or an array of images.
 
@@ -24,7 +24,7 @@ class ImageEditParams(BaseModel):
     file less than 4MB.
     """
 
-    prompt: "str"= None
+    prompt: "str"
     
     """A text description of the desired image(s).
 

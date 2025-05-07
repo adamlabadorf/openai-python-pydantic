@@ -10,7 +10,7 @@ __all__ = ["ResponseFormatTextJSONSchemaConfigParam"]
 
 
 class ResponseFormatTextJSONSchemaConfigParam(BaseModel):
-    name: "str"= None
+    name: "str"
     
     """The name of the response format.
 
@@ -18,14 +18,14 @@ class ResponseFormatTextJSONSchemaConfigParam(BaseModel):
     of 64.
     """
 
-    schema_: "Dict[str, object]"= Field(default=None, alias="schema")
+    schema_: "Dict[str, object]"
     
     """
     The schema for the response format, described as a JSON Schema object. Learn how
     to build JSON schemas [here](https://json-schema.org/).
     """
 
-    type: "Literal['json_schema']"= None
+    type: "Literal['json_schema']"
     
     """The type of response format being defined. Always `json_schema`."""
 

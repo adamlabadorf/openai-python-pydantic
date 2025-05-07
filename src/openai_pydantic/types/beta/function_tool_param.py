@@ -11,10 +11,10 @@ __all__ = ["FunctionToolParam"]
 
 
 class FunctionToolParam(BaseModel):
-    function: "FunctionDefinition"= None
+    function: "FunctionDefinition"
     
 
-    type: "Literal['function']"= None
+    type: "Literal['function']"
     
     """The type of tool being defined: `function`"""
 FunctionToolParam.model_rebuild()

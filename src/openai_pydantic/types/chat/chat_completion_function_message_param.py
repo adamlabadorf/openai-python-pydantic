@@ -10,15 +10,15 @@ __all__ = ["ChatCompletionFunctionMessageParam"]
 
 
 class ChatCompletionFunctionMessageParam(BaseModel):
-    content: "Optional[str]"= None
+    content: "Optional[str]"
     
     """The contents of the function message."""
 
-    name: "str"= None
+    name: "str"
     
     """The name of the function to call."""
 
-    role: "Literal['function']"= None
+    role: "Literal['function']"
     
     """The role of the messages author, in this case `function`."""
 ChatCompletionFunctionMessageParam.model_rebuild()

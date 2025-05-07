@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Union,Optional,Dict
+from typing import Union,Dict,Optional
 from typing_extensions import Literal
 
 __all__ = [
@@ -16,7 +16,7 @@ __all__ = [
 
 
 class SourceFileContentContent(BaseModel):
-    item: "Dict[str, object]"= None
+    item: "Dict[str, object]"
     
 
     sample: "Optional[Dict[str, object]]"= None
@@ -24,21 +24,21 @@ class SourceFileContentContent(BaseModel):
 
 
 class SourceFileContent(BaseModel):
-    content: "List[SourceFileContentContent]"= None
+    content: "List[SourceFileContentContent]"
     
     """The content of the jsonl file."""
 
-    type: "Literal['file_content']"= None
+    type: "Literal['file_content']"
     
     """The type of jsonl source. Always `file_content`."""
 
 
 class SourceFileID(BaseModel):
-    id: "str"= None
+    id: "str"
     
     """The identifier of the file."""
 
-    type: "Literal['file_id']"= None
+    type: "Literal['file_id']"
     
     """The type of jsonl source. Always `file_id`."""
 
@@ -47,10 +47,10 @@ Source = Union[SourceFileContent, SourceFileID]
 
 
 class CreateEvalJSONLRunDataSourceParam(BaseModel):
-    source: "Source"= None
+    source: "Source"
     
 
-    type: "Literal['jsonl']"= None
+    type: "Literal['jsonl']"
     
     """The type of data source. Always `jsonl`."""
 SourceFileContentContent.model_rebuild()

@@ -9,7 +9,7 @@ __all__ = ["AutoFileChunkingStrategyParam"]
 
 
 class AutoFileChunkingStrategyParam(BaseModel):
-    type: "Literal['auto']"= None
+    type: "Literal['auto']"
     
     """Always `auto`."""
 AutoFileChunkingStrategyParam.model_rebuild()

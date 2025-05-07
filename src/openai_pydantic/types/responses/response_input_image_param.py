@@ -10,14 +10,14 @@ __all__ = ["ResponseInputImageParam"]
 
 
 class ResponseInputImageParam(BaseModel):
-    detail: "Literal['low', 'high', 'auto']"= None
+    detail: "Literal['low', 'high', 'auto']"
     
     """The detail level of the image to be sent to the model.
 
     One of `high`, `low`, or `auto`. Defaults to `auto`.
     """
 
-    type: "Literal['input_image']"= None
+    type: "Literal['input_image']"
     
     """The type of the input item. Always `input_image`."""
 

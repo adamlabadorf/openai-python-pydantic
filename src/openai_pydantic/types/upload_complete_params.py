@@ -3,13 +3,13 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import List,Optional
+from typing import Optional,List
 
 __all__ = ["UploadCompleteParams"]
 
 
 class UploadCompleteParams(BaseModel):
-    part_ids: "List[str]"= None
+    part_ids: "List[str]"
     
     """The ordered list of Part IDs."""
 

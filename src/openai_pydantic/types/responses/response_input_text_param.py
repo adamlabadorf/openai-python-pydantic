@@ -9,11 +9,11 @@ __all__ = ["ResponseInputTextParam"]
 
 
 class ResponseInputTextParam(BaseModel):
-    text: "str"= None
+    text: "str"
     
     """The text input to the model."""
 
-    type: "Literal['input_text']"= None
+    type: "Literal['input_text']"
     
     """The type of the input item. Always `input_text`."""
 ResponseInputTextParam.model_rebuild()

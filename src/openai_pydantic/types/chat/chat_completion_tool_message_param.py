@@ -12,15 +12,15 @@ __all__ = ["ChatCompletionToolMessageParam"]
 
 
 class ChatCompletionToolMessageParam(BaseModel):
-    content: "Union[str, List[ChatCompletionContentPartTextParam]]"= None
+    content: "Union[str, List[ChatCompletionContentPartTextParam]]"
     
     """The contents of the tool message."""
 
-    role: "Literal['tool']"= None
+    role: "Literal['tool']"
     
     """The role of the messages author, in this case `tool`."""
 
-    tool_call_id: "str"= None
+    tool_call_id: "str"
     
     """Tool call that this message is responding to."""
 ChatCompletionToolMessageParam.model_rebuild()

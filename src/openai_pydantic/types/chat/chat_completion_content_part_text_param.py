@@ -9,11 +9,11 @@ __all__ = ["ChatCompletionContentPartTextParam"]
 
 
 class ChatCompletionContentPartTextParam(BaseModel):
-    text: "str"= None
+    text: "str"
     
     """The text content."""
 
-    type: "Literal['text']"= None
+    type: "Literal['text']"
     
     """The type of the content part."""
 ChatCompletionContentPartTextParam.model_rebuild()

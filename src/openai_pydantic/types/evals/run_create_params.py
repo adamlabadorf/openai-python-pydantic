@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Dict,Union,List,Optional
+from typing import List,Union,Dict,Optional
 from typing_extensions import Literal
 
 from ..shared_params.metadata import Metadata
@@ -34,7 +34,7 @@ __all__ = [
 
 
 class RunCreateParams(BaseModel):
-    data_source: "DataSource"= None
+    data_source: "DataSource"
     
     """Details about the run's data source."""
 
@@ -55,7 +55,7 @@ class RunCreateParams(BaseModel):
 
 
 class DataSourceCreateEvalResponsesRunDataSourceSourceFileContentContent(BaseModel):
-    item: "Dict[str, object]"= None
+    item: "Dict[str, object]"
     
 
     sample: "Optional[Dict[str, object]]"= None
@@ -63,27 +63,27 @@ class DataSourceCreateEvalResponsesRunDataSourceSourceFileContentContent(BaseMod
 
 
 class DataSourceCreateEvalResponsesRunDataSourceSourceFileContent(BaseModel):
-    content: "List[DataSourceCreateEvalResponsesRunDataSourceSourceFileContentContent]"= None
+    content: "List[DataSourceCreateEvalResponsesRunDataSourceSourceFileContentContent]"
     
     """The content of the jsonl file."""
 
-    type: "Literal['file_content']"= None
+    type: "Literal['file_content']"
     
     """The type of jsonl source. Always `file_content`."""
 
 
 class DataSourceCreateEvalResponsesRunDataSourceSourceFileID(BaseModel):
-    id: "str"= None
+    id: "str"
     
     """The identifier of the file."""
 
-    type: "Literal['file_id']"= None
+    type: "Literal['file_id']"
     
     """The type of jsonl source. Always `file_id`."""
 
 
 class DataSourceCreateEvalResponsesRunDataSourceSourceResponses(BaseModel):
-    type: "Literal['responses']"= None
+    type: "Literal['responses']"
     
     """The type of run data source. Always `responses`."""
 
@@ -164,11 +164,11 @@ DataSourceCreateEvalResponsesRunDataSourceSource = Union[
 
 
 class DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplateChatMessage(BaseModel):
-    content: "str"= None
+    content: "str"
     
     """The content of the message."""
 
-    role: "str"= None
+    role: "str"
     
     """The role of the message (e.g. "system", "assistant", "user")."""
 
@@ -176,11 +176,11 @@ class DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplateCha
 class DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplateEvalItemContentOutputText(
     BaseModel
 ):
-    text: "str"= None
+    text: "str"
     
     """The text output from the model."""
 
-    type: "Literal['output_text']"= None
+    type: "Literal['output_text']"
     
     """The type of the output text. Always `output_text`."""
 
@@ -193,11 +193,11 @@ DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplateEvalItemC
 
 
 class DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplateEvalItem(BaseModel):
-    content: "DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplateEvalItemContent"= None
+    content: "DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplateEvalItemContent"
     
     """Text inputs to the model - can contain template strings."""
 
-    role: "Literal['user', 'assistant', 'system', 'developer']"= None
+    role: "Literal['user', 'assistant', 'system', 'developer']"
     
     """The role of the message input.
 
@@ -216,24 +216,24 @@ DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplate = Union[
 
 
 class DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplate(BaseModel):
-    template: "List[DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplate]"= None
+    template: "List[DataSourceCreateEvalResponsesRunDataSourceInputMessagesTemplateTemplate]"
     
     """A list of chat messages forming the prompt or context.
 
     May include variable references to the "item" namespace, ie {{item.name}}.
     """
 
-    type: "Literal['template']"= None
+    type: "Literal['template']"
     
     """The type of input messages. Always `template`."""
 
 
 class DataSourceCreateEvalResponsesRunDataSourceInputMessagesItemReference(BaseModel):
-    item_reference: "str"= None
+    item_reference: "str"
     
     """A reference to a variable in the "item" namespace. Ie, "item.name" """
 
-    type: "Literal['item_reference']"= None
+    type: "Literal['item_reference']"
     
     """The type of input messages. Always `item_reference`."""
 
@@ -263,11 +263,11 @@ class DataSourceCreateEvalResponsesRunDataSourceSamplingParams(BaseModel):
 
 
 class DataSourceCreateEvalResponsesRunDataSource(BaseModel):
-    source: "DataSourceCreateEvalResponsesRunDataSourceSource"= None
+    source: "DataSourceCreateEvalResponsesRunDataSourceSource"
     
     """A EvalResponsesSource object describing a run data source configuration."""
 
-    type: "Literal['completions']"= None
+    type: "Literal['completions']"
     
     """The type of run data source. Always `completions`."""
 

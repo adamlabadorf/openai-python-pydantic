@@ -9,7 +9,7 @@ __all__ = ["InputAudioBufferCommitEventParam"]
 
 
 class InputAudioBufferCommitEventParam(BaseModel):
-    type: "Literal['input_audio_buffer.commit']"= None
+    type: "Literal['input_audio_buffer.commit']"
     
     """The event type, must be `input_audio_buffer.commit`."""
 

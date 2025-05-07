@@ -10,7 +10,7 @@ __all__ = ["PartCreateParams"]
 
 
 class PartCreateParams(BaseModel):
-    data: "FileTypes"= None
+    data: "FileTypes"
     
     """The chunk of bytes for this Part."""
 PartCreateParams.model_rebuild()

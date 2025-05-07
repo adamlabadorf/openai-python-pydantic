@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Union,Optional
+from typing import Optional,Union
 from typing_extensions import Literal
 
 from .chat_completion_content_part_text_param import ChatCompletionContentPartTextParam
@@ -12,7 +12,7 @@ __all__ = ["ChatCompletionPredictionContentParam"]
 
 
 class ChatCompletionPredictionContentParam(BaseModel):
-    content: "Union[str, List[ChatCompletionContentPartTextParam]]"= None
+    content: "Union[str, List[ChatCompletionContentPartTextParam]]"
     
     """
     The content that should be matched when generating a model response. If
@@ -20,7 +20,7 @@ class ChatCompletionPredictionContentParam(BaseModel):
     returned much more quickly.
     """
 
-    type: "Literal['content']"= None
+    type: "Literal['content']"
     
     """The type of the predicted content you want to provide.
 

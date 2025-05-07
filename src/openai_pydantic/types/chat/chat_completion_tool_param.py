@@ -11,10 +11,10 @@ __all__ = ["ChatCompletionToolParam"]
 
 
 class ChatCompletionToolParam(BaseModel):
-    function: "FunctionDefinition"= None
+    function: "FunctionDefinition"
     
 
-    type: "Literal['function']"= None
+    type: "Literal['function']"
     
     """The type of the tool. Currently, only `function` is supported."""
 ChatCompletionToolParam.model_rebuild()

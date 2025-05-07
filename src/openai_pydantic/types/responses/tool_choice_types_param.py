@@ -9,7 +9,7 @@ __all__ = ["ToolChoiceTypesParam"]
 
 
 class ToolChoiceTypesParam(BaseModel):
-    type: "Literal['file_search', 'web_search_preview', 'computer_use_preview', 'web_search_preview_2025_03_11']"= None
+    type: "Literal['file_search', 'web_search_preview', 'computer_use_preview', 'web_search_preview_2025_03_11']"
     
     """The type of hosted tool the model should to use.
 

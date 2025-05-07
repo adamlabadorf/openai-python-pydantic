@@ -10,19 +10,19 @@ __all__ = ["FunctionToolParam"]
 
 
 class FunctionToolParam(BaseModel):
-    name: "str"= None
+    name: "str"
     
     """The name of the function to call."""
 
-    parameters: "Optional[Dict[str, object]]"= None
+    parameters: "Optional[Dict[str, object]]"
     
     """A JSON schema object describing the parameters of the function."""
 
-    strict: "Optional[bool]"= None
+    strict: "Optional[bool]"
     
     """Whether to enforce strict parameter validation. Default `true`."""
 
-    type: "Literal['function']"= None
+    type: "Literal['function']"
     
     """The type of the function tool. Always `function`."""
 

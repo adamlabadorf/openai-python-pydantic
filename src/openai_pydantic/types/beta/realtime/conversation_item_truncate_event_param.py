@@ -9,7 +9,7 @@ __all__ = ["ConversationItemTruncateEventParam"]
 
 
 class ConversationItemTruncateEventParam(BaseModel):
-    audio_end_ms: "int"= None
+    audio_end_ms: "int"
     
     """Inclusive duration up to which audio is truncated, in milliseconds.
 
@@ -17,18 +17,18 @@ class ConversationItemTruncateEventParam(BaseModel):
     respond with an error.
     """
 
-    content_index: "int"= None
+    content_index: "int"
     
     """The index of the content part to truncate. Set this to 0."""
 
-    item_id: "str"= None
+    item_id: "str"
     
     """The ID of the assistant message item to truncate.
 
     Only assistant message items can be truncated.
     """
 
-    type: "Literal['conversation.item.truncate']"= None
+    type: "Literal['conversation.item.truncate']"
     
     """The event type, must be `conversation.item.truncate`."""
 

@@ -9,11 +9,11 @@ __all__ = ["ResponseOutputRefusalParam"]
 
 
 class ResponseOutputRefusalParam(BaseModel):
-    refusal: "str"= None
+    refusal: "str"
     
     """The refusal explanationfrom the model."""
 
-    type: "Literal['refusal']"= None
+    type: "Literal['refusal']"
     
     """The type of the refusal. Always `refusal`."""
 ResponseOutputRefusalParam.model_rebuild()

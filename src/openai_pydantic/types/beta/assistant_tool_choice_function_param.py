@@ -8,7 +8,7 @@ __all__ = ["AssistantToolChoiceFunctionParam"]
 
 
 class AssistantToolChoiceFunctionParam(BaseModel):
-    name: "str"= None
+    name: "str"
     
     """The name of the function to call."""
 AssistantToolChoiceFunctionParam.model_rebuild()

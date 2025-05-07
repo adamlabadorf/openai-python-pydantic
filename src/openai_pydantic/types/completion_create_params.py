@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Dict,Union,Optional,List
+from typing import List,Dict,Union,Optional
 from typing_extensions import Literal
 
 from .chat.chat_completion_stream_options_param import ChatCompletionStreamOptionsParam
@@ -12,7 +12,7 @@ __all__ = ["CompletionCreateParamsBase", "CompletionCreateParamsNonStreaming", "
 
 
 class CompletionCreateParamsBase(BaseModel):
-    model: "Union[str, Literal['gpt-3.5-turbo-instruct', 'davinci-002', 'babbage-002']]"= None
+    model: "Union[str, Literal['gpt-3.5-turbo-instruct', 'davinci-002', 'babbage-002']]"
     
     """ID of the model to use.
 
@@ -23,7 +23,7 @@ class CompletionCreateParamsBase(BaseModel):
     them.
     """
 
-    prompt: "Union[str, List[str], List[int], List[List[int]], None]"= None
+    prompt: "Union[str, List[str], List[int], List[List[int]], None]"
     
     """
     The prompt(s) to generate completions for, encoded as a string, array of
@@ -193,7 +193,7 @@ class CompletionCreateParamsNonStreaming(CompletionCreateParamsBase):
 
 
 class CompletionCreateParamsStreaming(CompletionCreateParamsBase):
-    stream: "Literal[True]"= None
+    stream: "Literal[True]"
     
     """Whether to stream back partial progress.
 

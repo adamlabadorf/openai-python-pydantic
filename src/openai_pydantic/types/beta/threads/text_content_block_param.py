@@ -9,11 +9,11 @@ __all__ = ["TextContentBlockParam"]
 
 
 class TextContentBlockParam(BaseModel):
-    text: "str"= None
+    text: "str"
     
     """Text content to be sent to the model"""
 
-    type: "Literal['text']"= None
+    type: "Literal['text']"
     
     """Always `text`."""
 TextContentBlockParam.model_rebuild()

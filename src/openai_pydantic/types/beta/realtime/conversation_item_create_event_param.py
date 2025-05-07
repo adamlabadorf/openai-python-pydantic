@@ -11,11 +11,11 @@ __all__ = ["ConversationItemCreateEventParam"]
 
 
 class ConversationItemCreateEventParam(BaseModel):
-    item: "ConversationItemParam"= None
+    item: "ConversationItemParam"
     
     """The item to add to the conversation."""
 
-    type: "Literal['conversation.item.create']"= None
+    type: "Literal['conversation.item.create']"
     
     """The event type, must be `conversation.item.create`."""
 

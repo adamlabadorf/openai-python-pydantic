@@ -9,7 +9,7 @@ __all__ = ["CodeInterpreterToolParam"]
 
 
 class CodeInterpreterToolParam(BaseModel):
-    type: "Literal['code_interpreter']"= None
+    type: "Literal['code_interpreter']"
     
     """The type of tool being defined: `code_interpreter`"""
 CodeInterpreterToolParam.model_rebuild()

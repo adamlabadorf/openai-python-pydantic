@@ -8,7 +8,7 @@ __all__ = ["ChatCompletionFunctionCallOptionParam"]
 
 
 class ChatCompletionFunctionCallOptionParam(BaseModel):
-    name: "str"= None
+    name: "str"
     
     """The name of the function to call."""
 ChatCompletionFunctionCallOptionParam.model_rebuild()

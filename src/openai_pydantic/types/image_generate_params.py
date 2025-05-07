@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Union,Optional
+from typing import Optional,Union
 from typing_extensions import Literal
 
 from .image_model import ImageModel
@@ -12,7 +12,7 @@ __all__ = ["ImageGenerateParams"]
 
 
 class ImageGenerateParams(BaseModel):
-    prompt: "str"= None
+    prompt: "str"
     
     """A text description of the desired image(s).
 

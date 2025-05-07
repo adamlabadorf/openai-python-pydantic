@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import List,Dict,Optional,Union
+from typing import Dict,Optional,Union,List
 from typing_extensions import Literal
 
 __all__ = ["ResponseFileSearchToolCallParam", "Result"]
@@ -38,26 +38,26 @@ class Result(BaseModel):
 
 
 class ResponseFileSearchToolCallParam(BaseModel):
-    id: "str"= None
+    id: "str"
     
     """The unique ID of the file search tool call."""
 
-    queries: "List[str]"= None
+    queries: "List[str]"
     
     """The queries used to search for files."""
 
-    status: "Literal['in_progress', 'searching', 'completed', 'incomplete', 'failed']"= None
+    status: "Literal['in_progress', 'searching', 'completed', 'incomplete', 'failed']"
     
     """The status of the file search tool call.
 
     One of `in_progress`, `searching`, `incomplete` or `failed`,
     """
 
-    type: "Literal['file_search_call']"= None
+    type: "Literal['file_search_call']"
     
     """The type of the file search tool call. Always `file_search_call`."""
 
-    results: "Optional[List[Result]]"= None
+    results: "Optional[List[Result]]"=Field(default_factory=list)
     
     """The results of the file search tool call."""
 Result.model_rebuild()

@@ -33,14 +33,14 @@ class VectorStoreUpdateParams(BaseModel):
 
 
 class ExpiresAfter(BaseModel):
-    anchor: "Literal['last_active_at']"= None
+    anchor: "Literal['last_active_at']"
     
     """Anchor timestamp after which the expiration policy applies.
 
     Supported anchors: `last_active_at`.
     """
 
-    days: "int"= None
+    days: "int"
     
     """The number of days after the anchor time that the vector store will expire."""
 VectorStoreUpdateParams.model_rebuild()

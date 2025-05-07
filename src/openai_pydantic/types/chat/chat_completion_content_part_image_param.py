@@ -9,7 +9,7 @@ __all__ = ["ChatCompletionContentPartImageParam", "ImageURL"]
 
 
 class ImageURL(BaseModel):
-    url: "str"= None
+    url: "str"
     
     """Either a URL of the image or the base64 encoded image data."""
 
@@ -23,10 +23,10 @@ class ImageURL(BaseModel):
 
 
 class ChatCompletionContentPartImageParam(BaseModel):
-    image_url: "ImageURL"= None
+    image_url: "ImageURL"
     
 
-    type: "Literal['image_url']"= None
+    type: "Literal['image_url']"
     
     """The type of the content part."""
 ImageURL.model_rebuild()

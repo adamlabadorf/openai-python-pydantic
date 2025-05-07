@@ -26,7 +26,7 @@ __all__ = [
 
 
 class AssistantCreateParams(BaseModel):
-    model: "Union[str, ChatModel]"= None
+    model: "Union[str, ChatModel]"
     
     """ID of the model to use.
 
@@ -115,7 +115,7 @@ class AssistantCreateParams(BaseModel):
     tool requires a list of vector store IDs.
     """
 
-    tools: "Optional[List[AssistantToolParam]]"= None
+    tools: "Optional[List[AssistantToolParam]]"=Field(default_factory=list)
     
     """A list of tool enabled on the assistant.
 
@@ -145,20 +145,20 @@ class ToolResourcesCodeInterpreter(BaseModel):
 
 
 class ToolResourcesFileSearchVectorStoreChunkingStrategyAuto(BaseModel):
-    type: "Literal['auto']"= None
+    type: "Literal['auto']"
     
     """Always `auto`."""
 
 
 class ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic(BaseModel):
-    chunk_overlap_tokens: "int"= None
+    chunk_overlap_tokens: "int"
     
     """The number of tokens that overlap between chunks. The default value is `400`.
 
     Note that the overlap must not exceed half of `max_chunk_size_tokens`.
     """
 
-    max_chunk_size_tokens: "int"= None
+    max_chunk_size_tokens: "int"
     
     """The maximum number of tokens in each chunk.
 
@@ -168,10 +168,10 @@ class ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic(BaseModel):
 
 
 class ToolResourcesFileSearchVectorStoreChunkingStrategyStatic(BaseModel):
-    static: "ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic"= None
+    static: "ToolResourcesFileSearchVectorStoreChunkingStrategyStaticStatic"
     
 
-    type: "Literal['static']"= None
+    type: "Literal['static']"
     
     """Always `static`."""
 
@@ -219,7 +219,7 @@ class ToolResourcesFileSearch(BaseModel):
     the assistant.
     """
 
-    vector_stores: "Optional[List[ToolResourcesFileSearchVectorStore]]"= None
+    vector_stores: "Optional[List[ToolResourcesFileSearchVectorStore]]"=Field(default_factory=list)
     
     """
     A helper to create a

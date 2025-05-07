@@ -12,18 +12,18 @@ __all__ = ["SpeechCreateParams"]
 
 
 class SpeechCreateParams(BaseModel):
-    input: "str"= None
+    input: "str"
     
     """The text to generate audio for. The maximum length is 4096 characters."""
 
-    model: "Union[str, SpeechModel]"= None
+    model: "Union[str, SpeechModel]"
     
     """
     One of the available [TTS models](https://platform.openai.com/docs/models#tts):
     `tts-1`, `tts-1-hd` or `gpt-4o-mini-tts`.
     """
 
-    voice: "Union[ str, Literal['alloy', 'ash', 'ballad', 'coral', 'echo', 'fable', 'onyx', 'nova', 'sage', 'shimmer', 'verse'] ]"= None
+    voice: "Union[ str, Literal['alloy', 'ash', 'ballad', 'coral', 'echo', 'fable', 'onyx', 'nova', 'sage', 'shimmer', 'verse'] ]"
     
     """The voice to use when generating the audio.
 

@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import List,Optional,Union
+from typing import List,Union,Optional
 from typing_extensions import Literal
 
 __all__ = ["SessionCreateParams", "InputAudioNoiseReduction", "InputAudioTranscription", "Tool", "TurnDetection"]
@@ -101,7 +101,7 @@ class SessionCreateParams(BaseModel):
     Options are `auto`, `none`, `required`, or specify a function.
     """
 
-    tools: "Optional[List[Tool]]"= None
+    tools: "Optional[List[Tool]]"=Field(default_factory=list)
     
     """Tools (functions) available to the model."""
 

@@ -12,14 +12,14 @@ __all__ = ["EasyInputMessageParam"]
 
 
 class EasyInputMessageParam(BaseModel):
-    content: "Union[str, ResponseInputMessageContentListParam]"= None
+    content: "Union[str, ResponseInputMessageContentListParam]"
     
     """
     Text, image, or audio input to the model, used to generate a response. Can also
     contain previous assistant responses.
     """
 
-    role: "Literal['user', 'assistant', 'system', 'developer']"= None
+    role: "Literal['user', 'assistant', 'system', 'developer']"
     
     """The role of the message input.
 

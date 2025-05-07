@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import List,Union,Optional
+from typing import Union,Optional,List
 from typing_extensions import Literal
 
 from .assistant_tool_param import AssistantToolParam
@@ -104,7 +104,7 @@ class AssistantUpdateParams(BaseModel):
     tool requires a list of vector store IDs.
     """
 
-    tools: "Optional[List[AssistantToolParam]]"= None
+    tools: "Optional[List[AssistantToolParam]]"=Field(default_factory=list)
     
     """A list of tool enabled on the assistant.
 

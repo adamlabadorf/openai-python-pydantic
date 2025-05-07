@@ -9,7 +9,7 @@ __all__ = ["InputAudioBufferAppendEventParam"]
 
 
 class InputAudioBufferAppendEventParam(BaseModel):
-    audio: "str"= None
+    audio: "str"
     
     """Base64-encoded audio bytes.
 
@@ -17,7 +17,7 @@ class InputAudioBufferAppendEventParam(BaseModel):
     session configuration.
     """
 
-    type: "Literal['input_audio_buffer.append']"= None
+    type: "Literal['input_audio_buffer.append']"
     
     """The event type, must be `input_audio_buffer.append`."""
 

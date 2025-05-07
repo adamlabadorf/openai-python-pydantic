@@ -8,7 +8,7 @@ __all__ = ["RealtimeConnectParams"]
 
 
 class RealtimeConnectParams(BaseModel):
-    model: "str"= None
+    model: "str"
     
 RealtimeConnectParams.model_rebuild()
 

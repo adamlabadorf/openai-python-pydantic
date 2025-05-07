@@ -9,11 +9,11 @@ __all__ = ["ModerationTextInputParam"]
 
 
 class ModerationTextInputParam(BaseModel):
-    text: "str"= None
+    text: "str"
     
     """A string of text to classify."""
 
-    type: "Literal['text']"= None
+    type: "Literal['text']"
     
     """Always `text`."""
 ModerationTextInputParam.model_rebuild()

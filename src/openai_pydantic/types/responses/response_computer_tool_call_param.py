@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Union,List,Optional
+from typing import Optional,Union,List
 from typing_extensions import Literal
 
 __all__ = [
@@ -24,58 +24,58 @@ __all__ = [
 
 
 class ActionClick(BaseModel):
-    button: "Literal['left', 'right', 'wheel', 'back', 'forward']"= None
+    button: "Literal['left', 'right', 'wheel', 'back', 'forward']"
     
     """Indicates which mouse button was pressed during the click.
 
     One of `left`, `right`, `wheel`, `back`, or `forward`.
     """
 
-    type: "Literal['click']"= None
+    type: "Literal['click']"
     
     """Specifies the event type.
 
     For a click action, this property is always set to `click`.
     """
 
-    x: "int"= None
+    x: "int"
     
     """The x-coordinate where the click occurred."""
 
-    y: "int"= None
+    y: "int"
     
     """The y-coordinate where the click occurred."""
 
 
 class ActionDoubleClick(BaseModel):
-    type: "Literal['double_click']"= None
+    type: "Literal['double_click']"
     
     """Specifies the event type.
 
     For a double click action, this property is always set to `double_click`.
     """
 
-    x: "int"= None
+    x: "int"
     
     """The x-coordinate where the double click occurred."""
 
-    y: "int"= None
+    y: "int"
     
     """The y-coordinate where the double click occurred."""
 
 
 class ActionDragPath(BaseModel):
-    x: "int"= None
+    x: "int"
     
     """The x-coordinate."""
 
-    y: "int"= None
+    y: "int"
     
     """The y-coordinate."""
 
 
 class ActionDrag(BaseModel):
-    path: "List[ActionDragPath]"= None
+    path: "List[ActionDragPath]"
     
     """An array of coordinates representing the path of the drag action.
 
@@ -89,7 +89,7 @@ class ActionDrag(BaseModel):
     ```
     """
 
-    type: "Literal['drag']"= None
+    type: "Literal['drag']"
     
     """Specifies the event type.
 
@@ -98,14 +98,14 @@ class ActionDrag(BaseModel):
 
 
 class ActionKeypress(BaseModel):
-    keys: "List[str]"= None
+    keys: "List[str]"
     
     """The combination of keys the model is requesting to be pressed.
 
     This is an array of strings, each representing a key.
     """
 
-    type: "Literal['keypress']"= None
+    type: "Literal['keypress']"
     
     """Specifies the event type.
 
@@ -114,24 +114,24 @@ class ActionKeypress(BaseModel):
 
 
 class ActionMove(BaseModel):
-    type: "Literal['move']"= None
+    type: "Literal['move']"
     
     """Specifies the event type.
 
     For a move action, this property is always set to `move`.
     """
 
-    x: "int"= None
+    x: "int"
     
     """The x-coordinate to move to."""
 
-    y: "int"= None
+    y: "int"
     
     """The y-coordinate to move to."""
 
 
 class ActionScreenshot(BaseModel):
-    type: "Literal['screenshot']"= None
+    type: "Literal['screenshot']"
     
     """Specifies the event type.
 
@@ -140,36 +140,36 @@ class ActionScreenshot(BaseModel):
 
 
 class ActionScroll(BaseModel):
-    scroll_x: "int"= None
+    scroll_x: "int"
     
     """The horizontal scroll distance."""
 
-    scroll_y: "int"= None
+    scroll_y: "int"
     
     """The vertical scroll distance."""
 
-    type: "Literal['scroll']"= None
+    type: "Literal['scroll']"
     
     """Specifies the event type.
 
     For a scroll action, this property is always set to `scroll`.
     """
 
-    x: "int"= None
+    x: "int"
     
     """The x-coordinate where the scroll occurred."""
 
-    y: "int"= None
+    y: "int"
     
     """The y-coordinate where the scroll occurred."""
 
 
 class ActionType(BaseModel):
-    text: "str"= None
+    text: "str"
     
     """The text to type."""
 
-    type: "Literal['type']"= None
+    type: "Literal['type']"
     
     """Specifies the event type.
 
@@ -178,7 +178,7 @@ class ActionType(BaseModel):
 
 
 class ActionWait(BaseModel):
-    type: "Literal['wait']"= None
+    type: "Literal['wait']"
     
     """Specifies the event type.
 
@@ -200,37 +200,37 @@ Action = Union[
 
 
 class PendingSafetyCheck(BaseModel):
-    id: "str"= None
+    id: "str"
     
     """The ID of the pending safety check."""
 
-    code: "str"= None
+    code: "str"
     
     """The type of the pending safety check."""
 
-    message: "str"= None
+    message: "str"
     
     """Details about the pending safety check."""
 
 
 class ResponseComputerToolCallParam(BaseModel):
-    id: "str"= None
+    id: "str"
     
     """The unique ID of the computer call."""
 
-    action: "Action"= None
+    action: "Action"
     
     """A click action."""
 
-    call_id: "str"= None
+    call_id: "str"
     
     """An identifier used when responding to the tool call with output."""
 
-    pending_safety_checks: "List[PendingSafetyCheck]"= None
+    pending_safety_checks: "List[PendingSafetyCheck]"
     
     """The pending safety checks for the computer call."""
 
-    status: "Literal['in_progress', 'completed', 'incomplete']"= None
+    status: "Literal['in_progress', 'completed', 'incomplete']"
     
     """The status of the item.
 
@@ -238,7 +238,7 @@ class ResponseComputerToolCallParam(BaseModel):
     returned via API.
     """
 
-    type: "Literal['computer_call']"= None
+    type: "Literal['computer_call']"
     
     """The type of the computer call. Always `computer_call`."""
 ActionClick.model_rebuild()

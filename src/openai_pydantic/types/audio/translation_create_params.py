@@ -13,14 +13,14 @@ __all__ = ["TranslationCreateParams"]
 
 
 class TranslationCreateParams(BaseModel):
-    file: "FileTypes"= None
+    file: "FileTypes"
     
     """
     The audio file object (not file name) translate, in one of these formats: flac,
     mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.
     """
 
-    model: "Union[str, AudioModel]"= None
+    model: "Union[str, AudioModel]"
     
     """ID of the model to use.
 

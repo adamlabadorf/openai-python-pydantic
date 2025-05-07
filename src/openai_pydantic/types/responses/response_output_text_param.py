@@ -16,51 +16,51 @@ __all__ = [
 
 
 class AnnotationFileCitation(BaseModel):
-    file_id: "str"= None
+    file_id: "str"
     
     """The ID of the file."""
 
-    index: "int"= None
+    index: "int"
     
     """The index of the file in the list of files."""
 
-    type: "Literal['file_citation']"= None
+    type: "Literal['file_citation']"
     
     """The type of the file citation. Always `file_citation`."""
 
 
 class AnnotationURLCitation(BaseModel):
-    end_index: "int"= None
+    end_index: "int"
     
     """The index of the last character of the URL citation in the message."""
 
-    start_index: "int"= None
+    start_index: "int"
     
     """The index of the first character of the URL citation in the message."""
 
-    title: "str"= None
+    title: "str"
     
     """The title of the web resource."""
 
-    type: "Literal['url_citation']"= None
+    type: "Literal['url_citation']"
     
     """The type of the URL citation. Always `url_citation`."""
 
-    url: "str"= None
+    url: "str"
     
     """The URL of the web resource."""
 
 
 class AnnotationFilePath(BaseModel):
-    file_id: "str"= None
+    file_id: "str"
     
     """The ID of the file."""
 
-    index: "int"= None
+    index: "int"
     
     """The index of the file in the list of files."""
 
-    type: "Literal['file_path']"= None
+    type: "Literal['file_path']"
     
     """The type of the file path. Always `file_path`."""
 
@@ -69,15 +69,15 @@ Annotation = Union[AnnotationFileCitation, AnnotationURLCitation, AnnotationFile
 
 
 class ResponseOutputTextParam(BaseModel):
-    annotations: "List[Annotation]"= None
+    annotations: "List[Annotation]"
     
     """The annotations of the text output."""
 
-    text: "str"= None
+    text: "str"
     
     """The text output from the model."""
 
-    type: "Literal['output_text']"= None
+    type: "Literal['output_text']"
     
     """The type of the output text. Always `output_text`."""
 AnnotationFileCitation.model_rebuild()

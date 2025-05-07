@@ -14,11 +14,11 @@ __all__ = ["MessageCreateParams", "Attachment", "AttachmentTool", "AttachmentToo
 
 
 class MessageCreateParams(BaseModel):
-    content: "Union[str, List[MessageContentPartParam]]"= None
+    content: "Union[str, List[MessageContentPartParam]]"
     
     """The text contents of the message."""
 
-    role: "Literal['user', 'assistant']"= None
+    role: "Literal['user', 'assistant']"
     
     """The role of the entity that is creating the message. Allowed values include:
 
@@ -28,7 +28,7 @@ class MessageCreateParams(BaseModel):
       value to insert messages from the assistant into the conversation.
     """
 
-    attachments: "Optional[List[Attachment]]"= None
+    attachments: "Optional[List[Attachment]]"=Field(default_factory=list)
     
     """A list of files attached to the message, and the tools they should be added to."""
 
@@ -45,7 +45,7 @@ class MessageCreateParams(BaseModel):
 
 
 class AttachmentToolFileSearch(BaseModel):
-    type: "Literal['file_search']"= None
+    type: "Literal['file_search']"
     
     """The type of tool being defined: `file_search`"""
 
@@ -58,7 +58,7 @@ class Attachment(BaseModel):
     
     """The ID of the file to attach to the message."""
 
-    tools: "Optional[List[AttachmentTool]]"= None
+    tools: "Optional[List[AttachmentTool]]"=Field(default_factory=list)
     
     """The tools to add this file to."""
 MessageCreateParams.model_rebuild()

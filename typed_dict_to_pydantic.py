@@ -84,6 +84,7 @@ def convert_typed_dict_to_pydantic(filename: str) -> List[str]:
             var_name = field_match.group(2)
             var_type_part = field_match.group(3)
             var_default = None
+            is_required = False
             type_lines = [var_type_part]
             open_brackets = var_type_part.count('[') - var_type_part.count(']')
             logging.debug(f'Parsing field: {var_name} (initial type: {var_type_part})')
@@ -111,10 +112,14 @@ def convert_typed_dict_to_pydantic(filename: str) -> List[str]:
 
             if 'Required' in var_type:
                 var_type = re.sub(r'Required\[(.*?)\]$', r'\1', var_type.strip())
+                is_required = True
             elif not var_type.startswith('Optional['):
                 var_type = f'Optional[{var_type}]'
+                is_required = False
 
-            var_type = re.sub(r'Iterable', r'List', var_type)
+            if 'Iterable' in var_type:
+                var_type = re.sub(r'Iterable', r'List', var_type)
+                var_default = "=Field(default_factory=list)"
             if var_name == 'schema':
                 var_name = 'schema_'
                 var_default = '= Field(default=None, alias="schema")'
@@ -131,8 +136,10 @@ def convert_typed_dict_to_pydantic(filename: str) -> List[str]:
             #out.append(f"{indent}{var_name}: {var_type} {var_default}\n{indent}# old {original_type}\n")
 
             var_type = var_type.strip().lstrip().replace('"',"'")
-
-            out.append(f"{indent}{var_name}: \"{var_type}\"{var_default}\n{indent}\n")
+            if is_required:
+                out.append(f"{indent}{var_name}: \"{var_type}\"\n{indent}\n")
+            else:
+                out.append(f"{indent}{var_name}: \"{var_type}\"{var_default}\n{indent}\n")
             i += 1
             continue
 

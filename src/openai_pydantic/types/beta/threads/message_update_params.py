@@ -11,7 +11,7 @@ __all__ = ["MessageUpdateParams"]
 
 
 class MessageUpdateParams(BaseModel):
-    thread_id: "str"= None
+    thread_id: "str"
     
 
     metadata: "Optional[Metadata]"= None

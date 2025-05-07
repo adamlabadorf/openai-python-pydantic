@@ -10,7 +10,7 @@ __all__ = ["ResponseInputFileParam"]
 
 
 class ResponseInputFileParam(BaseModel):
-    type: "Literal['input_file']"= None
+    type: "Literal['input_file']"
     
     """The type of the input item. Always `input_file`."""
 

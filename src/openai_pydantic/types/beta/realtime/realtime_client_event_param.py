@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-from typing import Optional,Union
+from typing import Union,Optional
 from typing_extensions import Literal
 
 from .session_update_event_param import SessionUpdateEventParam
@@ -22,7 +22,7 @@ __all__ = ["RealtimeClientEventParam", "OutputAudioBufferClear"]
 
 
 class OutputAudioBufferClear(BaseModel):
-    type: "Literal['output_audio_buffer.clear']"= None
+    type: "Literal['output_audio_buffer.clear']"
     
     """The event type, must be `output_audio_buffer.clear`."""
 
